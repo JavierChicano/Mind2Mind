@@ -1,0 +1,135 @@
+:root {
+  --colorBaseOscuro: #4b4848;
+  --colorBaseClaro: #dfdedd;
+  --principal: #0f0558;
+  --principalVariante1: #2c7de6;
+  --principalVariante2: rgba(122, 182, 248, 0.3);
+  --secundario: #a4bc9a;
+  --secundarioVariante1: #596e50;
+  --secundarioVariante2: #dbffcc;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+    display: grid;
+    width: 100vh;
+    height: 100vh;
+    grid-template-rows: min-content 1fr min-content;
+
+}
+#contenido{
+    height: 100%;
+}
+header {
+  background-color: var(--colorBaseOscuro);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+img {
+  width: 100px;
+  margin-left: 100px;
+}
+#barraBusqueda {
+  background-color: white;
+  border-radius: 20px;
+  padding: 8px;
+  width: 250px;
+}
+.nav {
+  display: flex;
+  margin-left: 20%;
+  margin-right: 100px;
+  flex-direction: row;
+  gap: 12px;
+  list-style: none;
+}
+.nav div {
+  background-color: var(--colorBaseClaro);
+  padding: 8px;
+  border-radius: 18px;
+}
+.nav a {
+  text-decoration: none;
+  color: black;
+}
+.nav-list {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+}
+.nav-list li a {
+  text-decoration: none;
+  color: white;
+}
+.abrir-menu,
+.cerrar-menu {
+  display: none;
+}
+#hamburguesa {
+  width: 40px;
+}
+  /* PARTE DEL FOOTER */
+footer{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 16px;
+    gap:10px;
+    background-color: var(--colorBaseOscuro);
+}
+footer section{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+@media screen and (max-width: 550px) {
+  .abrir-menu,
+  .cerrar-menu {
+    display: block;
+  }
+  #hamburguesa {
+    display: block;
+  }
+  #barraBusqueda {
+    width: 200px;
+  }
+  img {
+    margin-left: 10px;
+  }
+  .nav {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    position: absolute;
+    margin-right: 0px;
+    flex-direction: column;
+    align-items: end;
+    gap: 1rem;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2rem;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+    background-color: var(--colorBaseOscuro);
+  }
+  .nav.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  .nav-list {
+    flex-direction: column;
+    align-items: end;
+  }
+  .nav-list li a {
+    color: white;
+  }
+
+  /* PARTE DEL FOOTER */
+  footer{
+    display: grid;
+    grid-column: 1;
+  }
+}
