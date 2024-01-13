@@ -1,0 +1,308 @@
+:root {
+  --colorBaseOscuro: #4b4848;
+  --colorBaseClaro: #dfdedd;
+  --principal: #3fd2ca;
+  --principalVariante1: #2eaaa4;
+  --principalVariante2: #236d6a;
+  --secundario: #a4bc9a;
+  --secundarioVariante1: #596e50;
+  --secundarioVariante2: #dbffcc;
+  --colorContraste: #e67e22;
+  --colorContrasteClaro: #f39c12;
+  --colorContrasteOscuro: #d35400;
+}
+
+main {
+  background-color: #ecf0f1;
+}
+#hero {
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+}
+#mainTittle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 68px;
+  line-height: 0.75;
+  margin-left: 5%;
+  margin-top: 5%;
+  color: var(--principal);
+  font-weight: 800;
+}
+.textoNaranja {
+  font-family: "Montserrat", sans-serif;
+  color: var(--colorContraste);
+}
+#seccionHero {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  padding: 64px;
+  margin-top: 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 35%;
+}
+#seccionHero div {
+  order: 1;
+}
+#centrarIMG {
+  order: 2;
+}
+#seccionHero div ul {
+  line-height: 42px;
+  font-size: 30px;
+}
+#seccionHero div h3 {
+  margin-top: 20px;
+  font-size: 20px;
+  background-color: black;
+  color: var(--colorBaseClaro);
+  padding: 8px;
+  border-radius: 12px;
+}
+#seccionHero img {
+  width: 450px;
+  order: 2;
+}
+#seccionHero h1 {
+  display: none;
+}
+@media screen and (max-width: 550px) {
+  #hero {
+    padding: 0px;
+  }
+  #mainTittle {
+    display: none;
+    line-height: 1.2;
+  }
+  #seccionHero {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    gap: 0px;
+  }
+  #seccionHero div ul {
+    display: none;
+  }
+  #seccionHero h1 {
+    font-family: "Montserrat", sans-serif;
+
+    display: block;
+    font-size: 28px;
+    order: 2;
+    color: var(--principal);
+    font-weight: 800;
+  }
+  #centrarIMG {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #seccionHero img {
+    width: 200px;
+    order: 1;
+  }
+  #seccionHero div {
+    order: 3;
+    display: flex;
+    justify-content: end;
+  }
+  #seccionHero div h3 {
+    font-size: small;
+  }
+}
+
+/* Seccion tratamientos */
+.titulo {
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  color: var(--colorBaseOscuro);
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+#seccionTratamientos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+#seccionTratamientos div {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secundario);
+  padding: 25px;
+  border-radius: 16px;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  height: 380px;
+  &:hover {
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+  }
+}
+#seccionTratamientos div img {
+  width: 300px;
+  height: 200px;
+  margin: 0px;
+  border-radius: 12px;
+  margin-top: -30px;
+}
+#seccionTratamientos div h1 {
+  display: flex;
+  font-size: 28px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: auto;
+  margin-top: 10px;
+}
+#seccionTratamientos div article {
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+@media screen and (max-width: 550px) {
+  .titulo {
+    font-size: 30px;
+    background-color: var(--colorBaseClaro);
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  #seccionTratamientos {
+    gap: 10px;
+  }
+  #seccionTratamientos div {
+    width: 200px;
+    height: 160px;
+  }
+  #seccionTratamientos div img {
+    width: 170px;
+    height: 100px;
+    margin: 0px;
+    border-radius: 12px;
+  }
+  #seccionTratamientos div h1 {
+    font-size: 18px;
+    margin-left: -8px;
+    margin-bottom: -8px;
+  }
+  #seccionTratamientos div article {
+    display: none;
+  }
+}
+
+/* Seccion Equipo */
+#seccionEquipo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+#seccionEquipo div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--secundarioVariante1);
+  border: 2px solid ;
+  border-color: var(--secundario);
+  padding: 9px;
+  height: 200px;
+  &:hover {
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+  }
+}
+#seccionEquipo div img {
+  width: 170px;
+  height: 120px;
+  border-radius: 12px;
+}
+#seccionEquipo div h1 {
+  display: flex;
+  justify-content: flex-start;
+  margin-right: auto;
+  margin-top: 8px;
+  color: var(--colorBaseClaro);
+  font-size: 20px;
+}
+@media screen and (max-width: 550px) {
+  #seccionEquipo{
+    gap:10px
+  }
+}
+
+/* Seccion casos exito */
+#seccionCasosExito{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+#seccionCasosExito div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--secundarioVariante1);
+  border-radius: 20px;
+  padding: 9px;
+  width: 250px;
+  height: 350px;
+  &:hover {
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+  }
+}
+#seccionCasosExito div img{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px 0px black; 
+  margin-top: 5%;
+}
+#seccionCasosExito div h1{
+  background-color: var(--secundario);
+  padding: 4px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+#seccionCasosExito div article{
+  margin: 10px;
+  color: var(--colorBaseClaro);
+}
+@media screen and (max-width: 550px) {
+#seccionCasosExito{
+  gap: 15px;
+}
+  #seccionCasosExito div {
+    padding: 9px;
+    width: 150px;
+    height: 300px;
+    &:hover {
+      box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+      transition: box-shadow 0.3s ease;
+    }
+  }
+  #seccionCasosExito div img{
+    width: 100px;
+    height: 100px;
+  }
+  #seccionCasosExito div h1{
+    font-size: 20px;
+  }
+  #seccionCasosExito div article{
+    margin: 10px;
+    color: var(--colorBaseClaro);
+    font-size: 12px;
+  }
+}

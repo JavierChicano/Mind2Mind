@@ -6,16 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mind 2 Mind</title>
     <link rel="stylesheet" href="styleHF.css" />
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <header>
-      <img src="img/logo.png" />
+      <img src="img/logo.png" id="logo"/>
       <div id="barraBusqueda">
-        Barra de búsqueda
+        <span>Barra de búsqueda</span> 
+        <img src="img/lupa.png" id="lupa">
       </div>
-      <button class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" /></button>
+      <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
       <nav class="nav" id="nav">
-        <button class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" /></button>
+        <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
         <ul class="nav-list">
             <li><a href='#'>Tratamiento</a></li>
             <li><a href='#'>Account</a></li>
@@ -27,13 +34,103 @@
       </nav>
     </header>
 
+   <main>
+    <!-- Hero -->
+      <section id="hero">
+        <h1 id="mainTittle">
+          <span class="textoNaranja">Sé</span> uno contigo mismo, <br></br> entra en <span class="textoNaranja">paz</span> con tu mente
+        </h1>
+        <div>
+          <section  id="seccionHero">
+            <div>
+              <ul>
+                <li>Medicamentos</li>
+                <li>Terapias</li>
+                <li>Autoayudas</li>
+                <li>Servicios</li>
+              </ul>
+              <h3>Crea tu cuenta gratis</h3>
+            </div>
+            <span id="centrarIMG">
+              <img src="img/logo.png" />
+            </span>
 
+            <h1>
+              <span class="textoNaranja">Sé</span> tú mismo, <br> halla <span class="textoNaranja">paz</span> en tu mente
+            </h1>
+          </section>
+          
+        </div>
+      </section>
+      <!-- Seccion tratamientos -->
+      <h1 class="titulo">Tratamientos</h1>
+          <section id="seccionTratamientos">
+            <div>
+              <img src="img/Tratamientos/Estimulación_magnética_transcraneal.jpg" />
+              <h1>Est. Transcraneal</h1>
+              <article> Explora las posibilidades transformadoras de la Estimulación Magnética Transcraneal, una vanguardia en el cuidado mental.</article>
+            </div>
+            <div>
+              <img src="img/Tratamientos/Terapia_de_luz.jpg" />
+              <h1>Terapia de Luz</h1>
+              <article> Sumérgete en la suave luz terapéutica que revitaliza mente y cuerpo, proporcionando un resplandor de esperanza en cada sesión.</article>
+            </div>
+            <div>
+              <img src="img/Tratamientos/psychotherapy.jpg" />
+              <h1>Psicoterapia</h1>
+              <article> Embárcate en un viaje de autodescubrimiento a través de la psicoterapia, donde cada sesión es una oportunidad para comprender y sanar. </article>
+            </div>
+          </section>
+      <!-- Seccion Equipo -->
+      <h1 class="titulo">Equipo</h1>
+          <section id="seccionEquipo">
+            <div>
+              <img src="img/Equipo/doctor1.jpg" />
+              <h1>Dr Garcia Vaquero</h1>
+            </div>
+            <div>
+              <img src="img/Equipo/doctor2.png" />
+              <h1>Dr Flor de Esgueva</h1>
+            </div>
+            <div>
+              <img src="img/Equipo/doctor3.png" />
+              <h1>Dr Don Simon</h1>
+            </div>
+            <div>
+              <img src="img/Equipo/doctor4.png" />
+              <h1>Dra Häagen-Dazs</h1>
+            </div>
+            <div>
+              <img src="img/Equipo/doctor5.png" />
+              <h1>Dra Maria Gutierrez</h1>
+            </div>
+          </section>
+      <!-- Seccion Casos de exito -->
+      <h1 class="titulo">Casos de éxito</h1>
+      <section id="seccionCasosExito">
+        <div>
+          <img src="img/Casos_Exito/images 1.png" />
+          <h1>Aaron</h1>
+          <article > Terminé la terapia de luz con una mejora en mi ánimo y energia, aliviando los sintomas de mi trastorno.</article>
+        </div>
+        <div>
+          <img src="img/Casos_Exito/persona2 2.png" />
+          <h1>Ángela</h1>
+          <article > La psicoterapia transformó mi vida al proporcinarme un espacio para explorar y comprender mis emociones.</article>
+        </div>
+        <div>
+          <img src="img/Casos_Exito/persona 3.png" />
+          <h1>Vicky</h1>
+          <article> Después de concluir mi terapia de Luz,experimenté una transformación positiva en mi estado de ánimo y energía. </article>
+        </div>
+        <div>
+          <img src="img/Casos_Exito/persona4.png" />
+          <h1>Javier</h1>
+          <article > La TMS mejoró mi claridad mental y agudeza cognitiva, ofreciendo una innovadora forma de cuidar mi cuerpo.</article>
+        </div>
+      </section>
 
-
-   <div id="contenido">dfjksbf</div>
-
-
-
+   </main>
 
     <footer>
       <!-- Seccion about -->
@@ -56,10 +153,12 @@
       </section>
 
       <!-- Seccion Social Media -->
-      <section className="flex flex-col">
-        <h1 className="mb-4">Social Media</h1>
-        <article className="flex flex-col">
-          {/* imagenes logos, redes sociales */}
+      <section className="flex flex-col" >
+        <h1>Social Media</h1>
+        <article id="socialMedia">
+          <img src="img/mail.png">
+          <img src="img/instagram.png">
+          <img src="img/x.png">
         </article>
       </section>
     </footer>
