@@ -213,7 +213,7 @@ main {
   flex-direction: column;
   align-items: center;
   background-color: var(--secundarioVariante1);
-  border: 2px solid ;
+  border: 2px solid;
   border-color: var(--secundario);
   padding: 9px;
   height: 200px;
@@ -236,13 +236,13 @@ main {
   font-size: 20px;
 }
 @media screen and (max-width: 550px) {
-  #seccionEquipo{
-    gap:10px
+  #seccionEquipo {
+    gap: 10px;
   }
 }
 
 /* Seccion casos exito */
-#seccionCasosExito{
+#seccionCasosExito {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -265,27 +265,27 @@ main {
     transition: box-shadow 0.3s ease;
   }
 }
-#seccionCasosExito div img{
+#seccionCasosExito div img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  box-shadow: 2px 2px 5px 0px black; 
+  box-shadow: 2px 2px 5px 0px black;
   margin-top: 5%;
 }
-#seccionCasosExito div h1{
+#seccionCasosExito div h1 {
   background-color: var(--secundario);
   padding: 4px;
   border-radius: 8px;
   margin-top: 10px;
 }
-#seccionCasosExito div article{
+#seccionCasosExito div article {
   margin: 10px;
   color: var(--colorBaseClaro);
 }
 @media screen and (max-width: 550px) {
-#seccionCasosExito{
-  gap: 15px;
-}
+  #seccionCasosExito {
+    gap: 15px;
+  }
   #seccionCasosExito div {
     padding: 9px;
     width: 150px;
@@ -295,16 +295,142 @@ main {
       transition: box-shadow 0.3s ease;
     }
   }
-  #seccionCasosExito div img{
+  #seccionCasosExito div img {
     width: 100px;
     height: 100px;
   }
-  #seccionCasosExito div h1{
+  #seccionCasosExito div h1 {
     font-size: 20px;
   }
-  #seccionCasosExito div article{
+  #seccionCasosExito div article {
     margin: 10px;
     color: var(--colorBaseClaro);
     font-size: 12px;
   }
+}
+
+/*TRATAMIENTOS*/
+#headerTratamientos {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+  gap: 150px;
+}
+.linksTratamientos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secundario);
+  padding: 8px;
+  border-radius: 8px;
+  width: 300px;
+}
+.linksTratamientos a{
+  text-decoration: none;
+  color: black;
+}
+#headerMedicamentos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--colorBaseClaro);
+}
+#medTittle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 50px;
+  background-color: var(--colorBaseOscuro);
+  padding: 8px;
+  color: var(--colorBaseClaro);
+  border-radius: 2px;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+#headerMedicamentos span {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 80%;
+  justify-content: center;
+  margin-bottom: 65px;
+}
+.cajaMedicamento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--principalVariante1);
+  width: 300px;
+  height: 350px;
+  padding: 20px;
+  &:hover {
+    box-shadow: 0 0 10px 5px var(--colorContrasteClaro);
+    transition: box-shadow 0.3s ease;
+  }
+}
+.cajaMedicamento img {
+  width: 150px;
+  height: 100px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+.cajaMedicamento h1 {
+  display: flex;
+  font-size: 28px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: auto;
+  margin-top: 10px;
+  background-color: #236d6a;
+  padding: 6px;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 2px solid var(--principal);
+}
+.cajaMedicamento p {
+  color: var(--colorBaseClaro);
+  background-color: #236d6a;
+  padding: 6px;
+  border-radius: 0px 8px 8px 8px;
+}
+@media screen and (max-width: 550px) {
+  #headerTratamientos {
+    gap: 20px;
+  }
+  .linksTratamientos {
+    width: 100px;
+    font-size: 12px;
+  }
+  #medTittle {
+    font-size: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  .cajaMedicamento {
+    width: 150px;
+    height: 150px;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  .cajaMedicamento img {
+    width: 75px;
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  .cajaMedicamento h1 {
+    font-size: 15px;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 8px;
+    margin-right: 0px;
+  }
+  .cajaMedicamento p {
+    display: none;
+  }
+}
+/*Seccion terapias*/
+#terapias {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--colorBaseClaro);
 }
