@@ -90,6 +90,157 @@ header {
 #hamburguesa {
   width: 40px;
 }
+/*Parte del registro*/
+.modal-Registro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(75, 72, 72, 0.4);
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  height: 100vh;
+  width: 100%;
+}
+.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+#closeRegistro {
+  display: flex;
+  justify-content: end;
+}
+#closeRegistro img {
+  width: 35px;
+}
+.modalRegistro {
+  background-color: var(--colorBaseClaro);
+  max-width: 100%;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.modalRegistro section {
+  display: flex;
+  flex-direction: row;
+}
+.modalRegistro section article {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.modalRegistro section img {
+  width: 400px;
+}
+.modalRegistro section p {
+  display: flex;
+  justify-content: center;
+}
+#registroRedes {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+#registroRedes img {
+  width: 40px;
+}
+#imgModal{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#centrarForm{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modalRegistro h1 {
+  display: flex;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 48px;
+}
+
+/*Registro formulario*/
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 500px;
+}
+
+input {
+  border-radius: 16px;
+  width: 200px;
+  height: 50px;
+  padding: 8px;
+  margin: 12px;
+}
+#checkBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+input[type="submit"] {
+  background-color: var(--colorContrasteClaro);
+  font-size: 25px;
+  color: white;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--colorContraste);
+}
+@media screen and (max-width: 550px) {
+#closeRegistro img {
+  width: 20px;
+  margin-top: -10px;
+  margin-right: -10px;
+
+}
+  .modalRegistro h1 {
+    font-size: 25px;
+  }
+  .modalRegistro section img {
+    width: 100px;
+  }
+  #imgModal{
+    display: none;
+  }
+#registroRedes {
+  gap: 20px;
+}
+  form {
+    max-width: 250px;
+  }
+  input {
+    border-radius: 12px;
+    width: 100px;
+    height: 30px;
+    padding: 8px;
+    margin: 8px;
+  }
+  #checkBox p {
+    font-size: 10px;
+  }
+  input[type="submit"] {
+    font-size: 12px;
+  }
+  .modalRegistro section p {
+    font-size: 12px;
+  }
+  ::placeholder {
+    font-size: 10px;
+  }
+}
+
 /* PARTE DEL FOOTER */
 footer {
   display: grid;

@@ -9,3 +9,15 @@ abrir.addEventListener("click", ()=>{
 cerrar.addEventListener("click", ()=>{
     nav.classList.remove("visible");
 })
+
+//Ventana modal
+const abrirModal = document.getElementById('openRegistro');
+const contendorModal = document.getElementById('modal-Registro');
+const cerrarModal = document.getElementById('closeRegistro');
+
+abrirModal.addEventListener("click", ()=>{
+    contendorModal.classList.add('show');
+});
+cerrarModal.addEventListener("click", ()=>{
+    contendorModal.classList.remove('show');
+});

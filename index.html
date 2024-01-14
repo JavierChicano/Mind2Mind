@@ -28,12 +28,50 @@
             <li><a href='#'>Account</a></li>
             <li><a href='#'>Servicios</a></li>
             <li><a href='#'>Acerca de</a></li>
-            <li><a href='#'>Resgistrate</a></li>
-            <li><a href='#'>Inicia sesion</a></li>
+            <!-- Abrir ventana modal -->
+            <li ><a id="openRegistro">Resgistrate</a></li>
+            <li><a>Inicia sesion</a></li>
         </ul>
       </nav>
     </header>
-
+    <!-- Contenedores Registro -->
+    <div class="modal-Registro" id="modal-Registro">
+      <div class="modalRegistro">
+        <span id="closeRegistro"><img src="img/closeWindow.png"></span>
+        <section>
+          <span id="imgModal"><img src="img/logo.png"></span>
+          <article>
+            <h1>Crea tu cuenta</h1>
+            <section id="registroRedes">
+              <img src="img/RedesLogIn/brand-google.png">
+              <img src="img/RedesLogIn/brand-meta.png">
+              <img src="img/RedesLogIn/brand-x.png">
+              <img src="img/RedesLogIn/brand-apple.png">
+            </section>
+            <hr>
+            <span id="centrarForm">
+              <form action="#" method="post">
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+            
+                <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos">
+            
+                <input type="email" id="email" name="email" placeholder="Correo electrónico">
+            
+                <input type="password" id="password" name="password" placeholder="Contraseña">
+                <span id="checkBox">
+                  <input type="checkbox" id="aceptoTerminos" name="aceptoTerminos">
+                  <p for="aceptoTerminos">Acepto los términos y condiciones</p>
+                </span>
+                <input type="submit" value="Crear cuenta">
+              </form>
+            </span>
+            <p>¿Ya tienes una cuenta?&nbsp&nbsp<a href='#'>Inicia sesion</a></p>
+            
+          </article>
+        </section>
+        
+      </div>
+    </div>
    <main>
     <!-- Hero -->
       <section id="hero">
