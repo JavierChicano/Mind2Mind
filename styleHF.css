@@ -198,6 +198,10 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: var(--colorContraste);
 }
+#link-A-LogIn {
+  text-decoration: underline;
+  color: var(--colorContraste);
+}
 @media screen and (max-width: 550px) {
 #closeRegistro img {
   width: 20px;
@@ -240,7 +244,78 @@ input[type="submit"]:hover {
     font-size: 10px;
   }
 }
-
+/*Parte del logIn*/
+.modal-LogIn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(75, 72, 72, 0.4);
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  height: 100vh;
+  width: 100%;
+}
+.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+#closeLogIn {
+  display: flex;
+  justify-content: end;
+}
+#closeLogIn img {
+  width: 35px;
+}
+.modalLogIn {
+  background-color: var(--colorBaseClaro);
+  max-width: 100%;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.modalLogIn section {
+  display: flex;
+  flex-direction: row;
+}
+.modalLogIn section article {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.modalLogIn section img {
+  width: 400px;
+}
+.modalLogIn h1 {
+  display: flex;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 48px;
+}
+#centrarForm2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#centrarForm2 form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 300px;
+  margin-right: 20px;
+}
+#centrarForm2 input {
+  border-radius: 16px;
+  width: 100%;
+  height: 50px;
+  padding: 8px;
+  margin: 12px;
+}
+#link-A-Registro {
+  text-decoration: underline;
+  color: var(--colorContraste);
+}
 /* PARTE DEL FOOTER */
 footer {
   display: grid;

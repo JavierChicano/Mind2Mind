@@ -10,7 +10,7 @@ cerrar.addEventListener("click", ()=>{
     nav.classList.remove("visible");
 })
 
-//Ventana modal
+//Ventana modal Registro
 const abrirModal = document.getElementById('openRegistro');
 const contendorModal = document.getElementById('modal-Registro');
 const cerrarModal = document.getElementById('closeRegistro');
@@ -20,4 +20,36 @@ abrirModal.addEventListener("click", ()=>{
 });
 cerrarModal.addEventListener("click", ()=>{
     contendorModal.classList.remove('show');
+});
+
+//Ventana modal LogIn
+const abrirModal2 = document.getElementById('openLogIn');
+const contendorModal2 = document.getElementById('modal-LogIn');
+const cerrarModal2 = document.getElementById('closeLogIn');
+
+abrirModal2.addEventListener("click", ()=>{
+    contendorModal2.classList.add('show');
+});
+cerrarModal2.addEventListener("click", ()=>{
+    contendorModal2.classList.remove('show');
+});
+
+//Intercambio de ventanas
+const abrirLogIn = document.getElementById('link-A-LogIn');
+const abrirRegistro = document.getElementById('link-A-Registro');
+
+abrirLogIn.addEventListener("click", ()=>{
+    //Cerrar la pestaña de registro
+    contendorModal.classList.remove('show');
+
+    //Abrir la pestaña de logIn
+    contendorModal2.classList.add('show');
+});
+
+abrirRegistro.addEventListener("click", ()=>{
+    //Cerrar la pestaña de LogIn
+    contendorModal2.classList.remove('show');
+
+    //Abrir la pestaña de Registro
+    contendorModal.classList.add('show');
 });

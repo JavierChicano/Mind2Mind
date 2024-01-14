@@ -30,7 +30,7 @@
             <li><a href='#'>Acerca de</a></li>
             <!-- Abrir ventana modal -->
             <li ><a id="openRegistro">Resgistrate</a></li>
-            <li><a>Inicia sesion</a></li>
+            <li><a id="openLogIn">Inicia sesion</a></li>
         </ul>
       </nav>
     </header>
@@ -65,11 +65,40 @@
                 <input type="submit" value="Crear cuenta">
               </form>
             </span>
-            <p>¿Ya tienes una cuenta?&nbsp&nbsp<a href='#'>Inicia sesion</a></p>
+            <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
             
           </article>
         </section>
+      </div>
+    </div>
+    <!-- Contenedores Login -->
+    <div class="modal-LogIn" id="modal-LogIn">
+      <div class="modalLogIn">
+        <span id="closeLogIn"><img src="img/closeWindow.png"></span>
+        <section>
+          <span id="imgModal"><img src="img/logo.png"></span>
+          <article>
+            <h1>Inicia sesión</h1>
+            <section id="registroRedes">
+              <img src="img/RedesLogIn/brand-google.png">
+              <img src="img/RedesLogIn/brand-meta.png">
+              <img src="img/RedesLogIn/brand-x.png">
+              <img src="img/RedesLogIn/brand-apple.png">
+            </section>
+            <hr>
+            <span id="centrarForm2">
+              <form action="#" method="post">
+              
+                <input type="email" id="email" name="email" placeholder="Correo electrónico">
         
+                <input type="password" id="password" name="password" placeholder="Contraseña">
+                
+                <input type="submit" value="Entrar en mi cuenta">
+              </form>
+            </span>
+            <p>¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro">Crea tu cuenta</a></p>
+          </article>
+        </section>
       </div>
     </div>
    <main>
