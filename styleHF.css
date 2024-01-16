@@ -49,7 +49,6 @@ header {
 }
 .nav {
   display: flex;
-  margin-left: 20%;
   margin-right: 100px;
   flex-direction: row;
   gap: 12px;
@@ -144,12 +143,12 @@ header {
 #registroRedes img {
   width: 40px;
 }
-#imgModal{
+#imgModal {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-#centrarForm{
+#centrarForm {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -172,11 +171,23 @@ form {
 }
 
 input {
-  border-radius: 16px;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid black;
   width: 200px;
   height: 50px;
   padding: 8px;
   margin: 12px;
+  background-color: transparent;
+  color: black;
+}
+#centrarForm input::placeholder {
+  color: black;
+}
+input[type="submit"] {
+  background-color: var(--colorContrasteClaro);
+  border-bottom: none;
+  border-radius: 2px;
 }
 #checkBox {
   display: flex;
@@ -191,7 +202,7 @@ input[type="checkbox"] {
 input[type="submit"] {
   background-color: var(--colorContrasteClaro);
   font-size: 25px;
-  color: white;
+  color: black;
   cursor: pointer;
 }
 
@@ -203,29 +214,27 @@ input[type="submit"]:hover {
   color: var(--colorContraste);
 }
 @media screen and (max-width: 550px) {
-#closeRegistro img {
-  width: 20px;
-  margin-top: -10px;
-  margin-right: -10px;
-
-}
+  #closeRegistro img {
+    width: 20px;
+    margin-top: -10px;
+    margin-right: -10px;
+  }
   .modalRegistro h1 {
     font-size: 25px;
   }
   .modalRegistro section img {
     width: 100px;
   }
-  #imgModal{
+  #imgModal {
     display: none;
   }
-#registroRedes {
-  gap: 20px;
-}
+  #registroRedes {
+    gap: 20px;
+  }
   form {
     max-width: 250px;
   }
   input {
-    border-radius: 12px;
     width: 100px;
     height: 30px;
     padding: 8px;
@@ -245,7 +254,7 @@ input[type="submit"]:hover {
   }
 }
 /*Parte del logIn*/
-.modal-LogIn{
+.modal-LogIn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -292,12 +301,12 @@ input[type="submit"]:hover {
   font-family: "Montserrat", sans-serif;
   font-size: 48px;
 }
-#centrarForm2{
+#centrarForm2 {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#centrarForm2 form{
+#centrarForm2 form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -306,11 +315,24 @@ input[type="submit"]:hover {
   margin-right: 20px;
 }
 #centrarForm2 input {
-  border-radius: 16px;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid black;
+  border-radius: 0px;
   width: 100%;
   height: 50px;
   padding: 8px;
   margin: 12px;
+  background-color: transparent;
+  color: black;
+}
+#centrarForm2 input::placeholder {
+  color: black;
+}
+#centrarForm2 input[type="submit"] {
+  background-color: var(--colorContrasteClaro);
+  border-bottom: none;
+  border-radius: 2px;
 }
 #link-A-Registro {
   text-decoration: underline;
@@ -319,7 +341,7 @@ input[type="submit"]:hover {
 /* PARTE DEL FOOTER */
 footer {
   display: grid;
-  grid-template-columns: 1fr 1fr 300px;
+  grid-template-columns: 1fr 1fr 1fr;
   padding: 16px;
   gap: 10px;
   background-color: var(--colorBaseOscuro);
@@ -328,11 +350,54 @@ footer section {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+  justify-content: center;
+  color: var(--colorBaseClaro);
+}
+footer article {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  grid-column: span 3;
+  color: var(--colorBaseClaro);
 }
 #socialMedia {
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+#socialMedia img {
+  width: 50px;
+}
+footer section ul {
+  position: absolute;
+  margin-top: 40px;
+  margin-left: 50px;
+}
+footer section ul li {
+  padding: 5px;
+}
+.fLista {
+  list-style-type: none;
+}
+#seccionContactoFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#seccionContactoFooter h1 {
+  background-color: var(--secundario);
+  padding: 8px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+#seccionSocialMedia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#seccionSocialMedia img {
+  width: 100px;
 }
 #socialMedia img {
   width: 50px;
@@ -393,7 +458,7 @@ footer section {
   footer {
     display: grid;
     grid-column: 1;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   footer section h1 {
     font-size: 20px;
@@ -401,5 +466,17 @@ footer section {
 
   #socialMedia img {
     width: 30px;
+  }
+  footer article {
+    display: none;
+  }
+  #seccionContactoFooter h1 {
+    font-size: 12px;
+  }
+  footer section {
+    display: none;
+  }
+  #seccionContactoFooter p {
+    font-size: 12px;
   }
 }
