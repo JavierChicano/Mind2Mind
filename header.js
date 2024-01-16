@@ -14,8 +14,12 @@ cerrar.addEventListener("click", ()=>{
 const abrirModal = document.getElementById('openRegistro');
 const contendorModal = document.getElementById('modal-Registro');
 const cerrarModal = document.getElementById('closeRegistro');
+const abrilModalCuenta = document.getElementById('creaCuenta');
 
 abrirModal.addEventListener("click", ()=>{
+    contendorModal.classList.add('show');
+});
+abrilModalCuenta.addEventListener("click", ()=>{
     contendorModal.classList.add('show');
 });
 cerrarModal.addEventListener("click", ()=>{

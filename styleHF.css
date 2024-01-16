@@ -1,17 +1,10 @@
 :root {
-  --colorBaseOscuro: #4b4848;
   --colorBaseClaro: #dfdedd;
-  --principal: #3fd2ca;
-  --principalVariante1: #2eaaa4;
-  --principalVariante2: #236d6a;
-  --secundario: #a4bc9a;
-  --secundarioVariante1: #596e50;
-  --secundarioVariante2: #dbffcc;
-  --colorContraste: #e67e22;
-  --colorContrasteClaro: #f39c12;
-  --colorContrasteOscuro: #d35400;
+  --colorBaseOscuro: #506059;
+  --colorPrincipal: #f7cfd0;
+  --colorSecundario: #a9ddd0;
+  --colorTerciario: #757780;
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -53,6 +46,7 @@ header {
   flex-direction: row;
   gap: 12px;
   list-style: none;
+  z-index: 5;
 }
 .nav div {
   background-color: var(--colorBaseClaro);
@@ -90,6 +84,9 @@ header {
   width: 40px;
 }
 /*Parte del registro*/
+#openRegistro {
+  cursor: pointer;
+}
 .modal-Registro {
   display: flex;
   justify-content: center;
@@ -111,6 +108,7 @@ header {
 }
 #closeRegistro img {
   width: 35px;
+  cursor: pointer;
 }
 .modalRegistro {
   background-color: var(--colorBaseClaro);
@@ -185,9 +183,11 @@ input {
   color: black;
 }
 input[type="submit"] {
-  background-color: var(--colorContrasteClaro);
+  background-color: var(--colorBaseOscuro);
   border-bottom: none;
   border-radius: 2px;
+  font-size: 25px;
+  color: white;
 }
 #checkBox {
   display: flex;
@@ -199,19 +199,15 @@ input[type="checkbox"] {
   width: 20px;
   height: 20px;
 }
-input[type="submit"] {
-  background-color: var(--colorContrasteClaro);
-  font-size: 25px;
-  color: black;
-  cursor: pointer;
-}
-
 input[type="submit"]:hover {
-  background-color: var(--colorContraste);
+  background-color: var(--colorPrincipal);
+  transition: 0.3s ease;
+  color: var(--colorBaseOscuro);
 }
 #link-A-LogIn {
   text-decoration: underline;
-  color: var(--colorContraste);
+  color: black;
+  cursor: pointer;
 }
 @media screen and (max-width: 550px) {
   #closeRegistro img {
@@ -254,6 +250,9 @@ input[type="submit"]:hover {
   }
 }
 /*Parte del logIn*/
+#openLogIn {
+  cursor: pointer;
+}
 .modal-LogIn {
   display: flex;
   justify-content: center;
@@ -272,6 +271,7 @@ input[type="submit"]:hover {
 #closeLogIn {
   display: flex;
   justify-content: end;
+  cursor: pointer;
 }
 #closeLogIn img {
   width: 35px;
@@ -330,13 +330,20 @@ input[type="submit"]:hover {
   color: black;
 }
 #centrarForm2 input[type="submit"] {
-  background-color: var(--colorContrasteClaro);
+  background-color: var(--colorBaseOscuro);
+  color: var(--colorBaseClaro);
   border-bottom: none;
   border-radius: 2px;
+}
+#centrarForm2 input[type="submit"]:hover {
+  background-color: var(--colorPrincipal);
+  transition: 0.3s ease;
+  color: var(--colorBaseOscuro);
 }
 #link-A-Registro {
   text-decoration: underline;
   color: var(--colorContraste);
+  cursor: pointer;
 }
 /* PARTE DEL FOOTER */
 footer {
@@ -367,6 +374,7 @@ footer article {
 }
 #socialMedia img {
   width: 50px;
+  filter: invert(1);
 }
 footer section ul {
   position: absolute;

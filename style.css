@@ -1,15 +1,9 @@
 :root {
-  --colorBaseOscuro: #4b4848;
   --colorBaseClaro: #dfdedd;
-  --principal: #3fd2ca;
-  --principalVariante1: #2eaaa4;
-  --principalVariante2: #236d6a;
-  --secundario: #a4bc9a;
-  --secundarioVariante1: #596e50;
-  --secundarioVariante2: #dbffcc;
-  --colorContraste: #e67e22;
-  --colorContrasteClaro: #f39c12;
-  --colorContrasteOscuro: #d35400;
+  --colorBaseOscuro: #506059;
+  --colorPrincipal: #f7cfd0;
+  --colorSecundario: #a9ddd0;
+  --colorTerciario: #757780;
 }
 
 main {
@@ -18,111 +12,84 @@ main {
 #hero {
   display: flex;
   flex-direction: column;
+  background-image: url("img/fondoPrincipal.png");
   padding: 48px;
+  height: 92vh;
+
 }
 #mainTittle {
   font-family: "Montserrat", sans-serif;
   font-size: 68px;
-  line-height: 0.75;
   margin-left: 5%;
   margin-top: 5%;
   color: var(--principal);
   font-weight: 800;
 }
-.textoNaranja {
+.contrasteTittle {
   font-family: "Montserrat", sans-serif;
-  color: var(--colorContraste);
+  color: rgba(54, 208, 199);
 }
-#seccionHero {
+#mainLogo{
   display: flex;
-  flex-direction: row;
-  justify-items: center;
-  padding: 64px;
-  margin-top: 40px;
+  position: absolute;
+  top: 75%;
+  margin-left: 5%;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 35%;
+  padding: 10px;
+  background-color: rgba(223, 222, 221, .3);
+  border-radius: 16px;
+  width: fit-content;
+  box-shadow: 0 0 10px rgba(223, 222, 221, 0.7);
 }
-#seccionHero div {
-  order: 1;
+#mainLogo img {
+  width: 200px;
 }
-#centrarIMG {
-  order: 2;
-}
-#seccionHero div ul {
-  line-height: 52px;
-  font-size: 40px;
-}
-#seccionHero div h3 {
-  margin-top: 20px;
-  font-size: 30px;
-  background-color: black;
-  color: var(--colorBaseClaro);
-  padding: 8px;
-  border-radius: 12px;
-  margin-left: -35px;
-}
-#seccionHero img {
-  width: 450px;
-  order: 2;
-}
-#seccionHero h1 {
-  display: none;
+#mainLogo h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 26px;
 }
 @media screen and (max-width: 550px) {
   #hero {
     padding: 0px;
+    background-image: none;
+    background-color: var(--colorBaseClaro);
+    height: auto;
   }
   #mainTittle {
-    display: none;
+    font-size: 30px;
     line-height: 1.2;
   }
-  #seccionHero {
-    display: flex;
-    flex-direction: column;
-    padding: 40px;
-    gap: 0px;
-  }
-  #seccionHero div ul {
-    display: none;
-  }
-  #seccionHero h1 {
-    font-family: "Montserrat", sans-serif;
-
-    display: block;
-    font-size: 28px;
-    order: 2;
-    color: var(--principal);
-    font-weight: 800;
-  }
-  #centrarIMG {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #seccionHero img {
-    width: 200px;
-    order: 1;
-  }
-  #seccionHero div {
-    order: 3;
-    display: flex;
-    justify-content: end;
-  }
-  #seccionHero div h3 {
-    font-size: small;
-    margin-left: 180px;
-  }
+#mainLogo img {
+  width: 100px;
+}
+#mainLogo{
+  position: relative;
+  top: 0;
+  margin-left: 25%;
+}
 }
 
 /* Seccion tratamientos */
+.centrarTitulo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
 .titulo {
   display: flex;
   justify-content: center;
   font-size: 50px;
+  padding: 10px;
+  border-radius: 2px;
   color: var(--colorBaseOscuro);
   font-weight: 800;
   margin-bottom: 40px;
+  background-image: url('img/fondo1.jpg');
+  border: 2px solid white;
+  width: fit-content;
 }
 #seccionTratamientos {
   display: flex;
@@ -136,16 +103,17 @@ main {
 #seccionTratamientos div {
   display: flex;
   flex-direction: column;
-  background-color: var(--secundario);
+  background-image: url("img/Tarjeta1.png");
   padding: 25px;
   border-radius: 16px;
   align-items: center;
   justify-content: center;
   width: 350px;
   height: 380px;
+  box-shadow: 0 0 10px 10px rgba(247, 207, 208, 0.3);
+  border: 2px solid white;
   &:hover {
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
-    transition: box-shadow 0.3s ease;
+    scale: 1.05;
   }
 }
 #seccionTratamientos div img {
@@ -212,9 +180,10 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--secundarioVariante1);
+  background-color: var(--colorBaseOscuro);
   border: 2px solid;
-  border-color: var(--secundario);
+  border-radius: 2px;
+  border-color: var(--colorTerciario);
   padding: 9px;
   height: 200px;
   &:hover {
@@ -235,9 +204,22 @@ main {
   color: var(--colorBaseClaro);
   font-size: 20px;
 }
+#seccionEquipo div p {
+  display: flex;
+  color: var(--colorBaseClaro);
+  justify-content: flex-start;
+  margin-right: auto;
+  margin-top: 4px;
+}
 @media screen and (max-width: 550px) {
   #seccionEquipo {
     gap: 10px;
+  }
+  #seccionEquipo div p {
+    display: none;
+  }
+  #seccionEquipo div {
+    height: 180px;
   }
 }
 
@@ -255,11 +237,12 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--secundarioVariante1);
+  background-image: url("img/Tarjeta1.png");
   border-radius: 20px;
   padding: 9px;
   width: 250px;
-  height: 350px;
+  height: 360px;
+  border: 2px solid white;
   &:hover {
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
     transition: box-shadow 0.3s ease;
@@ -280,7 +263,7 @@ main {
 }
 #seccionCasosExito div article {
   margin: 10px;
-  color: var(--colorBaseClaro);
+  background-color: var(--secundario);
 }
 @media screen and (max-width: 550px) {
   #seccionCasosExito {
@@ -304,7 +287,6 @@ main {
   }
   #seccionCasosExito div article {
     margin: 10px;
-    color: var(--colorBaseClaro);
     font-size: 12px;
   }
 }
@@ -320,12 +302,13 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--secundario);
   padding: 8px;
   border-radius: 8px;
   width: 300px;
+  background-image: url('img/fondo1.jpg');
+  border: 2px solid white;
 }
-.linksTratamientos a{
+.linksTratamientos a {
   text-decoration: none;
   color: black;
 }
