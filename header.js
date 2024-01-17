@@ -17,6 +17,7 @@ const cerrarModal = document.getElementById('closeRegistro');
 const abrilModalCuenta = document.getElementById('creaCuenta');
 
 abrirModal.addEventListener("click", ()=>{
+    contendorModal2.classList.remove('show');
     contendorModal.classList.add('show');
 });
 abrilModalCuenta.addEventListener("click", ()=>{
@@ -32,6 +33,7 @@ const contendorModal2 = document.getElementById('modal-LogIn');
 const cerrarModal2 = document.getElementById('closeLogIn');
 
 abrirModal2.addEventListener("click", ()=>{
+    contendorModal.classList.remove('show');
     contendorModal2.classList.add('show');
 });
 cerrarModal2.addEventListener("click", ()=>{
