@@ -25,6 +25,16 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+#creaCuenta {
+  background-color: var(--colorPrincipal);
+  width: fit-content;
+  padding: 5px;
+  border-radius: 2px;
+  margin-left: 5%;
+  margin-top: 2%;
+  font-size: 30px;
+  cursor: pointer;
+}
 #logo {
   width: 100px;
   margin-left: 100px;
@@ -210,6 +220,12 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 @media screen and (max-width: 550px) {
+  #creaCuenta {
+    background-color: var(--colorBaseOscuro);
+    font-size: 20px;
+    z-index: 2;
+    color: white;
+  }
   #closeRegistro img {
     width: 20px;
     margin-top: -10px;
@@ -394,10 +410,12 @@ footer section ul li {
   align-items: center;
 }
 #seccionContactoFooter h1 {
-  background-color: var(--secundario);
+  background-color: var(--colorPrincipal);
   padding: 8px;
   border-radius: 2px;
   margin-bottom: 10px;
+  color: var(--colorBaseOscuro);
+  cursor: pointer;
 }
 #seccionSocialMedia {
   display: flex;

@@ -13,9 +13,11 @@ main {
   display: flex;
   flex-direction: column;
   background-image: url("img/fondoPrincipal.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   padding: 48px;
   height: 92vh;
-
 }
 #mainTittle {
   font-family: "Montserrat", sans-serif;
@@ -104,6 +106,9 @@ main {
   display: flex;
   flex-direction: column;
   background-image: url("img/Tarjeta1.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   padding: 25px;
   border-radius: 16px;
   align-items: center;
