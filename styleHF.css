@@ -28,12 +28,14 @@ header {
 #creaCuenta {
   background-color: var(--colorPrincipal);
   width: fit-content;
-  padding: 5px;
-  border-radius: 2px;
-  margin-left: 5%;
+  padding: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 0px 16px 0px 16px;
+  margin-left: 3%;
   margin-top: 2%;
   font-size: 30px;
   cursor: pointer;
+  font-family: "Montserrat", sans-serif;
 }
 #logo {
   width: 100px;
@@ -44,11 +46,26 @@ header {
 }
 #barraBusqueda {
   display: flex;
-  background-color: white;
-  border-radius: 20px;
-  padding: 12px;
+  background-color: var(--colorPrincipal);
+  border-radius: 0px 16px 0px 16px;
+  padding: 8px;
   width: 250px;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+#barraBusqueda p{
+  font-size: 30px;
+}
+#barraBusqueda p a{
+  text-decoration: none;
+  color: black;
+  font-family: "Montserrat", sans-serif;
+}
+#barraBusqueda img{
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
 }
 .nav {
   display: flex;
@@ -444,6 +461,9 @@ footer section ul li {
   #barraBusqueda {
     width: 200px;
   }
+#barraBusqueda p{
+  font-size: 20px;
+}
   #logo {
     margin-left: 10px;
   }

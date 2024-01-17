@@ -7,27 +7,29 @@
     <title>Mind 2 Mind</title>
     <link rel="stylesheet" href="styleHF.css" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="icon" href="img/logo.png" type="image/x-icon">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
     </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <header>
       <a href='index.html'><img src="img/logo.png" id="logo"/></a>
       <div id="barraBusqueda">
-        <span>Barra de búsqueda</span> 
-        <img src="img/lupa.png" id="lupa">
+        <img src="img/calendar-month.png">
+        <p><a href='contacto.html'>Pedir Cita</a></p> 
       </div>
       <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
       <nav class="nav" id="nav">
         <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
         <ul class="nav-list">
+            <li><a href='#'>Acerca de</a></li>
             <li><a href='tratamientos.html'>Tratamientos</a></li>
             <li><a href='#'>Servicios</a></li>
-            <li><a href='#'>Acerca de</a></li>
             <!-- Abrir ventana modal -->
             <li ><a id="openRegistro">Registrate</a></li>
             <li><a id="openLogIn">Inicia sesion</a></li>
@@ -104,40 +106,46 @@
    <main>
     <!-- Hero -->
       <section id="hero">
-        <h1 id="mainTittle">
-          Tu <span class="contrasteTittle">salud</span>, <br> nuestro <span class="contrasteTittle">objetivo</span>
+        <h1 id="mainTittle" data-aos="fade-right" data-aos-duration="1000">
+          Especialistas <br>en <span class="contrasteTittle">Trastorno Bipolar</span>
         </h1>
-        <div id="creaCuenta">
+        <div id="creaCuenta" data-aos="fade-right" data-aos-duration="1000">
           Crea tu cuenta
         </div>
-          <div id="mainLogo">
-            <img src="img/logo.png"/>
-            <h2>Mind 2 Mind</h2>
-          </div>
+          
           </section>
         </div>
       </section>
-      <!-- Seccion tratamientos -->
-      <span class="centrarTitulo">
-        <h1 class="titulo">Tratamientos</h1>
-      </span>
-          <section id="seccionTratamientos">
-            <div>
-              <img src="img/Tratamientos/Estimulación_magnética_transcraneal.jpg" />
-              <h1>Est. Transcraneal</h1>
-              <article> Explora las posibilidades transformadoras de la Estimulación Magnética Transcraneal, una vanguardia en el cuidado mental.</article>
-            </div>
-            <div>
-              <img src="img/Tratamientos/Terapia_de_luz.jpg" />
-              <h1>Terapia de Luz</h1>
-              <article> Sumérgete en la suave luz terapéutica que revitaliza mente y cuerpo, proporcionando un resplandor de esperanza en cada sesión.</article>
-            </div>
-            <div>
-              <img src="img/Tratamientos/psychotherapy.jpg" />
-              <h1>Psicoterapia</h1>
-              <article> Embárcate en un viaje de autodescubrimiento a través de la psicoterapia, donde cada sesión es una oportunidad para comprender y sanar. </article>
-            </div>
-          </section>
+      <!-- Imagen dos -->
+      <section class="imagenMain2">
+        <h1  data-aos="fade-up" data-aos-duration="2000">Entendemos tu cerebro</h1>
+      </section>
+      <section class="imagenMain3">
+        <aside class="imagenMainIzquieda" data-aos="fade-right"
+        data-aos-offset="500"
+        data-aos-duration="2000">
+          <img src="img/imgMain/imgMain31.png">
+          <h1>Triste</h1>
+          <h3>Fase<br> Depresiva</h3>
+        </aside>
+        <aside class="imagenMainDerecha" >
+          <img src="img/imgMain/imgMain32.png">
+          <h1>Euforico</h1>
+          <h3>Fase <br> Maníaca</h3>
+        </aside>
+      </section>
+      <!-- Imagen 3 -->
+      <section class="imagenMain4">
+        <div id="textoImg4" data-aos="zoom-in-up"
+        data-aos-anchor-placement="bottom-bottom" 
+        data-aos-offset="100"
+        data-aos-duration="4000">
+          Nuestro exito,<br> el enfoque holístico</div>
+        <div id="tomtate">
+          <p id="text1" data-aos="fade-right" data-aos-offset="300">Psicologo</p>
+          <p id="text2" data-aos="fade-left"  data-aos-offset="300">Psiquiatra</p>
+        </div>
+      </section>
       <!-- Seccion Equipo -->
       <span class="centrarTitulo">
         <h1 class="titulo">Equipo</h1>
@@ -234,6 +242,9 @@
         Mind To Mind, S.L.P - Todos los derechos reservados
       </article>
     </footer>
+    <script>
+      AOS.init();
+    </script>
     <script src="header.js"></script>
   </body>
 </html>

@@ -12,7 +12,7 @@ main {
 #hero {
   display: flex;
   flex-direction: column;
-  background-image: url("img/fondoPrincipal.png");
+  background-image: url("img/imgMain/fondoPrincipal.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -22,35 +22,14 @@ main {
 #mainTittle {
   font-family: "Montserrat", sans-serif;
   font-size: 68px;
-  margin-left: 5%;
-  margin-top: 5%;
+  margin-left: 3%;
+  margin-top: 28%;
   color: var(--principal);
   font-weight: 800;
 }
 .contrasteTittle {
   font-family: "Montserrat", sans-serif;
   color: rgba(54, 208, 199);
-}
-#mainLogo{
-  display: flex;
-  position: absolute;
-  top: 65%;
-  margin-left: 5%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  background-color: rgba(223, 222, 221, .3);
-  border-radius: 16px;
-  width: fit-content;
-  box-shadow: 0 0 10px rgba(223, 222, 221, 0.7);
-}
-#mainLogo img {
-  width: 200px;
-}
-#mainLogo h2 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 26px;
 }
 @media screen and (max-width: 550px) {
   #hero {
@@ -63,18 +42,132 @@ main {
     font-size: 30px;
     line-height: 1.2;
   }
-#mainLogo img {
-  width: 100px;
-}
-#mainLogo{
-  position: relative;
-  top: 0;
-  margin-left: 25%;
-}
+  #mainLogo img {
+    width: 100px;
+  }
+  #mainLogo {
+    position: relative;
+    top: 0;
+    margin-left: 25%;
+  }
 }
 
+/*Seccion imagenes Main*/
+.imagenMain2 {
+  background-image: url(img/imgMain/imgMain2.png);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+}
+
+.imagenMain2 h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 68px;
+  margin-bottom: 5%; 
+}
+.imagenMain3{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: fit-content;
+  margin: 0;
+}
+.imagenMainIzquieda, 
+.imagenMainDerecha{
+  height: 100vh;
+  flex: 0 0 56.72%; 
+}
+.imagenMainDerecha{
+  transform: translateX(-6%);
+}
+.imagenMainIzquieda img{
+  width: 100%;
+  height: 100vh;
+}
+.imagenMainDerecha img{
+  width: 100%;
+  height: 100vh;
+}
+.imagenMainIzquieda h1{
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  display: flex;
+  z-index: 3;
+  top: 10%;
+  left: 35%;
+  font-size: 90px;
+}
+.imagenMainIzquieda h3{
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  display: flex;
+  z-index: 3;
+  top: 70%;
+  left: 35%;
+  font-size: 90px;
+}
+.imagenMainDerecha h1{
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  display: flex;
+  z-index: 3;
+  top: 10%;
+  left: 35%;
+  font-size: 90px;
+}
+.imagenMainDerecha h3{
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  display: flex;
+  z-index: 3;
+  top: 70%;
+  left: 35%;
+  font-size: 90px;
+}
+.imagenMain4{
+  background-image: url(img/imgMain/imgMain4.png);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+#textoImg4{
+  display: flex;
+  font-family: "Montserrat", sans-serif;
+  font-size: 70px;
+  text-align: center;
+  margin-top: 5%;
+}
+#tomtate {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 100px;
+
+}
+#text1{
+  font-family: "Montserrat", sans-serif;
+  font-size: 60px;
+  margin-top: -40px;
+  transform: rotate(10deg);
+}
+#text2{
+  font-family: "Montserrat", sans-serif;
+  font-size: 60px;
+  margin-top: 10px;
+  transform: rotate(-10deg);
+}
 /* Seccion tratamientos */
-.centrarTitulo{
+.centrarTitulo {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,7 +182,7 @@ main {
   color: var(--colorBaseOscuro);
   font-weight: 800;
   margin-bottom: 40px;
-  background-image: url('img/fondo1.jpg');
+  background-image: url("img/fondo1.jpg");
   border: 2px solid white;
   width: fit-content;
 }
@@ -170,6 +263,7 @@ main {
     display: none;
   }
 }
+
 
 /* Seccion Equipo */
 #seccionEquipo {
@@ -311,7 +405,7 @@ main {
   padding: 8px;
   border-radius: 8px;
   width: 300px;
-  background-image: url('img/fondo1.jpg');
+  background-image: url("img/fondo1.jpg");
   border: 2px solid white;
 }
 .linksTratamientos a {
