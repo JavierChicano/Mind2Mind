@@ -57,3 +57,17 @@ abrirRegistro.addEventListener("click", ()=>{
     //Abrir la pestaña de Registro
     contendorModal.classList.add('show');
 });
+
+$(document).ready(function() {
+    
+    $.ajax({
+        url: 'BBDD/BBDD.php',
+        type: 'GET',
+        success: function(response) {
+            console.log(response);
+        },
+        error: function(error) {
+            console.error('Error al ejecutar el código PHP:', error);
+        }
+    });
+});
