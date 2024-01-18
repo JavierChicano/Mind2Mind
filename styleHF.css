@@ -25,6 +25,14 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+header h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 68px;
+}
+header h1 a{
+  text-decoration: none;
+  color: rgba(54, 208, 199);
+}
 #creaCuenta {
   background-color: var(--colorPrincipal);
   width: fit-content;
@@ -96,10 +104,13 @@ header {
   border-radius: 8px;
 
   &:hover {
-    background-color: var(--principalVariante1);
+    background-color: var(--colorSecundario);
+    color: black;
   }
 }
-
+#account{
+  display: none;
+}
 .abrir-menu {
   display: none;
   margin-right: 25px;
@@ -238,6 +249,9 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 @media screen and (max-width: 550px) {
+  header h1 {
+    display: none;
+  }
   #creaCuenta {
     background-color: var(--colorBaseOscuro);
     font-size: 20px;
