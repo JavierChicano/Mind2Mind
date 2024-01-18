@@ -26,10 +26,10 @@ header {
   justify-content: space-between;
 }
 header h1 {
-  font-family: "Montserrat", sans-serif;
   font-size: 68px;
 }
 header h1 a{
+  font-family: "Montserrat", sans-serif;
   text-decoration: none;
   color: rgba(54, 208, 199);
 }
