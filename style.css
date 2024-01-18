@@ -53,94 +53,133 @@ main {
 }
 
 /*Seccion imagenes Main*/
+.carrousel{
+  height: 80vh;
+  margin: 50px 200px 50px 200px;
+  border-radius: 30px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 2);
+  overflow-x: hidden; 
+  overflow-y: hidden; 
+}
+.puntos{
+  width: 100%;
+  padding: .4em;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  z-index: 3;
+  position: absolute;
+  margin-top: -150px;
+}
+.punto{
+  border-radius: 20px;
+  width: 2em;
+  height: 2em;
+  margin: 1em 1em 0;
+  background-color: var(--colorSecundario);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+}
+.punto.activo{
+  background-color: var(--colorPrincipal);
+}
+.contenedorIMG{
+  width: 400%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: transform 0.5s ease;
+  transform: translateX(0%);
+}
 .imagenMain2 {
-  background-image: url(img/imgMain/imgMain2.png);
-  background-size: cover;
-  background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  height: 100vh;
-  width: 100%;
-  margin: 0;
+  height: 100%;
+  width: calc(100%/4);
 }
 
+.imagenMain2 img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+}
 .imagenMain2 h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 68px;
-  margin-bottom: 5%; 
+  position: absolute;
+  margin-bottom: 1.5%;
 }
 .imagenMain3{
   display: flex;
   flex-direction: row;
-  height: 100vh;
-  width: fit-content;
-  margin: 0;
+  align-items: center;
+  height: 100%;
+  width: calc(100%/4);
 }
-.imagenMainIzquieda, 
-.imagenMainDerecha{
-  height: 100vh;
-  flex: 0 0 56.72%; 
-}
-.imagenMainDerecha{
-  transform: translateX(-6%);
-}
-.imagenMainIzquieda img{
+.imagenMain4 img{
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  border-radius: 30px;
 }
-.imagenMainDerecha img{
-  width: 100%;
-  height: 100vh;
-}
-.imagenMainIzquieda h1{
-  font-family: "Montserrat", sans-serif;
-  position: absolute;
-  display: flex;
-  z-index: 3;
-  top: 10%;
-  left: 35%;
-  font-size: 90px;
-}
-.imagenMainIzquieda h3{
-  font-family: "Montserrat", sans-serif;
-  position: absolute;
-  display: flex;
-  z-index: 3;
-  top: 70%;
-  left: 35%;
-  font-size: 90px;
-}
-.imagenMainDerecha h1{
-  font-family: "Montserrat", sans-serif;
-  position: absolute;
-  display: flex;
-  z-index: 3;
-  top: 10%;
-  left: 35%;
-  font-size: 90px;
-}
-.imagenMainDerecha h3{
-  font-family: "Montserrat", sans-serif;
-  position: absolute;
-  display: flex;
-  z-index: 3;
-  top: 70%;
-  left: 35%;
-  font-size: 90px;
-}
-.imagenMain4{
-  background-image: url(img/imgMain/imgMain4.png);
-  background-size: cover;
-  background-position: center;
+.imagenMain4 {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  height: 100vh;
-  width: 100%;
+  height: 100%;
+  width: calc(100%/4);
 }
-#textoImg4{
+.imagenMain3 h1{
+  font-family: "Montserrat", sans-serif;
+  font-size: 68px;
+  position: absolute;
+  margin-bottom: 3%;
+}
+
+.imagenMainIzquieda h1 {
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  display: flex;
+  z-index: 3;
+  top: 10%;
+  left: 35%;
+  font-size: 90px;
+}
+.imagenMainIzquieda h3 {
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  display: flex;
+  z-index: 3;
+  top: 70%;
+  left: 35%;
+  font-size: 90px;
+}
+.imagenMainDerecha h1 {
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  display: flex;
+  z-index: 3;
+  top: 10%;
+  left: 35%;
+  font-size: 90px;
+}
+.imagenMainDerecha h3 {
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  display: flex;
+  z-index: 3;
+  top: 70%;
+  left: 35%;
+  font-size: 90px;
+}
+
+#textoImg4 {
   display: flex;
   font-family: "Montserrat", sans-serif;
   font-size: 70px;
@@ -152,19 +191,59 @@ main {
   justify-content: space-between;
   width: 100%;
   padding: 100px;
-
 }
-#text1{
+#text1 {
   font-family: "Montserrat", sans-serif;
   font-size: 60px;
   margin-top: -40px;
   transform: rotate(10deg);
 }
-#text2{
+#text2 {
   font-family: "Montserrat", sans-serif;
   font-size: 60px;
   margin-top: 10px;
   transform: rotate(-10deg);
+}
+@media screen and (max-width: 550px) {
+  .imagenMain2 {
+    background-image: url(img/imgMain/imgMain2.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    max-width: 100%; /* Ajustado para ocupar el ancho completo del dispositivo */
+    margin: 0;
+    max-height: 550px;
+    padding: 20px;
+  }
+  .imagenMain2 h1 {
+    font-size: 25px;
+  }
+  .imagenMain3 {
+    max-height: 550px;
+    max-width: 100%;
+    margin: 0;
+  }
+  .imagenMainIzquieda,
+  .imagenMainDerecha {
+    max-height: 550px;
+    max-width: 100%;
+    height: 100vh;
+    flex: 0 0 56.72%;
+  }
+  .imagenMainIzquieda img,
+  .imagenMainDerecha img {
+    width: 100%;
+    height: 100%;
+  }
+  .imagenMainIzquieda h1,
+  .imagenMainDerecha h1,
+  .imagenMainIzquieda h3,
+  .imagenMainDerecha h3 {
+    font-size: 30px;
+  }
 }
 /* Seccion tratamientos */
 .centrarTitulo {
@@ -263,7 +342,6 @@ main {
     display: none;
   }
 }
-
 
 /* Seccion Equipo */
 #seccionEquipo {

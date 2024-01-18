@@ -60,8 +60,8 @@ abrirRegistro.addEventListener("click", ()=>{
     contendorModal.classList.add('show');
 });
 
+//Conexion de la BBDD con el index.html
 $(document).ready(function() {
-    
     $.ajax({
         url: 'BBDD/BBDD.php',
         type: 'GET',
@@ -73,3 +73,34 @@ $(document).ready(function() {
         }
     });
 });
+
+//Carrousel imagemes
+
+const grande = document.querySelector('.contenedorIMG');
+const punto = document.querySelectorAll('.punto');
+let currentIndex = 0;
+
+// Función para cambiar el div según el índice
+function cambiarDiv(index) {
+    let operacion = index * -25;
+    grande.style.transform = `translateX(${operacion}%)`;
+
+    punto.forEach((cadaPunto, i) => {
+        punto[i].classList.remove('activo');
+    });
+    punto[index].classList.add('activo');
+}
+
+// Evento de clic en los puntos
+punto.forEach((cadaPunto, i) => {
+    punto[i].addEventListener('click', () => {
+        currentIndex = i;
+        cambiarDiv(currentIndex);
+    });
+});
+
+// // Cambiar automáticamente cada 5 segundos (ajusta según tus necesidades)
+// setInterval(() => {
+//     currentIndex = (currentIndex + 1) % punto.length;
+//     cambiarDiv(currentIndex);
+// }, 5000);  // Cambia cada 5 segundos (5000 milisegundos)
