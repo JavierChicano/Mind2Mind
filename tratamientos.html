@@ -20,18 +20,17 @@
       <div id="barraBusqueda">
         <img src="img/calendar-month.png">
         <p><a href='pedirCita.html'>Pedir Cita</a></p> 
-
       </div>
       <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
       <nav class="nav" id="nav">
         <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
         <ul class="nav-list">
-            <li><a href='#'>Acerca de</a></li>
+            <li><a href='acercaDe.html'>Acerca de</a></li>
             <li><a href='tratamientos.html'>Tratamientos</a></li>
             <li><a href='#'>Servicios</a></li>
             <!-- Abrir ventana modal -->
-            <li ><a id="openRegistro">Registrate</a></li>
-            <li><a id="openLogIn">Inicia sesion</a></li>
+            <li ><a class="openRegistro">Regístrate</a></li>
+            <li><a class="openLogIn">Inicia sesión</a></li>
             <li><a id="account">Cuenta</a></li>
         </ul>
       </nav>
@@ -39,7 +38,7 @@
     <!-- Contenedores Registro -->
     <div class="modal-Registro" id="modal-Registro">
       <div class="modalRegistro">
-        <span id="closeRegistro"><img src="img/closeWindow.png"></span>
+        <span class="closeRegistro"><img src="img/closeWindow.png"></span>
         <section>
           <span id="imgModal"><img src="img/logo.png"></span>
           <article>
@@ -62,7 +61,7 @@
                 <input type="password" id="password" name="password" placeholder="Contraseña">
                 <span id="checkBox">
                   <input type="checkbox" id="aceptoTerminos" name="aceptoTerminos">
-                  <p for="aceptoTerminos">Acepto los términos y condiciones</p>
+                  <p for="aceptoTerminos">Acepto los &nbsp<a href='politicaPrivacidad.html'>términos y condiciones</a></p>
                 </span>
                 <input type="submit" value="Crear cuenta">
               </form>
@@ -76,7 +75,7 @@
     <!-- Contenedores Login -->
     <div class="modal-LogIn" id="modal-LogIn">
       <div class="modalLogIn">
-        <span id="closeLogIn"><img src="img/closeWindow.png"></span>
+        <span class="closeLogIn"><img src="img/closeWindow.png"></span>
         <section>
           <span id="imgModal"><img src="img/logo.png"></span>
           <article>
@@ -103,7 +102,6 @@
         </section>
       </div>
     </div>
-   
 
     <main>
       <section id="headerTratamientos">
@@ -199,7 +197,7 @@
 
       <!-- Seccion Recursos -->
       <section id="seccionContactoFooter">
-        <h1>FORMULARIO DE CONTACTO</h1>
+        <h1><a href='formContacto.html'>FORMULARIO DE CONTACTO</a></h1>
         <p>C/Alberto Aguilera 52</p>
         <p>28015 Madrid, España</p>
         <p>Tel: +34 661 661 662</p>

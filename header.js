@@ -11,9 +11,9 @@ cerrar.addEventListener("click", () => {
 });
 
 //Ventana modal Registro
-const abrirModal = document.getElementById("openRegistro");
-const contendorModal = document.getElementById("modal-Registro");
-const cerrarModal = document.getElementById("closeRegistro");
+const abrirModal = document.querySelector(".openRegistro");
+const contendorModal = document.querySelector(".modal-Registro");
+const cerrarModal = document.querySelector(".closeRegistro");
 const abrilModalCuenta = document.getElementById("creaCuenta");
 
 abrirModal.addEventListener("click", () => {
@@ -28,14 +28,15 @@ cerrarModal.addEventListener("click", () => {
 });
 
 //Ventana modal LogIn
-const abrirModal2 = document.getElementById("openLogIn");
-const contendorModal2 = document.getElementById("modal-LogIn");
-const cerrarModal2 = document.getElementById("closeLogIn");
+const abrirModal2 = document.querySelector(".openLogIn");
+const contendorModal2 = document.querySelector(".modal-LogIn");
+const cerrarModal2 = document.querySelector(".closeLogIn");
 
 abrirModal2.addEventListener("click", () => {
   contendorModal.classList.remove("show");
   contendorModal2.classList.add("show");
 });
+
 cerrarModal2.addEventListener("click", () => {
   contendorModal2.classList.remove("show");
 });

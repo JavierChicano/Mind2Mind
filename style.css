@@ -4,6 +4,7 @@
   --colorPrincipal: #f7cfd0;
   --colorSecundario: #a9ddd0;
   --colorTerciario: #757780;
+  --colorContraste: rgb(54, 208, 199);
 }
 
 main {
@@ -581,7 +582,7 @@ main {
 .selected {
   background-color: rgb(159, 255, 159);
 }
-.hidden{
+.hidden {
   display: none;
 }
 
@@ -611,15 +612,15 @@ main {
   justify-content: center;
   padding: 30px;
 }
-#seccionAboutContacto section div{
+#seccionAboutContacto section div {
   width: 50%;
   display: flex;
   align-items: center;
 }
-#seccionAboutContacto section div img{
+#seccionAboutContacto section div img {
   width: 30px;
   filter: invert(1);
-} 
+}
 
 #seccionAboutContacto iframe {
   width: 60%;
@@ -814,7 +815,7 @@ main {
     margin: 30px;
     gap: 30px;
   }
-  #noDisponibleMovil{
+  #noDisponibleMovil {
     display: none;
   }
   #imgPortadaAcercaDe img {
@@ -833,7 +834,6 @@ main {
     margin: 0 20px 10px 20px;
     padding: 30px;
     line-height: 30px;
-
   }
   #seccionNosotros img {
     width: 91%;
@@ -869,7 +869,7 @@ main {
   #titFAQs {
     display: none;
   }
-  #preguntasAcercaDe{
+  #preguntasAcercaDe {
     display: none;
   }
   #legal h1 {
@@ -889,7 +889,140 @@ main {
   #legal article p:last-child {
     margin-bottom: 0px;
   }
-  .textoNoMovil{
+  .textoNoMovil {
     display: none;
   }
+}
+
+/*FORMCONTACTO*/
+#mainFormContacto {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+#mainFormContacto aside {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#mainFormContacto aside h1 {
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  margin-top: 7%;
+  color: var(--colorBaseClaro);
+  font-size: 100px;
+}
+
+#mainFormContacto div {
+  display: flex;
+  flex-direction: row;
+}
+#mainFormContacto div section {
+  width: 50%;
+}
+#mainFormContacto div section form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+  background-image: url("img/fondo1.jpg");
+  margin-top: 40px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  border: 2px solid white;
+}
+#mainFormContacto input {
+  width: 200px;
+  height: 50px;
+  padding: 8px;
+  margin: 12px;
+}
+#aceptarFormContacto {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 300px;
+}
+#aceptarFormContacto input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+#aceptarFormContacto a{
+  text-decoration: none;
+  color: var(--colorContraste);
+}
+#mainFormContacto input [type="submit"]{
+  width: 300px;
+  height: 100px;
+}
+#estiloFondoForm textarea{
+  outline: none;
+  border: none;
+  border-bottom: 2px solid black;
+  width: 300px;
+  height: 50px;
+  padding: 8px;
+  margin: 12px;
+  background-color: transparent;
+  color: black;
+}
+#mainFormContacto button {
+  border-radius: 2px;
+  width: 300px;
+  height: 50px; 
+  margin: 12px;
+  outline: none;
+  border: none;
+  background-color: var(--colorBaseOscuro);
+  color: var(--colorPrincipal);
+  font-size: 30px;
+  &:hover{
+    background-color: var(--colorPrincipal);
+    color: var(--colorBaseOscuro);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  }
+  cursor: pointer;
+}
+#textContacto{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#textContacto h2{
+  margin-top: 40px;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+#textContacto p{
+  font-size: 20px;
+  width: 500px;
+}
+
+/*PAGINA POLITICA PRIVACIDAD*/
+#mainPoliPriv{
+  display: flex;
+  flex-direction: column;
+}
+#mainPoliPriv div{
+  background-color: var(--colorTerciario);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  font-size: 70px;
+  color: var(--colorBaseClaro);
+}
+#mainPoliPriv section{
+  margin: 100px 500px;
+}
+#mainPoliPriv h2{
+  color: var(--colorBaseOscuro);
+  margin-bottom: 20px;
+}
+#mainPoliPriv p{
+  margin-bottom: 18px;
 }

@@ -4,6 +4,7 @@
   --colorPrincipal: #f7cfd0;
   --colorSecundario: #a9ddd0;
   --colorTerciario: #757780;
+  --colorContraste: rgb(54, 208, 199);
 }
 * {
   margin: 0;
@@ -122,7 +123,7 @@ header h1 a{
   width: 40px;
 }
 /*Parte del registro*/
-#openRegistro {
+.openRegistro {
   cursor: pointer;
 }
 .modal-Registro {
@@ -141,11 +142,11 @@ header h1 a{
   pointer-events: auto;
   opacity: 1;
 }
-#closeRegistro {
+.closeRegistro {
   display: flex;
   justify-content: end;
 }
-#closeRegistro img {
+.closeRegistro img {
   width: 35px;
   cursor: pointer;
 }
@@ -234,6 +235,10 @@ input[type="submit"] {
   align-items: center;
   justify-content: center;
 }
+#checkBox a{
+  color: var(--colorContraste);
+  text-decoration: none;
+}
 input[type="checkbox"] {
   width: 20px;
   height: 20px;
@@ -244,9 +249,9 @@ input[type="submit"]:hover {
   color: var(--colorBaseOscuro);
 }
 #link-A-LogIn {
-  text-decoration: underline;
-  color: black;
   cursor: pointer;
+  text-decoration: underline;
+  color: var(--colorContraste);
 }
 @media screen and (max-width: 550px) {
   header h1 {
@@ -298,7 +303,7 @@ input[type="submit"]:hover {
   }
 }
 /*Parte del logIn*/
-#openLogIn {
+.openLogIn {
   cursor: pointer;
 }
 .modal-LogIn {
@@ -311,17 +316,18 @@ input[type="submit"]:hover {
   opacity: 0;
   height: 100vh;
   width: 100%;
+  z-index: 10;
 }
 .show {
   pointer-events: auto;
   opacity: 1;
 }
-#closeLogIn {
+.closeLogIn {
   display: flex;
   justify-content: end;
   cursor: pointer;
 }
-#closeLogIn img {
+.closeLogIn img {
   width: 35px;
 }
 .modalLogIn {
@@ -446,8 +452,11 @@ footer section ul li {
   padding: 8px;
   border-radius: 2px;
   margin-bottom: 10px;
-  color: var(--colorBaseOscuro);
   cursor: pointer;
+}
+#seccionContactoFooter h1 a{
+  text-decoration: none;
+  color: var(--colorBaseOscuro);
 }
 #seccionSocialMedia {
   display: flex;
@@ -541,3 +550,4 @@ footer section ul li {
     font-size: 14px;
   }
 }
+

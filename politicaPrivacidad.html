@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mind 2 Mind</title>
+    <link rel="stylesheet" href="styleHF.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <a href='index.html'><img src="img/logo.png" id="logo"/></a>
+      <h1><a href='index.html'>MIND 2 MIND</a></h1>
+      <div id="barraBusqueda">
+        <img src="img/calendar-month.png">
+        <p><a href='pedirCita.html'>Pedir Cita</a></p> 
+      </div>
+      <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
+      <nav class="nav" id="nav">
+        <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
+        <ul class="nav-list">
+            <li><a href='acercaDe.html'>Acerca de</a></li>
+            <li><a href='tratamientos.html'>Tratamientos</a></li>
+            <li><a href='#'>Servicios</a></li>
+            <!-- Abrir ventana modal -->
+            <li ><a id="openRegistro">Regístrate</a></li>
+            <li><a id="openLogIn">Inicia sesión</a></li>
+            <li><a id="account">Cuenta</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Contenedores Registro -->
+    <div class="modal-Registro" id="modal-Registro">
+      <div class="modalRegistro">
+        <span id="closeRegistro"><img src="img/closeWindow.png"></span>
+        <section>
+          <span id="imgModal"><img src="img/logo.png"></span>
+          <article>
+            <h1>Crea tu cuenta</h1>
+            <section id="registroRedes">
+              <img src="img/RedesLogIn/brand-google.png">
+              <img src="img/RedesLogIn/brand-meta.png">
+              <img src="img/RedesLogIn/brand-x.png">
+              <img src="img/RedesLogIn/brand-apple.png">
+            </section>
+            <hr>
+            <span id="centrarForm">
+              <form action="#" method="post">
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+            
+                <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos">
+            
+                <input type="email" id="email" name="email" placeholder="Correo electrónico">
+            
+                <input type="password" id="password" name="password" placeholder="Contraseña">
+                <span id="checkBox">
+                  <input type="checkbox" id="aceptoTerminos" name="aceptoTerminos">
+                  <p for="aceptoTerminos">Acepto los términos y condiciones</p>
+                </span>
+                <input type="submit" value="Crear cuenta">
+              </form>
+            </span>
+            <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
+            
+          </article>
+        </section>
+      </div>
+    </div>
+    <!-- Contenedores Login -->
+    <div class="modal-LogIn" id="modal-LogIn">
+      <div class="modalLogIn">
+        <span id="closeLogIn"><img src="img/closeWindow.png"></span>
+        <section>
+          <span id="imgModal"><img src="img/logo.png"></span>
+          <article>
+            <h1>Inicia sesión</h1>
+            <section id="registroRedes">
+              <img src="img/RedesLogIn/brand-google.png">
+              <img src="img/RedesLogIn/brand-meta.png">
+              <img src="img/RedesLogIn/brand-x.png">
+              <img src="img/RedesLogIn/brand-apple.png">
+            </section>
+            <hr>
+            <span id="centrarForm2">
+              <form action="#" method="post">
+              
+                <input type="email" id="email" name="email" placeholder="Correo electrónico">
+        
+                <input type="password" id="password" name="password" placeholder="Contraseña">
+                
+                <input type="submit" value="Entrar en mi cuenta">
+              </form>
+            </span>
+            <p>¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro">Crea tu cuenta</a></p>
+          </article>
+        </section>
+      </div>
+    </div>
+   <main id="mainPoliPriv">
+        <div>Politica de privacidad</div>
+        <section>
+            <h2><strong>POLÍTICA DE PROTECCIÓN DE DATOS PERSONALES DE <strong>MIND 2 MIND</strong> - PSICOLOGÍA BIPOLAR</strong></h2>
+            <h2>INTRODUCCIÓN</h2>
+            <p>A través de la presente comunicación, <strong>MIND 2 MIND</strong> informa a los usuarios de su sitio web acerca de su Política de Protección de Datos Personales, con el propósito de que los usuarios decidan de manera libre y voluntaria si desean proporcionar a <strong>MIND 2 MIND</strong> los datos personales solicitados a través de los formularios.</p>
+            <p><strong>MIND 2 MIND</strong> se reserva el derecho de modificar su Política de Protección de Datos de acuerdo con su criterio, cambios legislativos, jurisprudencia o prácticas empresariales. Dichas modificaciones se publicarán en el sitio web, proporcionando los recursos necesarios para que los usuarios accedan a la lectura de las mismas. En cualquier caso, la relación con los usuarios se regirá por las normas establecidas en el momento en que se acceda a la página.</p>
+            <p><strong>MIND 2 MIND</strong> es plenamente consciente del uso y tratamiento adecuado que se debe dar a los datos personales, conforme a la normativa legal aplicable. La organización ha implementado un sistema para preservar la seguridad, integridad y confidencialidad de los datos considerados como personales, cumpliendo con los requisitos del Reglamento General de Protección de Datos (GDPR - UE 679/16) y la Ley Orgánica 3/2018 de Protección de Datos Personales y Garantía de los Derechos Digitales.</p>
+            <p>Se pone a disposición de los usuarios información clara y completa acerca de la Política de Privacidad, Política de Cookies y Condiciones Generales de Contratación, consultables en la página web.</p>
+            <h2>INFORMACIÓN PARA LOS USUARIOS:</h2>
+            <p><strong>a) Identidad y datos de contacto del Responsable del Tratamiento:</strong></p>
+            <p>Los datos personales proporcionados a través de los formularios de esta web serán tratados por <strong>MIND 2 MIND</strong>, entidad con CIF [CIF de <strong>MIND 2 MIND</strong>] y domicilio en [Dirección de <strong>MIND 2 MIND</strong>].</p>
+            <p>Los formularios cumplen con el Reglamento Europeo y la Ley Orgánica, solicitando el consentimiento positivo y la aceptación expresa de los usuarios, informándoles en ese momento de las condiciones del tratamiento de sus datos personales.</p>
+            <p><strong>b) Datos de contacto para comunicaciones en materia de Protección de Datos:</strong></p>
+            <p>Para comunicaciones en materia de Protección de Datos, los usuarios pueden dirigirse a la siguiente dirección de correo electrónico: [dpo@mind2mind.com].</p>
+            <p><strong>c) Finalidad de la recogida de los datos:</strong></p>
+            <p>La recogida y tratamiento de datos tiene como finalidad prestar el servicio solicitado por el usuario, responder a sus dudas y consultas, gestionar aspectos administrativos, y, en algunos casos, enviar información técnica y comercial sobre productos y servicios ofrecidos por <strong>MIND 2 MIND</strong>, así como establecer contacto, gestionar la venta de productos y la inscripción en cursos de formación.</p>
+            <p><strong>d) Destinatarios de la información y cesión de datos:</strong></p>
+            <p>Los datos proporcionados solo serán tratados por <strong>MIND 2 MIND</strong> y no serán comunicados a terceros sin el previo consentimiento del usuario.</p>
+            <p>Cualquier cesión futura de datos a terceros será debidamente comunicada a los afectados en los formularios de recogida de Datos Personales.</p>
+            <p><strong>e) Carácter obligatorio y facultativo de las respuestas:</strong></p>
+            <p>Los campos marcados con asterisco o en rojo en los formularios son obligatorios para prestar el servicio solicitado. La falta de cumplimentación de estos campos impedirá a <strong>MIND 2 MIND</strong> ofrecer el servicio correspondiente.</p>
+            <p><strong>f) Plazo de conservación de los datos personales:</strong></p>
+            <p>Los datos personales proporcionados se conservarán mientras se mantenga la relación contractual con el usuario y durante el plazo legal de conservación.</p>
+            <p><strong>g) Derechos de acceso, rectificación, supresión, limitación, oposición y portabilidad:</strong></p>
+            <p>Los usuarios pueden ejercitar sus derechos de acuerdo con la normativa vigente, enviando una carta a [Dirección postal de <strong>MIND 2 MIND</strong>, con referencia “datos personales”] o un correo electrónico a [dpo@mind2mind.com, con referencia “datos personales”].</p>
+            <p><strong>h) Derecho a retirar el consentimiento:</strong></p>
+            <p>Los usuarios pueden retirar su consentimiento en cualquier momento sin afectar la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>
+            <p><strong>i) Derecho a presentar una reclamación ante una autoridad de control:</strong></p>
+            <p>Los usuarios pueden presentar una reclamación ante la Autoridad de Control si consideran que el tratamiento de datos personales infringe la normativa aplicable.</p>
+            <h2>MEDIDAS DE SEGURIDAD:</h2>
+            <p><strong>MIND 2 MIND</strong> ha adoptado las medidas técnicas y organizativas necesarias para cumplir con el Reglamento 2016/679 y la Ley Orgánica 3/2018, con el fin de prevenir la pérdida, mal uso, alteración, acceso no autorizado y robo de los datos facilitados en el sitio web.</p>
+            <h2>ENCARGADOS DEL TRATAMIENTO:</h2>
+            <p><strong>MIND 2 MIND</strong> ha regulado contractualmente con las empresas encargadas del tratamiento de datos personales, garantizando el uso y la confidencialidad de los mismos mediante convenios suscritos con dichos encargados.</p>
+        </section>
+        
+        </main>
+
+    <footer>
+      <!-- Seccion about -->
+      <section>
+        <ul>
+          <li>Horario de consultas</li>
+          <li class="fLista">L-V 8:00 - 21:00h</li>
+          <li>Horario atención telefónica</li>
+          <li class="fLista">L-V 10:00 - 21:00h</li>
+        </ul>
+        
+      </section>
+
+      <!-- Seccion Recursos -->
+      <section id="seccionContactoFooter">
+        <h1><a href='formContacto.html'>FORMULARIO DE CONTACTO</a></h1>
+        <p>C/Alberto Aguilera 52</p>
+        <p>28015 Madrid, España</p>
+        <p>Tel: +34 661 661 662</p>
+        <p>WhatsApp: +34 661 661 662</p>
+      </section>
+
+      <!-- Seccion Social Media -->
+      <section id="seccionSocialMedia">
+        <img src="img/logo.png">
+        <article id="socialMedia">
+          <img src="img/mail.png">
+          <img src="img/instagram.png">
+          <img src="img/x.png">
+        </article>
+      </section>
+      <article>
+        Centro de Salud Mental autorizado por la Conserjería de Sanidad de la Comunidad de Madrid
+        <br>
+        Mind To Mind, S.L.P - Todos los derechos reservados
+      </article>
+    </footer>
+    <script>
+      AOS.init();
+    </script>
+    <script src="header.js"></script>
+  </body>
+</html>
