@@ -26,7 +26,7 @@ header {
   justify-content: space-between;
 }
 header h1 {
-  font-size: 68px;
+  font-size: 55px;
 }
 header h1 a{
   font-family: "Montserrat", sans-serif;
@@ -57,13 +57,13 @@ header h1 a{
   background-color: var(--colorPrincipal);
   border-radius: 0px 16px 0px 16px;
   padding: 8px;
-  width: 250px;
+  width: 200px;
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 #barraBusqueda p{
-  font-size: 30px;
+  font-size:20px;
 }
 #barraBusqueda p a{
   text-decoration: none;
