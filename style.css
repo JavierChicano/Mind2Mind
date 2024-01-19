@@ -605,3 +605,185 @@ main {
   height: 60%;
   border-radius: 20px;
 }
+
+/*ACERCA DE*/
+#headerAcercaDe{
+  display: flex;
+  flex-direction: r;
+  justify-content: center;
+  margin: 30px;
+  gap: 50px;
+}
+#imgPortadaAcercaDe{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#imgPortadaAcercaDe img{
+  width: 100%;
+  height: 400px;
+}
+#imgPortadaAcercaDe h1{
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  margin-top: 7%;
+  color: var(--colorBaseClaro);
+  font-size: 100px;
+}
+#seccionNosotros{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#seccionNosotros h1{
+  background-color: var(--colorBaseOscuro);
+  padding: 8px;
+  font-size: 50px;
+  border-radius: 2px;
+  margin-top: 35px;
+  color: var(--colorBaseClaro);
+}
+
+#seccionNosotros article{
+  margin: 0 100px 50px 100px;
+  padding: 50px;
+  border-radius: 2px;
+  line-height: 40px;
+  background-color: var(--colorPrincipal);
+}
+#seccionNosotros img{
+  width: 89.5%;
+}
+#titTestimonios{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#titTestimonios h1{
+  background-color: var(--colorBaseOscuro);
+  padding: 8px;
+  border-radius: 2px;
+  color: var(--colorBaseClaro);
+  font-size: 50px;
+  margin-bottom: -50px;
+}
+#testimoniosAcercaDe{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin: 100px;
+  justify-content: center;
+}
+#testimoniosAcercaDe div{
+  background-color: var(--colorTerciario);
+  display: flex;
+  flex-direction: row; 
+  gap: 30px;
+  border-radius: 20px;
+  padding: 30px;
+  width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+#testimoniosAcercaDe h1{
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+#testimoniosAcercaDe div img{
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+}
+.textoTarjetaTestimonios{
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+#titFAQs{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: -100px;
+}
+#titFAQs h1{
+  background-color: var(--colorBaseOscuro);
+  padding: 8px;
+  border-radius: 2px;
+  color: var(--colorBaseClaro);
+  font-size: 50px;
+}
+#preguntasAcercaDe{
+  display: flex;
+}
+#colIzquierda{
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid var(--colorBaseOscuro);
+  width: 50%;
+  align-items: end;
+  margin-top: 100px;
+}
+#colDerecha{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.articulosIz{
+  width: 700px;
+  height: 150px;
+  margin-right: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  background-image: url("img/fondo2.jpg");
+  margin-bottom: 150px;
+}
+.articulosDe{
+  width: 700px;
+  height: 150px;
+  margin-left: 20px;
+  padding: 20px;
+  margin-bottom: 150px;
+  border-radius: 20px;
+  background-image: url("img/fondo2.jpg");
+}
+.articulosIz:first-child {
+  margin-top: 20px;
+}
+.articulosDe:first-child {
+  margin-top: 170px;
+}
+.articulosIz h2{
+  margin-bottom: 15px;
+}
+.articulosDe h2{
+  margin-bottom: 15px;
+}
+#legal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#legal h1{
+  background-color: var(--colorBaseOscuro);
+  padding: 8px;
+  border-radius: 2px;
+  color: var(--colorBaseClaro);
+  font-size: 50px;
+}
+#legal article{
+  margin: 0 100px 50px 100px;
+  padding: 50px;
+  border-radius: 2px;
+  line-height: 40px;
+  background-color: var(--colorPrincipal);
+}
+#legal article p{
+  margin-bottom: 50px;
+}
+#legal article p:last-child {
+  margin-bottom: 0px;
+}
