@@ -114,8 +114,56 @@
           <li class="terceraParte">Proceso Final</li>
         </ul>
       </nav>
-      <form id="primeraParteF">
-        Nombre
+     <form id="formulario">
+    <!-- Fase 1 -->
+    <div id="fase1">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" name="sexo" required>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+        </select>
+    </div>
+
+    <!-- Fase 2 -->
+    <div id="fase2" class="hidden">
+        <label for="profesional">Elegir profesional:</label>
+        <select id="profesional" name="profesional" required>
+            <option value="psicologo">Psicólogo</option>
+            <option value="psiquiatra">Psiquiatra</option>
+        </select>
+        <label for="autodiagnostico">Autodiagnóstico:</label>
+        <textarea id="autodiagnostico" name="autodiagnostico" required></textarea>
+    </div>
+
+    <!-- Fase 3 -->
+    <div id="fase3" class="hidden">
+        <label for="fechaConsulta">Elegir fecha para la consulta:</label>
+        <input type="date" id="fechaConsulta" name="fechaConsulta" required>
+        <label for="aseguradora">¿Tiene aseguradora?</label>
+        <select id="aseguradora" name="aseguradora" required onchange="mostrarAseguradora()">
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+        </select>
+
+        <div id="detalleAseguradora" class="hidden">
+            <label for="nombreAseguradora">Especificar aseguradora:</label>
+            <input type="text" id="nombreAseguradora" name="nombreAseguradora">
+        </div>
+
+        <label>
+            <input type="checkbox" id="consentimiento" name="consentimiento" required>
+            Acepto dar mi consentimiento.
+        </label>
+    </div>
+
+    <!-- Botones de navegación -->
+    <button type="button" onclick="anteriorFase()">Anterior</button>
+    <button type="button" onclick="siguienteFase()">Siguiente</button>
+</form>
+
+        <!-- Nombre
         Apellidos
         DNI
         Provincia
@@ -130,14 +178,16 @@
         Elegir fecha
         Aseguradora si o no
         En el caso de q sea si, especifique cual
-        Dar consentimiento
-      </form>
+        Dar consentimiento -->
     
      </section>
      <section id="seccionAboutContacto">
         <h1>!La primera cita es gratuita!</h1>
         <section>
-          
+          <div><img src="img/phone.png">+34 661 661 662</div>
+          <div>fkkfgjd</div>
+          <div><img src="img/mail.png">Mind2Mind@hotmail.com</div>
+          <div>ldsksdljk</div>
         </section>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1518.510215017036!2d-3.7135868232461426!3d40.43054651372704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422867d4a42201%3A0xaaf3f3a7996e773e!2sC.%20de%20Alberto%20Aguilera%2C%2052%2C%20Chamber%C3%AD%2C%2028015%20Madrid!5e0!3m2!1ses!2ses!4v1705610075468!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
      </section>                                                                                            
