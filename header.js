@@ -76,7 +76,6 @@ $(document).ready(function () {
 });
 
 //Carrousel imagemes
-
 const grande = document.querySelector(".contenedorIMG");
 const punto = document.querySelectorAll(".punto");
 let currentIndex = 0;
@@ -136,3 +135,28 @@ function mostrarAseguradora() {
     aseguradoraSelect.value === "no"
   );
 }
+
+//Carrousel Tratamientos
+const contenedorPrincipal = document.querySelector(".contenedorTratamientos");
+const indice = document.querySelectorAll(".linksTratamientos");
+let currentIndice = 0;
+
+// Función para cambiar el div según el índice
+function cambiarDiv(index) {
+  let operacion = index * -33.3;
+  contenedorPrincipal.style.transform = `translateX(${operacion}%)`;
+
+  indice.forEach((cadaIndice, i) => {
+    indice[i].classList.remove("selected");
+  });
+  indice[index].classList.add("selected");
+}
+
+// Evento de clic en los puntos
+indice.forEach((cadaIndice, i) => {
+  indice[i].addEventListener("click", () => {
+    currentIndice = i;
+    cambiarDiv(currentIndice);
+  });
+});
+

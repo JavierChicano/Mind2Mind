@@ -198,6 +198,34 @@ main {
   border: 2px solid white;
   width: fit-content;
 }
+#contenedorTratamientos{
+  display: flex;
+  flex-direction: row;
+  width: 300%;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: transform 0.5s ease;
+  transform: translateX(0%);
+}
+#headerMedicamentos {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  width: calc(100% / 3);
+}
+#terapias {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  width: calc(100% / 3);
+  background-color: var(--colorBaseClaro);
+}
+
 #seccionTratamientos {
   display: flex;
   flex-direction: row;
@@ -418,10 +446,11 @@ main {
   width: 300px;
   background-image: url("img/fondo1.jpg");
   border: 2px solid white;
+  cursor: pointer;
 }
-.linksTratamientos a {
-  text-decoration: none;
-  color: black;
+.linksTratamientos.selected{
+  background-color: var(--colorPrincipal);
+  background-image: none;
 }
 #headerMedicamentos {
   display: flex;
@@ -1034,7 +1063,7 @@ main {
     padding: 20px;
     max-width: 350px;
   }
-  #aceptarFormContacto{
+  #aceptarFormContacto {
     justify-content: center;
   }
 }
@@ -1063,13 +1092,12 @@ main {
   margin-bottom: 18px;
 }
 @media screen and (max-width: 550px) {
-#mainPoliPriv div {
-  height: 200px;
-  font-size: 35px;
-  padding: 30px;
-}
-#mainPoliPriv section {
-  margin: 50px 30px;
-
-}
+  #mainPoliPriv div {
+    height: 200px;
+    font-size: 35px;
+    padding: 30px;
+  }
+  #mainPoliPriv section {
+    margin: 50px 30px;
+  }
 }
