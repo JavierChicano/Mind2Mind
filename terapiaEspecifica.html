@@ -8,69 +8,104 @@
     <link rel="stylesheet" href="styleHF.css" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <link rel="icon" href="img/logo.png" type="image/x-icon" />
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
     </style>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <a href='index.html'><img src="img/logo.png" id="logo"/></a>
-      <h1><a href='index.html'>MIND 2 MIND</a></h1>
+      <a href="index.html"><img src="img/logo.png" id="logo" /></a>
+      <h1><a href="index.html">MIND 2 MIND</a></h1>
       <div id="barraBusqueda">
-        <img src="img/calendar-month.png">
-        <p><a href='pedirCita.html'>Pedir Cita</a></p> 
+        <img src="img/calendar-month.png" />
+        <p><a href="pedirCita.html">Pedir Cita</a></p>
       </div>
-      <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
+      <span class="abrir-menu" id="abrir"
+        ><img id="hamburguesa" src="img/menuHamburguesa.png"
+      /></span>
       <nav class="nav" id="nav">
-        <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
+        <span class="cerrar-menu" id="cerrar"
+          ><img id="hamburguesa" src="img/menuHamburguesa.png"
+        /></span>
         <ul class="nav-list">
-            <li><a href='acercaDe.html'>Acerca de</a></li>
-            <li><a href='tratamientos.html'>Tratamientos</a></li>
-            <li><a href='#'>Servicios</a></li>
-            <!-- Abrir ventana modal -->
-            <li ><a class="openRegistro">Regístrate</a></li>
-            <li><a class="openLogIn">Inicia sesión</a></li>
-            <li><a id="account">Cuenta</a></li>
+          <li><a href="acercaDe.html">Acerca de</a></li>
+          <li><a href="tratamientos.html">Tratamientos</a></li>
+          <li><a href="#">Servicios</a></li>
+          <!-- Abrir ventana modal -->
+          <li><a class="openRegistro">Regístrate</a></li>
+          <li><a class="openLogIn">Inicia sesión</a></li>
+          <li><a id="account">Cuenta</a></li>
         </ul>
       </nav>
     </header>
     <!-- Contenedores Registro -->
     <div class="modal-Registro" id="modal-Registro">
       <div class="modalRegistro">
-        <span class="closeRegistro"><img src="img/closeWindow.png"></span>
+        <span class="closeRegistro"><img src="img/closeWindow.png" /></span>
         <section>
-          <span id="imgModal"><img src="img/logo.png"></span>
+          <span id="imgModal"><img src="img/logo.png" /></span>
           <article>
             <h1>Crea tu cuenta</h1>
             <section id="registroRedes">
-              <img src="img/RedesLogIn/brand-google.png">
-              <img src="img/RedesLogIn/brand-meta.png">
-              <img src="img/RedesLogIn/brand-x.png">
-              <img src="img/RedesLogIn/brand-apple.png">
+              <img src="img/RedesLogIn/brand-google.png" />
+              <img src="img/RedesLogIn/brand-meta.png" />
+              <img src="img/RedesLogIn/brand-x.png" />
+              <img src="img/RedesLogIn/brand-apple.png" />
             </section>
-            <hr>
+            <hr />
             <span id="centrarForm">
               <form action="#" method="post">
-                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
-            
-                <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos">
-            
-                <input type="email" id="email" name="email" placeholder="Correo electrónico">
-            
-                <input type="password" id="password" name="password" placeholder="Contraseña">
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  placeholder="Nombre"
+                />
+
+                <input
+                  type="text"
+                  id="apellidos"
+                  name="apellidos"
+                  placeholder="Apellidos"
+                />
+
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Correo electrónico"
+                />
+
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Contraseña"
+                />
                 <span id="checkBox">
-                  <input type="checkbox" id="aceptoTerminos" name="aceptoTerminos">
-                  <p for="aceptoTerminos">Acepto los &nbsp<a href='politicaPrivacidad.html'>términos y condiciones</a></p>
+                  <input
+                    type="checkbox"
+                    id="aceptoTerminos"
+                    name="aceptoTerminos"
+                  />
+                  <p for="aceptoTerminos">
+                    Acepto los &nbsp<a href="politicaPrivacidad.html"
+                      >términos y condiciones</a
+                    >
+                  </p>
                 </span>
-                <input type="submit" value="Crear cuenta">
+                <input type="submit" value="Crear cuenta" />
               </form>
             </span>
-            <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
-            
+            <p>
+              ¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn"
+                >Inicia sesion</a
+              >
+            </p>
           </article>
         </section>
       </div>
@@ -78,52 +113,116 @@
     <!-- Contenedores Login -->
     <div class="modal-LogIn" id="modal-LogIn">
       <div class="modalLogIn">
-        <span class="closeLogIn"><img src="img/closeWindow.png"></span>
+        <span class="closeLogIn"><img src="img/closeWindow.png" /></span>
         <section>
-          <span id="imgModal"><img src="img/logo.png"></span>
+          <span id="imgModal"><img src="img/logo.png" /></span>
           <article>
             <h1>Inicia sesión</h1>
             <section id="registroRedes">
-              <img src="img/RedesLogIn/brand-google.png">
-              <img src="img/RedesLogIn/brand-meta.png">
-              <img src="img/RedesLogIn/brand-x.png">
-              <img src="img/RedesLogIn/brand-apple.png">
+              <img src="img/RedesLogIn/brand-google.png" />
+              <img src="img/RedesLogIn/brand-meta.png" />
+              <img src="img/RedesLogIn/brand-x.png" />
+              <img src="img/RedesLogIn/brand-apple.png" />
             </section>
-            <hr>
+            <hr />
             <span id="centrarForm2">
               <form action="#" method="post">
-              
-                <input type="email" id="email" name="email" placeholder="Correo electrónico">
-        
-                <input type="password" id="password" name="password" placeholder="Contraseña">
-                
-                <input type="submit" value="Entrar en mi cuenta">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Correo electrónico"
+                />
+
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Contraseña"
+                />
+
+                <input type="submit" value="Entrar en mi cuenta" />
               </form>
             </span>
-            <p>¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro">Crea tu cuenta</a></p>
+            <p>
+              ¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro"
+                >Crea tu cuenta</a
+              >
+            </p>
           </article>
         </section>
       </div>
     </div>
-   <main>
-    <section id="seccionHeroTerapias">
+    <main>
+      <section id="seccionHeroTerapias">
         <h1>Terapia seleccionada</h1>
         <div>
-            <ul>
-                <li>Intensidad de la Luz: La caja de luz emite al menos 10,000 lux para ser eficaz, proporcionando una intensidad comparable a la luz solar.</li>
-                <li>Distancia y Ángulo: El paciente se sienta a una distancia específica de la caja de luz y mira hacia ella sin dirigir la mirada directamente a la fuente de luz.</li>
-                <li>Duración y Frecuencia: La duración y frecuencia de las sesiones pueden variar según la gravedad de los síntomas y la respuesta del paciente.</li>
-                <li>Tratamiento Continuo: La fototerapia puede requerir un tratamiento continuo durante la temporada en la que los síntomas del TAE son más prominentes.</li>
-            </ul>
-        <img src="img/Tratamientos/Electroconvulsiva.jpg">
+          <ul>
+            <li>
+              Intensidad de la Luz: La caja de luz emite al menos 10,000 lux
+              para ser eficaz, proporcionando una intensidad comparable a la luz
+              solar.
+            </li>
+            <li>
+              Distancia y Ángulo: El paciente se sienta a una distancia
+              específica de la caja de luz y mira hacia ella sin dirigir la
+              mirada directamente a la fuente de luz.
+            </li>
+            <li>
+              Duración y Frecuencia: La duración y frecuencia de las sesiones
+              pueden variar según la gravedad de los síntomas y la respuesta del
+              paciente.
+            </li>
+            <li>
+              Tratamiento Continuo: La fototerapia puede requerir un tratamiento
+              continuo durante la temporada en la que los síntomas del TAE son
+              más prominentes.
+            </li>
+          </ul>
+          <img src="img/Tratamientos/Electroconvulsiva.jpg" />
         </div>
         <article>
-            <span id="cajaPrecio"><span>2530</span><span>1392</span>
-            <img src="img/heart.png" id="corazonVacio">
-            <img src="img/heart-filled.png" id="corazonLleno">
+          <span id="cajaPrecio"
+            ><p><span>2530€</span><span>1392€</span></p></span
+          >
+          <img src="img/heart.png" id="corazonVacio" />
+          <img src="img/heart-filled.png" id="corazonLleno" />
         </article>
-    </section>
-   </main>
+      </section>
+      <section id="seccion2Terapias">
+        <article>
+          <aside>
+            <div class="partes parteVisualizando">Parte 1</div>
+            <div class="partes">Parte 2</div>
+            <div class="partes">Parte 3</div>
+            <div class="partes">Parte 4</div>
+          </aside>
+          <p>
+            Contenido de cada parte. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Quisquam, ea recusandae. Nulla, hic suscipit?
+            Autem non perspiciatis, laudantium reprehenderit iure animi a enim
+            vitae magnam veniam dolorem ratione, facilis in.
+          </p>
+          <p>
+            Contenido de cada parte. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Quisquam, ea recusandae. Nulla, hic suscipit?
+            Autem non perspiciatis, laudantium reprehenderit iure animi a enim
+            vitae magnam veniam dolorem ratione, facilis in.
+          </p>
+          <p>
+            Contenido de cada parte. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Quisquam, ea recusandae. Nulla, hic suscipit?
+            Autem non perspiciatis, laudantium reprehenderit iure animi a enim
+            vitae magnam veniam dolorem ratione, facilis in.
+          </p>
+        </article>
+
+        <video width="640" height="360" controls>
+          <source src="video.mp4" type="video/mp4" />
+          Tu navegador no soporta el elemento de video.
+        </video>
+      </section>
+    </main>
 
     <footer>
       <!-- Seccion about -->
@@ -134,12 +233,11 @@
           <li>Horario atención telefónica</li>
           <li class="fLista">L-V 10:00 - 21:00h</li>
         </ul>
-        
       </section>
 
       <!-- Seccion Recursos -->
       <section id="seccionContactoFooter">
-        <h1><a href='formContacto.html'>FORMULARIO DE CONTACTO</a></h1>
+        <h1><a href="formContacto.html">FORMULARIO DE CONTACTO</a></h1>
         <p>C/Alberto Aguilera 52</p>
         <p>28015 Madrid, España</p>
         <p>Tel: +34 661 661 662</p>
@@ -148,16 +246,17 @@
 
       <!-- Seccion Social Media -->
       <section id="seccionSocialMedia">
-        <img src="img/logo.png">
+        <img src="img/logo.png" />
         <article id="socialMedia">
-          <img src="img/mail.png">
-          <img src="img/instagram.png">
-          <img src="img/x.png">
+          <img src="img/mail.png" />
+          <img src="img/instagram.png" />
+          <img src="img/x.png" />
         </article>
       </section>
       <article>
-        Centro de Salud Mental autorizado por la Conserjería de Sanidad de la Comunidad de Madrid
-        <br>
+        Centro de Salud Mental autorizado por la Conserjería de Sanidad de la
+        Comunidad de Madrid
+        <br />
         Mind To Mind, S.L.P - Todos los derechos reservados
       </article>
     </footer>
