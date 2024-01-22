@@ -1225,8 +1225,9 @@ main {
 }
 #seccion2Terapias video {
   margin: 50px;
-  width: 640;
+  width: 640px;
   height: 360px;
+  margin-left: 120px;
 }
 .parteVisualizando {
   background-color: var(--colorPrincipal);
