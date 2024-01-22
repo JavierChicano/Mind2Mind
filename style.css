@@ -198,7 +198,7 @@ main {
   border: 2px solid white;
   width: fit-content;
 }
-#contenedorTratamientos{
+#contenedorTratamientos {
   display: flex;
   flex-direction: row;
   width: 300%;
@@ -254,7 +254,7 @@ main {
     scale: 1.05;
   }
 }
-.imgTarjetaTratamientos{
+.imgTarjetaTratamientos {
   width: 300px;
   height: 200px;
   margin: 0px;
@@ -273,7 +273,7 @@ main {
   margin-top: 5px;
   font-size: 15px;
 }
-.linkTarjetaTerapia{
+.linkTarjetaTerapia {
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -286,7 +286,6 @@ main {
   background-color: var(--colorBaseOscuro);
   &:hover {
     box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
-
   }
 }
 .linkTarjetaImg {
@@ -468,7 +467,7 @@ main {
   border: 2px solid white;
   cursor: pointer;
 }
-.linksTratamientos.selected{
+.linksTratamientos.selected {
   background-color: var(--colorPrincipal);
   background-image: none;
 }
@@ -1123,40 +1122,40 @@ main {
 }
 
 /*Tratamientos - Terapia especifica*/
-#seccionHeroTerapias{
+#seccionHeroTerapias {
   padding: 50px 200px;
   background-color: rgb(206, 206, 206);
 }
-#seccionHeroTerapias h1{
+#seccionHeroTerapias h1 {
   background-color: var(--colorTerciario);
   padding: 12px;
   width: fit-content;
   border-radius: 2px;
 }
-#seccionHeroTerapias div{
+#seccionHeroTerapias div {
   display: flex;
   flex-direction: row;
   gap: 200px;
 }
-#seccionHeroTerapias div img{
+#seccionHeroTerapias div img {
   width: 600px;
   height: 400px;
   border-radius: 30px;
 }
-#seccionHeroTerapias div ul{
+#seccionHeroTerapias div ul {
   margin: 30px;
   line-height: 25px;
 }
-#seccionHeroTerapias div ul li{
+#seccionHeroTerapias div ul li {
   margin: 20px;
 }
-#cajaPrecio{
+#cajaPrecio {
   width: 200px;
   gap: 0px;
   display: flex;
   align-items: center;
 }
-#cajaPrecio p{
+#cajaPrecio p {
   background-color: var(--colorSecundario);
   padding: 12px;
   border-radius: 8px;
@@ -1164,7 +1163,7 @@ main {
   align-items: center;
   gap: 20px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 2);
-  &:hover{
+  &:hover {
     scale: 1.05;
   }
 }
@@ -1175,39 +1174,38 @@ main {
   font-size: 30px;
 }
 #corazonVacio,
-#corazonLleno{
-  height: 30px;
-  width: 30px;
+#corazonLleno {
+  height: 50px;
   cursor: pointer;
-  &:hover{
+  &:hover {
     scale: 1.2;
   }
 }
-#corazonLleno{
+#corazonLleno {
   display: none;
 }
-#seccionHeroTerapias article{
+#seccionHeroTerapias article {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-#seccion2Terapias{
+#seccion2Terapias {
   display: flex;
   flex-direction: row;
 }
-#seccion2Terapias article{
+#seccion2Terapias article {
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#seccion2Terapias article aside{
+#seccion2Terapias article aside {
   display: flex;
   flex-direction: row;
   gap: 50px;
   border-bottom: 1px solid black;
 }
-.partes{
+.partes {
   background-color: var(--colorBaseOscuro);
   color: white;
   padding: 12px;
@@ -1218,17 +1216,77 @@ main {
   display: flex;
   justify-content: center;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 2);
-  &:hover{
+  &:hover {
     scale: 1.2;
   }
 }
-#seccion2Terapias p{
+#seccion2Terapias p {
   margin: 20px 100px;
 }
-#seccion2Terapias video{
+#seccion2Terapias video {
   margin: 50px;
+  width: 640;
+  height: 360px;
 }
-.parteVisualizando{
+.parteVisualizando {
   background-color: var(--colorPrincipal);
   color: black;
+}
+@media screen and (max-width: 550px) {
+  #seccionHeroTerapias {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  #seccionHeroTerapias div img {
+    display: none;
+  }
+  #seccionHeroTerapias div ul {
+    margin: 20px;
+    line-height: 20px;
+    width: 80%;
+  }
+  #seccionHeroTerapias div ul li {
+    margin: 20px;
+  }
+  #seccion2Terapias {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  #seccion2Terapias article {
+    width: 100%;
+  }
+  #seccion2Terapias article aside {
+    gap: 10px;
+  }
+  .partes {
+    margin-bottom: 10px;
+    margin-top: 20px;
+    width: 80px;
+  }
+  #seccion2Terapias p {
+    margin: 20px;
+    width: 80%;
+  }
+  #seccion2Terapias video {
+    margin: 20px;
+    width: 80%;
+    height: auto;
+  }
+  #cajaPrecio span:first-child {
+    text-decoration: line-through;
+    font-size: 15px;
+  }
+  #cajaPrecio span:last-child {
+    font-size: 20px;
+  }
+  #corazonVacio,
+  #corazonLleno {
+    height: 30px;
+  }
 }
