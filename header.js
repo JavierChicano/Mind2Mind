@@ -137,26 +137,26 @@ function mostrarAseguradora() {
 }
 
 //Carrousel Tratamientos
-const contenedorPrincipal = document.querySelector(".contenedorTratamientos");
-const indice = document.querySelectorAll(".linksTratamientos");
-let currentIndice = 0;
+// const contenedorPrincipal = document.querySelector(".contenedorTratamientos");
+// const indice = document.querySelectorAll(".linksTratamientos");
+// let currentIndice = 0;
 
-// Función para cambiar el div según el índice
-function cambiarDiv(index) {
-  let operacion = index * -33.3;
-  contenedorPrincipal.style.transform = `translateX(${operacion}%)`;
+// // Función para cambiar el div según el índice
+// function cambiarDiv(index) {
+//   let operacion = index * -33.3;
+//   contenedorPrincipal.style.transform = `translateX(${operacion}%)`;
 
-  indice.forEach((cadaIndice, i) => {
-    indice[i].classList.remove("selected");
-  });
-  indice[index].classList.add("selected");
-}
+//   indice.forEach((cadaIndice, i) => {
+//     indice[i].classList.remove("selected");
+//   });
+//   indice[index].classList.add("selected");
+// }
 
-// Evento de clic en los puntos
-indice.forEach((cadaIndice, i) => {
-  indice[i].addEventListener("click", () => {
-    currentIndice = i;
-    cambiarDiv(currentIndice);
-  });
-});
+// // Evento de clic en los puntos
+// indice.forEach((cadaIndice, i) => {
+//   indice[i].addEventListener("click", () => {
+//     currentIndice = i;
+//     cambiarDiv(currentIndice);
+//   });
+// });
 

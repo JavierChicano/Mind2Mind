@@ -247,14 +247,14 @@ main {
   align-items: center;
   justify-content: center;
   width: 350px;
-  height: 380px;
+  height: 430px;
   box-shadow: 0 0 10px 10px rgba(247, 207, 208, 0.3);
   border: 2px solid white;
   &:hover {
     scale: 1.05;
   }
 }
-#seccionTratamientos div img {
+.imgTarjetaTratamientos{
   width: 300px;
   height: 200px;
   margin: 0px;
@@ -273,7 +273,27 @@ main {
   margin-top: 5px;
   font-size: 15px;
 }
+.linkTarjetaTerapia{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 10px;
+  color: white;
+  padding: 8px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: -10px;
+  background-color: var(--colorBaseOscuro);
+  &:hover {
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
 
+  }
+}
+.linkTarjetaImg {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
 @media screen and (max-width: 550px) {
   .titulo {
     font-size: 50px;
@@ -1100,4 +1120,55 @@ main {
   #mainPoliPriv section {
     margin: 50px 30px;
   }
+}
+
+/*Tratamientos - Terapia especifica*/
+#seccionHeroTerapias{
+  padding: 50px 200px;
+}
+#seccionHeroTerapias h1{
+  background-color: var(--colorTerciario);
+  padding: 12px;
+  width: fit-content;
+  border-radius: 2px;
+}
+#seccionHeroTerapias div{
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+}
+#seccionHeroTerapias div img{
+  width: 600px;
+  height: 400px;
+  border-radius: 30px;
+}
+#seccionHeroTerapias div ul{
+  margin: 30px;
+  line-height: 25px;
+}
+#seccionHeroTerapias div ul li{
+  margin: 20px;
+}
+#cajaPrecio{
+  width: 200px;
+  background-color: var(--colorSecundario);
+  gap: 0px;
+  padding: 12px;
+
+}
+#cajaPrecio span:first-child {
+  text-decoration: line-through;
+}
+#corazonVacio{
+  height: 30px;
+  width: 30px;
+}
+#corazonLleno{
+  height: 30px;
+  width: 30px;
+}
+#seccionHeroTerapias article{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
