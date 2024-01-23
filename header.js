@@ -94,19 +94,21 @@ function cambiarDiv(index) {
   punto[index].classList.add("activo");
 }
 
-// Evento de clic en los puntos
-punto.forEach((cadaPunto, i) => {
-  punto[i].addEventListener("click", () => {
-    currentIndex = i;
-    cambiarDiv(currentIndex);
+if (grande) {
+  // Evento de clic en los puntos
+  punto.forEach((cadaPunto, i) => {
+    punto[i].addEventListener("click", () => {
+      currentIndex = i;
+      cambiarDiv(currentIndex);
+    });
   });
-});
 
-// Cambiar automáticamente cada 5 segundos (ajusta según tus necesidades)
-setInterval(() => {
-  currentIndex = (currentIndex + 1) % punto.length;
-  cambiarDiv(currentIndex);
-}, 5000); // Cambia cada 5 segundos (5000 milisegundos)
+  // Cambiar automáticamente cada 5 segundos (ajusta según tus necesidades)
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % punto.length;
+    cambiarDiv(currentIndex);
+  }, 5000); // Cambia cada 5 segundos (5000 milisegundos)
+}
 
 //Cambio de fases Form de PedirCita
 let faseActual = 1;
@@ -140,26 +142,26 @@ function mostrarAseguradora() {
 }
 
 //Carrousel Tratamientos
-// const contenedorPrincipal = document.querySelector(".contenedorTratamientos");
-// const indice = document.querySelectorAll(".linksTratamientos");
-// let currentIndice = 0;
+const contenedorPrincipal = document.querySelector(".contenedorTratamientos");
+const indice = document.querySelectorAll(".linksTratamientos");
+let currentIndice = 0;
 
-// // Función para cambiar el div según el índice
-// function cambiarDiv(index) {
-//   let operacion = index * -33.3;
-//   contenedorPrincipal.style.transform = `translateX(${operacion}%)`;
+// Función para cambiar el div según el índice
+function cambiarDiv(index) {
+  let operacion = index * -33.3;
+  contenedorPrincipal.style.transform = `translateX(${operacion}%)`;
 
-//   indice.forEach((cadaIndice, i) => {
-//     indice[i].classList.remove("selected");
-//   });
-//   indice[index].classList.add("selected");
-// }
-
-// // Evento de clic en los puntos
-// indice.forEach((cadaIndice, i) => {
-//   indice[i].addEventListener("click", () => {
-//     currentIndice = i;
-//     cambiarDiv(currentIndice);
-//   });
-// });
-
+  indice.forEach((cadaIndice, i) => {
+    indice[i].classList.remove("selected");
+  });
+  indice[index].classList.add("selected");
+}
+if (indice) {
+  // Evento de clic en los puntos
+  indice.forEach((cadaIndice, i) => {
+    indice[i].addEventListener("click", () => {
+      currentIndice = i;
+      cambiarDiv(currentIndice);
+    });
+  });
+}
