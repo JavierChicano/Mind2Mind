@@ -30,10 +30,10 @@
         <ul class="nav-list">
             <li><a href='acercaDe.html'>Acerca de</a></li>
             <li><a href='tratamientos.html'>Tratamientos</a></li>
-            <li><a href='#'>Servicios</a></li>
+            <li><a href='servicios.html'>Servicios</a></li>
             <!-- Abrir ventana modal -->
-            <li ><a id="openRegistro">Regístrate</a></li>
-            <li><a id="openLogIn">Inicia sesión</a></li>
+            <li ><a class="openRegistro">Regístrate</a></li>
+            <li><a class="openLogIn">Inicia sesión</a></li>
             <li><a id="account">Cuenta</a></li>
         </ul>
       </nav>
@@ -41,7 +41,7 @@
     <!-- Contenedores Registro -->
     <div class="modal-Registro" id="modal-Registro">
       <div class="modalRegistro">
-        <span id="closeRegistro"><img src="img/closeWindow.png"></span>
+        <span class="closeRegistro"><img src="img/closeWindow.png"></span>
         <section>
           <span id="imgModal"><img src="img/logo.png"></span>
           <article>
@@ -64,7 +64,7 @@
                 <input type="password" id="password" name="password" placeholder="Contraseña">
                 <span id="checkBox">
                   <input type="checkbox" id="aceptoTerminos" name="aceptoTerminos">
-                  <p for="aceptoTerminos">Acepto los términos y condiciones</p>
+                  <p for="aceptoTerminos">Acepto los &nbsp<a href='politicaPrivacidad.html'>términos y condiciones</a></p>
                 </span>
                 <input type="submit" value="Crear cuenta">
               </form>
@@ -78,7 +78,7 @@
     <!-- Contenedores Login -->
     <div class="modal-LogIn" id="modal-LogIn">
       <div class="modalLogIn">
-        <span id="closeLogIn"><img src="img/closeWindow.png"></span>
+        <span class="closeLogIn"><img src="img/closeWindow.png"></span>
         <section>
           <span id="imgModal"><img src="img/logo.png"></span>
           <article>

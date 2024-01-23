@@ -20,9 +20,12 @@ abrirModal.addEventListener("click", () => {
   contendorModal2.classList.remove("show");
   contendorModal.classList.add("show");
 });
-abrilModalCuenta.addEventListener("click", () => {
-  contendorModal.classList.add("show");
-});
+if (abrilModalCuenta) {
+  abrilModalCuenta.addEventListener("click", () => {
+    contendorModal.classList.add("show");
+  });
+}
+
 cerrarModal.addEventListener("click", () => {
   contendorModal.classList.remove("show");
 });

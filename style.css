@@ -1,7 +1,7 @@
 :root {
   --colorBaseClaro: #dfdedd;
   --colorBaseOscuro: #506059;
-  --colorPrincipal: #f7cfd0;
+  --colorPrincipal: white;
   --colorSecundario: #a9ddd0;
   --colorTerciario: #757780;
   --colorContraste: rgb(54, 208, 199);
