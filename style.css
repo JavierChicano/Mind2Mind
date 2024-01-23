@@ -467,6 +467,10 @@ main {
   border: 2px solid white;
   cursor: pointer;
 }
+.linksTratamientos a{
+  text-decoration: none;
+  color: black;
+}
 .linksTratamientos.selected {
   background-color: var(--colorPrincipal);
   background-image: none;
@@ -954,6 +958,9 @@ main {
   flex-direction: column;
   align-items: center;
 }
+#mainFormContacto aside img{
+  width: 100%;
+}
 #mainFormContacto aside h1 {
   font-family: "Montserrat", sans-serif;
   position: absolute;
@@ -978,7 +985,7 @@ main {
   background-image: url("img/fondo1.jpg");
   margin-top: 40px;
   margin-bottom: 30px;
-  border-radius: 20px;
+  border-radius: 0px 20px;
   border: 2px solid white;
 }
 #mainFormContacto input {
@@ -1005,6 +1012,10 @@ main {
 #mainFormContacto input [type="submit"] {
   width: 300px;
   height: 100px;
+}
+#estiloFondoForm{
+  display: flex;
+  justify-content: center;
 }
 #estiloFondoForm textarea {
   outline: none;
@@ -1039,14 +1050,32 @@ main {
   align-items: center;
   flex-direction: column;
 }
-#textContacto h2 {
+#textContacto aside{
+  font-size: 30px;
+  display: flex;
+  font-style: italic;
+  margin-top: 50px;
+}
+#textContacto div{
   margin-top: 40px;
-  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--colorPrincipal);
+  padding: 12px;
+  border-radius: 12px 0 12px 0;
+  border: 2px solid white;
+}
+#textContacto h2 {
+  font-size: 50px;
   margin-bottom: 30px;
+  
 }
 #textContacto p {
   font-size: 20px;
-  width: 500px;
+  width: 600px;
+  background-color: var(--colorPrincipal);
+  padding: 12px;
+  border-radius: 0 0 12px 12px;
 }
 @media screen and (max-width: 550px) {
   #mainFormContacto aside h1 {
@@ -1060,6 +1089,7 @@ main {
   #mainFormContacto div {
     flex-direction: column;
     align-items: center;
+    margin-top: 0px;
   }
   #textContacto h2 {
     font-size: 30px;
@@ -1070,6 +1100,11 @@ main {
   }
   #mainFormContacto div section {
     width: 100%;
+  }
+  #textContacto aside{
+    font-size: 18px;
+    padding: 20px;
+    margin-top: 20px;
   }
   #estiloFondoForm {
     display: flex;
@@ -1290,4 +1325,19 @@ main {
   #corazonLleno {
     height: 30px;
   }
+}
+
+/*Pagina de servicios*/
+.centrarTituloServicios{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.centrarTituloServicios h1{
+  color: white;
+  background-color: var(--colorBaseOscuro);
+  padding: 12px;
+  font-size: 50px;
+  border-radius: 2px;
+  margin-bottom: 50px;
 }
