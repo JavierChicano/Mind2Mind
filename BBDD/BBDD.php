@@ -114,9 +114,6 @@ if ($resultado->num_rows == 0) {
         $conexion->query("ALTER TABLE Testimonios ADD FOREIGN KEY (paciente_id) REFERENCES Pacientes(id)");
 
         // Añadir las relaciones a la tabla Chat
-        $conexion->query("ALTER TABLE Chat ADD COLUMN profesional_id INT");
-        $conexion->query("ALTER TABLE Chat ADD FOREIGN KEY (profesional_id) REFERENCES Profesionales(id)");
-
         $conexion->query("ALTER TABLE Chat ADD COLUMN paciente_id INT");
         $conexion->query("ALTER TABLE Chat ADD FOREIGN KEY (paciente_id) REFERENCES Pacientes(id)");
 
@@ -129,9 +126,6 @@ if ($resultado->num_rows == 0) {
         $conexion->query("ALTER TABLE Terapias ADD FOREIGN KEY (paciente_id) REFERENCES Pacientes(id)");
 
         // Añadir las relaciones a la tabla Profesionales
-        $conexion->query("ALTER TABLE Profesionales ADD COLUMN testimonio_id INT, ADD FOREIGN KEY (testimonio_id) REFERENCES Testimonios(id)");
-        $conexion->query("ALTER TABLE Profesionales ADD COLUMN chat_id INT, ADD FOREIGN KEY (chat_id) REFERENCES Chat(id)");
-        $conexion->query("ALTER TABLE Profesionales ADD COLUMN descuento_id INT, ADD FOREIGN KEY (descuento_id) REFERENCES Descuentos(id)");
         $conexion->query("ALTER TABLE Profesionales ADD COLUMN terapia_id INT, ADD FOREIGN KEY (terapia_id) REFERENCES Terapias(id)");
 
         echo "<br>Proceso de creación completado<br>";
@@ -227,8 +221,10 @@ function insertarDatosEjemplo($conexion)
     ('Carlos', 'Rodríguez', 35, 'Masculino', '2022-03-20'),
     ('Ana', 'Martínez', 28, 'Femenino', '2022-04-10'),
     ('Pedro', 'Sánchez', 40, 'Masculino', '2022-05-05')");
+
     }
 
 // Cerrar la conexión
 $conexion->close();
 ?>
+
