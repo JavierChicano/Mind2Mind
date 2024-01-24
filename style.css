@@ -5,6 +5,7 @@
   --colorSecundario: #a9ddd0;
   --colorTerciario: #757780;
   --colorContraste: rgb(54, 208, 199);
+  --principal: #e6b3b4;
 }
 
 main {
@@ -461,13 +462,14 @@ main {
   justify-content: center;
   align-items: center;
   padding: 8px;
+  text-align: center;
   border-radius: 8px;
   width: 300px;
   background-image: url("img/fondo1.jpg");
   border: 2px solid white;
   cursor: pointer;
 }
-.linksTratamientos a{
+.linksTratamientos a {
   text-decoration: none;
   color: black;
 }
@@ -958,7 +960,7 @@ main {
   flex-direction: column;
   align-items: center;
 }
-#mainFormContacto aside img{
+#mainFormContacto aside img {
   width: 100%;
 }
 #mainFormContacto aside h1 {
@@ -1013,7 +1015,7 @@ main {
   width: 300px;
   height: 100px;
 }
-#estiloFondoForm{
+#estiloFondoForm {
   display: flex;
   justify-content: center;
 }
@@ -1050,13 +1052,13 @@ main {
   align-items: center;
   flex-direction: column;
 }
-#textContacto aside{
+#textContacto aside {
   font-size: 30px;
   display: flex;
   font-style: italic;
   margin-top: 50px;
 }
-#textContacto div{
+#textContacto div {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -1068,7 +1070,6 @@ main {
 #textContacto h2 {
   font-size: 50px;
   margin-bottom: 30px;
-  
 }
 #textContacto p {
   font-size: 20px;
@@ -1101,7 +1102,7 @@ main {
   #mainFormContacto div section {
     width: 100%;
   }
-  #textContacto aside{
+  #textContacto aside {
     font-size: 18px;
     padding: 20px;
     margin-top: 20px;
@@ -1328,16 +1329,283 @@ main {
 }
 
 /*Pagina de servicios*/
-.centrarTituloServicios{
+.centrarTituloServicios {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.centrarTituloServicios h1{
+.centrarTituloServicios h1 {
   color: white;
   background-color: var(--colorBaseOscuro);
   padding: 12px;
   font-size: 50px;
   border-radius: 2px;
-  margin-bottom: 50px;
+}
+#ayudasEconomicas {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  margin: 50px 100px;
+}
+#ayudasEconomicas section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--colorTerciario);
+  padding: 12px;
+  border-radius: 2px;
+  height: 650px;
+}
+#ayudasEconomicas section h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--colorSecundario);
+  padding: 12px;
+  border-radius: 2px;
+  font-size: 30px;
+}
+#contenedorDescuentos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 50px;
+  justify-content: center;
+  align-items: center;
+}
+#descuento1,
+#descuento4,
+#descuento5 {
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  font-size: 30px;
+}
+
+#descuento2,
+#descuento3,
+#descuento6 {
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 140px;
+  background-color: var(--principal);
+  border-radius: 50%;
+  font-size: 50px;
+}
+#contenedorAyudasBecas {
+  display: flex;
+  padding: 50px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#contenedorAyudasBecas p {
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+#contenedorAyudasBecas div {
+  background-color: white;
+  width: 100%;
+  height: 100px;
+  margin-top: 50px;
+  border-radius: 2px;
+}
+#seccionChat {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  padding: 50px 100px;
+}
+#visualizacionChat {
+  width: 35%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--colorBaseClaro);
+  border-radius: 12px;
+}
+#visualizacionChat img {
+  width: 50%;
+  height: 300px;
+  margin-top: 30px;
+  border-radius: 50%;
+}
+#visualizacionChat h2 {
+  background-color: var(--colorSecundario);
+  padding: 12px;
+  border-radius: 2px;
+  margin-top: 20px;
+}
+
+#visualizacionChat article {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+#visualizacionChat article li {
+  line-height: 3;
+}
+#chat {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-direction: column;
+  background-color: var(--colorBaseClaro);
+  border-radius: 12px;
+  padding: 10px 50px;
+}
+.recibir {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  margin-bottom: 20px;
+}
+.recibir span {
+  background-color: var(--colorTerciario);
+  padding: 10px;
+  border-radius: 0px 8px 8px 8px;
+  color: white;
+}
+.enviar {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  margin-bottom: 20px;
+}
+.enviar span {
+  background-color: rgb(55, 92, 0);
+  padding: 10px;
+  border-radius: 8px 0px 8px 8px;
+  color: white;
+}
+#formularioChat {
+  margin-top: 10px;
+  width: 100%;
+  max-width: 100%;
+}
+
+#mensaje {
+  width: 80%;
+  padding: 8px;
+  border: 2px solid var(--colorBaseOscuro);
+  background-color: white;
+  border-radius: 16px;
+}
+
+#formularioChat button {
+  width: 10%;
+  height: 45px;
+  margin-left: 8px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#formularioChat button:hover {
+  background-color: #0056b3;
+}
+@media screen and (max-width: 550px) {
+  .centrarTituloServicios h1 {
+    padding: 12px;
+    font-size: 35px;
+  }
+  #ayudasEconomicas {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 20px 30px;
+  }
+  #ayudasEconomicas section {
+    padding: 8px;
+    height: fit-content;
+  }
+  #contenedorDescuentos {
+    padding: 20px;
+  }
+  #descuento1,
+  #descuento4,
+  #descuento5 {
+    width: 65%;
+    height: 100px;
+    font-size: 20px;
+  }
+
+  #descuento2,
+  #descuento3,
+  #descuento6 {
+    width: 35%;
+    height: 100px;
+    border-radius: 50%;
+    font-size: 30px;
+  }
+  #contenedorAyudasBecas {
+    display: flex;
+    padding: 20px;
+  }
+  #contenedorAyudasBecas p {
+    margin-top: 0px;
+  }
+  #contenedorAyudasBecas div {
+    width: 100%;
+    height: 100px;
+    margin-top: 30px;
+  }
+  #seccionChat {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px 30px;
+  }
+  #visualizacionChat {
+    width: 100%;
+  }
+  #visualizacionChat img {
+    width: 50%;
+    height: 150px;
+    margin-top: 30px;
+    border-radius: 50%;
+  }
+  #visualizacionChat article {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  #visualizacionChat article li {
+    line-height: 3;
+  }
+  #chat {
+    width: 100%;
+    padding: 20px 30px;
+  }
+  #mensaje {
+    width: 60%;
+    padding: 8px;
+    border: 2px solid var(--colorBaseOscuro);
+    background-color: white;
+    border-radius: 16px;
+  }
+
+  #formularioChat button {
+    width: 30%;
+    height: 30px;
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
 }

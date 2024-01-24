@@ -465,6 +465,12 @@ footer section ul li {
 }
 #seccionSocialMedia img {
   width: 100px;
+  margin-left: 0px;
+}
+#seccionSocialMedia a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #socialMedia img {
   width: 50px;

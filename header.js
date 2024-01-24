@@ -81,6 +81,7 @@ $(document).ready(function () {
 //Carrousel imagemes
 const grande = document.querySelector(".contenedorIMG");
 const punto = document.querySelectorAll(".punto");
+
 let currentIndex = 0;
 
 // Función para cambiar el div según el índice
@@ -95,6 +96,7 @@ function cambiarDiv(index) {
 }
 
 if (grande) {
+  console.log("kldsldfslbfdls");
   // Evento de clic en los puntos
   punto.forEach((cadaPunto, i) => {
     punto[i].addEventListener("click", () => {
@@ -141,27 +143,28 @@ function mostrarAseguradora() {
   );
 }
 
-//Carrousel Tratamientos
-const contenedorPrincipal = document.querySelector(".contenedorTratamientos");
-const indice = document.querySelectorAll(".linksTratamientos");
-let currentIndice = 0;
+// Carrousel Tratamientos
+const contenedorTratamientos = document.querySelector(".contenedorTratamientos");
+const linksTratamientos = document.querySelectorAll(".linksTratamientos");
+let currentIndexTratamientos = 0;
 
 // Función para cambiar el div según el índice
-function cambiarDiv(index) {
-  let operacion = index * -33.3;
-  contenedorPrincipal.style.transform = `translateX(${operacion}%)`;
+function cambiarDivTratamientos(index) {
+  let operation = index * -33.3;
+  contenedorTratamientos.style.transform = `translateX(${operation}%)`;
 
-  indice.forEach((cadaIndice, i) => {
-    indice[i].classList.remove("selected");
+  linksTratamientos.forEach((link, i) => {
+    linksTratamientos[i].classList.remove("selected");
   });
-  indice[index].classList.add("selected");
+  linksTratamientos[index].classList.add("selected");
 }
-if (indice) {
+
+if (linksTratamientos) {
   // Evento de clic en los puntos
-  indice.forEach((cadaIndice, i) => {
-    indice[i].addEventListener("click", () => {
-      currentIndice = i;
-      cambiarDiv(currentIndice);
+  linksTratamientos.forEach((link, i) => {
+    linksTratamientos[i].addEventListener("click", () => {
+      currentIndexTratamientos = i;
+      cambiarDivTratamientos(currentIndexTratamientos);
     });
   });
 }

@@ -8,113 +8,215 @@
     <link rel="stylesheet" href="styleHF.css" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <link rel="icon" href="img/logo.png" type="image/x-icon" />
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
     </style>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-        <a href='index.html'><img src="img/logo.png" id="logo"/></a>
-        <h1><a href='index.html'>MIND 2 MIND</a></h1>
-        <div id="barraBusqueda">
-          <img src="img/calendar-month.png">
-          <p><a href='pedirCita.html'>Pedir Cita</a></p> 
-        </div>
-        <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
-        <nav class="nav" id="nav">
-          <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
-          <ul class="nav-list">
-              <li><a href='acercaDe.html'>Acerca de</a></li>
-              <li><a href='tratamientos.html'>Tratamientos</a></li>
-              <li><a href='servicios.html'>Servicios</a></li>
-              <!-- Abrir ventana modal -->
-              <li ><a class="openRegistro">Regístrate</a></li>
-              <li><a class="openLogIn">Inicia sesión</a></li>
-              <li><a id="account">Cuenta</a></li>
-          </ul>
-        </nav>
-      </header>
-      <!-- Contenedores Registro -->
-      <div class="modal-Registro" id="modal-Registro">
-        <div class="modalRegistro">
-          <span class="closeRegistro"><img src="img/closeWindow.png"></span>
-          <section>
-            <span id="imgModal"><img src="img/logo.png"></span>
-            <article>
-              <h1>Crea tu cuenta</h1>
-              <section id="registroRedes">
-                <img src="img/RedesLogIn/brand-google.png">
-                <img src="img/RedesLogIn/brand-meta.png">
-                <img src="img/RedesLogIn/brand-x.png">
-                <img src="img/RedesLogIn/brand-apple.png">
-              </section>
-              <hr>
-              <span id="centrarForm">
-                <form action="#" method="post">
-                  <input type="text" id="nombre" name="nombre" placeholder="Nombre">
-              
-                  <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos">
-              
-                  <input type="email" id="email" name="email" placeholder="Correo electrónico">
-              
-                  <input type="password" id="password" name="password" placeholder="Contraseña">
-                  <span id="checkBox">
-                    <input type="checkbox" id="aceptoTerminos" name="aceptoTerminos">
-                    <p for="aceptoTerminos">Acepto los &nbsp<a href='politicaPrivacidad.html'>términos y condiciones</a></p>
-                  </span>
-                  <input type="submit" value="Crear cuenta">
-                </form>
-              </span>
-              <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
-              
-            </article>
-          </section>
-        </div>
+      <a href="index.html"><img src="img/logo.png" id="logo" /></a>
+      <h1><a href="index.html">MIND 2 MIND</a></h1>
+      <div id="barraBusqueda">
+        <img src="img/calendar-month.png" />
+        <p><a href="pedirCita.html">Pedir Cita</a></p>
       </div>
-      <!-- Contenedores Login -->
-      <div class="modal-LogIn" id="modal-LogIn">
-        <div class="modalLogIn">
-          <span class="closeLogIn"><img src="img/closeWindow.png"></span>
-          <section>
-            <span id="imgModal"><img src="img/logo.png"></span>
-            <article>
-              <h1>Inicia sesión</h1>
-              <section id="registroRedes">
-                <img src="img/RedesLogIn/brand-google.png">
-                <img src="img/RedesLogIn/brand-meta.png">
-                <img src="img/RedesLogIn/brand-x.png">
-                <img src="img/RedesLogIn/brand-apple.png">
-              </section>
-              <hr>
-              <span id="centrarForm2">
-                <form action="#" method="post">
-                
-                  <input type="email" id="email" name="email" placeholder="Correo electrónico">
-          
-                  <input type="password" id="password" name="password" placeholder="Contraseña">
-                  
-                  <input type="submit" value="Entrar en mi cuenta">
-                </form>
-              </span>
-              <p>¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro">Crea tu cuenta</a></p>
-            </article>
-          </section>
-        </div>
+      <span class="abrir-menu" id="abrir"
+        ><img id="hamburguesa" src="img/menuHamburguesa.png"
+      /></span>
+      <nav class="nav" id="nav">
+        <span class="cerrar-menu" id="cerrar"
+          ><img id="hamburguesa" src="img/menuHamburguesa.png"
+        /></span>
+        <ul class="nav-list">
+          <li><a href="acercaDe.html">Acerca de</a></li>
+          <li><a href="tratamientos.html">Tratamientos</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <!-- Abrir ventana modal -->
+          <li><a class="openRegistro">Regístrate</a></li>
+          <li><a class="openLogIn">Inicia sesión</a></li>
+          <li><a id="account">Cuenta</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Contenedores Registro -->
+    <div class="modal-Registro" id="modal-Registro">
+      <div class="modalRegistro">
+        <span class="closeRegistro"><img src="img/closeWindow.png" /></span>
+        <section>
+          <span id="imgModal"><img src="img/logo.png" /></span>
+          <article>
+            <h1>Crea tu cuenta</h1>
+            <section id="registroRedes">
+              <img src="img/RedesLogIn/brand-google.png" />
+              <img src="img/RedesLogIn/brand-meta.png" />
+              <img src="img/RedesLogIn/brand-x.png" />
+              <img src="img/RedesLogIn/brand-apple.png" />
+            </section>
+            <hr />
+            <span id="centrarForm">
+              <form action="#" method="post">
+                <input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  placeholder="Nombre"
+                />
+
+                <input
+                  type="text"
+                  id="apellidos"
+                  name="apellidos"
+                  placeholder="Apellidos"
+                />
+
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Correo electrónico"
+                />
+
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Contraseña"
+                />
+                <span id="checkBox">
+                  <input
+                    type="checkbox"
+                    id="aceptoTerminos"
+                    name="aceptoTerminos"
+                  />
+                  <p for="aceptoTerminos">
+                    Acepto los &nbsp<a href="politicaPrivacidad.html"
+                      >términos y condiciones</a
+                    >
+                  </p>
+                </span>
+                <input type="submit" value="Crear cuenta" />
+              </form>
+            </span>
+            <p>
+              ¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn"
+                >Inicia sesion</a
+              >
+            </p>
+          </article>
+        </section>
       </div>
-   <main>
-    <section id="headerTratamientos">
+    </div>
+    <!-- Contenedores Login -->
+    <div class="modal-LogIn" id="modal-LogIn">
+      <div class="modalLogIn">
+        <span class="closeLogIn"><img src="img/closeWindow.png" /></span>
+        <section>
+          <span id="imgModal"><img src="img/logo.png" /></span>
+          <article>
+            <h1>Inicia sesión</h1>
+            <section id="registroRedes">
+              <img src="img/RedesLogIn/brand-google.png" />
+              <img src="img/RedesLogIn/brand-meta.png" />
+              <img src="img/RedesLogIn/brand-x.png" />
+              <img src="img/RedesLogIn/brand-apple.png" />
+            </section>
+            <hr />
+            <span id="centrarForm2">
+              <form action="#" method="post">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Correo electrónico"
+                />
+
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Contraseña"
+                />
+
+                <input type="submit" value="Entrar en mi cuenta" />
+              </form>
+            </span>
+            <p>
+              ¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro"
+                >Crea tu cuenta</a
+              >
+            </p>
+          </article>
+        </section>
+      </div>
+    </div>
+    <main>
+      <section id="headerTratamientos">
         <div class="linksTratamientos">Videollamadas</div>
         <div class="linksTratamientos">Ayudas/becas</div>
         <div class="linksTratamientos">Chat asesoramiento</div>
       </section>
-    <span class="centrarTituloServicios"><h1>Videollamadas</h1></span>
-    <span class="centrarTituloServicios"><h1>Ayudas Económicas</h1></span>
-    <span class="centrarTituloServicios"><h1>Chat asesoramiento</h1></span>
-   </main>
+      <span class="centrarTituloServicios"><h1>Videollamadas</h1></span>
+      <span class="centrarTituloServicios"><h1>Ayudas Económicas</h1></span>
+      <article id="ayudasEconomicas">
+        <section>
+          <h1>Financiación</h1>
+          <div></div>
+        </section>
+        <section>
+          <h1>Ayudas/Becas</h1>
+          <article id="contenedorAyudasBecas">
+            <p>
+              Estos son los diferentes escenarios que pueden ser elegibles para
+              participar en nuestro programa de ayudas y becas.
+            </p>
+            <div></div>
+            <div></div>
+            <div></div>
+          </article>
+        </section>
+        <section>
+          <h1>Descuentos</h1>
+          <article id="contenedorDescuentos">
+            <div id="descuento1">Aprovecha ahora!</div>
+            <div id="descuento2">15%</div>
+            <div id="descuento3">25%</div>
+            <div id="descuento4">Oferta imperdible</div>
+            <div id="descuento5">Descuento único</div>
+            <div id="descuento6">35%</div>
+          </article>
+        </section>
+      </article>
+      <span class="centrarTituloServicios"><h1>Chat asesoramiento</h1> </span>
+      <section id="seccionChat">
+        <aside id="visualizacionChat">
+          <img src="img/Nosotros/1.png" />
+          <h2>Dr. Garcia Vaquero</h2>
+          <article>
+            <ul>
+              <li>Psiquiatria</li>
+              <li>Horario: Tardes</li>
+              <li>Especialidad: Trastorno</li>
+            </ul>
+          </article>
+        </aside>
+        <div id="chat">
+          <p class="recibir"><span>buenos dias, con que puedo ayudarte</span></p>
+          <p class="enviar"><span>Tengo un problema mental</span></p>
+          <p class="recibir"><span>Entiendo, para eso estamos</span></p>
+          <p class="recibir"><span>Intentaremos darte el mejor tratamiento posible</span></p>
+          <p class="enviar"><span>Muchas gracias por la ayuda y compromiso</span></p>
+          <p class="enviar"><span>Esta pagina web es la mejor del mundo</span></p>
+          <form id="formularioChat">
+            <input type="text" id="mensaje" placeholder="Escribe tu mensaje aquí" />
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+      </section>
+    </main>
 
     <footer>
       <!-- Seccion about -->
@@ -125,12 +227,11 @@
           <li>Horario atención telefónica</li>
           <li class="fLista">L-V 10:00 - 21:00h</li>
         </ul>
-        
       </section>
 
       <!-- Seccion Recursos -->
       <section id="seccionContactoFooter">
-        <h1><a href='formContacto.html'>FORMULARIO DE CONTACTO</a></h1>
+        <h1><a href="formContacto.html">FORMULARIO DE CONTACTO</a></h1>
         <p>C/Alberto Aguilera 52</p>
         <p>28015 Madrid, España</p>
         <p>Tel: +34 661 661 662</p>
@@ -139,16 +240,17 @@
 
       <!-- Seccion Social Media -->
       <section id="seccionSocialMedia">
-        <img src="img/logo.png">
+        <a href='index.html'><img src="img/logo.png" id="logo"/></a>
         <article id="socialMedia">
-          <img src="img/mail.png">
-          <img src="img/instagram.png">
-          <img src="img/x.png">
+          <img src="img/mail.png" />
+          <img src="img/instagram.png" />
+          <img src="img/x.png" />
         </article>
       </section>
       <article>
-        Centro de Salud Mental autorizado por la Conserjería de Sanidad de la Comunidad de Madrid
-        <br>
+        Centro de Salud Mental autorizado por la Conserjería de Sanidad de la
+        Comunidad de Madrid
+        <br />
         Mind To Mind, S.L.P - Todos los derechos reservados
       </article>
     </footer>
