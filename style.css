@@ -5,7 +5,7 @@
   --colorSecundario: #a9ddd0;
   --colorTerciario: #757780;
   --colorContraste: rgb(54, 208, 199);
-  --principal: #e6b3b4;
+  --rosa: #e6b3b4;
 }
 
 main {
@@ -57,8 +57,7 @@ main {
   margin: 50px 200px 50px 200px;
   border-radius: 30px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 2);
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 .puntos {
   width: 100%;
@@ -199,9 +198,11 @@ main {
   border: 2px solid white;
   width: fit-content;
 }
+#heroTratamientos{
+  overflow: hidden;
+}
 #contenedorTratamientos {
   display: flex;
-  flex-direction: row;
   width: 300%;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -219,6 +220,14 @@ main {
   width: calc(100% / 3);
 }
 #terapias {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  width: calc(100% / 3);
+  background-color: var(--colorBaseClaro);
+}
+#autoAyuda{
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -474,7 +483,8 @@ main {
   color: black;
 }
 .linksTratamientos.selected {
-  background-color: var(--colorPrincipal);
+  background-color: var(--colorBaseOscuro);
+  color: white;
   background-image: none;
 }
 #headerMedicamentos {
@@ -506,12 +516,14 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--principalVariante1);
+  border-radius: 0px 12px;
+  margin-top: 50px;
+  background-color: var(--colorTerciario);
   width: 300px;
   height: 350px;
   padding: 20px;
   &:hover {
-    box-shadow: 0 0 10px 5px var(--colorContrasteClaro);
+    box-shadow: 0 0 10px 5px black;
     transition: box-shadow 0.3s ease;
   }
 }
@@ -528,16 +540,16 @@ main {
   justify-content: flex-start;
   margin-right: auto;
   margin-top: 10px;
-  background-color: #236d6a;
+  background-color: var(--colorSecundario);
   padding: 6px;
   border-radius: 8px 8px 0 0;
   border-bottom: 2px solid var(--principal);
 }
 .cajaMedicamento p {
-  color: var(--colorBaseClaro);
-  background-color: #236d6a;
+  background-color: var(--colorSecundario);
   padding: 6px;
   border-radius: 0px 8px 8px 8px;
+  height: 100px;
 }
 @media screen and (max-width: 550px) {
   #headerTratamientos {

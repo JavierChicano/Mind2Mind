@@ -96,7 +96,6 @@ function cambiarDiv(index) {
 }
 
 if (grande) {
-  console.log("kldsldfslbfdls");
   // Evento de clic en los puntos
   punto.forEach((cadaPunto, i) => {
     punto[i].addEventListener("click", () => {
@@ -110,6 +109,33 @@ if (grande) {
     currentIndex = (currentIndex + 1) % punto.length;
     cambiarDiv(currentIndex);
   }, 5000); // Cambia cada 5 segundos (5000 milisegundos)
+}
+
+// Carrousel Tratamientos
+const contenedorTratamientos = document.querySelector("#contenedorTratamientos");
+const linksTratamientos = document.querySelectorAll(".linksTratamientos");
+
+let currentIndexTratamientos = 0;
+
+// Función para cambiar el div según el índice
+function cambiarDivTratamientos(index) {
+  let operation = index * -33.333;
+  contenedorTratamientos.style.transform = `translateX(${operation}%)`;
+
+  linksTratamientos.forEach((link, i) => {
+    linksTratamientos[i].classList.remove("selected");
+  });
+  linksTratamientos[index].classList.add("selected");
+}
+
+if (linksTratamientos) {
+  // Evento de clic en los puntos
+  linksTratamientos.forEach((link, i) => {
+    linksTratamientos[i].addEventListener("click", () => {
+      currentIndexTratamientos = i;
+      cambiarDivTratamientos(currentIndexTratamientos);
+    });
+  });
 }
 
 //Cambio de fases Form de PedirCita
@@ -143,28 +169,3 @@ function mostrarAseguradora() {
   );
 }
 
-// Carrousel Tratamientos
-const contenedorTratamientos = document.querySelector(".contenedorTratamientos");
-const linksTratamientos = document.querySelectorAll(".linksTratamientos");
-let currentIndexTratamientos = 0;
-
-// Función para cambiar el div según el índice
-function cambiarDivTratamientos(index) {
-  let operation = index * -33.3;
-  contenedorTratamientos.style.transform = `translateX(${operation}%)`;
-
-  linksTratamientos.forEach((link, i) => {
-    linksTratamientos[i].classList.remove("selected");
-  });
-  linksTratamientos[index].classList.add("selected");
-}
-
-if (linksTratamientos) {
-  // Evento de clic en los puntos
-  linksTratamientos.forEach((link, i) => {
-    linksTratamientos[i].addEventListener("click", () => {
-      currentIndexTratamientos = i;
-      cambiarDivTratamientos(currentIndexTratamientos);
-    });
-  });
-}

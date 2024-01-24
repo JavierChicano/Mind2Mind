@@ -5,6 +5,7 @@
   --colorSecundario: #a9ddd0;
   --colorTerciario: #757780;
   --colorContraste: rgb(54, 208, 199);
+  --rosa: #e6b3b4;
 }
 * {
   margin: 0;
@@ -100,9 +101,9 @@ header h1 a{
 }
 .nav-list li a {
   text-decoration: none;
-  color: white;
   padding: 4px;
   border-radius: 8px;
+  color: white;
 
   &:hover {
     background-color: var(--colorSecundario);
@@ -125,6 +126,10 @@ header h1 a{
 /*Parte del registro*/
 .openRegistro {
   cursor: pointer;
+  border-radius: 12px;
+  background-color: var(--colorTerciario);
+  color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 .modal-Registro {
   display: flex;
@@ -305,6 +310,10 @@ input[type="submit"]:hover {
 /*Parte del logIn*/
 .openLogIn {
   cursor: pointer;
+  border-radius: 12px;
+  background-color: var(--colorTerciario);
+  color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 .modal-LogIn {
   display: flex;
