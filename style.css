@@ -229,13 +229,27 @@ main {
 }
 #autoAyuda{
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   height: 100%;
   width: calc(100% / 3);
   background-color: var(--colorBaseClaro);
+  gap: 50px;
 }
-
+#autoAyuda article{
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border-radius: 16px;
+  align-items: center;
+  justify-content: center;
+  height: 430px;
+  box-shadow: 0 0 10px 10px rgba(247, 207, 208, 0.3);
+  border: 2px solid white;
+  &:hover {
+    scale: 1.05;
+  }
+}
 #seccionTratamientos {
   display: flex;
   flex-direction: row;
