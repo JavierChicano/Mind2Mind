@@ -54,16 +54,16 @@
             </section>
             <hr>
             <span id="centrarForm">
-              <form action="#" method="post">
-                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+              <form action="#" method="post" id="formRegistro">
+                <input type="text" id="nombreResgistro" name="nombre" placeholder="Nombre">
             
-                <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos">
+                <input type="text" id="apellidosResgistro" name="apellidos" placeholder="Apellidos">
             
-                <input type="email" id="email" name="email" placeholder="Correo electrónico">
+                <input type="email" id="emailResgistro" name="email" placeholder="Correo electrónico">
             
-                <input type="password" id="password" name="password" placeholder="Contraseña">
+                <input type="password" id="passwordResgistro" name="password" placeholder="Contraseña">
                 <span id="checkBox">
-                  <input type="checkbox" id="aceptoTerminos" name="aceptoTerminos">
+                  <input type="checkbox" id="aceptoTerminosResgistro" name="aceptoTerminos">
                   <p for="aceptoTerminos">Acepto los &nbsp<a href='politicaPrivacidad.html'>términos y condiciones</a></p>
                 </span>
                 <input type="submit" value="Crear cuenta">
@@ -93,9 +93,9 @@
             <span id="centrarForm2">
               <form action="#" method="post">
               
-                <input type="email" id="email" name="email" placeholder="Correo electrónico">
+                <input type="email" id="emailLogin" name="email" placeholder="Correo electrónico">
         
-                <input type="password" id="password" name="password" placeholder="Contraseña">
+                <input type="password" id="passwordLogin" name="password" placeholder="Contraseña">
                 
                 <input type="submit" value="Entrar en mi cuenta">
               </form>
@@ -248,5 +248,6 @@
       AOS.init();
     </script>
     <script src="header.js"></script>
+    <script src="gestionInformacion.js"></script>
   </body>
 </html>
