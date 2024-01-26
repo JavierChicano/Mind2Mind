@@ -347,7 +347,16 @@ main {
     display: none;
   }
 }
-
+#descripcion{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+#descripcion p{
+  width: 50%;
+  font-style: italic;
+  font-size: 30px;
+}
 /* Seccion Equipo */
 #seccionEquipo {
   display: flex;
@@ -357,52 +366,61 @@ main {
   flex-wrap: wrap;
   gap: 50px;
   margin-bottom: 40px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
-#seccionEquipo div {
+.contenedorMedico{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--colorBaseOscuro);
-  border: 2px solid;
-  width: 230px;
-  border-radius: 2px;
-  border-color: var(--colorTerciario);
-  padding: 9px;
-  height: 200px;
-  &:hover {
-    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
-    transition: box-shadow 0.3s ease;
-  }
+  background-color: var(--colorTerciario);
+  border-radius: 30px;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
-#seccionEquipo div img {
-  width: 170px;
-  height: 120px;
-  border-radius: 12px;
+.contenedorMedico h2{
+  font-size: 30px;
+  margin-bottom: 10px;
 }
-#seccionEquipo div h1 {
+.contenedorMedico h2, h1{
+  color: white;
+}
+.logoTarjetaMedico{
+  width: 80px;
+}
+.contenedorMedico div{
   display: flex;
-  justify-content: flex-start;
-  margin-right: auto;
-  margin-top: 8px;
-  color: var(--colorBaseClaro);
-  font-size: 20px;
+  align-items: center;
 }
-#seccionEquipo div p {
-  display: flex;
-  color: var(--colorBaseClaro);
-  justify-content: flex-start;
-  margin-right: auto;
-  margin-top: 4px;
+.contenedorMedico div img{
+  filter: invert(1);
+  width: 60px;
 }
 @media screen and (max-width: 550px) {
   #seccionEquipo {
-    gap: 10px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  #seccionEquipo div p {
-    display: none;
+  .contenedorMedico{
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
-  #seccionEquipo div {
-    height: 180px;
+  .imgMedico{
+    width: 300px;
+  }
+  .contenedorMedico h2, h1{
+    color: white;
+    font-size: 20px;
+  }
+  .logoTarjetaMedico{
+    width: 50px;
+  }
+  .contenedorMedico div img{
+    filter: invert(1);
+    width: 30px;
+    margin-right: 10px;
   }
 }
 
@@ -470,6 +488,14 @@ main {
   }
   #seccionCasosExito div article {
     margin: 10px;
+    font-size: 20px;
+  }
+  #descripcion{
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  #descripcion p{
+    width: 75%;
     font-size: 20px;
   }
 }

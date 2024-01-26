@@ -572,3 +572,9 @@ footer section ul li {
   justify-content: center;
   color: red;
 }
+.error-message2{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: red;
+}

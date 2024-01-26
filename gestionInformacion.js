@@ -101,7 +101,7 @@ if (formContacto) {
     var apellidos = document.getElementById("apellidosContacto").value;
     var email = document.getElementById("emailContacto").value;
     var telefono = document.getElementById("telefonoContacto").value;
-    var displayErrores = document.getElementById("displayErroresRegistro");
+    var displayErrores = document.getElementById("displayErroresRegistro2");
 
     //  var info = document.getElementById("consultaContacto").value;
 
