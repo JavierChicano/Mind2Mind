@@ -18,3 +18,72 @@ document.getElementById("formRegistro").addEventListener("submit", function(even
 
     // Aquí podrías enviar los datos a un servidor mediante una solicitud AJAX o realizar otras acciones según tus necesidades
   });
+  
+  function validacion() { 
+    // Comprobacion del nombre vacío
+    if (nombreVacio()) { 
+       alert('[ERROR] El nombre no tiene contenido.')
+       return false
+    }
+    if(telefonoVacio()){
+        alert('[ERROR] El telefono no tiene contenido.');
+        return false;
+    }
+    if(telefonoSoloNumeros()){
+        alert('[ERROR] El telefono no tiene numeros.');
+        return false;
+    }
+    if(!telefonoLongitudCorrecta()){
+        alert('[ERROR] El telefono no tiene la longitud correcta.');
+        return false;
+    }
+    if(!dniValido()){
+        alert('[ERROR] El dni no es correcto.');
+        return false;
+    }
+ 
+    return true
+ }
+ 
+ function nombreVacio() { 
+ 
+    let valor = document.getElementById('nombre').value
+ 
+    if (valor == null || valor.length == 0 || /^\s+$/.test(valor)) {
+       return true
+    } else { 
+       return false
+    }
+ } 
+ function telefonoVacio() { 
+    let valor = document.getElementById('telefono').value
+    if (valor == null || valor.length == 0 || /^\s+$/.test(valor)) {
+       return true
+    } else { 
+       return false
+    }
+ } 
+ function telefonoSoloNumeros(){
+    let valor = document.getElementById('telefono').value
+    if(isNaN(valor)){
+        return true;
+    }else{
+        return false;
+    }
+ }
+ function telefonoLongitudCorrecta(){
+    let valor = document.getElementById('telefono').value
+    if(/^\d{9}$/.test(valor)){
+        return true;
+    }else{
+        return false;
+    }
+ }
+function dniValido(){
+    let valor = document.getElementById('dni').value
+    if(/^\d{8}[A-Z]$/.test(valor)){
+        return true;
+    }else{
+        return false;
+    }
+}
