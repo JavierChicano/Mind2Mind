@@ -566,4 +566,9 @@ footer section ul li {
     font-size: 14px;
   }
 }
-
+.error-message{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: red;
+}

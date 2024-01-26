@@ -54,20 +54,23 @@
             </section>
             <hr>
             <span id="centrarForm">
-              <form action="#" method="post">
-                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+              <form action="#" method="post" id="formRegistro">
+                <div id="displayErroresRegistro" class="error-message"></div>
+                <input type="text" id="nombreRegistro" name="nombre" placeholder="Nombre" required>
             
-                <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos">
+                <input type="text" id="apellidosRegistro" name="apellidos" placeholder="Apellidos" required>
             
-                <input type="email" id="email" name="email" placeholder="Correo electrónico">
+                <input type="email" id="emailRegistro" name="email" placeholder="Correo electrónico" required>
             
-                <input type="password" id="password" name="password" placeholder="Contraseña">
+                <input type="password" id="passwordRegistro" name="password" placeholder="Contraseña" required>
+            
                 <span id="checkBox">
-                  <input type="checkbox" id="aceptoTerminos" name="aceptoTerminos">
-                  <p for="aceptoTerminos">Acepto los &nbsp<a href='politicaPrivacidad.html'>términos y condiciones</a></p>
+                    <input type="checkbox" id="aceptoTerminosRegistro" name="aceptoTerminos" required>
+                    <p for="aceptoTerminos">Acepto los &nbsp<a href='politicaPrivacidad.html'>términos y condiciones</a></p>
                 </span>
+                
                 <input type="submit" value="Crear cuenta">
-              </form>
+            </form>
             </span>
             <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
             
@@ -91,11 +94,12 @@
             </section>
             <hr>
             <span id="centrarForm2">
-              <form action="#" method="post">
+              <div id="displayErroresRegistro" class="error-message"></div>
+              <form action="#" method="post" id="formLogIn">
               
-                <input type="email" id="email" name="email" placeholder="Correo electrónico">
+                <input type="email" id="emailLogin" name="email" placeholder="Correo electrónico">
         
-                <input type="password" id="password" name="password" placeholder="Contraseña">
+                <input type="password" id="passwordLogin" name="password" placeholder="Contraseña">
                 
                 <input type="submit" value="Entrar en mi cuenta">
               </form>
@@ -122,13 +126,14 @@
                 </div>
                 </section>
             <section id="estiloFondoForm">
-                <form action="#" method="post">
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
-                    <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
-                    <input type="email" id="email" name="email" placeholder="Email" required>
-                    <input type="tel" id="telefono" name="telefono" placeholder="Teléfono">
-                    <textarea id="consulta" name="consulta" placeholder="Consulta"></textarea>
-                    <span id="aceptarFormContacto">
+                <form action="#" method="post" id="formContacto">
+                    <div id="displayErroresRegistro" class="error-message"></div>
+                    <input type="text" id="nombreContacto" name="nombre" placeholder="Nombre" required>
+                    <input type="text" id="apellidosContacto" name="apellidos" placeholder="Apellidos" required>
+                    <input type="email" id="emailContacto" name="email" placeholder="Email" required>
+                    <input type="tel" id="telefonoContacto" name="telefono" placeholder="Teléfono">
+                    <textarea id="consultaContacto" name="consulta" placeholder="Consulta"></textarea>
+                    <span id="aceptarFormContactoContacto">
                         <label for="aceptar">Aceptar <a href='politicaPrivacidad.html'>politica de privacidad</a></label>
                         <input type="checkbox" id="aceptar" name="aceptar" required>
                     </span>

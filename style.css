@@ -1020,7 +1020,7 @@ main {
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-
+  padding-top: 20px;
   background-image: url("img/fondo1.jpg");
   margin-top: 40px;
   margin-bottom: 30px;
@@ -1055,6 +1055,11 @@ main {
 #estiloFondoForm {
   display: flex;
   justify-content: center;
+}
+#estiloFondoForm a{
+  text-decoration: none;
+  display: flex;
+  color: var(--colorContraste);
 }
 #estiloFondoForm textarea {
   outline: none;
