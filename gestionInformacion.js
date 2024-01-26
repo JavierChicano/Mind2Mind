@@ -1,6 +1,14 @@
-//Formulario registro
+//Validacion de formularios
+
+
+
+
+
+
+
+//Formulario registro información
 document.getElementById("formRegistro").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita que el formulario se envíe automáticamente
+    event.preventDefault(); 
 
     // Obtener los valores de los campos del formulario
     var nombre = document.getElementById("nombreRegistro").value;
