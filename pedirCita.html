@@ -113,85 +113,105 @@
      <section id="seccionFormContacto">
       <nav>
         <ul>
-          <li class="primeraParte selected">Datos Personales</li>
+          <li class="primeraParte seleccionado">Datos Personales</li>
           <li class="segundaParte">Datos Consulta</li>
           <li class="terceraParte">Proceso Final</li>
         </ul>
       </nav>
-     <form id="formulario">
-    <!-- Fase 1 -->
-    <div id="fase1">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-        <label for="sexo">Sexo:</label>
-        <select id="sexo" name="sexo" required>
-            <option value="masculino">Masculino</option>
-            <option value="femenino">Femenino</option>
-        </select>
-    </div>
+      <form action="#" method="post" id="formPedirCita">
+        <article id="datosPersonales">
+          <div id="displayErroresPedirCita" class="error-message"></div>
+          <input type="text" id="nombrePC" name="nombrePC" placeholder="Nombre" ><br>
+  
+          <input type="text" id="apellidosPC" name="apellidosPC" placeholder="Apellidos" ><br>
+  
+          <input type="text" id="dniPC" name="dniPC" placeholder="DNI" ><br>
+  
+          <input type="email" id="mailPC" name="mailPC" placeholder="Mail" ><br>
+  
+          <input type="text" id="provinciaPC" name="provinciaPC" placeholder="Provincia" ><br>
+  
+          <input type="text" id="domicilioPC" name="domicilioPC" placeholder="Domicilio" ><br>
+  
+  
+          <select id="sexoPC" name="sexoPC">
+              <option value="masculino">Masculino</option>
+              <option value="femenino">Femenino</option>
+          </select>
+  
+          <input type="button" value="Siguiente" id="botonSiguiente1">
+        </article>
 
-    <!-- Fase 2 -->
-    <div id="fase2" class="hidden">
-        <label for="profesional">Elegir profesional:</label>
-        <select id="profesional" name="profesional" required>
-            <option value="psicologo">Psicólogo</option>
-            <option value="psiquiatra">Psiquiatra</option>
-        </select>
-        <label for="autodiagnostico">Autodiagnóstico:</label>
-        <textarea id="autodiagnostico" name="autodiagnostico" required></textarea>
-    </div>
-
-    <!-- Fase 3 -->
-    <div id="fase3" class="hidden">
-        <label for="fechaConsulta">Elegir fecha para la consulta:</label>
-        <input type="date" id="fechaConsulta" name="fechaConsulta" required>
-        <label for="aseguradora">¿Tiene aseguradora?</label>
-        <select id="aseguradora" name="aseguradora" required onchange="mostrarAseguradora()">
-            <option value="si">Sí</option>
-            <option value="no">No</option>
-        </select>
-
-        <div id="detalleAseguradora" class="hidden">
-            <label for="nombreAseguradora">Especificar aseguradora:</label>
-            <input type="text" id="nombreAseguradora" name="nombreAseguradora">
-        </div>
-
-        <label>
-            <input type="checkbox" id="consentimiento" name="consentimiento" required>
-            Acepto dar mi consentimiento.
-        </label>
-    </div>
-
-    <!-- Botones de navegación -->
-    <button type="button" onclick="anteriorFase()">Anterior</button>
-    <button type="button" onclick="siguienteFase()">Siguiente</button>
-</form>
-
-        <!-- Nombre
-        Apellidos
-        DNI
-        Provincia
-        Domicilio
-        Mail
-        sexo
-        
-        Elegir profesional psicologo/psiquiatra
-        Elegir entre presencial / telefonica / videoconsulta
-        placeText autodiagnostico 
-
-        Elegir fecha
-        Aseguradora si o no
-        En el caso de q sea si, especifique cual
-        Dar consentimiento -->
+        <!-- Segunda parte -->
+        <article id="datosConsulta">
+          <section class="centradoDatos">
+            <div id="displayErroresPedirCita2" class="error-message"></div>
+            <select id="profesionalPC" name="profesional" required>
+              <option value="psicologo">Psicólogo</option>
+              <option value="psiquiatra">Psiquiatra</option>
+            </select>
+  
+            <select id="modalidadPC" name="modalidad" required onchange="mostrarTelefono()">
+                <option value="presencial">Presencial</option>
+                <option value="telefonica">Telefónica</option>
+                <option value="videoconsulta">Videoconsulta</option>
+            </select>
     
+            <div id="campoTelefonoPC" style="display: none;">
+                <input type="tel" id="numeroTelpc" name="numeroTel" placeholder="Número de teléfono">
+            </div>
+    
+            <textarea id="autodiagnosticoPC" name="autodiagnostico" placeholder="Autodiagnóstico"></textarea>
+          </section>
+          <div>
+            <input type="button" value="Anterior" id="botonAnterior1">
+            <input type="button" value="Siguiente" id="botonSiguiente2">
+          </div>
+
+        </article>
+
+        <!-- Tercera Parte -->
+        <article id="procesoFinal">
+          <section class="centradoDatos">
+            <div id="displayErroresPedirCita3" class="error-message"></div>
+
+            <input type="date" id="fechaConsultaPC" name="fechaConsulta" >
+
+            <select id="aseguradoraSiNoPC" name="aseguradoraSiNo" placeholder="Posee una aseguradora?" onchange="mostrarAseguradora()">
+                <option value="no">No</option>
+                <option value="si">Sí</option>
+            </select>
+    
+            <div id="aseguradoraEspecificarPC" style="display:none;">
+                <input type="text" id="aseguradoraEspecificaPC" name="aseguradoraEspecifica" placeholder="Nombre de la aseguradora ">
+            </div>
+    
+            <span id="checkBox">
+              <input type="checkbox" id="aceptoTerminosRegistroPC" name="aceptoTerminos" required>
+              <span for="aceptoTerminos" id="textProcesoFinal">Acepto los &nbsp<a href='politicaPrivacidad.html'>términos y condiciones</a></span>
+            </span>
+          </section>
+          <div>
+            <input type="button" value="Anterior" id="botonAnterior2">
+            <input type="button" value="Enviar" id="botonEnviar">
+          </div>
+        </article>
+      </form>
+      <article id="formEnviado">
+        <h1>Muchas gracias por su consulta</h1>
+        <p>En nada nos vemos!</p>
+        <p>Fecha: Modalidad:</p>
+      </article>
      </section>
+
+     <!-- Contenedor derecho de la pagina -->
      <section id="seccionAboutContacto">
         <h1>!La primera cita es gratuita!</h1>
         <section>
           <div><img src="img/phone.png">+34 661 661 662</div>
-          <div>fkkfgjd</div>
+          <div>Texto ejemplo1</div>
           <div><img src="img/mail.png">Mind2Mind@hotmail.com</div>
-          <div>ldsksdljk</div>
+          <div>Texto ejemplo2</div>
         </section>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1518.510215017036!2d-3.7135868232461426!3d40.43054651372704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422867d4a42201%3A0xaaf3f3a7996e773e!2sC.%20de%20Alberto%20Aguilera%2C%2052%2C%20Chamber%C3%AD%2C%2028015%20Madrid!5e0!3m2!1ses!2ses!4v1705610075468!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
      </section>                                                                                            

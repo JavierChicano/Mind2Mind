@@ -2,6 +2,7 @@
 var formRegistro = document.getElementById("formRegistro");
 var formLogIn = document.getElementById("formLogIn");
 var formContacto = document.getElementById("formContacto");
+var formPedirCita = document.getElementById("formPedirCita");
 
 if (formRegistro) {
   formRegistro.addEventListener("submit", function (event) {
@@ -135,14 +136,184 @@ if (formContacto) {
       return false;
     }
     // Validar que el teléfono solo contenga números
-    if (!/^\d+$/.test(telefono)) {
-      displayErrores.textContent = "El teléfono contiene caracteres inválidos";
-      document.getElementById("telefonoContacto").style.border =
-        "1px solid red";
+    if (!/^\d$/.test(telefono)) {
+      displayErrores.textContent = "El teléfono debe contener 9 dígitos numéricos";
+      document.getElementById("telefonoContacto").style.border = "1px solid red";
       return false;
     } else {
       document.getElementById("telefonoContacto").style.border = "";
       displayErrores.textContent = "";
     }
   });
+}
+
+//Formulario pedirCita
+if (formPedirCita) {
+  //Guia 
+  var primeraParte = document.getElementsByClassName("primeraParte")[0];
+  var segundaParte = document.getElementsByClassName("segundaParte")[0];
+  var terceraParte = document.getElementsByClassName("terceraParte")[0];
+  
+  //Botones
+  var bFase1 = document.getElementById("botonSiguiente1");
+  var bFase2S = document.getElementById("botonSiguiente2");
+  var bFase2A = document.getElementById("botonAnterior1");
+  var bFase3A = document.getElementById("botonAnterior2");
+  var bFase3E = document.getElementById("botonEnviar");
+
+  //Apartados
+  var DPersonales = document.getElementById("datosPersonales");
+  var DConsulta = document.getElementById("datosConsulta");
+  var ProcesoFinal = document.getElementById("procesoFinal");
+  var Enviado = document.getElementById("formEnviado");
+
+  bFase1.addEventListener("click", function (event) {
+    var displayErrores = document.getElementById("displayErroresPedirCita");
+
+    // Obtener los valores de los campos del formulario
+    var nombre = document.getElementById("nombrePC").value;
+    var apellidos = document.getElementById("apellidosPC").value;
+    var dni = document.getElementById("dniPC").value;
+    var mail = document.getElementById("mailPC").value;
+    var provincia = document.getElementById("provinciaPC").value;
+    var domicilio = document.getElementById("domicilioPC").value;
+    var sexo = document.getElementById("sexoPC").value;
+
+    // Validacion de formularios
+    var textoLetras = /^[A-Za-z]+$/;
+
+    if (!textoLetras.test(nombre)) {
+      displayErrores.textContent = "El nombre contiene caracteres invalidos";
+      document.getElementById("nombrePC").style.border = "1px solid red";
+      return false;
+    } else {
+      document.getElementById("nombrePC").style.border = "";
+      displayErrores.textContent = "";
+    }
+
+    if (!textoLetras.test(apellidos)) {
+      displayErrores.textContent =
+        "Los apellidos contienen caracteres invalidos";
+      document.getElementById("apellidosPC").style.border =
+        "1px solid red";
+      return false;
+    } else {
+      document.getElementById("apellidosPC").style.border = "";
+      displayErrores.textContent = "";
+    }
+
+    var formatoDNI = /^\d{8}[a-zA-Z]$/;
+
+    if (!formatoDNI.test(dni)) {
+      displayErrores.textContent = "El DNI no tiene el formato correcto (8 Números y 1 Letra)";
+      document.getElementById("dniPC").style.border = "1px solid red";
+      return false;
+    } else {
+      document.getElementById("dniPC").style.border = "";
+      displayErrores.textContent = "";
+    }
+
+    //Si todo es correcto
+    DPersonales.style.display = "none";
+    DConsulta.style.display = "grid";
+    primeraParte.classList.remove("seleccionado");
+    primeraParte.classList.add("completado");
+    segundaParte.classList.add("seleccionado");
+  });
+
+  //Parte 2
+  bFase2S.addEventListener("click", function (event) {
+    var displayErrores = document.getElementById("displayErroresPedirCita2");
+    var displayStyle = window.getComputedStyle(document.getElementById("campoTelefonoPC")).display;
+
+    //Valores Datos Consulta
+    var profesional = document.getElementById("profesionalPC").value;
+    var modalidad = document.getElementById("modalidadPC").value;
+    var telefono = document.getElementById("numeroTelpc").value;
+    var diagnostico = document.getElementById("autodiagnosticoPC").value;
+
+     // Validar que el teléfono solo contenga 9 digitos (Solo si esta visible por pantalla)
+     if (displayStyle === 'block' && !/^\d{9}$/.test(telefono)) {
+      displayErrores.textContent = "El teléfono debe contener 9 dígitos numéricos";
+      document.getElementById("campoTelefonoPC").style.border = "1px solid red";
+      return false;
+    } else {
+      document.getElementById("campoTelefonoPC").style.border = "";
+      displayErrores.textContent = "";
+    }
+
+    //Si todo es correcto
+    DConsulta.style.display = "none";
+    ProcesoFinal.style.display = "grid";
+    segundaParte.classList.remove("seleccionado");
+    segundaParte.classList.add("completado");
+    terceraParte.classList.add("seleccionado");
+  });
+    //Volver a la primera
+    bFase2A.addEventListener("click", () => {
+      DPersonales.style.display = "flex";
+      DConsulta.style.display = "none";
+      segundaParte.classList.remove("seleccionado");
+      primeraParte.classList.remove("completado");
+      primeraParte.classList.add("seleccionado");
+    });
+
+  //Parte 3
+  bFase3E.addEventListener("click", function (event) {
+    var displayErrores = document.getElementById("displayErroresPedirCita3");
+
+    //Obtener valores
+    var fConsulta = document.getElementById("fechaConsultaPC").value;
+    var poseeAseguradora = document.getElementById("aseguradoraSiNoPC").value;
+    var aseguradora = document.getElementById("aseguradoraEspecificarPC").value;
+
+    var fechaConsulta = new Date(fConsulta);
+    var fechaMinima = new Date();
+    //De mañana en adelante
+    fechaMinima.setDate(fechaMinima.getDate() + 1);
+
+    if(fechaConsulta < fechaMinima){
+      displayErrores.textContent = "La fecha debe ser a partir de mañana";
+      document.getElementById("fechaConsultaPC").style.border = "1px solid red";
+    }else{
+      document.getElementById("fechaConsultaPC").style.border = "";
+      displayErrores.textContent = "";
+    }
+
+    //Si todo es correcto
+    ProcesoFinal.style.display = "none";
+    Enviado.style.display = "flex";
+    terceraParte.classList.remove("seleccionado");
+    terceraParte.classList.add("completado");
+  });
+  
+    //Volver a la segunda
+    bFase3A.addEventListener("click", () => {
+      ProcesoFinal.style.display = "none";
+      DConsulta.style.display = "grid";
+      terceraParte.classList.remove("seleccionado");
+      segundaParte.classList.remove("completado");
+      segundaParte.classList.add("seleccionado");
+    });
+}
+
+function mostrarTelefono() {
+  var modalidad = document.getElementById("modalidadPC");
+  var campoTelefono = document.getElementById("campoTelefonoPC");
+
+  if (modalidad.value === "telefonica") {
+      campoTelefono.style.display = "block";
+  } else {
+      campoTelefono.style.display = "none";
+  }
+}
+function mostrarAseguradora(){
+  var poseeAseguradora = document.getElementById("aseguradoraSiNoPC");
+  var aseguradora = document.getElementById("aseguradoraEspecificarPC");
+
+  if (poseeAseguradora.value === "si") {
+    aseguradora.style.display = "flex";
+} else {
+  aseguradora.style.display = "none";
+}
 }

@@ -137,35 +137,3 @@ if (linksTratamientos) {
     });
   });
 }
-
-//Cambio de fases Form de PedirCita
-let faseActual = 1;
-
-function siguienteFase() {
-  if (validarFase(faseActual)) {
-    document.getElementById(`fase${faseActual}`).classList.add("hidden");
-    faseActual++;
-    document.getElementById(`fase${faseActual}`).classList.remove("hidden");
-  }
-}
-
-function anteriorFase() {
-  document.getElementById(`fase${faseActual}`).classList.add("hidden");
-  faseActual--;
-  document.getElementById(`fase${faseActual}`).classList.remove("hidden");
-}
-
-function validarFase(fase) {
-  // Agrega lógica de validación para cada fase
-  return true;
-}
-function mostrarAseguradora() {
-  const aseguradoraSelect = document.getElementById("aseguradora");
-  const detalleAseguradora = document.getElementById("detalleAseguradora");
-
-  detalleAseguradora.classList.toggle(
-    "hidden",
-    aseguradoraSelect.value === "no"
-  );
-}
-
