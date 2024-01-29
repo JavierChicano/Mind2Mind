@@ -206,8 +206,8 @@ main {
   width: 300%;
   flex-flow: row nowrap;
   justify-content: space-between;
-  align-items: center;
-
+  height: 100vh;
+  
   transition: transform 0.5s ease;
   transform: translateX(0%);
 }
@@ -221,7 +221,7 @@ main {
 }
 #terapias {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   height: 100%;
   width: calc(100% / 3);
@@ -251,14 +251,11 @@ main {
   }
 }
 #seccionTratamientos {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 50px;
-  margin-bottom: 40px;
-  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-self: center;
+  gap: 30px;
+  margin: 65px;
 }
 #seccionTratamientos div {
   display: flex;

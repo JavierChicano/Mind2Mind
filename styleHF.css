@@ -201,6 +201,7 @@ header h1 a{
   justify-content: center;
   font-family: "Montserrat", sans-serif;
   font-size: 48px;
+  color: black;
 }
 
 /*Registro formulario*/
@@ -364,6 +365,7 @@ input[type="submit"]:hover {
   justify-content: center;
   font-family: "Montserrat", sans-serif;
   font-size: 48px;
+  color: black;
 }
 #centrarForm2 {
   display: flex;
@@ -395,7 +397,7 @@ input[type="submit"]:hover {
 }
 #centrarForm2 input[type="submit"] {
   background-color: var(--colorBaseOscuro);
-  color: var(--colorBaseClaro);
+  color: white;
   border-bottom: none;
   border-radius: 2px;
 }

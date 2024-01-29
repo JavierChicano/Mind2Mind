@@ -121,17 +121,17 @@
       <form action="#" method="post" id="formPedirCita">
         <article id="datosPersonales">
           <div id="displayErroresPedirCita" class="error-message"></div>
-          <input type="text" id="nombrePC" name="nombrePC" placeholder="Nombre" ><br>
+          <input type="text" id="nombrePC" name="nombrePC" placeholder="Nombre"><br>
   
-          <input type="text" id="apellidosPC" name="apellidosPC" placeholder="Apellidos" ><br>
+          <input type="text" id="apellidosPC" name="apellidosPC" placeholder="Apellidos"><br>
   
-          <input type="text" id="dniPC" name="dniPC" placeholder="DNI" ><br>
+          <input type="text" id="dniPC" name="dniPC" placeholder="DNI"><br>
   
-          <input type="email" id="mailPC" name="mailPC" placeholder="Mail" ><br>
+          <input type="email" id="mailPC" name="mailPC" placeholder="Mail"><br>
   
-          <input type="text" id="provinciaPC" name="provinciaPC" placeholder="Provincia" ><br>
+          <input type="text" id="provinciaPC" name="provinciaPC" placeholder="Provincia"><br>
   
-          <input type="text" id="domicilioPC" name="domicilioPC" placeholder="Domicilio" ><br>
+          <input type="text" id="domicilioPC" name="domicilioPC" placeholder="Domicilio"><br>
   
   
           <select id="sexoPC" name="sexoPC">
@@ -161,7 +161,7 @@
                 <input type="tel" id="numeroTelpc" name="numeroTel" placeholder="Número de teléfono">
             </div>
     
-            <textarea id="autodiagnosticoPC" name="autodiagnostico" placeholder="Autodiagnóstico"></textarea>
+            <textarea id="autodiagnosticoPC" name="autodiagnostico" placeholder="Autodiagnóstico (opcional)"></textarea>
           </section>
           <div>
             <input type="button" value="Anterior" id="botonAnterior1">
@@ -175,9 +175,11 @@
           <section class="centradoDatos">
             <div id="displayErroresPedirCita3" class="error-message"></div>
 
-            <input type="date" id="fechaConsultaPC" name="fechaConsulta" >
+            <label for="fechaConsultaPC">Fecha de Consulta:</label>
+            <input type="date" id="fechaConsultaPC" name="fechaConsulta">
 
-            <select id="aseguradoraSiNoPC" name="aseguradoraSiNo" placeholder="Posee una aseguradora?" onchange="mostrarAseguradora()">
+            <label for="aseguradoraSiNoPC">¿Posee una aseguradora?</label>
+            <select id="aseguradoraSiNoPC" name="aseguradoraSiNo" onchange="mostrarAseguradora()">
                 <option value="no">No</option>
                 <option value="si">Sí</option>
             </select>
