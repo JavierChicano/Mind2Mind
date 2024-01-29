@@ -236,7 +236,7 @@ main {
   background-color: var(--colorBaseClaro);
   gap: 50px;
 }
-#seccionAutoayuda{
+#seccionAutoayuda {
   display: flex;
   align-self: center;
   flex-wrap: wrap;
@@ -257,16 +257,16 @@ main {
     scale: 1.05;
   }
 }
-#autoAyuda article img{
+#autoAyuda article img {
   width: 220px;
   height: 300px;
 }
-#autoAyuda article h1{
+#autoAyuda article h1 {
   font-size: 25px;
   color: black;
   margin-top: 20px;
 }
-#autoAyuda article p{
+#autoAyuda article p {
   margin-top: 30px;
   width: 220px;
 }
@@ -581,40 +581,45 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   border-radius: 0px 12px;
   margin-top: 50px;
-  background-color: var(--colorTerciario);
+  background-color: #cacaca;
   width: 300px;
   height: 350px;
-  padding: 20px;
+  box-shadow: inset 0 0 10px 2px rgb(145, 145, 145);
+
   &:hover {
     box-shadow: 0 0 10px 5px black;
     transition: box-shadow 0.3s ease;
+    .infoMed {
+      display: flex;
+    }
   }
 }
 .cajaMedicamento img {
-  width: 150px;
-  height: 100px;
-  margin-top: 10px;
-  margin-bottom: 50px;
+  position: absolute;
 }
-.cajaMedicamento h1 {
-  display: flex;
-  font-size: 28px;
-  align-items: center;
-  justify-content: flex-start;
-  margin-right: auto;
-  margin-top: 10px;
-  background-color: var(--colorSecundario);
-  padding: 6px;
-  border-radius: 8px 8px 0 0;
-  border-bottom: 2px solid var(--principal);
+.infoMed {
+  display: none;
+  flex-direction: column;
+  justify-content: end;
+  border-radius: 0 0 0 12px;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.3);
+  border-radius: 0px 12px;
 }
-.cajaMedicamento p {
+.infoMed div{
+  padding: 20px;
   background-color: var(--colorSecundario);
-  padding: 6px;
-  border-radius: 0px 8px 8px 8px;
-  height: 100px;
+  border-radius: 0 0 0 12px;
+}
+.infoMed h1 {
+  color: black;
+  margin-bottom: 20px;
+  font-size: 30px;
 }
 @media screen and (max-width: 550px) {
   #headerTratamientos {
@@ -1092,11 +1097,11 @@ h1 {
   text-decoration: none;
   color: var(--colorContraste);
 }
-#aceptarFormContactoContacto{
+#aceptarFormContactoContacto {
   display: flex;
   width: 300px;
 }
-#aceptarFormContactoContacto label{
+#aceptarFormContactoContacto label {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -1854,7 +1859,7 @@ select option {
   #procesoFinal div {
     padding: 10px;
   }
-  #textProcesoFinal{
+  #textProcesoFinal {
     font-size: 15px;
     width: 100%;
     margin-left: 10px;
@@ -1863,19 +1868,19 @@ select option {
     width: 20px;
     height: 20px;
     margin-left: 20%;
-}
-#formEnviado{
-  margin-top: 0px;
-}
-#formEnviado h1 {
-  width: 100%;
-  font-size: 20px;
-  color: black;
-  display: flex;
-  justify-content: center;
-}
-#formEnviado p {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
+  }
+  #formEnviado {
+    margin-top: 0px;
+  }
+  #formEnviado h1 {
+    width: 100%;
+    font-size: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+  }
+  #formEnviado p {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
 }
