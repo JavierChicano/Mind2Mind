@@ -207,7 +207,7 @@ main {
   flex-flow: row nowrap;
   justify-content: space-between;
   height: 100vh;
-  
+
   transition: transform 0.5s ease;
   transform: translateX(0%);
 }
@@ -236,26 +236,49 @@ main {
   background-color: var(--colorBaseClaro);
   gap: 50px;
 }
+#seccionAutoayuda{
+  display: flex;
+  align-self: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  row-gap: 50px;
+}
 #autoAyuda article {
   display: flex;
-  flex-direction: column;
-  padding: 25px;
+  padding: 15px;
+  gap: 50px;
   border-radius: 16px;
-  align-items: center;
   justify-content: center;
-  height: 430px;
-  box-shadow: 0 0 10px 10px rgba(247, 207, 208, 0.3);
+  width: 600px;
+  box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.3);
   border: 2px solid white;
   &:hover {
     scale: 1.05;
   }
 }
+#autoAyuda article img{
+  width: 220px;
+  height: 300px;
+}
+#autoAyuda article h1{
+  font-size: 25px;
+  color: black;
+  margin-top: 20px;
+}
+#autoAyuda article p{
+  margin-top: 30px;
+  width: 220px;
+}
 #seccionTratamientos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  align-self: center;
+  flex-wrap: wrap;
+  justify-content: center;
   align-self: center;
   gap: 30px;
   margin: 65px;
+  padding-left: 33px;
 }
 #seccionTratamientos div {
   display: flex;
@@ -1065,13 +1088,18 @@ h1 {
   margin-bottom: 20px;
   width: 300px;
 }
-#aceptarFormContacto input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-}
 #aceptarFormContacto a {
   text-decoration: none;
   color: var(--colorContraste);
+}
+#aceptarFormContactoContacto{
+  display: flex;
+  width: 300px;
+}
+#aceptarFormContactoContacto label{
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 #mainFormContacto input [type="submit"] {
   width: 300px;
