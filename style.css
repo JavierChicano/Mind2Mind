@@ -526,8 +526,6 @@ h1 {
 }
 
 /*TRATAMIENTOS*/
-#mainTratamientos {
-}
 #headerTratamientos {
   display: flex;
   justify-content: center;
@@ -545,6 +543,11 @@ h1 {
   background-image: url("img/fondo1.jpg");
   border: 2px solid white;
   cursor: pointer;
+  &:hover{
+    background-color: var(--colorBaseOscuro);
+    background-image: none;
+    color: white;
+  }
 }
 .linksTratamientos a {
   text-decoration: none;

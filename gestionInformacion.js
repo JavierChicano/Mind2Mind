@@ -1,3 +1,5 @@
+// import insertarRegistro from "./BBDD/funcionesInserts.js";
+
 //Formularios
 var formRegistro = document.getElementById("formRegistro");
 var formLogIn = document.getElementById("formLogIn");
@@ -61,12 +63,12 @@ if (formRegistro) {
 
     // Si todas las validaciones pasan, puedes continuar con el envío del formulario
     console.log("Formulario válido. Proceder con el envío.");
+    insertarRegistro(nombre, apellidos, email, password);
     return true;
   });
 }
 
 //Formulario login informacion
-
 if (formLogIn) {
   formLogIn.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -89,10 +91,11 @@ if (formLogIn) {
       console.log("La contraseña no cumple con los criterios de seguridad");
       return false;
     }
+    insertarLogin(email, password);
   });
 }
 
-//Formulario login informacion
+//Formulario contacto 
 if (formContacto) {
   formContacto.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -146,6 +149,7 @@ if (formContacto) {
       document.getElementById("telefonoContacto").style.border = "";
       displayErrores.textContent = "";
     }
+    insertarContacto(nombre, apellidos, email, telefono);
   });
 }
 
@@ -372,16 +376,16 @@ if (formPedirCita) {
       document.getElementById("aseguradoraEspecificarPC").style.border = "";
       displayErrores.textContent = "";
     }
-    console.log(checkbox)
-    if (!checkbox.checked) {
-      checkboxCaja.style.border = "1px solid red";
-      displayErrores.textContent =
-        "Por favor, acepte las condiciones del servicio.";
-      return false;
-    } else {
-      checkboxCaja.style.border = "";
-      displayErrores.textContent = "";
-    }
+    // console.log(checkbox);
+    // if (!checkbox.checked) {
+    //   checkboxCaja.style.border = "1px solid red";
+    //   displayErrores.textContent =
+    //     "Por favor, acepte las condiciones del servicio.";
+    //   return false;
+    // } else {
+    //   checkboxCaja.style.border = "";
+    //   displayErrores.textContent = "";
+    // }
 
     //Comprobar la validez de los datos
     if (fechaConsulta < fechaMinima) {
@@ -398,6 +402,7 @@ if (formPedirCita) {
     Enviado.style.display = "flex";
     terceraParte.classList.remove("seleccionado");
     terceraParte.classList.add("completado");
+    insertarPedirCita(nombre, apellidos, dni, mail, provincia, domicilio, sexo, profesional, modalidad, telefono, diagnostico, fConsulta, poseeAseguradora, aseguradora)
   });
 
   //Volver a la segunda
@@ -429,4 +434,90 @@ function mostrarAseguradora() {
   } else {
     aseguradora.style.display = "none";
   }
+}
+
+//Insert del registro
+function insertarRegistro(nombre, apellidos, email, password) {
+  //Inserccion en BBDD
+  //Pagina Registro
+  $.ajax({
+    type: "POST",
+    url: "BBDD/insertarDatos.php", // Nombre de tu script PHP
+    data: {
+      funcion: "registro",
+      nombre: nombre,
+      apellidos: apellidos,
+      email: email,
+      password: password,
+    },
+    success: function (response) {
+      console.log(response); // Manejar la respuesta del servidor
+    },
+  });
+}
+
+//Insert del logIn
+function insertarLogin(mail, password) {
+  //Pagina logIn
+  $.ajax({
+    type: "POST",
+    url: "BBDD/insertarDatos.php", // Nombre de tu script PHP
+    data: {
+      funcion: "login",
+      mail: mail,
+      password: password,
+    },
+    success: function (response) {
+      console.log(response); // Manejar la respuesta del servidor
+    },
+  });
+}
+//Insert del form contacto
+function insertarContacto(nombre, apellidos, email, telefono) {
+  // Página de registro
+  $.ajax({
+    type: "POST",
+    url: "BBDD/insertarDatos.php", // Nombre de tu script PHP para el registro
+    data: {
+      funcion: "contacto",
+      nombre: nombre,
+      apellidos: apellidos,
+      email: email,
+      telefono: telefono,
+    },
+    success: function (response) {
+      console.log(response); // Manejar la respuesta del servidor
+      // Puedes redirigir a otra página o realizar acciones adicionales según la respuesta
+    },
+  });
+}
+
+//Insertar pedir cita
+function insertarPedirCita(nombre, apellidos, dni, mail, provincia, domicilio, sexo, profesional, modalidad, telefono, diagnostico, fConsulta, poseeAseguradora, aseguradora) {
+  // Página de procesamiento del formulario
+  $.ajax({
+    type: "POST",
+    url: "BBDD/procesarFormulario.php", // Nombre de tu script PHP para procesar el formulario
+    data: {
+      funcion: "pedirCita",
+      nombre: nombre,
+      apellidos: apellidos,
+      dni: dni,
+      mail: mail,
+      provincia: provincia,
+      domicilio: domicilio,
+      sexo: sexo,
+      profesional: profesional,
+      modalidad: modalidad,
+      telefono: telefono,
+      diagnostico: diagnostico,
+      fConsulta: fConsulta,
+      poseeAseguradora: poseeAseguradora,
+      aseguradora: aseguradora
+    },
+    success: function (response) {
+      console.log(response); // Manejar la respuesta del servidor
+      // Puedes redirigir a otra página o realizar acciones adicionales según la respuesta
+    },
+  });
 }

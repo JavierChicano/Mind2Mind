@@ -36,11 +36,23 @@ if ($resultado->num_rows == 0) {
         crearTablaSiNoExiste($conexion, "Pacientes", "
             id INT AUTO_INCREMENT PRIMARY KEY,
             nombre VARCHAR(255),
-            apellido VARCHAR(255),
-            edad INT,
-            genero VARCHAR(10),
+            apellidos VARCHAR(255),
+            dni VARCHAR(20),
+            email VARCHAR(255),
+            contraseña VARCHAR(255),
+            provincia VARCHAR(255),
+            domicilio VARCHAR(255),
+            sexo VARCHAR(10),
+            profesional VARCHAR(255),
+            modalidad VARCHAR(255),
+            telefono VARCHAR(20),
+            diagnostico TEXT,
+            fecha_consulta DATE,
+            posee_aseguradora VARCHAR(3),
+            aseguradora_especifica VARCHAR(255),
             fecha_registro DATE
         ");
+
 
         crearTablaSiNoExiste($conexion, "Testimonios", "
             id INT AUTO_INCREMENT PRIMARY KEY,
@@ -84,10 +96,10 @@ if ($resultado->num_rows == 0) {
             efectos_secundarios TEXT
         ");
 
-        // Insertar datos de ejemplo si no existen
-        if (!existenDatosEjemplo($conexion)) {
-            insertarDatosEjemplo($conexion);
-        }
+        // // Insertar datos de ejemplo si no existen
+        // if (!existenDatosEjemplo($conexion)) {
+        //     insertarDatosEjemplo($conexion);
+        // }
 
         // Añadir las relaciones a la tabla Medicamentos
         $conexion->query("ALTER TABLE Medicamentos ADD COLUMN terapia_id INT");
@@ -133,7 +145,7 @@ if ($resultado->num_rows == 0) {
         echo "Error al crear la base de datos: " . $conexion->error;
     }
 } else {
-    echo "La base de datos '$base_datos' ya existe, no se realizaron cambios<br>";
+    echo "La base de datos '$base_datos' ya existe, no se realizaron cambios";
 }
 
 // Función para crear una tabla si no existe
@@ -146,9 +158,10 @@ function crearTablaSiNoExiste($conexion, $nombreTabla, $columnas)
         $sql = "CREATE TABLE $nombreTabla ($columnas)";
         $conexion->query($sql);
 
-        echo "<br>La tabla '$nombreTabla' creada correctamente<br>";
+        echo "\n\nLa tabla '$nombreTabla' creada correctamente\n";
     } else {
-        echo "<br>La tabla '$nombreTabla' ya existe<br>";
+        echo "\n\nLa tabla '$nombreTabla' ya existe";
+
     }
 }
 
@@ -162,69 +175,68 @@ function existenDatosEjemplo($conexion)
 }
 
 // Función para insertar datos de ejemplo
-function insertarDatosEjemplo($conexion)
-{
-    // Insertar datos en Testimonios
-    $conexion->query("INSERT INTO Testimonios (nombre_cliente, comentario, calificacion, fecha_testimonio) VALUES
-    ('Aaron', 'Terminé la terapia de luz con una mejora en mi ánimo y energía, aliviando los síntomas de mi trastorno.', 5, '2022-06-01'),
-    ('Ángela', 'La psicoterapia transformó mi vida al proporcionarme un espacio para explorar y comprender mis emociones.', 4, '2022-06-02'),
-    ('Vicky', 'Después de concluir mi terapia de luz, experimenté una transformación increíble en mi estado de ánimo.', 5, '2022-06-03'),
-    ('Javier', 'La TMS mejoró mi claridad mental y agudeza cognitiva, ofreciendo una innovadora forma de cuidar mi cuerpo.', 4, '2022-06-04'),
-    ('Carlos', 'Servicio excepcional', 5, '2022-06-05')");
+// function insertarDatosEjemplo($conexion)
+// {
+//     // Insertar datos en Testimonios
+//     $conexion->query("INSERT INTO Testimonios (nombre_cliente, comentario, calificacion, fecha_testimonio) VALUES
+//     ('Aaron', 'Terminé la terapia de luz con una mejora en mi ánimo y energía, aliviando los síntomas de mi trastorno.', 5, '2022-06-01'),
+//     ('Ángela', 'La psicoterapia transformó mi vida al proporcionarme un espacio para explorar y comprender mis emociones.', 4, '2022-06-02'),
+//     ('Vicky', 'Después de concluir mi terapia de luz, experimenté una transformación increíble en mi estado de ánimo.', 5, '2022-06-03'),
+//     ('Javier', 'La TMS mejoró mi claridad mental y agudeza cognitiva, ofreciendo una innovadora forma de cuidar mi cuerpo.', 4, '2022-06-04'),
+//     ('Carlos', 'Servicio excepcional', 5, '2022-06-05')");
 
-    // Insertar datos en Chat
-    $conexion->query("INSERT INTO Chat (usuario, mensaje, fecha_envio, leido) VALUES
-    ('Jorge', 'Hola, ¿cómo estás?', '2022-06-01 08:00:00', true),
-    ('Saul', 'Estoy interesado en obtener más información', '2022-06-02 09:30:00', false),
-    ('Manuel', '¿Cuáles son los horarios disponibles?', '2022-06-03 11:45:00', true),
-    ('Rodrigo', '¿Ofrecen servicios en línea?', '2022-06-04 13:15:00', false),
-    ('Borja', 'Gracias por la ayuda', '2022-06-05 15:20:00', true)");
+//     // Insertar datos en Chat
+//     $conexion->query("INSERT INTO Chat (usuario, mensaje, fecha_envio, leido) VALUES
+//     ('Jorge', 'Hola, ¿cómo estás?', '2022-06-01 08:00:00', true),
+//     ('Saul', 'Estoy interesado en obtener más información', '2022-06-02 09:30:00', false),
+//     ('Manuel', '¿Cuáles son los horarios disponibles?', '2022-06-03 11:45:00', true),
+//     ('Rodrigo', '¿Ofrecen servicios en línea?', '2022-06-04 13:15:00', false),
+//     ('Borja', 'Gracias por la ayuda', '2022-06-05 15:20:00', true)");
 
-    // Insertar datos en Descuentos
-    $conexion->query("INSERT INTO Descuentos (porcentaje, descripcion, codigo_descuento, fecha_expiracion) VALUES
-    (10, 'Descuento para nuevos clientes', 'NUEVO10', '2022-07-01'),
-    (5, 'Descuento por pago adelantado', 'ADEL5', '2022-07-15'),
-    (15, 'Descuento por referir a un amigo', 'REFER15', '2022-08-01'),
-    (8, 'Descuento en la segunda sesión', 'SESION8', '2022-08-15'),
-    (12, 'Descuento para estudiantes', 'ESTUDIANTE12', '2022-09-01')");
+//     // Insertar datos en Descuentos
+//     $conexion->query("INSERT INTO Descuentos (porcentaje, descripcion, codigo_descuento, fecha_expiracion) VALUES
+//     (10, 'Descuento para nuevos clientes', 'NUEVO10', '2022-07-01'),
+//     (5, 'Descuento por pago adelantado', 'ADEL5', '2022-07-15'),
+//     (15, 'Descuento por referir a un amigo', 'REFER15', '2022-08-01'),
+//     (8, 'Descuento en la segunda sesión', 'SESION8', '2022-08-15'),
+//     (12, 'Descuento para estudiantes', 'ESTUDIANTE12', '2022-09-01')");
 
-    // Insertar datos en Profesionales
-    $conexion->query("INSERT INTO Profesionales (nombre, especialidad, experiencia, ubicacion, telefono) VALUES
-    ('Dr. Garcia Vaquero', 'Est. Transcraneal', 15, 'Madrid', '123-456-7890'),
-    ('Dr. Flor de Esgueva', 'Est. Transcraneal', 20, 'Madrid', '987-654-3210'),
-    ('Dr Don Simon', 'Terapia de Luz', 10, 'Madrid', '555-555-5555'),
-    ('Dra Häagen-Dazs', 'Electroconvulsiva', 8, 'Madrid', '111-222-3333'),
-    ('Dra Maria Gutierrez', 'Psicoterapia', 12, 'Madrid', '999-888-7777')");
+//     // Insertar datos en Profesionales
+//     $conexion->query("INSERT INTO Profesionales (nombre, especialidad, experiencia, ubicacion, telefono) VALUES
+//     ('Dr. Garcia Vaquero', 'Est. Transcraneal', 15, 'Madrid', '123-456-7890'),
+//     ('Dr. Flor de Esgueva', 'Est. Transcraneal', 20, 'Madrid', '987-654-3210'),
+//     ('Dr Don Simon', 'Terapia de Luz', 10, 'Madrid', '555-555-5555'),
+//     ('Dra Häagen-Dazs', 'Electroconvulsiva', 8, 'Madrid', '111-222-3333'),
+//     ('Dra Maria Gutierrez', 'Psicoterapia', 12, 'Madrid', '999-888-7777')");
 
-    // Insertar datos en Medicamentos
-    $conexion->query("INSERT INTO Medicamentos (nombre, descripcion, tipo, dosis, efectos_secundarios) VALUES 
-    ('Lorazepam', 'Ansiolítico de acción rápida', 'Ansiolítico', '2mg', 'Sedación, Mareos'),
-    ('Clonazepam', 'Tratamiento de trastornos de ansiedad', 'Ansiolítico', '1mg', 'Somnolencia, Pérdida de coordinación'),
-    ('Kalitium', 'Estabilizador del ánimo', 'Estabilizador del ánimo', '150mg', 'Náuseas, Diarrea'),
-    ('Lamotrigina', 'Antiepiléptico y estabilizador del ánimo', 'Antiepiléptico', '100mg', 'Erupciones cutáneas, Mareos'),
-    ('Quetiapina', 'Antipsicótico atípico', 'Antipsicótico', '50mg', 'Aumento de peso, Somnolencia'),
-    ('Cariprazina', 'Antipsicótico', 'Antipsicótico', '1.5mg', 'Náuseas, Insomnio'),
-    ('Lurasidona', 'Antipsicótico', 'Antipsicótico', '40mg', 'Vértigo, Náuseas'),
-    ('Fluoxetina', 'Inhibidor selectivo de la recaptación de serotonina', 'Antidepresivo', '20mg', 'Insomnio, Nerviosismo')");
+//     // Insertar datos en Medicamentos
+//     $conexion->query("INSERT INTO Medicamentos (nombre, descripcion, tipo, dosis, efectos_secundarios) VALUES 
+//     ('Lorazepam', 'Ansiolítico de acción rápida', 'Ansiolítico', '2mg', 'Sedación, Mareos'),
+//     ('Clonazepam', 'Tratamiento de trastornos de ansiedad', 'Ansiolítico', '1mg', 'Somnolencia, Pérdida de coordinación'),
+//     ('Kalitium', 'Estabilizador del ánimo', 'Estabilizador del ánimo', '150mg', 'Náuseas, Diarrea'),
+//     ('Lamotrigina', 'Antiepiléptico y estabilizador del ánimo', 'Antiepiléptico', '100mg', 'Erupciones cutáneas, Mareos'),
+//     ('Quetiapina', 'Antipsicótico atípico', 'Antipsicótico', '50mg', 'Aumento de peso, Somnolencia'),
+//     ('Cariprazina', 'Antipsicótico', 'Antipsicótico', '1.5mg', 'Náuseas, Insomnio'),
+//     ('Lurasidona', 'Antipsicótico', 'Antipsicótico', '40mg', 'Vértigo, Náuseas'),
+//     ('Fluoxetina', 'Inhibidor selectivo de la recaptación de serotonina', 'Antidepresivo', '20mg', 'Insomnio, Nerviosismo')");
 
-    // Insertar datos en Terapias
-    $conexion->query("INSERT INTO Terapias (nombre, descripcion, duracion, costo, tipo) VALUES 
-    ('Terapia de luz', 'Terapia basada en la exposición a una luz brillante para mejorar el estado de ánimo.', 45, 80.00, 'Presencial'),
-    ('Estimulación Transcraneal', 'Método no invasivo que utiliza corriente eléctrica para estimular áreas específicas del cerebro.', 60, 120.00, 'En línea'),
-    ('TMS (Estimulación Magnética Transcraneal)', 'Procedimiento que utiliza pulsos magnéticos para estimular las células nerviosas en el cerebro.', 30, 150.00, 'Presencial'),
-    ('Psicoterapia', 'Tratamiento que implica hablar sobre sus pensamientos, sentimientos y comportamientos con un profesional de la salud mental.', 50, 100.00, 'En línea')");
+//     // Insertar datos en Terapias
+//     $conexion->query("INSERT INTO Terapias (nombre, descripcion, duracion, costo, tipo) VALUES 
+//     ('Terapia de luz', 'Terapia basada en la exposición a una luz brillante para mejorar el estado de ánimo.', 45, 80.00, 'Presencial'),
+//     ('Estimulación Transcraneal', 'Método no invasivo que utiliza corriente eléctrica para estimular áreas específicas del cerebro.', 60, 120.00, 'En línea'),
+//     ('TMS (Estimulación Magnética Transcraneal)', 'Procedimiento que utiliza pulsos magnéticos para estimular las células nerviosas en el cerebro.', 30, 150.00, 'Presencial'),
+//     ('Psicoterapia', 'Tratamiento que implica hablar sobre sus pensamientos, sentimientos y comportamientos con un profesional de la salud mental.', 50, 100.00, 'En línea')");
 
-    // Insertar datos en Pacientes
-    $conexion->query("INSERT INTO Pacientes (nombre, apellido, edad, genero, fecha_registro) VALUES
-    ('Juan', 'Pérez', 30, 'Masculino', '2022-01-01'),
-    ('María', 'Gómez', 25, 'Femenino', '2022-02-15'),
-    ('Carlos', 'Rodríguez', 35, 'Masculino', '2022-03-20'),
-    ('Ana', 'Martínez', 28, 'Femenino', '2022-04-10'),
-    ('Pedro', 'Sánchez', 40, 'Masculino', '2022-05-05')");
+//     // Insertar datos en Pacientes
+//     $conexion->query("INSERT INTO Pacientes (nombre, apellido, edad, genero, fecha_registro) VALUES
+//     ('Juan', 'Pérez', 30, 'Masculino', '2022-01-01'),
+//     ('María', 'Gómez', 25, 'Femenino', '2022-02-15'),
+//     ('Carlos', 'Rodríguez', 35, 'Masculino', '2022-03-20'),
+//     ('Ana', 'Martínez', 28, 'Femenino', '2022-04-10'),
+//     ('Pedro', 'Sánchez', 40, 'Masculino', '2022-05-05')");
 
-    }
+//     }
 
 // Cerrar la conexión
 $conexion->close();
 ?>
-
