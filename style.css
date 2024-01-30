@@ -111,6 +111,7 @@ main {
   font-size: 68px;
   position: absolute;
   margin-bottom: 1.5%;
+  color: black;
 }
 .imagenMain3 {
   display: flex;
@@ -141,6 +142,7 @@ main {
   font-size: 68px;
   position: absolute;
   margin-bottom: 9%;
+  color: black;
 }
 #text2Img3 {
   margin-left: 15%;
@@ -155,6 +157,7 @@ main {
   margin-bottom: 4%;
   display: flex;
   text-align: center;
+  color: black;
 }
 #text1Img5 {
   font-family: "Montserrat", sans-serif;
@@ -277,7 +280,7 @@ main {
   justify-content: center;
   align-self: center;
   gap: 30px;
-  margin: 65px;
+  margin: 265px;
   padding-left: 33px;
 }
 #seccionTratamientos div {
@@ -1522,6 +1525,7 @@ h1 {
   justify-content: center;
   gap: 100px;
   padding: 50px 100px;
+  
 }
 #visualizacionChat {
   width: 35%;
@@ -1529,7 +1533,10 @@ h1 {
   align-items: center;
   flex-direction: column;
   background-color: var(--colorBaseClaro);
-  border-radius: 12px;
+  border-radius: 0 24px;
+  border: 1px solid black;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 2);
+  ;
 }
 #visualizacionChat img {
   width: 50%;
@@ -1560,7 +1567,9 @@ h1 {
   justify-content: end;
   flex-direction: column;
   background-color: var(--colorBaseClaro);
-  border-radius: 12px;
+  border-radius: 0 24px;
+  border: 1px solid black;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 2);
   padding: 10px 50px;
 }
 .recibir {
