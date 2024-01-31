@@ -23,156 +23,408 @@ if ($resultado->num_rows == 0) {
         // Seleccionar la base de datos
         $conexion->select_db($base_datos);
 
-        // Crear las tablas
-        crearTablaSiNoExiste($conexion, "Profesionales", "
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            nombre VARCHAR(255),
-            especialidad VARCHAR(255),
-            experiencia INT,
-            ubicacion VARCHAR(100),
-            telefono VARCHAR(15)
-        ");
-
-        crearTablaSiNoExiste($conexion, "Pacientes", "
-            id INT AUTO_INCREMENT PRIMARY KEY,
+        // Paciente
+        $sqlPaciente = "CREATE TABLE paciente (
+            correoElectronico VARCHAR(255) PRIMARY KEY,
             nombre VARCHAR(255),
             apellidos VARCHAR(255),
-            dni VARCHAR(20),
-            email VARCHAR(255),
             contraseña VARCHAR(255),
+            dni VARCHAR(9),
             provincia VARCHAR(255),
             domicilio VARCHAR(255),
-            sexo VARCHAR(10),
-            profesional VARCHAR(255),
+            genero VARCHAR(255)
+        )";
+
+        // Especialista
+        $sqlEspecialista = "CREATE TABLE especialista (
+            idMedico INT AUTO_INCREMENT PRIMARY KEY,
+            nombre VARCHAR(255),
+            apellidos VARCHAR(255),
             modalidad VARCHAR(255),
-            telefono VARCHAR(20),
-            diagnostico TEXT,
-            fecha_consulta DATE,
-            posee_aseguradora VARCHAR(3),
-            aseguradora_especifica VARCHAR(255),
-            fecha_registro DATE
-        ");
+            horario DATE,
+            especialidad VARCHAR(255),
+            ubicacion VARCHAR(255)
+        )";
 
+        // Terapia
+        $sqlTerapia = "CREATE TABLE terapia (
+            idTerapia INT AUTO_INCREMENT PRIMARY KEY,
+            nombre VARCHAR(255),
+            coste VARCHAR(255)
+        )";
 
-        crearTablaSiNoExiste($conexion, "Testimonios", "
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            nombre_cliente VARCHAR(255),
-            comentario TEXT,
-            calificacion INT,
-            fecha_testimonio DATE
-        ");
+        // Codigo de Descuento
+        $sqlDescuento = "CREATE TABLE descuento (
+            codDescuento INT AUTO_INCREMENT PRIMARY KEY,
+            nombre VARCHAR(255),
+            coste VARCHAR(255)
+        )";
 
-        crearTablaSiNoExiste($conexion, "Chat", "
-            id INT AUTO_INCREMENT PRIMARY KEY,
+        // Cita
+        $sqlCita = "CREATE TABLE cita (
+            idCita INT AUTO_INCREMENT PRIMARY KEY,
+            especialidad VARCHAR(255),
+            modalidad VARCHAR(255),
+            numeroTelefono INT(9),
+            diagnostico VARCHAR(255),
+            fecha DATE,
+            aseguradoraNombre VARCHAR(255),
+            correoElectronico VARCHAR(255),
+            idMedico INT,
+            FOREIGN KEY (correoElectronico) REFERENCES paciente(correoElectronico),
+            FOREIGN KEY (idMedico) REFERENCES especialista(idMedico)
+        )";
+
+        // Terapia Paciente
+        $sqlTerapiaPaciente = "CREATE TABLE terapiaPaciente (
+            idTerapiaPaciente INT AUTO_INCREMENT PRIMARY KEY,
+            correoElectronico VARCHAR(255),
+            idTerapia INT,
+            FOREIGN KEY (correoElectronico) REFERENCES paciente(correoElectronico),
+            FOREIGN KEY (idTerapia) REFERENCES terapia(idTerapia)
+        )";
+
+        // Terapia Descuento
+        $sqlTerapiaDescuento = "CREATE TABLE terapiaDescuento (
+            idTerapiaDescuento INT AUTO_INCREMENT PRIMARY KEY,
+            idTerapia INT,
+            codDescuento INT,
+            FOREIGN KEY (idTerapia) REFERENCES terapia(idTerapia),
+            FOREIGN KEY (codDescuento) REFERENCES descuento(codDescuento)
+        )";
+
+        // Testimonio
+        $sqlTestimonio = "CREATE TABLE testimonio (
+            idTestimonio INT AUTO_INCREMENT PRIMARY KEY,
+            comentario VARCHAR(255),
+            calificacion VARCHAR(255),
+            fecha DATE,
+            correoElectronico VARCHAR(255),
+            FOREIGN KEY (correoElectronico) REFERENCES paciente(correoElectronico)
+        )";
+
+        // Chat
+        $sqlChat = "CREATE TABLE chat (
+            idChat INT AUTO_INCREMENT PRIMARY KEY,
             usuario VARCHAR(255),
-            mensaje TEXT,
-            fecha_envio DATETIME,
-            leido BOOLEAN
-        ");
+            mensaje VARCHAR(255),
+            fecha DATE,
+            correoElectronico VARCHAR(255),
+            idMedico INT,
+            FOREIGN KEY (correoElectronico) REFERENCES paciente(correoElectronico),
+            FOREIGN KEY (idMedico) REFERENCES especialista(idMedico)
+        )";
 
-        crearTablaSiNoExiste($conexion, "Descuentos", "
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            porcentaje INT,
-            descripcion TEXT,
-            codigo_descuento VARCHAR(20),
-            fecha_expiracion DATE
-        ");
+        // Ejecutar las consultas
+        $conexion->query($sqlPaciente);
+        $conexion->query($sqlEspecialista);
+        $conexion->query($sqlTerapia);
+        $conexion->query($sqlDescuento);
+        $conexion->query($sqlCita);
+        $conexion->query($sqlTerapiaPaciente);
+        $conexion->query($sqlTerapiaDescuento);
+        $conexion->query($sqlTestimonio);
+        $conexion->query($sqlChat);
 
-        crearTablaSiNoExiste($conexion, "Terapias", "
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            nombre VARCHAR(255),
-            descripcion TEXT,
-            duracion INT,
-            costo DECIMAL(10,2),
-            tipo VARCHAR(20)
-        ");
 
-        crearTablaSiNoExiste($conexion, "Medicamentos", "
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            nombre VARCHAR(255),
-            descripcion TEXT,
-            tipo VARCHAR(50),
-            dosis VARCHAR(20),
-            efectos_secundarios TEXT
-        ");
+        // Función para insertar un paciente
+        function insertarPaciente($conexion, $correo, $nombre, $apellidos, $contrasena, $dni, $provincia, $domicilio, $genero) {
+            $sql = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña, dni, provincia, domicilio, genero)
+                    VALUES ('$correo', '$nombre', '$apellidos', '$contrasena', '$dni', '$provincia', '$domicilio', '$genero')";
+            
+            if (query($conexion, $sql)) {
+                echo "Datos insertados correctamente, en paciente.";
+            } else {
+                echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
+            }
 
-        // // Insertar datos de ejemplo si no existen
-        // if (!existenDatosEjemplo($conexion)) {
-        //     insertarDatosEjemplo($conexion);
-        // }
+            return $conexion->query($sql);
+        }
 
-        // Añadir las relaciones a la tabla Medicamentos
-        $conexion->query("ALTER TABLE Medicamentos ADD COLUMN terapia_id INT");
-        $conexion->query("ALTER TABLE Medicamentos ADD FOREIGN KEY (terapia_id) REFERENCES Terapias(id)");
+        // Función para insertar un especialista
+        function insertarEspecialista($conexion, $nombre, $apellidos, $modalidad, $horario, $especialidad, $ubicacion) {
+            $sql = "INSERT INTO especialista (nombre, apellidos, modalidad, horario, especialidad, ubicacion)
+                    VALUES ('$nombre', '$apellidos', '$modalidad', '$horario', '$especialidad', '$ubicacion')";
 
-        $conexion->query("ALTER TABLE Medicamentos ADD COLUMN profesional_id INT");
-        $conexion->query("ALTER TABLE Medicamentos ADD FOREIGN KEY (profesional_id) REFERENCES Profesionales(id)");
+            if (query($conexion, $sql)) {
+                echo "Datos insertados correctamente, en especialista.";
+            } else {
+                echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
+            }
 
-        $conexion->query("ALTER TABLE Medicamentos ADD COLUMN paciente_id INT");
-        $conexion->query("ALTER TABLE Medicamentos ADD FOREIGN KEY (paciente_id) REFERENCES Pacientes(id)");
+            return $conexion->query($sql);
+        }
 
-        // Añadir las relaciones a la tabla Pacientes
-        $conexion->query("ALTER TABLE Pacientes ADD COLUMN testimonio_id INT");
-        $conexion->query("ALTER TABLE Pacientes ADD FOREIGN KEY (testimonio_id) REFERENCES Testimonios(id)");
+        // Función para insertar una terapia
+        function insertarTerapia($conexion, $nombre, $coste) {
+            $sql = "INSERT INTO terapia (nombre, coste)
+                    VALUES ('$nombre', '$coste')";
 
-        $conexion->query("ALTER TABLE Pacientes ADD COLUMN chat_id INT");
-        $conexion->query("ALTER TABLE Pacientes ADD FOREIGN KEY (chat_id) REFERENCES Chat(id)");
+            if (query($conexion, $sql)) {
+                echo "Datos insertados correctamente, en terapia.";
+            } else {
+                echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
+            }
 
-        $conexion->query("ALTER TABLE Pacientes ADD COLUMN descuento_id INT");
-        $conexion->query("ALTER TABLE Pacientes ADD FOREIGN KEY (descuento_id) REFERENCES Descuentos(id)");
+            return $conexion->query($sql);
+        }
 
-        // Añadir las relaciones a la tabla Testimonios
-        $conexion->query("ALTER TABLE Testimonios ADD COLUMN paciente_id INT");
-        $conexion->query("ALTER TABLE Testimonios ADD FOREIGN KEY (paciente_id) REFERENCES Pacientes(id)");
+        // Función para insertar un código de descuento
+        function insertarDescuento($conexion, $nombre, $coste) {
+            $sql = "INSERT INTO descuento (nombre, coste)
+                    VALUES ('$nombre', '$coste')";
 
-        // Añadir las relaciones a la tabla Chat
-        $conexion->query("ALTER TABLE Chat ADD COLUMN paciente_id INT");
-        $conexion->query("ALTER TABLE Chat ADD FOREIGN KEY (paciente_id) REFERENCES Pacientes(id)");
+            if (query($conexion, $sql)) {
+                echo "Datos insertados correctamente, en descuento.";
+            } else {
+                echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
+            }
 
-        // Añadir las relaciones a la tabla Descuentos
-        $conexion->query("ALTER TABLE Descuentos ADD COLUMN paciente_id INT");
-        $conexion->query("ALTER TABLE Descuentos ADD FOREIGN KEY (paciente_id) REFERENCES Pacientes(id)");
+            return $conexion->query($sql);
+        }
 
-        // Añadir las relaciones a la tabla Terapias
-        $conexion->query("ALTER TABLE Terapias ADD COLUMN paciente_id INT");
-        $conexion->query("ALTER TABLE Terapias ADD FOREIGN KEY (paciente_id) REFERENCES Pacientes(id)");
+        // Función para insertar una cita
+        function insertarCita($conexion, $especialidad, $modalidad, $numeroTelefono, $diagnostico, $fecha, $aseguradoraNombre, $correoElectronico, $idMedico) {
+            $sql = "INSERT INTO cita (especialidad, modalidad, numeroTelefono, diagnostico, fecha, aseguradoraNombre, correoElectronico, idMedico)
+                    VALUES ('$especialidad', '$modalidad', $numeroTelefono, '$diagnostico', '$fecha', '$aseguradoraNombre', '$correoElectronico', $idMedico)";
 
-        // Añadir las relaciones a la tabla Profesionales
-        $conexion->query("ALTER TABLE Profesionales ADD COLUMN terapia_id INT, ADD FOREIGN KEY (terapia_id) REFERENCES Terapias(id)");
+            if (query($conexion, $sql)) {
+                echo "Datos insertados correctamente, en cita.";
+            } else {
+                echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
+            }
 
-        echo "<br>Proceso de creación completado<br>";
+            return $conexion->query($sql);
+        }
+
+        // Función para insertar una terapia de paciente
+        function insertarTerapiaPaciente($conexion, $correoElectronico, $idTerapia) {
+            $sql = "INSERT INTO terapiaPaciente (correoElectronico, idTerapia)
+                    VALUES ('$correoElectronico', $idTerapia)";
+
+            if (query($conexion, $sql)) {
+                echo "Datos insertados correctamente, en terapiaPaciente.";
+            } else {
+                echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
+            }
+
+            return $conexion->query($sql);
+        }
+
+        // Función para insertar una terapia de descuento
+        function insertarTerapiaDescuento($conexion, $idTerapia, $codDescuento) {
+            $sql = "INSERT INTO terapiaDescuento (idTerapia, codDescuento)
+                    VALUES ($idTerapia, $codDescuento)";
+
+            if (query($conexion, $sql)) {
+                echo "Datos insertados correctamente, en descuento.";
+            } else {
+                echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
+            }
+
+            return $conexion->query($sql);
+        }
+
+        // Función para insertar un testimonio
+        function insertarTestimonio($conexion, $comentario, $calificacion, $fecha, $correoElectronico) {
+            $sql = "INSERT INTO testimonio (comentario, calificacion, fecha, correoElectronico)
+                    VALUES ('$comentario', '$calificacion', '$fecha', '$correoElectronico')";
+
+            if (query($conexion, $sql)) {
+                echo "Datos insertados correctamente, en testimonio.";
+            } else {
+                echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
+            }
+
+            return $conexion->query($sql);
+        }
+
+        // Función para insertar un mensaje de chat
+        function insertarChat($conexion, $usuario, $mensaje, $fecha, $correoElectronico, $idMedico) {
+            $sql = "INSERT INTO chat (usuario, mensaje, fecha, correoElectronico, idMedico)
+                    VALUES ('$usuario', '$mensaje', '$fecha', '$correoElectronico', $idMedico)";
+
+            if (query($conexion, $sql)) {
+                echo "Datos insertados correctamente, en chat.";
+            } else {
+                echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
+            }
+
+            return $conexion->query($sql);
+        }
+
+
+
+
+
+        echo "Tablas creadas correctamente";
     } else {
         echo "Error al crear la base de datos: " . $conexion->error;
     }
-} else {
-    echo "La base de datos '$base_datos' ya existe, no se realizaron cambios";
 }
 
-// Función para crear una tabla si no existe
-function crearTablaSiNoExiste($conexion, $nombreTabla, $columnas)
-{
-    // Verificar si la tabla ya existe
-    $resultado = $conexion->query("SHOW TABLES LIKE '$nombreTabla'");
-    if ($resultado->num_rows == 0) {
-        // La tabla no existe, crearla
-        $sql = "CREATE TABLE $nombreTabla ($columnas)";
-        $conexion->query($sql);
 
-        echo "\n\nLa tabla '$nombreTabla' creada correctamente\n";
-    } else {
-        echo "\n\nLa tabla '$nombreTabla' ya existe";
 
-    }
-}
 
-// Función para verificar si existen datos de ejemplo
-function existenDatosEjemplo($conexion)
-{
-    // Verificar si ya existen datos en una de las tablas de ejemplo (por ejemplo, Testimonios)
-    $resultado = $conexion->query("SELECT * FROM Testimonios LIMIT 1");
 
-    return $resultado->num_rows > 0;
-}
+
+
+
+
+
+
+
+
+//         // Crear las tablas
+//         crearTablaSiNoExiste($conexion, "Profesionales", "
+//             id INT AUTO_INCREMENT PRIMARY KEY,
+//             nombre VARCHAR(255),
+//             especialidad VARCHAR(255),
+//             experiencia INT,
+//             ubicacion VARCHAR(100),
+//             telefono VARCHAR(15)
+//         ");
+
+//         crearTablaSiNoExiste($conexion, "Pacientes", "
+//             id INT AUTO_INCREMENT PRIMARY KEY,
+//             nombre VARCHAR(255),
+//             apellidos VARCHAR(255),
+//             dni VARCHAR(20),
+//             email VARCHAR(255),
+//             contraseña VARCHAR(255),
+//             provincia VARCHAR(255),
+//             domicilio VARCHAR(255),
+//             sexo VARCHAR(10),
+//             profesional VARCHAR(255),
+//             modalidad VARCHAR(255),
+//             telefono VARCHAR(20),
+//             diagnostico TEXT,
+//             fecha_consulta DATE,
+//             posee_aseguradora VARCHAR(3),
+//             aseguradora_especifica VARCHAR(255),
+//             fecha_registro DATE
+//         ");
+
+
+//         crearTablaSiNoExiste($conexion, "Testimonios", "
+//             id INT AUTO_INCREMENT PRIMARY KEY,
+//             nombre_cliente VARCHAR(255),
+//             comentario TEXT,
+//             calificacion INT,
+//             fecha_testimonio DATE
+//         ");
+
+//         crearTablaSiNoExiste($conexion, "Chat", "
+//             id INT AUTO_INCREMENT PRIMARY KEY,
+//             usuario VARCHAR(255),
+//             mensaje TEXT,
+//             fecha_envio DATETIME,
+//             leido BOOLEAN
+//         ");
+
+//         crearTablaSiNoExiste($conexion, "Descuentos", "
+//             id INT AUTO_INCREMENT PRIMARY KEY,
+//             porcentaje INT,
+//             descripcion TEXT,
+//             codigo_descuento VARCHAR(20),
+//             fecha_expiracion DATE
+//         ");
+
+//         crearTablaSiNoExiste($conexion, "Terapias", "
+//             id INT AUTO_INCREMENT PRIMARY KEY,
+//             nombre VARCHAR(255),
+//             descripcion TEXT,
+//             duracion INT,
+//             costo DECIMAL(10,2),
+//             tipo VARCHAR(20)
+//         ");
+
+//         crearTablaSiNoExiste($conexion, "Medicamentos", "
+//             id INT AUTO_INCREMENT PRIMARY KEY,
+//             nombre VARCHAR(255),
+//             descripcion TEXT,
+//             tipo VARCHAR(50),
+//             dosis VARCHAR(20),
+//             efectos_secundarios TEXT
+//         ");
+
+//         // // Insertar datos de ejemplo si no existen
+//         // if (!existenDatosEjemplo($conexion)) {
+//         //     insertarDatosEjemplo($conexion);
+//         // }
+
+//         // Añadir las relaciones a la tabla Medicamentos
+//         $conexion->query("ALTER TABLE Medicamentos ADD COLUMN terapia_id INT");
+//         $conexion->query("ALTER TABLE Medicamentos ADD FOREIGN KEY (terapia_id) REFERENCES Terapias(id)");
+
+//         $conexion->query("ALTER TABLE Medicamentos ADD COLUMN profesional_id INT");
+//         $conexion->query("ALTER TABLE Medicamentos ADD FOREIGN KEY (profesional_id) REFERENCES Profesionales(id)");
+
+//         $conexion->query("ALTER TABLE Medicamentos ADD COLUMN paciente_id INT");
+//         $conexion->query("ALTER TABLE Medicamentos ADD FOREIGN KEY (paciente_id) REFERENCES Pacientes(id)");
+
+//         // Añadir las relaciones a la tabla Pacientes
+//         $conexion->query("ALTER TABLE Pacientes ADD COLUMN testimonio_id INT");
+//         $conexion->query("ALTER TABLE Pacientes ADD FOREIGN KEY (testimonio_id) REFERENCES Testimonios(id)");
+
+//         $conexion->query("ALTER TABLE Pacientes ADD COLUMN chat_id INT");
+//         $conexion->query("ALTER TABLE Pacientes ADD FOREIGN KEY (chat_id) REFERENCES Chat(id)");
+
+//         $conexion->query("ALTER TABLE Pacientes ADD COLUMN descuento_id INT");
+//         $conexion->query("ALTER TABLE Pacientes ADD FOREIGN KEY (descuento_id) REFERENCES Descuentos(id)");
+
+//         // Añadir las relaciones a la tabla Testimonios
+//         $conexion->query("ALTER TABLE Testimonios ADD COLUMN paciente_id INT");
+//         $conexion->query("ALTER TABLE Testimonios ADD FOREIGN KEY (paciente_id) REFERENCES Pacientes(id)");
+
+//         // Añadir las relaciones a la tabla Chat
+//         $conexion->query("ALTER TABLE Chat ADD COLUMN paciente_id INT");
+//         $conexion->query("ALTER TABLE Chat ADD FOREIGN KEY (paciente_id) REFERENCES Pacientes(id)");
+
+//         // Añadir las relaciones a la tabla Descuentos
+//         $conexion->query("ALTER TABLE Descuentos ADD COLUMN paciente_id INT");
+//         $conexion->query("ALTER TABLE Descuentos ADD FOREIGN KEY (paciente_id) REFERENCES Pacientes(id)");
+
+//         // Añadir las relaciones a la tabla Terapias
+//         $conexion->query("ALTER TABLE Terapias ADD COLUMN paciente_id INT");
+//         $conexion->query("ALTER TABLE Terapias ADD FOREIGN KEY (paciente_id) REFERENCES Pacientes(id)");
+
+//         // Añadir las relaciones a la tabla Profesionales
+//         $conexion->query("ALTER TABLE Profesionales ADD COLUMN terapia_id INT, ADD FOREIGN KEY (terapia_id) REFERENCES Terapias(id)");
+
+//         echo "<br>Proceso de creación completado<br>";
+//     } else {
+//         echo "Error al crear la base de datos: " . $conexion->error;
+//     }
+// } else {
+//     echo "La base de datos '$base_datos' ya existe, no se realizaron cambios";
+// }
+
+// // Función para crear una tabla si no existe
+// function crearTablaSiNoExiste($conexion, $nombreTabla, $columnas)
+// {
+//     // Verificar si la tabla ya existe
+//     $resultado = $conexion->query("SHOW TABLES LIKE '$nombreTabla'");
+//     if ($resultado->num_rows == 0) {
+//         // La tabla no existe, crearla
+//         $sql = "CREATE TABLE $nombreTabla ($columnas)";
+//         $conexion->query($sql);
+
+//         echo "\n\nLa tabla '$nombreTabla' creada correctamente\n";
+//     } else {
+//         echo "\n\nLa tabla '$nombreTabla' ya existe";
+
+//     }
+// }
+
+// // Función para verificar si existen datos de ejemplo
+// function existenDatosEjemplo($conexion)
+// {
+//     // Verificar si ya existen datos en una de las tablas de ejemplo (por ejemplo, Testimonios)
+//     $resultado = $conexion->query("SELECT * FROM Testimonios LIMIT 1");
+
+//     return $resultado->num_rows > 0;
+// }
 
 // Función para insertar datos de ejemplo
 // function insertarDatosEjemplo($conexion)
