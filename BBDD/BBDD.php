@@ -41,7 +41,7 @@ if ($resultado->num_rows == 0) {
             nombre VARCHAR(255),
             apellidos VARCHAR(255),
             modalidad VARCHAR(255),
-            horario DATE,
+            horario VARCHAR(255),
             especialidad VARCHAR(255),
             ubicacion VARCHAR(255)
         )";
@@ -88,7 +88,7 @@ if ($resultado->num_rows == 0) {
         $sqlTerapiaDescuento = "CREATE TABLE terapiaDescuento (
             idTerapiaDescuento INT AUTO_INCREMENT PRIMARY KEY,
             idTerapia INT,
-            codDescuento INT,
+            codDescuento VARCHAR(7),
             FOREIGN KEY (idTerapia) REFERENCES terapia(idTerapia),
             FOREIGN KEY (codDescuento) REFERENCES descuento(codDescuento)
         )";
@@ -155,6 +155,14 @@ if ($resultado->num_rows == 0) {
             return $conexion->query($sql);
         }
 
+        // Insertar datos de especialistas
+        insertarEspecialista($conexion, "Dr. Garcia", "Vaquero", "Presencial", "Tardes", "Diagnósticos", "Hospital XYZ");
+        insertarEspecialista($conexion, "Dr. Flor", "Esgueva", "Virtual", "Mañanas", "Tratamientos", "Clínica ABC");
+        insertarEspecialista($conexion, "Dr. Don", "Simón", "Presencial", "Tardes", "Medicamentos", "Hospital ABC");
+        insertarEspecialista($conexion, "Dra. Häagen", "Dazs", "Virtual", "Tardes", "Terapias", "Clínica XYZ");
+        insertarEspecialista($conexion, "Dra. María", "Gutierrez", "Presencial", "Todo el día", "Consultora", "Hospital XYZ");
+
+
         // Función para insertar una terapia
         function insertarTerapia($conexion, $nombre, $coste) {
             $sql = "INSERT INTO terapia (nombre, coste)
@@ -168,6 +176,15 @@ if ($resultado->num_rows == 0) {
 
             return $conexion->query($sql);
         }
+
+        // Insertar datos de terapia
+        insertarTerapia($conexion, "Terapia de Estimulación Transcraneal", "50.00");
+        insertarTerapia($conexion, "Terapia de Luz", "75.00");
+        insertarTerapia($conexion, "Terapia Electroconvulsiva", "60.00");
+        insertarTerapia($conexion, "Psicoterapia", "65.00");
+        insertarTerapia($conexion, "Mindfulness", "55.00");
+        insertarTerapia($conexion, "Arte Expresivo", "80.00");
+
 
         // Función para insertar un código de descuento
         function insertarDescuento($conexion, $nombre, $coste) {
@@ -224,6 +241,12 @@ if ($resultado->num_rows == 0) {
 
             return $conexion->query($sql);
         }
+
+        // Insertar datos de descuento
+        insertarDescuento($conexion, "Descuento 1", "12345A");
+        insertarDescuento($conexion, "Descuento 2", "12345B");
+        insertarDescuento($conexion, "Descuento 3", "12345C");
+
 
         // Función para insertar un testimonio
         function insertarTestimonio($conexion, $comentario, $calificacion, $fecha, $correoElectronico) {
