@@ -1,0 +1,94 @@
+:root {
+  --colorBaseClaro: #dfdedd;
+  --colorBaseOscuro: #506059;
+  --colorPrincipal: white;
+  --colorSecundario: #a9ddd0;
+  --colorTerciario: #757780;
+  --colorContraste: rgb(54, 208, 199);
+  --rosa: #e6b3b4;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+body {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: min-content 1fr min-content;
+}
+#mainPerfil {
+  display: grid;
+  grid-template-columns: minmax(0, 500px) 1fr;
+  height: 80vh;
+  overflow-y: hidden;
+}
+.perfil {
+  background-color: var(--colorSecundario);
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding-bottom: 50px;
+}
+.perfil span {
+  margin-top: 80px;
+  margin-bottom: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.perfil h1 {
+  font-size: 40px;
+}
+.divisiones {
+  font-size: 25px;
+  margin-bottom: 10px;
+  background-color: var(--colorTerciario);
+  color: white;
+  padding: 12px;
+  border-radius: 0 0 0 12px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--colorBaseClaro);
+  &:hover {
+    background-color: var(--rosa);
+    color: black;
+  }
+}
+.divisiones.seleccionada {
+  background-color: var(--rosa);
+  color: black;
+}
+#perfilInfo {
+  height: 700%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: transform 0.5s ease;
+  transform: translateY(0%);
+}
+.deslizar {
+  height: calc(100% / 7);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.centradoTitulo{
+  margin: 50px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.titulo{
+  background-color: var(--colorBaseOscuro);
+  color: white;
+  padding: 12px;
+  border-radius: 2px;
+} 
+.fondo{
+  background-color: rgb(54, 208, 199, 0.1);
+  width: 80%;
+  height: 80%;
+}

@@ -127,7 +127,6 @@ function cambiarDivTratamientos(index) {
   });
   linksTratamientos[index].classList.add("selected");
 }
-
 if (linksTratamientos) {
   // Evento de clic en los puntos
   linksTratamientos.forEach((link, i) => {

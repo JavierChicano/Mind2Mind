@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mind 2 Mind</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="icon" href="../img/logo.png" type="image/x-icon">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styleHF.css" />
+    <link rel="stylesheet" href="stylosPerfil.css">
+  </head>
+  <body>
+    <header>
+      <a href='../index.html'><img src="../img/logo.png" id="logo"/></a>
+      <h1><a href='../index.html'>MIND 2 MIND</a></h1>
+      <div id="barraBusqueda">
+        <img src="../img/calendar-month.png">
+        <p><a href='pedirCita.html'>Pedir Cita</a></p> 
+      </div>
+      <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="../img/menuHamburguesa.png" /></span>
+      <nav class="nav" id="nav">
+        <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="../img/menuHamburguesa.png" /></span>
+        <ul class="nav-list">
+            <li><a href='../acercaDe.html'>Acerca de</a></li>
+            <li><a href='../tratamientos.html'>Tratamientos</a></li>
+            <li><a href='../servicios.html'>Servicios</a></li>
+            <li><a id="account">Cuenta</a></li>
+        </ul>
+      </nav>
+    </header>
+   <main id="mainPerfil">
+        <section class="perfil">
+            <span><h1>Nombre</h1></span>
+            <section>
+                <article class="divisiones seleccionada">Perfil</article>
+                <article class="divisiones">Mis Terapias</article>
+                <article class="divisiones">Mis Citas</article>
+                <article class="divisiones">Suscripciones</article>
+                <article class="divisiones">Ayuda</article>
+                <article class="divisiones">Cert. Tratamientos</article>
+                <article class="divisiones">Sign out</article>
+            </section>
+        </section>
+        <section id="perfilInfo">
+            <aside class="deslizar">
+              <span class="centradoTitulo"><h1 class="titulo">Editar</h1></span>
+              <div class="fondo">
+                
+              </div>
+            </aside>
+            <aside class="deslizar">
+              <span class="centradoTitulo"><h1 class="titulo">Mis Terapias</h1></span>
+              
+            </aside>
+            <aside class="deslizar">
+              <span class="centradoTitulo"><h1 class="titulo">Mis Citas</h1></span>
+              
+            </aside>
+            <aside class="deslizar">
+              <span class="centradoTitulo"><h1 class="titulo">Suscripciones</h1></span>
+              
+            </aside>
+            <aside class="deslizar">
+              <span class="centradoTitulo"><h1 class="titulo">Ayuda</h1></span>
+              
+            </aside>
+            <aside class="deslizar">
+              <span class="centradoTitulo"><h1 class="titulo">Cert. Tratamientos</h1></span>
+              
+            </aside>
+            <aside class="deslizar">
+              <span class="centradoTitulo"><h1 class="titulo">Sign out</h1></span>
+              
+            </aside>
+        </section>
+   </main>
+
+    <footer>
+      <!-- Seccion about -->
+      <section>
+        <ul>
+          <li>Horario de consultas</li>
+          <li class="fLista">L-V 8:00 - 21:00h</li>
+          <li>Horario atención telefónica</li>
+          <li class="fLista">L-V 10:00 - 21:00h</li>
+        </ul>
+        
+      </section>
+
+      <!-- Seccion Recursos -->
+      <section id="seccionContactoFooter">
+        <h1><a href='formContacto.html'>FORMULARIO DE CONTACTO</a></h1>
+        <p>C/Alberto Aguilera 52</p>
+        <p>28015 Madrid, España</p>
+        <p>Tel: +34 661 661 662</p>
+        <p>WhatsApp: +34 661 661 662</p>
+      </section>
+
+      <!-- Seccion Social Media -->
+      <section id="seccionSocialMedia">
+        <a href='index.html'><img src="../img/logo.png" id="logo"/></a>
+        <article id="socialMedia">
+          <img src="../img/mail.png">
+          <img src="../img/instagram.png">
+          <img src="../img/x.png">
+        </article>
+      </section>
+      <article>
+        Centro de Salud Mental autorizado por la Conserjería de Sanidad de la Comunidad de Madrid
+        <br>
+        Mind To Mind, S.L.P - Todos los derechos reservados
+      </article>
+    </footer>
+    <script>
+      AOS.init();
+    </script>
+    <script src="perfil.js"></script>
+    <script src="../gestionInformacion.js"></script>
+  </body>
+</html>

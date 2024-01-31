@@ -110,9 +110,9 @@ header h1 a{
     color: black;
   }
 }
-#account{
+/* #account{
   display: none;
-}
+} */
 .abrir-menu {
   display: none;
   margin-right: 25px;
