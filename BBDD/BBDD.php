@@ -50,14 +50,14 @@ if ($resultado->num_rows == 0) {
         $sqlTerapia = "CREATE TABLE terapia (
             idTerapia INT AUTO_INCREMENT PRIMARY KEY,
             nombre VARCHAR(255),
-            coste VARCHAR(255)
+            coste DECIMAL(10, 2)
         )";
 
         // Codigo de Descuento
         $sqlDescuento = "CREATE TABLE descuento (
-            codDescuento INT AUTO_INCREMENT PRIMARY KEY,
+            codDescuento VARCHAR(7) PRIMARY KEY,
             nombre VARCHAR(255),
-            coste VARCHAR(255)
+            coste DECIMAL(10, 2)
         )";
 
         // Cita
@@ -126,16 +126,15 @@ if ($resultado->num_rows == 0) {
         $conexion->query($sqlTestimonio);
         $conexion->query($sqlChat);
 
-
         // Función para insertar un paciente
         function insertarPaciente($conexion, $correo, $nombre, $apellidos, $contrasena, $dni, $provincia, $domicilio, $genero) {
             $sql = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña, dni, provincia, domicilio, genero)
                     VALUES ('$correo', '$nombre', '$apellidos', '$contrasena', '$dni', '$provincia', '$domicilio', '$genero')";
-            
-            if (query($conexion, $sql)) {
+
+            if ($conexion->query($sql)) {
                 echo "Datos insertados correctamente, en paciente.";
             } else {
-                echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
+                echo "Error al insertar datos, en pacientes: " . $conexion->error;
             }
 
             return $conexion->query($sql);
@@ -146,10 +145,10 @@ if ($resultado->num_rows == 0) {
             $sql = "INSERT INTO especialista (nombre, apellidos, modalidad, horario, especialidad, ubicacion)
                     VALUES ('$nombre', '$apellidos', '$modalidad', '$horario', '$especialidad', '$ubicacion')";
 
-            if (query($conexion, $sql)) {
-                echo "Datos insertados correctamente, en especialista.";
+            if ($conexion->query($sql) === TRUE) {
+                echo "Datos insertados correctamente, en especialista.<br>";
             } else {
-                echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
+                die("Error al insertar datos, en especialista: " . $conexion->error);
             }
 
             return $conexion->query($sql);
@@ -162,16 +161,15 @@ if ($resultado->num_rows == 0) {
         insertarEspecialista($conexion, "Dra. Häagen", "Dazs", "Virtual", "Tardes", "Terapias", "Clínica XYZ");
         insertarEspecialista($conexion, "Dra. María", "Gutierrez", "Presencial", "Todo el día", "Consultora", "Hospital XYZ");
 
-
         // Función para insertar una terapia
         function insertarTerapia($conexion, $nombre, $coste) {
             $sql = "INSERT INTO terapia (nombre, coste)
                     VALUES ('$nombre', '$coste')";
 
-            if (query($conexion, $sql)) {
+            if ($conexion->query($sql)) {
                 echo "Datos insertados correctamente, en terapia.";
             } else {
-                echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
+                echo "Error al insertar datos, en terapia: " . $conexion->error;
             }
 
             return $conexion->query($sql);
@@ -185,58 +183,15 @@ if ($resultado->num_rows == 0) {
         insertarTerapia($conexion, "Mindfulness", "55.00");
         insertarTerapia($conexion, "Arte Expresivo", "80.00");
 
-
         // Función para insertar un código de descuento
         function insertarDescuento($conexion, $nombre, $coste) {
             $sql = "INSERT INTO descuento (nombre, coste)
                     VALUES ('$nombre', '$coste')";
 
-            if (query($conexion, $sql)) {
+            if ($conexion->query($sql)) {
                 echo "Datos insertados correctamente, en descuento.";
             } else {
-                echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
-            }
-
-            return $conexion->query($sql);
-        }
-
-        // Función para insertar una cita
-        function insertarCita($conexion, $especialidad, $modalidad, $numeroTelefono, $diagnostico, $fecha, $aseguradoraNombre, $correoElectronico, $idMedico) {
-            $sql = "INSERT INTO cita (especialidad, modalidad, numeroTelefono, diagnostico, fecha, aseguradoraNombre, correoElectronico, idMedico)
-                    VALUES ('$especialidad', '$modalidad', $numeroTelefono, '$diagnostico', '$fecha', '$aseguradoraNombre', '$correoElectronico', $idMedico)";
-
-            if (query($conexion, $sql)) {
-                echo "Datos insertados correctamente, en cita.";
-            } else {
-                echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
-            }
-
-            return $conexion->query($sql);
-        }
-
-        // Función para insertar una terapia de paciente
-        function insertarTerapiaPaciente($conexion, $correoElectronico, $idTerapia) {
-            $sql = "INSERT INTO terapiaPaciente (correoElectronico, idTerapia)
-                    VALUES ('$correoElectronico', $idTerapia)";
-
-            if (query($conexion, $sql)) {
-                echo "Datos insertados correctamente, en terapiaPaciente.";
-            } else {
-                echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
-            }
-
-            return $conexion->query($sql);
-        }
-
-        // Función para insertar una terapia de descuento
-        function insertarTerapiaDescuento($conexion, $idTerapia, $codDescuento) {
-            $sql = "INSERT INTO terapiaDescuento (idTerapia, codDescuento)
-                    VALUES ($idTerapia, $codDescuento)";
-
-            if (query($conexion, $sql)) {
-                echo "Datos insertados correctamente, en descuento.";
-            } else {
-                echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
+                echo "Error al insertar datos, en descuento: " . $conexion->error;
             }
 
             return $conexion->query($sql);
@@ -247,13 +202,12 @@ if ($resultado->num_rows == 0) {
         insertarDescuento($conexion, "Descuento 2", "12345B");
         insertarDescuento($conexion, "Descuento 3", "12345C");
 
-
         // Función para insertar un testimonio
         function insertarTestimonio($conexion, $comentario, $calificacion, $fecha, $correoElectronico) {
             $sql = "INSERT INTO testimonio (comentario, calificacion, fecha, correoElectronico)
                     VALUES ('$comentario', '$calificacion', '$fecha', '$correoElectronico')";
 
-            if (query($conexion, $sql)) {
+            if ($conexion->query($sql)) {
                 echo "Datos insertados correctamente, en testimonio.";
             } else {
                 echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
@@ -267,7 +221,7 @@ if ($resultado->num_rows == 0) {
             $sql = "INSERT INTO chat (usuario, mensaje, fecha, correoElectronico, idMedico)
                     VALUES ('$usuario', '$mensaje', '$fecha', '$correoElectronico', $idMedico)";
 
-            if (query($conexion, $sql)) {
+            if ($conexion->query($sql)) {
                 echo "Datos insertados correctamente, en chat.";
             } else {
                 echo "Error al insertar datos, en pacientes: " . mysqli_error($conexion);
@@ -287,7 +241,9 @@ if ($resultado->num_rows == 0) {
 }
 
 
-
+// Cerrar la conexión
+$conexion->close();
+?>
 
 
 
@@ -512,6 +468,3 @@ if ($resultado->num_rows == 0) {
 
 //     }
 
-// Cerrar la conexión
-$conexion->close();
-?>
