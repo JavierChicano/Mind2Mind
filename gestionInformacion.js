@@ -76,21 +76,7 @@ if (formLogIn) {
     //Obtener valores del formulario
     var email = document.getElementById("emailLogin").value;
     var password = document.getElementById("passwordLogin").value;
-    var displayErrores = document.getElementById("displayErroresRegistro");
 
-    // Validar el formato del correo electrónico
-    var comprobacionCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!comprobacionCorreo.test(email)) {
-      console.log("El correo electrónico tiene un formato inválido");
-      return false;
-    }
-
-    // Validar la robustez de la contraseña
-    var comprobacionContraseña = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-    if (!comprobacionContraseña.test(password)) {
-      console.log("La contraseña no cumple con los criterios de seguridad");
-      return false;
-    }
     insertarLogin(email, password);
   });
 }
@@ -457,14 +443,14 @@ function insertarRegistro(nombre, apellidos, email, password) {
 }
 
 //Insert del logIn
-function insertarLogin(mail, password) {
+function insertarLogin(email, password) {
   //Pagina logIn
   $.ajax({
     type: "POST",
     url: "BBDD/insertarDatos.php", // Nombre de tu script PHP
     data: {
       funcion: "login",
-      mail: mail,
+      email: email,
       password: password,
     },
     success: function (response) {
@@ -503,7 +489,7 @@ function insertarPedirCita(nombre, apellidos, dni, mail, provincia, domicilio, s
       nombre: nombre,
       apellidos: apellidos,
       dni: dni,
-      mail: mail,
+      email: mail,
       provincia: provincia,
       domicilio: domicilio,
       sexo: sexo,

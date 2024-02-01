@@ -1498,6 +1498,30 @@ h1 {
   font-size: 50px;
   border-radius: 2px;
 }
+#videollamadas{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 50px;
+}
+#videollamadas div{
+  display: flex;
+  margin: 50px;
+  align-items: center;
+  width: 40%;
+}
+#botonVideollamadas{
+  height: 45px;
+  margin-left: 8px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 20px;
+}
 #ayudasEconomicas {
   display: grid;
   justify-content: center;
@@ -1551,7 +1575,7 @@ h1 {
   justify-content: center;
   align-items: center;
   height: 140px;
-  background-color: var(--principal);
+  background-color: var(--rosa);
   border-radius: 50%;
   font-size: 50px;
 }
