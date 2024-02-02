@@ -77,11 +77,11 @@ if (formLogIn) {
     var email = document.getElementById("emailLogin").value;
     var password = document.getElementById("passwordLogin").value;
 
-    insertarLogin(email, password);
+    consultarLogin(email, password);
   });
 }
 
-//Formulario contacto 
+//Formulario contacto
 if (formContacto) {
   formContacto.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -388,7 +388,22 @@ if (formPedirCita) {
     Enviado.style.display = "flex";
     terceraParte.classList.remove("seleccionado");
     terceraParte.classList.add("completado");
-    insertarPedirCita(nombre, apellidos, dni, mail, provincia, domicilio, sexo, profesional, modalidad, telefono, diagnostico, fConsulta, poseeAseguradora, aseguradora)
+    insertarPedirCita(
+      nombre,
+      apellidos,
+      dni,
+      mail,
+      provincia,
+      domicilio,
+      sexo,
+      profesional,
+      modalidad,
+      telefono,
+      diagnostico,
+      fConsulta,
+      poseeAseguradora,
+      aseguradora
+    );
   });
 
   //Volver a la segunda
@@ -422,6 +437,8 @@ function mostrarAseguradora() {
   }
 }
 
+//-------------------------------------------------INSERT BBDD----------------------------------------------
+
 //Insert del registro
 function insertarRegistro(nombre, apellidos, email, password) {
   //Inserccion en BBDD
@@ -442,22 +459,6 @@ function insertarRegistro(nombre, apellidos, email, password) {
   });
 }
 
-//Insert del logIn
-function insertarLogin(email, password) {
-  //Pagina logIn
-  $.ajax({
-    type: "POST",
-    url: "BBDD/insertarDatos.php", // Nombre de tu script PHP
-    data: {
-      funcion: "login",
-      email: email,
-      password: password,
-    },
-    success: function (response) {
-      console.log(response); // Manejar la respuesta del servidor
-    },
-  });
-}
 //Insert del form contacto
 function insertarContacto(nombre, apellidos, email, telefono) {
   // Página de registro
@@ -479,7 +480,22 @@ function insertarContacto(nombre, apellidos, email, telefono) {
 }
 
 //Insertar pedir cita
-function insertarPedirCita(nombre, apellidos, dni, mail, provincia, domicilio, sexo, profesional, modalidad, telefono, diagnostico, fConsulta, poseeAseguradora, aseguradora) {
+function insertarPedirCita(
+  nombre,
+  apellidos,
+  dni,
+  mail,
+  provincia,
+  domicilio,
+  sexo,
+  profesional,
+  modalidad,
+  telefono,
+  diagnostico,
+  fConsulta,
+  poseeAseguradora,
+  aseguradora
+) {
   // Página de procesamiento del formulario
   $.ajax({
     type: "POST",
@@ -499,11 +515,53 @@ function insertarPedirCita(nombre, apellidos, dni, mail, provincia, domicilio, s
       diagnostico: diagnostico,
       fConsulta: fConsulta,
       poseeAseguradora: poseeAseguradora,
-      aseguradora: aseguradora
+      aseguradora: aseguradora,
     },
     success: function (response) {
       console.log(response); // Manejar la respuesta del servidor
       // Puedes redirigir a otra página o realizar acciones adicionales según la respuesta
+    },
+  });
+}
+
+//-------------------------------------------------CONSULTAS BBDD----------------------------------------------
+
+//Consulta del logIn
+function consultarLogin(email, password) {
+  var mensajeError = document.getElementById("displayErroresLogin");
+  var ocultarRegistro = document.getElementsByClassName("openRegistro");
+  var ocultarLogin = document.getElementsByClassName("openLogIn");
+  var mostrarCuenta = document.getElementsByClassName("account");
+
+  //Pagina logIn
+  $.ajax({
+    type: "POST",
+    url: "BBDD/selectsDatos.php", // Nombre de tu script PHP
+    data: {
+      funcion: "login",
+      email: email,
+      password: password,
+    },
+    success: function (response) {
+      //Comprobacion de la consulta
+      if (response.status === "success") {
+        //Acciones que hace si es correcto el login
+        console.log("bienvenido");
+
+        window.location.href = "perfil/perfilMain.html";
+
+        // Ocultar elementos
+        ocultarRegistro.style.display = "none";
+        ocultarLogin.style.display = "none";
+        mostrarCuenta.style.display = "block";
+        console.log("hola1");
+      } else {
+        //Acciones que hace si es erroneo el login
+        mensajeError.textContent = response.message;
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
     },
   });
 }

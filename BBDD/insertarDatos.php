@@ -32,24 +32,7 @@ if (isset($_POST['funcion'])) {
             // Preparar la consulta de inserción para el caso de registro
             $sql = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña) VALUES ('$email', '$nombre', '$apellidos', '$password')";
             break;
-
-        case 'login':
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-
-            // Consulta SQL para verificar si el correo electrónico existe y la contraseña coincide
-            $sql = "SELECT * FROM paciente WHERE correoElectronico = '$email' AND contraseña = '$password'";
-            $resultado = $conexion->query($sql);
-
-            if ($resultado->num_rows > 0) {
-                // El correo electrónico y la contraseña coinciden, el usuario ha iniciado sesión con éxito
-                echo "Inicio de sesión exitoso\n";
-            } else {
-                // No se encontró el correo electrónico o la contraseña no coincide
-                echo "Inicio de sesión fallido\n";
-            }
-            break;
-
+            
         case 'contacto':
             $nombre = $_POST['nombre'];
             $apellidos = $_POST['apellidos'];
