@@ -529,9 +529,6 @@ function insertarPedirCita(
 //Consulta del logIn
 function consultarLogin(email, password) {
   var mensajeError = document.getElementById("displayErroresLogin");
-  var ocultarRegistro = document.getElementsByClassName("openRegistro");
-  var ocultarLogin = document.getElementsByClassName("openLogIn");
-  var mostrarCuenta = document.getElementsByClassName("account");
 
   //Pagina logIn
   $.ajax({
@@ -545,16 +542,8 @@ function consultarLogin(email, password) {
     success: function (response) {
       //Comprobacion de la consulta
       if (response.status === "success") {
-        //Acciones que hace si es correcto el login
-        console.log("bienvenido");
-
+        sessionStorage.setItem("sesionIniciada", "true");
         window.location.href = "perfil/perfilMain.html";
-
-        // Ocultar elementos
-        ocultarRegistro.style.display = "none";
-        ocultarLogin.style.display = "none";
-        mostrarCuenta.style.display = "block";
-        console.log("hola1");
       } else {
         //Acciones que hace si es erroneo el login
         mensajeError.textContent = response.message;
@@ -564,4 +553,25 @@ function consultarLogin(email, password) {
       console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
     },
   });
+}
+
+//-----------------------------------ACCIONES QUE SE EJECUTAN CUANDO LA SESION ESTA INICIADA----------------------------------------------
+
+var sesionIniciada = sessionStorage.getItem("sesionIniciada");
+
+if (sesionIniciada === "true") {
+  var ocultarRegistro = document.getElementsByClassName("openRegistro");
+  var ocultarLogin = document.getElementsByClassName("openLogIn");
+  var mostrarCuenta = document.getElementById("account");
+
+  // Ocultar elementos
+  // Ocultar todos los elementos con la clase "openRegistro"
+  for (var i = 0; i < ocultarRegistro.length; i++) {
+    ocultarRegistro[i].style.display = "none";
+  }
+  // Ocultar todos los elementos con la clase "openLogIn"
+  for (var j = 0; j < ocultarLogin.length; j++) {
+    ocultarLogin[j].style.display = "none";
+  }
+  mostrarCuenta.style.display = "block";
 }
