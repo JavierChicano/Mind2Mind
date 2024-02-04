@@ -91,6 +91,7 @@ if (formContacto) {
     var apellidos = document.getElementById("apellidosContacto").value;
     var email = document.getElementById("emailContacto").value;
     var telefono = document.getElementById("telefonoContacto").value;
+    var consulta = document.getElementById("consultaContacto").value;
     var displayErrores = document.getElementById("displayErroresRegistro2");
 
     //  var info = document.getElementById("consultaContacto").value;
@@ -135,7 +136,7 @@ if (formContacto) {
       document.getElementById("telefonoContacto").style.border = "";
       displayErrores.textContent = "";
     }
-    insertarContacto(nombre, apellidos, email, telefono);
+    insertarContacto(nombre, apellidos, email, telefono, consulta);
   });
 }
 
@@ -441,6 +442,8 @@ function mostrarAseguradora() {
 
 //Insert del registro
 function insertarRegistro(nombre, apellidos, email, password) {
+  var mensajeError = getElementById("displayErroresRegistro");
+
   //Inserccion en BBDD
   //Pagina Registro
   $.ajax({
@@ -454,13 +457,24 @@ function insertarRegistro(nombre, apellidos, email, password) {
       password: password,
     },
     success: function (response) {
-      console.log(response); // Manejar la respuesta del servidor
+      //Comprobacion de la consulta
+      if (response.status === "success") {
+          sessionStorage.setItem("sesionIniciada", "true");
+          window.location.href = "perfil/perfilMain.html";
+      } else {
+        //Acciones que hace si es erroneo la consulta
+        mensajeError.textContent = response.message;
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
     },
   });
 }
 
 //Insert del form contacto
-function insertarContacto(nombre, apellidos, email, telefono) {
+function insertarContacto(nombre, apellidos, email, telefono, consulta) {
+  var mensajeUsuario = getElementById("displayErroresRegistro2");
   // Página de registro
   $.ajax({
     type: "POST",
@@ -471,10 +485,20 @@ function insertarContacto(nombre, apellidos, email, telefono) {
       apellidos: apellidos,
       email: email,
       telefono: telefono,
+      consulta: consulta,
     },
     success: function (response) {
-      console.log(response); // Manejar la respuesta del servidor
-      // Puedes redirigir a otra página o realizar acciones adicionales según la respuesta
+      //Comprobacion de la consulta
+      if (response.status === "success") {
+        mensajeUsuario.style.color = "green"
+        mensajeUsuario.textContent = response.message;
+      } else {
+        //Acciones que hace si es erroneo la consulta
+        mensajeError.textContent = response.message;
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
     },
   });
 }

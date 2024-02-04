@@ -60,6 +60,14 @@ if ($resultado->num_rows == 0) {
             fecha DATE
         )";
 
+        // Consulta
+        $sqlConsulta = "CREATE TABLE consulta (
+            correoElectronico VARCHAR(255) PRIMARY KEY,
+            nombre VARCHAR(255),
+            apellidos VARCHAR(255),
+            telefono INT(9),
+            consulta VARCHAR(255),
+        )";
         // Cita
         $sqlCita = "CREATE TABLE cita (
             idCita INT AUTO_INCREMENT PRIMARY KEY,
@@ -120,14 +128,17 @@ if ($resultado->num_rows == 0) {
         $conexion->query($sqlEspecialista);
         $conexion->query($sqlTerapia);
         $conexion->query($sqlDescuento);
+        $conexion->query($sqlConsulta);
         $conexion->query($sqlCita);
         $conexion->query($sqlTerapiaPaciente);
         $conexion->query($sqlTerapiaDescuento);
         $conexion->query($sqlTestimonio);
         $conexion->query($sqlChat);
 
+
         // Función para insertar un paciente
-        function insertarPaciente($conexion, $correo, $nombre, $apellidos, $contrasena, $dni, $provincia, $domicilio, $genero) {
+        function insertarPaciente($conexion, $correo, $nombre, $apellidos, $contrasena, $dni, $provincia, $domicilio, $genero)
+        {
             $sql = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña, dni, provincia, domicilio, genero)
                     VALUES ('$correo', '$nombre', '$apellidos', '$contrasena', '$dni', '$provincia', '$domicilio', '$genero')";
 
@@ -141,7 +152,8 @@ if ($resultado->num_rows == 0) {
         }
 
         // Función para insertar un especialista
-        function insertarEspecialista($conexion, $nombre, $apellidos, $modalidad, $horario, $especialidad, $ubicacion) {
+        function insertarEspecialista($conexion, $nombre, $apellidos, $modalidad, $horario, $especialidad, $ubicacion)
+        {
             $sql = "INSERT INTO especialista (nombre, apellidos, modalidad, horario, especialidad, ubicacion)
                     VALUES ('$nombre', '$apellidos', '$modalidad', '$horario', '$especialidad', '$ubicacion')";
 
@@ -162,7 +174,8 @@ if ($resultado->num_rows == 0) {
         insertarEspecialista($conexion, "Dra. María", "Gutierrez", "Presencial", "Todo el día", "Consultora", "Hospital XYZ");
 
         // Función para insertar una terapia
-        function insertarTerapia($conexion, $nombre, $coste) {
+        function insertarTerapia($conexion, $nombre, $coste)
+        {
             $sql = "INSERT INTO terapia (nombre, coste)
                     VALUES ('$nombre', '$coste')";
 
@@ -184,7 +197,8 @@ if ($resultado->num_rows == 0) {
         insertarTerapia($conexion, "Arte Expresivo", "80.00");
 
         // Función para insertar un código de descuento
-        function insertarDescuento($conexion, $codDescuento, $nombre, $fecha) {
+        function insertarDescuento($conexion, $codDescuento, $nombre, $fecha)
+        {
             $sql = "INSERT INTO descuento (codDescuento, nombre, fecha)
                     VALUES ('$codDescuento', '$nombre', '$fecha')";
 
@@ -203,7 +217,8 @@ if ($resultado->num_rows == 0) {
         insertarDescuento($conexion, "123456C", "Descuento 3", "02/08/23");
 
         // Función para insertar un testimonio
-        function insertarTestimonio($conexion, $comentario, $calificacion, $fecha, $correoElectronico) {
+        function insertarTestimonio($conexion, $comentario, $calificacion, $fecha, $correoElectronico)
+        {
             $sql = "INSERT INTO testimonio (comentario, calificacion, fecha, correoElectronico)
                     VALUES ('$comentario', '$calificacion', '$fecha', '$correoElectronico')";
 
@@ -217,7 +232,8 @@ if ($resultado->num_rows == 0) {
         }
 
         // Función para insertar un mensaje de chat
-        function insertarChat($conexion, $usuario, $mensaje, $fecha, $correoElectronico, $idMedico) {
+        function insertarChat($conexion, $usuario, $mensaje, $fecha, $correoElectronico, $idMedico)
+        {
             $sql = "INSERT INTO chat (usuario, mensaje, fecha, correoElectronico, idMedico)
                     VALUES ('$usuario', '$mensaje', '$fecha', '$correoElectronico', $idMedico)";
 
@@ -239,8 +255,7 @@ if ($resultado->num_rows == 0) {
         echo "Error al crear la base de datos: " . $conexion->error;
     }
 }
-echo "La BBDD ".$base_datos." ya existe";
+echo "La BBDD " . $base_datos . " ya existe";
 
 // Cerrar la conexión
 $conexion->close();
-?>

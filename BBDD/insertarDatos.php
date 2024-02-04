@@ -20,7 +20,7 @@ if (isset($_POST['funcion'])) {
     }
 
     // Inicializar las variables
-    $nombre = $apellidos = $email = $password = $dni = $telefono = $provincia = $domicilio = $sexo = $profesional = $modalidad = $diagnostico = $fConsulta = $poseeAseguradora = $aseguradora = "";
+    $nombre = $apellidos = $email = $password = $dni = $telefono = $provincia = $domicilio = $sexo = $profesional = $modalidad = $diagnostico = $fConsulta = $poseeAseguradora = $aseguradora = $consulta = "";
 
     switch ($funcion) {
         case 'registro':
@@ -31,6 +31,13 @@ if (isset($_POST['funcion'])) {
 
             // Preparar la consulta de inserción para el caso de registro
             $sql = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña) VALUES ('$email', '$nombre', '$apellidos', '$password')";
+            if ($conexion->query($sql) === TRUE) {
+                // La inserción fue exitosa
+                $response = array('status' => 'success', 'message' => 'Registro exitoso');
+            } else {
+                // Hubo un error en la inserción
+                $response = array('status' => 'error', 'message' => 'Error en el registro: ' . $conexion->error);
+            }
             break;
             
         case 'contacto':
@@ -38,9 +45,17 @@ if (isset($_POST['funcion'])) {
             $apellidos = $_POST['apellidos'];
             $email = $_POST['email'];
             $telefono = $_POST['telefono'];
+            $consulta = $_POST['consulta'];
 
             // Preparar la consulta de inserción para el caso de contacto
-            $sql = "INSERT INTO paciente (correoElectronico, nombre, apellidos, telefono) VALUES ('$email','$nombre', '$apellidos', '$telefono')";
+            $sql = "INSERT INTO consulta (correoElectronico, nombre, apellidos, telefono, consulta) VALUES ('$email','$nombre', '$apellidos', '$telefono', '$consulta')";
+            if ($conexion->query($sql) === TRUE) {
+                // La inserción fue exitosa
+                $response = array('status' => 'success', 'message' => 'Consulta enviada con éxito');
+            } else {
+                // Hubo un error en la inserción
+                $response = array('status' => 'error', 'message' => 'Error al enviar la consulta: ' . $conexion->error);
+            }
             break;
 
         case 'pedirCita':
