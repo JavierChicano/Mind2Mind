@@ -36,7 +36,7 @@
           <li><a href='tratamientos.html'>Tratamientos</a></li>
           <li><a href='servicios.html'>Servicios</a></li>
           <!-- Abrir ventana modal -->
-          <li><a id="account" href='/perfil/perfilMain.html'><img src="img/user.png"></a></li>
+          <li><a id="account" href='perfil/perfilMain.html'><img src="img/user.png"></a></li>
           <li ><a class="openRegistro">Regístrate</a></li>
           <li><a class="openLogIn">Inicia sesión</a></li>
       </ul>
@@ -164,9 +164,15 @@
     </div>
     <main>
       <section id="headerTratamientos">
-        <div class="linksTratamientos">Videollamadas</div>
-        <div class="linksTratamientos">Ayudas/becas</div>
-        <div class="linksTratamientos">Chat asesoramiento</div>
+        <div class="linksTratamientos">
+          <a href="#videollamadas">Videollamadas</a>
+        </div>
+        <div class="linksTratamientos">
+            <a href="#ayudasID">Ayudas/becas</a>
+        </div>
+        <div class="linksTratamientos">
+            <a href="#chatID">Chat asesoramiento</a>
+        </div>
       </section>
       <section id="videollamadas">
         <span class="centrarTituloServicios"> <h1>Videollamadas</h1> </span>
@@ -178,9 +184,9 @@
           />
           <button type="submit" id="botonVideollamadas">Enviar</button>
         </div>
-        <img src="/img/servicios/Composicion.png">
+        <img src="img/servicios/Composicion.png">
       </section>
-      <span class="centrarTituloServicios"><h1>Ayudas Económicas</h1></span>
+      <span class="centrarTituloServicios" id="ayudasID"><h1>Ayudas Económicas</h1></span>
       <article id="ayudasEconomicas">
         <section>
           <h1>Aseguradoras</h1>
@@ -223,7 +229,7 @@
           </article>
         </section>
       </article>
-      <span class="centrarTituloServicios"><h1>Chat asesoramiento</h1> </span>
+      <span class="centrarTituloServicios" id="chatID"><h1>Chat asesoramiento</h1> </span>
       <section id="seccionChat">
         <aside id="visualizacionChat">
           <img src="img/Nosotros/1.png" />

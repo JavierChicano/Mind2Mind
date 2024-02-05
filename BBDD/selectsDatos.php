@@ -25,16 +25,26 @@ if (isset($_POST['funcion'])) {
             $password = $_POST['password'];
 
             // Consulta SQL para verificar si el correo electrónico existe y la contraseña coincide
-            $sql = "SELECT * FROM paciente WHERE correoElectronico = '$email' AND contraseña = '$password'";
+            $sql = "SELECT * FROM paciente WHERE correoElectronico = '$email'";
             $resultado = $conexion->query($sql);
 
             if ($resultado->num_rows > 0) {
-                // El correo electrónico y la contraseña coinciden, el usuario ha iniciado sesión con éxito
-                $response = array('status' => 'success', 'message' => 'Inicio de sesión exitoso');
+                // El correo electrónico existe, ahora verificamos la contraseña
+                $row = $resultado->fetch_assoc();
+                if ($row['contraseña'] == $password) {
+                    // El correo electrónico y la contraseña coinciden, el usuario ha iniciado sesión con éxito
+                    $response = array('status' => 'success', 'message' => 'Inicio de sesión exitoso');
+                } else {
+                    // La contraseña no coincide
+                    $response = array('status' => 'error', 'message' => 'Contraseña no válida');
+                }
             } else {
-                // No se encontró el correo electrónico o la contraseña no coincide
-                $response = array('status' => 'error', 'message' => 'Inicio de sesión fallido');
+                // No se encontró el correo electrónico
+                $response = array('status' => 'error', 'message' => 'Correo no existente');
             }
+
+            // Resto del código...
+
             break;
     }
 

@@ -35,7 +35,7 @@ if (isset($_POST['funcion'])) {
             
             if ($resultadoVerificacion->num_rows > 0) {
                 // Ya existe un registro con esa clave primaria
-                $response = array('status' => 'error', 'message' => 'Error en el registro: Correo electrónico ya registrado');
+                $response = array('status' => 'error', 'message' => 'Correo electrónico ya registrado');
             } else {
                 // No existe un registro con esa clave primaria, proceder con la inserción
                 $sql = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña) VALUES ('$email', '$nombre', '$apellidos', '$password')";
