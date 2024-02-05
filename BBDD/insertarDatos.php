@@ -30,13 +30,23 @@ if (isset($_POST['funcion'])) {
             $password = $_POST['password'];
 
             // Preparar la consulta de inserción para el caso de registro
-            $sql = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña) VALUES ('$email', '$nombre', '$apellidos', '$password')";
-            if ($conexion->query($sql) === TRUE) {
-                // La inserción fue exitosa
-                $response = array('status' => 'success', 'message' => 'Registro exitoso');
+            $verificarExistencia = "SELECT correoElectronico FROM paciente WHERE correoElectronico = '$email'";
+            $resultadoVerificacion = $conexion->query($verificarExistencia);
+            
+            if ($resultadoVerificacion->num_rows > 0) {
+                // Ya existe un registro con esa clave primaria
+                $response = array('status' => 'error', 'message' => 'Error en el registro: Correo electrónico ya registrado');
             } else {
-                // Hubo un error en la inserción
-                $response = array('status' => 'error', 'message' => 'Error en el registro: ' . $conexion->error);
+                // No existe un registro con esa clave primaria, proceder con la inserción
+                $sql = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña) VALUES ('$email', '$nombre', '$apellidos', '$password')";
+            
+                if ($conexion->query($sql) === TRUE) {
+                    // La inserción fue exitosa
+                    $response = array('status' => 'success', 'message' => 'Registro exitoso');
+                } else {
+                    // Hubo un error en la inserción
+                    $response = array('status' => 'error', 'message' => 'Error en el registro: ' . $conexion->error);
+                }
             }
             break;
             
@@ -112,12 +122,9 @@ if (isset($_POST['funcion'])) {
             break;
     }
 
-    // Ejecutar la consulta
-    if ($conexion->query($sql) === TRUE) {
-        echo "Registro insertado correctamente";
-    } else {
-        echo "Error al insertar el registro: " . $conexion->error;
-    }
+    // Enviar la respuesta como JSON
+    header('Content-Type: application/json');
+    echo json_encode($response);
 
     // Cerrar la conexión
     $conexion->close();

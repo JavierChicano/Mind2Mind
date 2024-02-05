@@ -442,7 +442,7 @@ function mostrarAseguradora() {
 
 //Insert del registro
 function insertarRegistro(nombre, apellidos, email, password) {
-  var mensajeError = getElementById("displayErroresRegistro");
+  var mensajeError = document.getElementById("displayErroresRegistro");
 
   //Inserccion en BBDD
   //Pagina Registro
@@ -457,6 +457,7 @@ function insertarRegistro(nombre, apellidos, email, password) {
       password: password,
     },
     success: function (response) {
+      console.log(response);
       //Comprobacion de la consulta
       if (response.status === "success") {
           sessionStorage.setItem("sesionIniciada", "true");
