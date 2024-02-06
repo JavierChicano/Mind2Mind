@@ -32,14 +32,18 @@
           ><img id="hamburguesa" src="img/menuHamburguesa.png"
         /></span>
         <ul class="nav-list">
-          <li><a href='acercaDe.html'>Acerca de</a></li>
-          <li><a href='tratamientos.html'>Tratamientos</a></li>
-          <li><a href='servicios.html'>Servicios</a></li>
+          <li><a href="acercaDe.html">Acerca de</a></li>
+          <li><a href="tratamientos.html">Tratamientos</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
           <!-- Abrir ventana modal -->
-          <li><a id="account" href='perfil/perfilMain.html'><img src="img/user.png"></a></li>
-          <li ><a class="openRegistro">Regístrate</a></li>
+          <li>
+            <a id="account" href="perfil/perfilMain.html"
+              ><img src="img/user.png"
+            /></a>
+          </li>
+          <li><a class="openRegistro">Regístrate</a></li>
           <li><a class="openLogIn">Inicia sesión</a></li>
-      </ul>
+        </ul>
       </nav>
     </header>
     <!-- Contenedores Registro -->
@@ -168,10 +172,10 @@
           <a href="#videollamadas">Videollamadas</a>
         </div>
         <div class="linksTratamientos">
-            <a href="#ayudasID">Ayudas/becas</a>
+          <a href="#ayudasID">Ayudas/becas</a>
         </div>
         <div class="linksTratamientos">
-            <a href="#chatID">Chat asesoramiento</a>
+          <a href="#chatID">Chat asesoramiento</a>
         </div>
       </section>
       <section id="videollamadas">
@@ -184,9 +188,11 @@
           />
           <button type="submit" id="botonVideollamadas">Enviar</button>
         </div>
-        <img src="img/servicios/Composicion.png">
+        <img src="img/servicios/Composicion.png" />
       </section>
-      <span class="centrarTituloServicios" id="ayudasID"><h1>Ayudas Económicas</h1></span>
+      <span class="centrarTituloServicios" id="ayudasID"
+        ><h1>Ayudas Económicas</h1></span
+      >
       <article id="ayudasEconomicas">
         <section>
           <h1>Aseguradoras</h1>
@@ -196,10 +202,9 @@
               aseguradora, consulte condiciones con la suya.
             </p>
             <div class="aseguradoras">
-              <img src="img/servicios/asisa.png">
-              <img src="img/servicios/sanitas.png">
-              <img src="img/servicios/Axa.png">
-
+              <img src="img/servicios/asisa.png" />
+              <img src="img/servicios/sanitas.png" />
+              <img src="img/servicios/Axa.png" />
             </div>
           </article>
           <div></div>
@@ -208,12 +213,13 @@
           <h1>Financiación</h1>
           <article id="contenedorAyudasBecas">
             <p>
-              Empresas con las que trabajamos para que el precio sea un paso mas y no un impedimento.
+              Empresas con las que trabajamos para que el precio sea un paso mas
+              y no un impedimento.
             </p>
             <div id="contenedorImgFinanciacion">
-              <img src="img/servicios/Bankinter.png">
-              <img src="img/servicios/Santander.png">
-              <img src="img/servicios/BBVA.png">
+              <img src="img/servicios/Bankinter.png" />
+              <img src="img/servicios/Santander.png" />
+              <img src="img/servicios/BBVA.png" />
             </div>
           </article>
         </section>
@@ -229,11 +235,18 @@
           </article>
         </section>
       </article>
-      <span class="centrarTituloServicios" id="chatID"><h1>Chat asesoramiento</h1> </span>
+      <span class="centrarTituloServicios" id="chatID"
+        ><h1>Chat asesoramiento</h1>
+      </span>
       <section id="seccionChat">
         <aside id="visualizacionChat">
           <img src="img/Nosotros/1.png" />
-          <h2>Dr. Garcia Vaquero</h2>
+
+          <span id="centrarBotones">
+            <button id="nextDoctorIzquierda" class="botonDoctores">&lt;</button>
+            <h2>Dr. Garcia Vaquero</h2>
+          <button id="nextDoctorDerecha" class="botonDoctores">&gt;</button>
+          </span>
           <article>
             <ul>
               <li>Psiquiatria</li>

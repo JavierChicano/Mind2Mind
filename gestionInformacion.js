@@ -18,7 +18,7 @@ if (formRegistro) {
     var displayErrores = document.getElementById("displayErroresRegistro");
 
     // Validacion de formularios
-    var textoLetras = /^[A-Za-z]+$/;
+    var textoLetras = /^[A-Za-z\s]+$/;;
 
     if (!textoLetras.test(nombre)) {
       displayErrores.textContent = "El nombre contiene caracteres invalidos";
@@ -97,7 +97,7 @@ if (formContacto) {
     //  var info = document.getElementById("consultaContacto").value;
 
     // Validacion de formularios
-    var textoLetras = /^[A-Za-z]+$/;
+    var textoLetras = /^[A-Za-z\s]+$/;;
 
     if (!textoLetras.test(nombre)) {
       displayErrores.textContent = "El nombre contiene caracteres invalidos";
@@ -223,7 +223,7 @@ if (formPedirCita) {
     }
 
     // Validacion de formularios
-    var textoLetras = /^[A-Za-z]+$/;
+    var textoLetras = /^[A-Za-z\s]+$/;;
 
     if (!textoLetras.test(nombre)) {
       displayErrores.textContent = "El nombre contiene caracteres invalidos";
@@ -461,6 +461,7 @@ function insertarRegistro(nombre, apellidos, email, password) {
       //Comprobacion de la consulta
       if (response.status === "success") {
           sessionStorage.setItem("sesionIniciada", "true");
+          sessionStorage.setItem("correoUsuario", email); 
           window.location.href = "perfil/perfilMain.html";
       } else {
         //Acciones que hace si es erroneo la consulta
@@ -568,6 +569,7 @@ function consultarLogin(email, password) {
       //Comprobacion de la consulta
       if (response.status === "success") {
         sessionStorage.setItem("sesionIniciada", "true");
+        sessionStorage.setItem("correoUsuario", email); 
         window.location.href = "perfil/perfilMain.html";
       } else {
         //Acciones que hace si es erroneo el login

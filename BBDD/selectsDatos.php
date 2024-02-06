@@ -43,7 +43,22 @@ if (isset($_POST['funcion'])) {
                 $response = array('status' => 'error', 'message' => 'Correo no existente');
             }
 
-            // Resto del código...
+            case 'obtenerDoctor':
+                // En caso de obtener información del doctor
+                $doctorIndex = $_POST['doctorIndex'];
+
+                // Consultar la base de datos para obtener la información del doctor
+                $sql = "SELECT * FROM especialista LIMIT 1 OFFSET $doctorIndex";
+                $resultado = $conexion->query($sql);
+
+                if ($resultado->num_rows > 0) {
+                    // Si se encuentran datos del doctor, asignar la respuesta de éxito a la variable $response
+                    $doctor = $resultado->fetch_assoc();
+                    $response = array('status' => 'success', 'doctor' => $doctor);
+                } else {
+                    // Si no se encuentra el doctor, asignar la respuesta de error a la variable $response
+                    $response = array('status' => 'error', 'message' => 'Doctor no encontrado');
+                }
 
             break;
     }

@@ -343,7 +343,7 @@ main {
 .tituloMovil {
   display: none;
 }
-.aseguradoras{
+.aseguradoras {
 }
 @media screen and (max-width: 550px) {
   #heroTratamientos {
@@ -374,20 +374,20 @@ main {
     height: 100%;
     width: 100%;
   }
-#headerMedicamentos {
-  width: 100%;
-  flex-wrap: wrap;
-}
-#seccionTratamientos {
-  display: flex;
-  align-self: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  margin: 50px 10px;
-  padding-left: 0px;
-}
+  #headerMedicamentos {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  #seccionTratamientos {
+    display: flex;
+    align-self: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 50px 10px;
+    padding-left: 0px;
+  }
   #autoAyuda {
     height: 100%;
     width: 100%;
@@ -1500,20 +1500,20 @@ h1 {
   font-size: 50px;
   border-radius: 2px;
 }
-#videollamadas{
+#videollamadas {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
   margin-bottom: 50px;
 }
-#videollamadas div{
+#videollamadas div {
   display: flex;
   margin: 50px;
   align-items: center;
   width: 40%;
 }
-#botonVideollamadas{
+#botonVideollamadas {
   height: 45px;
   margin-left: 8px;
   padding: 8px 12px;
@@ -1592,7 +1592,7 @@ h1 {
   margin-top: -20px;
   margin-bottom: -20px;
 }
-.aseguradoras{
+.aseguradoras {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -1602,7 +1602,7 @@ h1 {
   margin-top: 50px;
   border-radius: 2px;
 }
-.aseguradoras img:nth-child(1){
+.aseguradoras img:nth-child(1) {
   width: 300px;
   height: 80px;
 }
@@ -1611,7 +1611,7 @@ h1 {
   width: 300px;
   height: 120px;
 }
-#contenedorImgFinanciacion{
+#contenedorImgFinanciacion {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -1647,7 +1647,6 @@ h1 {
   background-color: var(--colorSecundario);
   padding: 12px;
   border-radius: 2px;
-  margin-top: 20px;
 }
 
 #visualizacionChat article {
@@ -1658,6 +1657,28 @@ h1 {
 }
 #visualizacionChat article li {
   line-height: 3;
+}
+#centrarBotones {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  width: 80%;
+  justify-content: space-between;
+}
+.botonDoctores {
+  width: 10%;
+  height: 45px;
+  background-color: var(--colorSecundario);
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 2px 2px 3px black;
+}
+.botonDoctores:hover{
+  background-color: var(--colorBaseOscuro);
+  color: white;
 }
 #chat {
   width: 65%;
@@ -1816,19 +1837,19 @@ h1 {
     justify-content: center;
     font-size: 16px;
   }
-  #videollamadas{
+  #videollamadas {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
     margin-bottom: 50px;
   }
-  #videollamadas img{
+  #videollamadas img {
     display: flex;
     align-items: center;
     width: 90%;
   }
-  #botonVideollamadas{
+  #botonVideollamadas {
     height: 30px;
     display: flex;
     align-items: center;
@@ -1839,7 +1860,7 @@ h1 {
     margin: 30px;
     align-items: center;
     width: 80%;
-}
+  }
   #ayudasEconomicas {
     display: flex;
     flex-direction: column;
@@ -1885,7 +1906,7 @@ h1 {
     height: 100px;
     font-size: 30px;
   }
-  
+
   #descuento2,
   #descuento3,
   #descuento6 {
@@ -1909,7 +1930,7 @@ h1 {
     margin-top: -20px;
     margin-bottom: -20px;
   }
-  .aseguradoras{
+  .aseguradoras {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -1919,7 +1940,7 @@ h1 {
     margin-top: 50px;
     border-radius: 2px;
   }
-  .aseguradoras img:nth-child(1){
+  .aseguradoras img:nth-child(1) {
     width: 300px;
     height: 80px;
   }
@@ -1928,7 +1949,6 @@ h1 {
     width: 300px;
     height: 120px;
   }
-  
 }
 /*Pedir Cita*/
 #formPedirCita {
