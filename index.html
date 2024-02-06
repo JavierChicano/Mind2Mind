@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,52 +9,56 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
     </style>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="styleHF.css" />
     <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <header>
-      <a href='index.html'><img src="img/logo.png" id="logo"/></a>
-      <h1><a href='index.html'>MIND 2 MIND</a></h1>
-      <div id="barraBusqueda">
-        <img src="img/calendar-month.png">
-        <p><a href='pedirCita.html'>Pedir Cita</a></p> 
-      </div>
-      <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
-      <nav class="nav" id="nav">
-        <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
-        <ul class="nav-list">
-            <li><a href='acercaDe.html'>Acerca de</a></li>
-            <li><a href='tratamientos.html'>Tratamientos</a></li>
-            <li><a href='servicios.html'>Servicios</a></li>
-            <!-- Abrir ventana modal -->
-            <li><a id="account" href='perfil/perfilMain.html'><img src="img/user.png"></a></li>
-            <li ><a class="openRegistro">Regístrate</a></li>
-            <li><a class="openLogIn">Inicia sesión</a></li>
-        </ul>
-      </nav>
+        <a href='index.html'><img src="img/logo.png" id="logo" /></a>
+        <h1><a href='index.html'>MIND 2 MIND</a></h1>
+        <div id="barraBusqueda">
+            <img src="img/calendar-month.png">
+            <p><a href='pedirCita.html'>Pedir Cita</a></p>
+        </div>
+        <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
+        <nav class="nav" id="nav">
+            <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
+            <ul class="nav-list">
+                <li><a href='acercaDe.html'>Acerca de</a></li>
+                <li><a href='tratamientos.html'>Tratamientos</a></li>
+                <li><a href='servicios.html'>Servicios</a></li>
+                <!-- Abrir ventana modal -->
+                <li>
+                    <a id="account" href='perfil/perfilMain.html'><img src="img/user.png"></a>
+                </li>
+                <li><a class="openRegistro">Regístrate</a></li>
+                <li><a class="openLogIn">Inicia sesión</a></li>
+            </ul>
+        </nav>
     </header>
     <!-- Contenedores Registro -->
     <div class="modal-Registro" id="modal-Registro">
-      <div class="modalRegistro">
-        <span class="closeRegistro"><img src="img/closeWindow.png"></span>
-        <section>
-          <span id="imgModal"><img src="img/logo.png"></span>
-          <article>
-            <h1>Crea tu cuenta</h1>
-            <section id="registroRedes">
-              <img src="img/RedesLogIn/brand-google.png">
-              <img src="img/RedesLogIn/brand-meta.png">
-              <img src="img/RedesLogIn/brand-x.png">
-              <img src="img/RedesLogIn/brand-apple.png">
-            </section>
-            <hr>
-            <span id="centrarForm">
+        <div class="modalRegistro">
+            <span class="closeRegistro"><img src="img/closeWindow.png"></span>
+            <section>
+                <span id="imgModal"><img class="imgLogo" src="img/logo.png"></span>
+                <article>
+                    <h1>Crea tu cuenta</h1>
+                    <section id="registroRedes">
+                        <img src="img/RedesLogIn/brand-google.png">
+                        <img src="img/RedesLogIn/brand-meta.png">
+                        <img src="img/RedesLogIn/brand-x.png">
+                        <img src="img/RedesLogIn/brand-apple.png">
+                    </section>
+                    <hr>
+                    <span id="centrarForm">
               <form action="#" method="post" id="formRegistro">
                 <div id="displayErroresRegistro" class="error-message"></div>
                 <input type="text" id="nombreRegistro" name="nombre" placeholder="Nombre" required>
@@ -61,233 +66,238 @@
                 <input type="text" id="apellidosRegistro" name="apellidos" placeholder="Apellidos" required>
             
                 <input type="email" id="emailRegistro" name="email" placeholder="Correo electrónico" required>
-            
-                <input type="password" id="passwordRegistro" name="password" placeholder="Contraseña" required>
+                <div class="mostrarContraseña">
+                    <input type="password" id="passwordRegistro" name="password" placeholder="Contraseña" required>
+                    <i class="bx bx-hide"></i>
+                </div>
             
                 <span id="checkBox">
                     <input type="checkbox" id="aceptoTerminosRegistro" name="aceptoTerminos" required>
                     <p for="aceptoTerminos">Acepto los &nbsp<a href='politicaPrivacidad.html'>términos y condiciones</a></p>
                 </span>
-                
-                <input type="submit" value="Crear cuenta">
-            </form>
-            </span>
-            <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
-            
-          </article>
-        </section>
-      </div>
+
+                    <input type="submit" value="Crear cuenta">
+
+                    </form>
+                    </span>
+                    <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
+
+                </article>
+            </section>
+        </div>
     </div>
     <!-- Contenedores Login -->
     <div class="modal-LogIn" id="modal-LogIn">
-      <div class="modalLogIn">
-        <span class="closeLogIn"><img src="img/closeWindow.png"></span>
-        <section>
-          <span id="imgModal"><img src="img/logo.png"></span>
-          <article>
-            <h1>Inicia sesión</h1>
-            <section id="registroRedes">
-              <img src="img/RedesLogIn/brand-google.png">
-              <img src="img/RedesLogIn/brand-meta.png">
-              <img src="img/RedesLogIn/brand-x.png">
-              <img src="img/RedesLogIn/brand-apple.png">
-            </section>
-            <hr>
-            <div id="displayErroresLogin" class="error-message"></div>
-            <span id="centrarForm2">
+        <div class="modalLogIn">
+            <span class="closeLogIn"><img src="img/closeWindow.png"></span>
+            <section>
+                <span id="imgModal"><img src="img/logo.png"></span>
+                <article>
+                    <h1>Inicia sesión</h1>
+                    <section id="registroRedes">
+                        <img src="img/RedesLogIn/brand-google.png">
+                        <img src="img/RedesLogIn/brand-meta.png">
+                        <img src="img/RedesLogIn/brand-x.png">
+                        <img src="img/RedesLogIn/brand-apple.png">
+                    </section>
+                    <hr>
+                    <div id="displayErroresLogin" class="error-message"></div>
+                    <span id="centrarForm2">
               <form action="#" method="post" id="formLogIn">
               
                 <input type="email" id="emailLogin" name="email" placeholder="Correo electrónico">
         
-                <input type="password" id="passwordLogin" name="password" placeholder="Contraseña">
+                <div class="mostrarContraseña">
+                  <input type="password" id="passwordLogin" name="password" placeholder="Contraseña" required>
+                  <i class="bx bx-hide"></i>
+              </div>
                 
                 <input type="submit" value="Entrar en mi cuenta">
               </form>
             </span>
-            <p>¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro">Crea tu cuenta</a></p>
-          </article>
-        </section>
-      </div>
+                    <p>¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro">Crea tu cuenta</a></p>
+                </article>
+            </section>
+        </div>
     </div>
-   <main>
-    <!-- Hero -->
-      <section id="hero">
-        <h1 id="mainTittle" data-aos="fade-right" data-aos-duration="1000">
-          Especialistas <br>en <span class="contrasteTittle">Trastorno Bipolar</span>
-        </h1>
-        <div id="creaCuenta" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="300">
-          Crea tu cuenta
+    <main>
+        <!-- Hero -->
+        <section id="hero">
+            <h1 id="mainTittle" data-aos="fade-right" data-aos-duration="1000">
+                Especialistas <br>en <span class="contrasteTittle">Trastorno Bipolar</span>
+            </h1>
+            <div id="creaCuenta" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="300">
+                Crea tu cuenta
+            </div>
+        </section>
         </div>
-          </section>
-        </div>
-      </section>
-      <!--CARROUSEL -->
-      <section class="carrousel">
-        <article class="contenedorIMG">
-            <div class="imagenMain2">
-              <img src="img/imgMain/imgMain2.png">
-              <h1  data-aos="fade-up" data-aos-duration="1000">Entendemos tu cerebro</h1>
-            </div>
-            <div class="imagenMain3">
-              <img src="img/imgMain/imgMain31.png" class="imagenMainIzquierda">
-              <img src="img/imgMain/imgMain32.png" class="imagenMainDerecha"> 
-              <h1 id="text1Img3">Tristeza</h1>
-              <h1 id="text2Img3">Euforia</h1>
-            </div>
-            <div class="imagenMain4">
-              <img src="img/imgMain/imgMain5.png">
-              <h1>Psicología <br>+<br>Psiquiatría</h1>
-            </div>
-            <div class="imagenMain4">
-              <img src="img/imgMain/imgMain4.png">
-              <h1 id="text1Img5">Enfoque holístico</h1>
-              <h1 id="text2Img5">Abordaje multidisciplinar</h1>
-            </div>
-        </article>
-      </section>
-      <ul class="puntos">
-        <li class="punto activo"></li>
-        <li class="punto"></li>
-        <li class="punto"></li>
-        <li class="punto"></li>
-      </ul>
-      <section id="descripcion">
-        <p>
-          "El abordaje multidisciplinar es esencial para el tratamiento con garantias del trastorno bipolar. 
-          Nuestra unidad especializada UBIP (unidad bipolar), combina la terapia realizada por psicologos, con los psicofarmacos recetados por psiquiatras,
-          para poder acometer el óptimo seguimiento de este trastorno."
-        </p>
-      </section>
-      <!-- Seccion Equipo -->
-      <span class="centrarTitulo">
+        </section>
+        <!--CARROUSEL -->
+        <section class="carrousel">
+            <article class="contenedorIMG">
+                <div class="imagenMain2">
+                    <img src="img/imgMain/imgMain2.png">
+                    <h1 data-aos="fade-up" data-aos-duration="1000">Entendemos tu cerebro</h1>
+                </div>
+                <div class="imagenMain3">
+                    <img src="img/imgMain/imgMain31.png" class="imagenMainIzquierda">
+                    <img src="img/imgMain/imgMain32.png" class="imagenMainDerecha">
+                    <h1 id="text1Img3">Tristeza</h1>
+                    <h1 id="text2Img3">Euforia</h1>
+                </div>
+                <div class="imagenMain4">
+                    <img src="img/imgMain/imgMain5.png">
+                    <h1>Psicología <br>+<br>Psiquiatría</h1>
+                </div>
+                <div class="imagenMain4">
+                    <img src="img/imgMain/imgMain4.png">
+                    <h1 id="text1Img5">Enfoque holístico</h1>
+                    <h1 id="text2Img5">Abordaje multidisciplinar</h1>
+                </div>
+            </article>
+        </section>
+        <ul class="puntos">
+            <li class="punto activo"></li>
+            <li class="punto"></li>
+            <li class="punto"></li>
+            <li class="punto"></li>
+        </ul>
+        <section id="descripcion">
+            <p>
+                "El abordaje multidisciplinar es esencial para el tratamiento con garantias del trastorno bipolar. Nuestra unidad especializada UBIP (unidad bipolar), combina la terapia realizada por psicologos, con los psicofarmacos recetados por psiquiatras, para poder
+                acometer el óptimo seguimiento de este trastorno."
+            </p>
+        </section>
+        <!-- Seccion Equipo -->
+        <span class="centrarTitulo">
         <h1 class="titulo">Equipo</h1>
       </span>
-          <section id="seccionEquipo">
+        <section id="seccionEquipo">
             <div class="contenedorMedico">
-              <img src="img/logo.png" class="logoTarjetaMedico">
-              <h2>Jefe división diagnósticos</h2>
-              <img src="img/Equipo/medico1.png" class="imgMedico">
-              <div>
-                <a href="https://www.linkedin.com/in/javier-chicano-miguel-28b580297/" target="_blank">
-                  <img src="img/brand-linkedin.png" class="logoTarjetaMedico" alt="LinkedIn">
-                </a>                
-                <h1>Dr Garcia Vaquero</h1>
-              </div>
+                <img src="img/logo.png" class="logoTarjetaMedico">
+                <h2>Jefe división diagnósticos</h2>
+                <img src="img/Equipo/medico1.png" class="imgMedico">
+                <div>
+                    <a href="https://www.linkedin.com/in/javier-chicano-miguel-28b580297/" target="_blank">
+                        <img src="img/brand-linkedin.png" class="logoTarjetaMedico" alt="LinkedIn">
+                    </a>
+                    <h1>Dr Garcia Vaquero</h1>
+                </div>
             </div>
             <div class="contenedorMedico">
-              <img src="img/logo.png" class="logoTarjetaMedico">
-              <h2>Jefe division tratamientos</h2>
-              <img src="img/Equipo/medico3.png" class="imgMedico">
-              <div>
-                <a href="https://www.linkedin.com/in/javier-chicano-miguel-28b580297/" target="_blank">
-                  <img src="img/brand-linkedin.png" class="logoTarjetaMedico" alt="LinkedIn">
-                </a>                
-                <h1>Dr Flor de Esgueva</h1>
-              </div>
+                <img src="img/logo.png" class="logoTarjetaMedico">
+                <h2>Jefe division tratamientos</h2>
+                <img src="img/Equipo/medico3.png" class="imgMedico">
+                <div>
+                    <a href="https://www.linkedin.com/in/javier-chicano-miguel-28b580297/" target="_blank">
+                        <img src="img/brand-linkedin.png" class="logoTarjetaMedico" alt="LinkedIn">
+                    </a>
+                    <h1>Dr Flor de Esgueva</h1>
+                </div>
             </div>
             <div class="contenedorMedico">
-              <img src="img/logo.png" class="logoTarjetaMedico">
-              <h2>Supervisor medicamentos</h2>
-              <img src="img/Equipo/medico5.png" class="imgMedico">
-              <div>
-                <a href="https://www.linkedin.com/in/javier-chicano-miguel-28b580297/" target="_blank">
-                  <img src="img/brand-linkedin.png" class="logoTarjetaMedico" alt="LinkedIn">
-                </a>                
-                <h1>Dr Don Simon</h1>
-              </div>
+                <img src="img/logo.png" class="logoTarjetaMedico">
+                <h2>Supervisor medicamentos</h2>
+                <img src="img/Equipo/medico5.png" class="imgMedico">
+                <div>
+                    <a href="https://www.linkedin.com/in/javier-chicano-miguel-28b580297/" target="_blank">
+                        <img src="img/brand-linkedin.png" class="logoTarjetaMedico" alt="LinkedIn">
+                    </a>
+                    <h1>Dr Don Simon</h1>
+                </div>
             </div>
             <div class="contenedorMedico">
-              <img src="img/logo.png" class="logoTarjetaMedico">
-              <h2>Jefa division terapias</h2>
-              <img src="img/Equipo/medico2.png" class="imgMedico">
-              <div>
-                <a href="https://www.linkedin.com/in/javier-chicano-miguel-28b580297/" target="_blank">
-                  <img src="img/brand-linkedin.png" class="logoTarjetaMedico" alt="LinkedIn">
-                </a>                
-                <h1>Dra Häagen-Dazs</h1>
-              </div>
+                <img src="img/logo.png" class="logoTarjetaMedico">
+                <h2>Jefa division terapias</h2>
+                <img src="img/Equipo/medico2.png" class="imgMedico">
+                <div>
+                    <a href="https://www.linkedin.com/in/javier-chicano-miguel-28b580297/" target="_blank">
+                        <img src="img/brand-linkedin.png" class="logoTarjetaMedico" alt="LinkedIn">
+                    </a>
+                    <h1>Dra Häagen-Dazs</h1>
+                </div>
             </div>
             <div class="contenedorMedico">
-              <img src="img/logo.png" class="logoTarjetaMedico">
-              <h2>Consultora de la marca</h2>
-              <img src="img/Equipo/medico4.png" class="imgMedico">
-              <div>
-                <a href="https://www.linkedin.com/in/javier-chicano-miguel-28b580297/" target="_blank">
-                  <img src="img/brand-linkedin.png" class="logoTarjetaMedico" alt="LinkedIn">
-                </a>                
-                <h1>Dra Maria Gutierrez</h1>
-              </div>
+                <img src="img/logo.png" class="logoTarjetaMedico">
+                <h2>Consultora de la marca</h2>
+                <img src="img/Equipo/medico4.png" class="imgMedico">
+                <div>
+                    <a href="https://www.linkedin.com/in/javier-chicano-miguel-28b580297/" target="_blank">
+                        <img src="img/brand-linkedin.png" class="logoTarjetaMedico" alt="LinkedIn">
+                    </a>
+                    <h1>Dra Maria Gutierrez</h1>
+                </div>
             </div>
-          </section>
-      <!-- Seccion Casos de exito -->
-      <span class="centrarTitulo">
+        </section>
+        <!-- Seccion Casos de exito -->
+        <span class="centrarTitulo">
         <h1 class="titulo">Casos de éxito</h1>
       </span>
-      <section id="seccionCasosExito">
-        <div>
-          <img src="img/Casos_Exito/images 1.png" />
-          <h1>Aaron</h1>
-          <article > Terminé la terapia de luz con una mejora en mi ánimo y energia, aliviando los sintomas de mi trastorno.</article>
-        </div>
-        <div>
-          <img src="img/Casos_Exito/persona2 2.png" />
-          <h1>Ángela</h1>
-          <article > La psicoterapia transformó mi vida al proporcinarme un espacio para explorar y comprender mis emociones.</article>
-        </div>
-        <div>
-          <img src="img/Casos_Exito/persona 3.png" />
-          <h1>Vicky</h1>
-          <article> Después de concluir mi terapia de Luz, experimenté una transformación increible en mi estado de ánimo. </article>
-        </div>
-        <div>
-          <img src="img/Casos_Exito/persona4.png" />
-          <h1>Javier</h1>
-          <article > La TMS mejoró mi claridad mental y agudeza cognitiva, ofreciendo una innovadora forma de cuidar mi cuerpo.</article>
-        </div>
-      </section>
+        <section id="seccionCasosExito">
+            <div>
+                <img src="img/Casos_Exito/images 1.png" />
+                <h1>Aaron</h1>
+                <article> Terminé la terapia de luz con una mejora en mi ánimo y energia, aliviando los sintomas de mi trastorno.</article>
+            </div>
+            <div>
+                <img src="img/Casos_Exito/persona2 2.png" />
+                <h1>Ángela</h1>
+                <article> La psicoterapia transformó mi vida al proporcinarme un espacio para explorar y comprender mis emociones.</article>
+            </div>
+            <div>
+                <img src="img/Casos_Exito/persona 3.png" />
+                <h1>Vicky</h1>
+                <article> Después de concluir mi terapia de Luz, experimenté una transformación increible en mi estado de ánimo. </article>
+            </div>
+            <div>
+                <img src="img/Casos_Exito/persona4.png" />
+                <h1>Javier</h1>
+                <article> La TMS mejoró mi claridad mental y agudeza cognitiva, ofreciendo una innovadora forma de cuidar mi cuerpo.</article>
+            </div>
+        </section>
 
-   </main>
+    </main>
 
     <footer>
-      <!-- Seccion about -->
-      <section>
-        <ul>
-          <li>Horario de consultas</li>
-          <li class="fLista">L-V 8:00 - 21:00h</li>
-          <li>Horario atención telefónica</li>
-          <li class="fLista">L-V 10:00 - 21:00h</li>
-        </ul>
-        
-      </section>
+        <!-- Seccion about -->
+        <section>
+            <ul>
+                <li>Horario de consultas</li>
+                <li class="fLista">L-V 8:00 - 21:00h</li>
+                <li>Horario atención telefónica</li>
+                <li class="fLista">L-V 10:00 - 21:00h</li>
+            </ul>
 
-      <!-- Seccion Recursos -->
-      <section id="seccionContactoFooter">
-        <h1><a href='formContacto.html'>FORMULARIO DE CONTACTO</a></h1>
-        <p>C/Alberto Aguilera 52</p>
-        <p>28015 Madrid, España</p>
-        <p>Tel: +34 661 661 662</p>
-        <p>WhatsApp: +34 661 661 662</p>
-      </section>
+        </section>
 
-      <!-- Seccion Social Media -->
-      <section id="seccionSocialMedia">
-        <a href='index.html'><img src="img/logo.png" id="logo"/></a>
-        <article id="socialMedia">
-          <img src="img/mail.png">
-          <img src="img/instagram.png">
-          <img src="img/x.png">
+        <!-- Seccion Recursos -->
+        <section id="seccionContactoFooter">
+            <h1><a href='formContacto.html'>FORMULARIO DE CONTACTO</a></h1>
+            <p>C/Alberto Aguilera 52</p>
+            <p>28015 Madrid, España</p>
+            <p>Tel: +34 661 661 662</p>
+            <p>WhatsApp: +34 661 661 662</p>
+        </section>
+
+        <!-- Seccion Social Media -->
+        <section id="seccionSocialMedia">
+            <a href='index.html'><img src="img/logo.png" id="logo" /></a>
+            <article id="socialMedia">
+                <img src="img/mail.png">
+                <img src="img/instagram.png">
+                <img src="img/x.png">
+            </article>
+        </section>
+        <article>
+            Centro de Salud Mental autorizado por la Conserjería de Sanidad de la Comunidad de Madrid
+            <br> Mind To Mind, S.L.P - Todos los derechos reservados
         </article>
-      </section>
-      <article>
-        Centro de Salud Mental autorizado por la Conserjería de Sanidad de la Comunidad de Madrid
-        <br>
-        Mind To Mind, S.L.P - Todos los derechos reservados
-      </article>
     </footer>
     <script>
-      AOS.init();
+        AOS.init();
     </script>
     <script src="header.js"></script>
     <script src="gestionInformacion.js"></script>
-  </body>
+</body>
+
 </html>

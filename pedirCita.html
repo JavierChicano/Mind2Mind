@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,49 +11,52 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="icon" href="img/logo.png" type="image/x-icon">
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
     </style>
     <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <header>
-      <a href='index.html'><img src="img/logo.png" id="logo"/></a>
-      <h1><a href='index.html'>MIND 2 MIND</a></h1>
-      <div id="barraBusqueda">
-        <img src="img/calendar-month.png">
-        <p><a href='pedirCita.html'>Pedir Cita</a></p> 
-      </div>
-      <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
-      <nav class="nav" id="nav">
-        <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
-        <ul class="nav-list">
-          <li><a href='acercaDe.html'>Acerca de</a></li>
-          <li><a href='tratamientos.html'>Tratamientos</a></li>
-          <li><a href='servicios.html'>Servicios</a></li>
-          <!-- Abrir ventana modal -->
-          <li><a id="account" href='perfil/perfilMain.html'><img src="img/user.png"></a></li>
-          <li ><a class="openRegistro">Regístrate</a></li>
-          <li><a class="openLogIn">Inicia sesión</a></li>
-      </ul>
-      </nav>
+        <a href='index.html'><img src="img/logo.png" id="logo" /></a>
+        <h1><a href='index.html'>MIND 2 MIND</a></h1>
+        <div id="barraBusqueda">
+            <img src="img/calendar-month.png">
+            <p><a href='pedirCita.html'>Pedir Cita</a></p>
+        </div>
+        <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
+        <nav class="nav" id="nav">
+            <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
+            <ul class="nav-list">
+                <li><a href='acercaDe.html'>Acerca de</a></li>
+                <li><a href='tratamientos.html'>Tratamientos</a></li>
+                <li><a href='servicios.html'>Servicios</a></li>
+                <!-- Abrir ventana modal -->
+                <li>
+                    <a id="account" href='perfil/perfilMain.html'><img src="img/user.png"></a>
+                </li>
+                <li><a class="openRegistro">Regístrate</a></li>
+                <li><a class="openLogIn">Inicia sesión</a></li>
+            </ul>
+        </nav>
     </header>
     <!-- Contenedores Registro -->
     <div class="modal-Registro" id="modal-Registro">
-      <div class="modalRegistro">
-        <span class="closeRegistro"><img src="img/closeWindow.png"></span>
-        <section>
-          <span id="imgModal"><img src="img/logo.png"></span>
-          <article>
-            <h1>Crea tu cuenta</h1>
-            <section id="registroRedes">
-              <img src="img/RedesLogIn/brand-google.png">
-              <img src="img/RedesLogIn/brand-meta.png">
-              <img src="img/RedesLogIn/brand-x.png">
-              <img src="img/RedesLogIn/brand-apple.png">
-            </section>
-            <hr>
-            <span id="centrarForm">
+        <div class="modalRegistro">
+            <span class="closeRegistro"><img src="img/closeWindow.png"></span>
+            <section>
+                <span id="imgModal"><img src="img/logo.png"></span>
+                <article>
+                    <h1>Crea tu cuenta</h1>
+                    <section id="registroRedes">
+                        <img src="img/RedesLogIn/brand-google.png">
+                        <img src="img/RedesLogIn/brand-meta.png">
+                        <img src="img/RedesLogIn/brand-x.png">
+                        <img src="img/RedesLogIn/brand-apple.png">
+                    </section>
+                    <hr>
+                    <span id="centrarForm">
               <form action="#" method="post" id="formRegistro">
                 <div id="displayErroresRegistro" class="error-message"></div>
                 <input type="text" id="nombreRegistro" name="nombre" placeholder="Nombre" required>
@@ -61,203 +65,209 @@
             
                 <input type="email" id="emailRegistro" name="email" placeholder="Correo electrónico" required>
             
-                <input type="password" id="passwordRegistro" name="password" placeholder="Contraseña" required>
+                <div class="mostrarContraseña">
+                  <input type="password" id="passwordRegistro" name="password" placeholder="Contraseña" required>
+                  <i class="bx bx-hide"></i>
+              </div>
             
                 <span id="checkBox">
                     <input type="checkbox" id="aceptoTerminosRegistro" name="aceptoTerminos" required>
                     <p for="aceptoTerminos">Acepto los &nbsp<a href='politicaPrivacidad.html'>términos y condiciones</a></p>
                 </span>
-                
-                <input type="submit" value="Crear cuenta">
-            </form>
-            </span>
-            <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
-            
-          </article>
-        </section>
-      </div>
+
+                    <input type="submit" value="Crear cuenta">
+                    </form>
+                    </span>
+                    <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
+
+                </article>
+            </section>
+        </div>
     </div>
     <!-- Contenedores Login -->
     <div class="modal-LogIn" id="modal-LogIn">
-      <div class="modalLogIn">
-        <span class="closeLogIn"><img src="img/closeWindow.png"></span>
-        <section>
-          <span id="imgModal"><img src="img/logo.png"></span>
-          <article>
-            <h1>Inicia sesión</h1>
-            <section id="registroRedes">
-              <img src="img/RedesLogIn/brand-google.png">
-              <img src="img/RedesLogIn/brand-meta.png">
-              <img src="img/RedesLogIn/brand-x.png">
-              <img src="img/RedesLogIn/brand-apple.png">
-            </section>
-            <hr>
-            <span id="centrarForm2">
+        <div class="modalLogIn">
+            <span class="closeLogIn"><img src="img/closeWindow.png"></span>
+            <section>
+                <span id="imgModal"><img src="img/logo.png"></span>
+                <article>
+                    <h1>Inicia sesión</h1>
+                    <section id="registroRedes">
+                        <img src="img/RedesLogIn/brand-google.png">
+                        <img src="img/RedesLogIn/brand-meta.png">
+                        <img src="img/RedesLogIn/brand-x.png">
+                        <img src="img/RedesLogIn/brand-apple.png">
+                    </section>
+                    <hr>
+                    <span id="centrarForm2">
               <div id="displayErroresRegistro" class="error-message"></div>
               <form action="#" method="post" id="formLogIn">
               
                 <input type="email" id="emailLogin" name="email" placeholder="Correo electrónico">
         
-                <input type="password" id="passwordLogin" name="password" placeholder="Contraseña">
+                <div class="mostrarContraseña">
+                    <input type="password" id="passwordLogin" name="password" placeholder="Contraseña" required>
+                    <i class="bx bx-hide"></i>
+                </div>
                 
                 <input type="submit" value="Entrar en mi cuenta">
               </form>
             </span>
-            <p>¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro">Crea tu cuenta</a></p>
-          </article>
-        </section>
-      </div>
+                    <p>¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro">Crea tu cuenta</a></p>
+                </article>
+            </section>
+        </div>
     </div>
-   <main id="mainContacto">
-    <!-- Hero -->
-     <section id="seccionFormContacto">
-      <nav>
-        <ul>
-          <li class="primeraParte seleccionado">Datos Personales</li>
-          <li class="segundaParte">Datos Consulta</li>
-          <li class="terceraParte">Proceso Final</li>
-        </ul>
-      </nav>
-      <form action="#" method="post" id="formPedirCita">
-        <article id="datosPersonales">
-          <div id="displayErroresPedirCita" class="error-message"></div>
-          <input type="text" id="nombrePC" name="nombrePC" placeholder="Nombre"><br>
-  
-          <input type="text" id="apellidosPC" name="apellidosPC" placeholder="Apellidos"><br>
-  
-          <input type="text" id="dniPC" name="dniPC" placeholder="DNI"><br>
-  
-          <input type="email" id="mailPC" name="mailPC" placeholder="Mail"><br>
-  
-          <input type="text" id="provinciaPC" name="provinciaPC" placeholder="Provincia"><br>
-  
-          <input type="text" id="domicilioPC" name="domicilioPC" placeholder="Domicilio"><br>
-  
-  
-          <select id="sexoPC" name="sexoPC">
+    <main id="mainContacto">
+        <!-- Hero -->
+        <section id="seccionFormContacto">
+            <nav>
+                <ul>
+                    <li class="primeraParte seleccionado">Datos Personales</li>
+                    <li class="segundaParte">Datos Consulta</li>
+                    <li class="terceraParte">Proceso Final</li>
+                </ul>
+            </nav>
+            <form action="#" method="post" id="formPedirCita">
+                <article id="datosPersonales">
+                    <div id="displayErroresPedirCita" class="error-message"></div>
+                    <input type="text" id="nombrePC" name="nombrePC" placeholder="Nombre"><br>
+
+                    <input type="text" id="apellidosPC" name="apellidosPC" placeholder="Apellidos"><br>
+
+                    <input type="text" id="dniPC" name="dniPC" placeholder="DNI"><br>
+
+                    <input type="email" id="mailPC" name="mailPC" placeholder="Mail"><br>
+
+                    <input type="text" id="provinciaPC" name="provinciaPC" placeholder="Provincia"><br>
+
+                    <input type="text" id="domicilioPC" name="domicilioPC" placeholder="Domicilio"><br>
+
+
+                    <select id="sexoPC" name="sexoPC">
               <option value="masculino">Masculino</option>
               <option value="femenino">Femenino</option>
           </select>
-  
-          <input type="button" value="Siguiente" id="botonSiguiente1">
-        </article>
 
-        <!-- Segunda parte -->
-        <article id="datosConsulta">
-          <section class="centradoDatos">
-            <div id="displayErroresPedirCita2" class="error-message"></div>
-            <select id="profesionalPC" name="profesional" required>
+                    <input type="button" value="Siguiente" id="botonSiguiente1">
+                </article>
+
+                <!-- Segunda parte -->
+                <article id="datosConsulta">
+                    <section class="centradoDatos">
+                        <div id="displayErroresPedirCita2" class="error-message"></div>
+                        <select id="profesionalPC" name="profesional" required>
               <option value="psicologo">Psicólogo</option>
               <option value="psiquiatra">Psiquiatra</option>
             </select>
-  
-            <select id="modalidadPC" name="modalidad" required onchange="mostrarTelefono()">
+
+                        <select id="modalidadPC" name="modalidad" required onchange="mostrarTelefono()">
                 <option value="presencial">Presencial</option>
                 <option value="telefonica">Telefónica</option>
                 <option value="videoconsulta">Videoconsulta</option>
             </select>
-    
-            <div id="campoTelefonoPC" style="display: none;">
-                <input type="tel" id="numeroTelpc" name="numeroTel" placeholder="Número de teléfono">
-            </div>
-    
-            <textarea id="autodiagnosticoPC" name="autodiagnostico" placeholder="Autodiagnóstico (opcional)"></textarea>
-          </section>
-          <div>
-            <input type="button" value="Anterior" id="botonAnterior1">
-            <input type="button" value="Siguiente" id="botonSiguiente2">
-          </div>
 
-        </article>
+                        <div id="campoTelefonoPC" style="display: none;">
+                            <input type="tel" id="numeroTelpc" name="numeroTel" placeholder="Número de teléfono">
+                        </div>
 
-        <!-- Tercera Parte -->
-        <article id="procesoFinal">
-          <section class="centradoDatos">
-            <div id="displayErroresPedirCita3" class="error-message"></div>
+                        <textarea id="autodiagnosticoPC" name="autodiagnostico" placeholder="Autodiagnóstico (opcional)"></textarea>
+                    </section>
+                    <div>
+                        <input type="button" value="Anterior" id="botonAnterior1">
+                        <input type="button" value="Siguiente" id="botonSiguiente2">
+                    </div>
 
-            <label for="fechaConsultaPC">Fecha de Consulta:</label>
-            <input type="date" id="fechaConsultaPC" name="fechaConsulta">
+                </article>
 
-            <label for="aseguradoraSiNoPC">¿Posee una aseguradora?</label>
-            <select id="aseguradoraSiNoPC" name="aseguradoraSiNo" onchange="mostrarAseguradora()">
+                <!-- Tercera Parte -->
+                <article id="procesoFinal">
+                    <section class="centradoDatos">
+                        <div id="displayErroresPedirCita3" class="error-message"></div>
+
+                        <label for="fechaConsultaPC">Fecha de Consulta:</label>
+                        <input type="date" id="fechaConsultaPC" name="fechaConsulta">
+
+                        <label for="aseguradoraSiNoPC">¿Posee una aseguradora?</label>
+                        <select id="aseguradoraSiNoPC" name="aseguradoraSiNo" onchange="mostrarAseguradora()">
                 <option value="no">No</option>
                 <option value="si">Sí</option>
             </select>
-    
-            <div id="aseguradoraEspecificarPC" style="display:none;">
-                <input type="text" id="aseguradoraEspecificaPC" name="aseguradoraEspecifica" placeholder="Nombre de la aseguradora ">
-            </div>
-    
-            <span id="checkBox">
+
+                        <div id="aseguradoraEspecificarPC" style="display:none;">
+                            <input type="text" id="aseguradoraEspecificaPC" name="aseguradoraEspecifica" placeholder="Nombre de la aseguradora ">
+                        </div>
+
+                        <span id="checkBox">
               <input type="checkbox" id="aceptoTerminosRegistroPC" name="aceptoTerminos" required>
               <span for="aceptoTerminos" id="textProcesoFinal">Acepto los &nbsp<a href='politicaPrivacidad.html'>términos y condiciones</a></span>
-            </span>
-          </section>
-          <div>
-            <input type="button" value="Anterior" id="botonAnterior2">
-            <input type="button" value="Enviar" id="botonEnviar">
-          </div>
-        </article>
-      </form>
-      <article id="formEnviado">
-        <h1>Muchas gracias por su consulta</h1>
-        <p>En nada nos vemos!</p>
-        <p>Fecha: Modalidad:</p>
-      </article>
-     </section>
-
-     <!-- Contenedor derecho de la pagina -->
-     <section id="seccionAboutContacto">
-        <h1>!La primera cita es gratuita!</h1>
-        <section>
-          <div><img src="img/phone.png">+34 661 661 662</div>
-          <div>Consultas
-            L-V 8:00 - 21:00h</div>
-          <div><img src="img/mail.png">Mind2Mind@hotmail.com</div>
-          <div>C/Alberto Aguilera 52</div>
+                        </span>
+                    </section>
+                    <div>
+                        <input type="button" value="Anterior" id="botonAnterior2">
+                        <input type="button" value="Enviar" id="botonEnviar">
+                    </div>
+                </article>
+            </form>
+            <article id="formEnviado">
+                <h1>Muchas gracias por su consulta</h1>
+                <p>En nada nos vemos!</p>
+                <p>Fecha: Modalidad:</p>
+            </article>
         </section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1518.510215017036!2d-3.7135868232461426!3d40.43054651372704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422867d4a42201%3A0xaaf3f3a7996e773e!2sC.%20de%20Alberto%20Aguilera%2C%2052%2C%20Chamber%C3%AD%2C%2028015%20Madrid!5e0!3m2!1ses!2ses!4v1705610075468!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-     </section>                                                                                            
 
-   </main>
+        <!-- Contenedor derecho de la pagina -->
+        <section id="seccionAboutContacto">
+            <h1>!La primera cita es gratuita!</h1>
+            <section>
+                <div><img src="img/phone.png">+34 661 661 662</div>
+                <div>Consultas L-V 8:00 - 21:00h</div>
+                <div><img src="img/mail.png">Mind2Mind@hotmail.com</div>
+                <div>C/Alberto Aguilera 52</div>
+            </section>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1518.510215017036!2d-3.7135868232461426!3d40.43054651372704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422867d4a42201%3A0xaaf3f3a7996e773e!2sC.%20de%20Alberto%20Aguilera%2C%2052%2C%20Chamber%C3%AD%2C%2028015%20Madrid!5e0!3m2!1ses!2ses!4v1705610075468!5m2!1ses!2ses"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
 
-   <footer>
-    <!-- Seccion about -->
-    <section>
-      <ul>
-        <li>Horario de consultas</li>
-        <li class="fLista">L-V 8:00 - 21:00h</li>
-        <li>Horario atención telefónica</li>
-        <li class="fLista">L-V 10:00 - 21:00h</li>
-      </ul>
-      
-    </section>
+    </main>
 
-    <!-- Seccion Recursos -->
-    <section id="seccionContactoFooter">
-      <h1><a href='formContacto.html'>FORMULARIO DE CONTACTO</a></h1>
-      <p>C/Alberto Aguilera 52</p>
-      <p>28015 Madrid, España</p>
-      <p>Tel: +34 661 661 662</p>
-      <p>WhatsApp: +34 661 661 662</p>
-    </section>
+    <footer>
+        <!-- Seccion about -->
+        <section>
+            <ul>
+                <li>Horario de consultas</li>
+                <li class="fLista">L-V 8:00 - 21:00h</li>
+                <li>Horario atención telefónica</li>
+                <li class="fLista">L-V 10:00 - 21:00h</li>
+            </ul>
 
-    <!-- Seccion Social Media -->
-    <section id="seccionSocialMedia">
-      <a href='index.html'><img src="img/logo.png" id="logo"/></a>
-      <article id="socialMedia">
-        <img src="img/mail.png">
-        <img src="img/instagram.png">
-        <img src="img/x.png">
-      </article>
-    </section>
-    <article>
-      Centro de Salud Mental autorizado por la Conserjería de Sanidad de la Comunidad de Madrid
-      <br>
-      Mind To Mind, S.L.P - Todos los derechos reservados
-    </article>
-  </footer>
+        </section>
+
+        <!-- Seccion Recursos -->
+        <section id="seccionContactoFooter">
+            <h1><a href='formContacto.html'>FORMULARIO DE CONTACTO</a></h1>
+            <p>C/Alberto Aguilera 52</p>
+            <p>28015 Madrid, España</p>
+            <p>Tel: +34 661 661 662</p>
+            <p>WhatsApp: +34 661 661 662</p>
+        </section>
+
+        <!-- Seccion Social Media -->
+        <section id="seccionSocialMedia">
+            <a href='index.html'><img src="img/logo.png" id="logo" /></a>
+            <article id="socialMedia">
+                <img src="img/mail.png">
+                <img src="img/instagram.png">
+                <img src="img/x.png">
+            </article>
+        </section>
+        <article>
+            Centro de Salud Mental autorizado por la Conserjería de Sanidad de la Comunidad de Madrid
+            <br> Mind To Mind, S.L.P - Todos los derechos reservados
+        </article>
+    </footer>
     <script src="gestionInformacion.js"></script>
     <script src="header.js"></script>
-  </body>
+</body>
+
 </html>

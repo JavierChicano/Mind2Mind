@@ -1,591 +1,705 @@
 :root {
-  --colorBaseClaro: #dfdedd;
-  --colorBaseOscuro: #506059;
-  --colorPrincipal: white;
-  --colorSecundario: #a9ddd0;
-  --colorTerciario: #757780;
-  --colorContraste: rgb(54, 208, 199);
-  --rosa: #e6b3b4;
+    --colorBaseClaro: #dfdedd;
+    --colorBaseOscuro: #506059;
+    --colorPrincipal: white;
+    --colorSecundario: #a9ddd0;
+    --colorTerciario: #757780;
+    --colorContraste: rgb(54, 208, 199);
+    --rosa: #e6b3b4;
 }
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
 }
+
 body {
-  display: grid;
-  height: 100vh;
-  grid-template-rows: min-content 1fr min-content;
+    display: grid;
+    height: 100vh;
+    grid-template-rows: min-content 1fr min-content;
 }
+
 #contenido {
-  height: 100%;
+    height: 100%;
 }
+
 header {
-  background-color: var(--colorBaseOscuro);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-header h1 {
-  font-size: 55px;
-}
-header h1 a{
-  font-family: "Montserrat", sans-serif;
-  text-decoration: none;
-  color: rgba(54, 208, 199);
-}
-#creaCuenta {
-  background-color: var(--colorPrincipal);
-  width: fit-content;
-  padding: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 0px 16px 0px 16px;
-  margin-left: 3%;
-  margin-top: 2%;
-  font-size: 30px;
-  cursor: pointer;
-  font-family: "Montserrat", sans-serif;
-}
-#logo {
-  width: 100px;
-  margin-left: 100px;
-}
-#lupa {
-  width: 20px;
-}
-#barraBusqueda {
-  display: flex;
-  background-color: var(--colorPrincipal);
-  border-radius: 0px 16px 0px 16px;
-  padding: 8px;
-  width: 200px;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-#barraBusqueda p{
-  font-size:20px;
-}
-#barraBusqueda p a{
-  text-decoration: none;
-  color: black;
-  font-family: "Montserrat", sans-serif;
-}
-#barraBusqueda img{
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-}
-.nav {
-  display: flex;
-  margin-right: 100px;
-  flex-direction: row;
-  gap: 12px;
-  list-style: none;
-  z-index: 5;
-}
-.nav div {
-  background-color: var(--colorBaseClaro);
-  padding: 8px;
-  border-radius: 18px;
-}
-.nav a {
-  text-decoration: none;
-  color: black;
-}
-.nav-list {
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-.nav-list li a {
-  text-decoration: none;
-  padding: 4px;
-  border-radius: 8px;
-  color: white;
-
-  &:hover {
-    background-color: var(--colorSecundario);
-    color: black;
-  }
-}
-#account{
-  display: none;
-  justify-content: center;
-  align-items: center;
-} 
-#account img{
-  width: 30px;
-  filter: invert(1);
-  height: 30px;
-}
-.abrir-menu {
-  display: none;
-  margin-right: 25px;
-}
-.cerrar-menu {
-  display: none;
-}
-#hamburguesa {
-  width: 40px;
-}
-/*Parte del registro*/
-.openRegistro {
-  cursor: pointer;
-  border-radius: 12px;
-  background-color: var(--colorTerciario);
-  color: black;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-.modal-Registro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(75, 72, 72, 0.4);
-  position: fixed;
-  pointer-events: none;
-  opacity: 0;
-  height: 100vh;
-  width: 100%;
-  z-index: 10;
-}
-.show {
-  pointer-events: auto;
-  opacity: 1;
-}
-.closeRegistro {
-  display: flex;
-  justify-content: end;
-}
-.closeRegistro img {
-  width: 35px;
-  cursor: pointer;
-}
-.modalRegistro {
-  background-color: var(--colorBaseClaro);
-  max-width: 100%;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-.modalRegistro section {
-  display: flex;
-  flex-direction: row;
-}
-.modalRegistro section article {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.modalRegistro section img {
-  width: 400px;
-}
-.modalRegistro section p {
-  display: flex;
-  justify-content: center;
-}
-#registroRedes {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-}
-#registroRedes img {
-  width: 40px;
-}
-#imgModal {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-#centrarForm {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.modalRegistro h1 {
-  display: flex;
-  justify-content: center;
-  font-family: "Montserrat", sans-serif;
-  font-size: 48px;
-  color: black;
-}
-
-/*Registro formulario*/
-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-width: 500px;
-}
-
-input {
-  outline: none;
-  border: none;
-  border-bottom: 2px solid black;
-  width: 200px;
-  height: 50px;
-  padding: 8px;
-  margin: 12px;
-  background-color: transparent;
-  color: black;
-}
-#centrarForm input::placeholder {
-  color: black;
-}
-input[type="submit"] {
-  background-color: var(--colorBaseOscuro);
-  border-bottom: none;
-  border-radius: 2px;
-  font-size: 25px;
-  color: white;
-  cursor: pointer;
-}
-#checkBox {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-#checkBox a{
-  color: var(--colorContraste);
-  text-decoration: none;
-}
-input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-}
-input[type="submit"]:hover {
-  background-color: var(--colorPrincipal);
-  transition: 0.3s ease;
-  color: var(--colorBaseOscuro);
-}
-#link-A-LogIn {
-  cursor: pointer;
-  text-decoration: underline;
-  color: var(--colorContraste);
-}
-@media screen and (max-width: 550px) {
-  header h1 {
-    display: none;
-  }
-  #creaCuenta {
     background-color: var(--colorBaseOscuro);
-    font-size: 20px;
-    z-index: 2;
-    color: white;
-  }
-  #closeRegistro img {
-    width: 20px;
-    margin-top: -10px;
-    margin-right: -10px;
-  }
-  .modalRegistro h1 {
-    font-size: 25px;
-  }
-  .modalRegistro section img {
-    width: 100px;
-  }
-  #imgModal {
-    display: none;
-  }
-  #registroRedes {
-    gap: 20px;
-  }
-  form {
-    max-width: 250px;
-  }
-  input {
-    width: 100px;
-    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    font-size: 55px;
+}
+
+header h1 a {
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+    color: rgba(54, 208, 199);
+}
+
+#creaCuenta {
+    background-color: var(--colorPrincipal);
+    width: fit-content;
     padding: 8px;
-    margin: 8px;
-  }
-  #checkBox p {
-    font-size: 10px;
-  }
-  input[type="submit"] {
-    font-size: 12px;
-  }
-  .modalRegistro section p {
-    font-size: 12px;
-  }
-  ::placeholder {
-    font-size: 10px;
-  }
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 0px 16px 0px 16px;
+    margin-left: 3%;
+    margin-top: 2%;
+    font-size: 30px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
 }
-/*Parte del logIn*/
-.openLogIn {
-  cursor: pointer;
-  border-radius: 12px;
-  background-color: var(--colorTerciario);
-  color: black;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+#logo {
+    width: 100px;
+    margin-left: 100px;
 }
-.modal-LogIn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(75, 72, 72, 0.4);
-  position: fixed;
-  pointer-events: none;
-  opacity: 0;
-  height: 100vh;
-  width: 100%;
-  z-index: 10;
+
+#lupa {
+    width: 20px;
 }
-.show {
-  pointer-events: auto;
-  opacity: 1;
+
+#barraBusqueda {
+    display: flex;
+    background-color: var(--colorPrincipal);
+    border-radius: 0px 16px 0px 16px;
+    padding: 8px;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
-.closeLogIn {
-  display: flex;
-  justify-content: end;
-  cursor: pointer;
+
+#barraBusqueda p {
+    font-size: 20px;
 }
-.closeLogIn img {
-  width: 35px;
+
+#barraBusqueda p a {
+    text-decoration: none;
+    color: black;
+    font-family: "Montserrat", sans-serif;
 }
-.modalLogIn {
-  background-color: var(--colorBaseClaro);
-  max-width: 100%;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+#barraBusqueda img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
-.modalLogIn section {
-  display: flex;
-  flex-direction: row;
+
+.nav {
+    display: flex;
+    margin-right: 100px;
+    flex-direction: row;
+    gap: 12px;
+    list-style: none;
+    z-index: 5;
 }
-.modalLogIn section article {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+
+.nav div {
+    background-color: var(--colorBaseClaro);
+    padding: 8px;
+    border-radius: 18px;
 }
-.modalLogIn section img {
-  width: 400px;
+
+.nav a {
+    text-decoration: none;
+    color: black;
 }
-.modalLogIn h1 {
-  display: flex;
-  justify-content: center;
-  font-family: "Montserrat", sans-serif;
-  font-size: 48px;
-  color: black;
-}
-#centrarForm2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#centrarForm2 form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 300px;
-  margin-right: 20px;
-}
-#centrarForm2 input {
-  outline: none;
-  border: none;
-  border-bottom: 2px solid black;
-  border-radius: 0px;
-  width: 100%;
-  height: 50px;
-  padding: 8px;
-  margin: 12px;
-  background-color: transparent;
-  color: black;
-}
-#centrarForm2 input::placeholder {
-  color: black;
-}
-#centrarForm2 input[type="submit"] {
-  background-color: var(--colorBaseOscuro);
-  color: white;
-  border-bottom: none;
-  border-radius: 2px;
-}
-#centrarForm2 input[type="submit"]:hover {
-  background-color: var(--colorPrincipal);
-  transition: 0.3s ease;
-  color: var(--colorBaseOscuro);
-}
-#link-A-Registro {
-  text-decoration: underline;
-  color: var(--colorContraste);
-  cursor: pointer;
-}
-/* PARTE DEL FOOTER */
-footer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 16px;
-  gap: 10px;
-  background-color: var(--colorBaseOscuro);
-}
-footer section {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-  justify-content: center;
-  color: var(--colorBaseClaro);
-}
-footer article {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  grid-column: span 3;
-  color: var(--colorBaseClaro);
-}
-#socialMedia {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-#socialMedia img {
-  width: 50px;
-  filter: invert(1);
-}
-footer section ul {
-  position: absolute;
-  margin-top: 40px;
-  margin-left: 50px;
-}
-footer section ul li {
-  padding: 5px;
-}
-.fLista {
-  list-style-type: none;
-}
-#seccionContactoFooter {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#seccionContactoFooter h1 {
-  background-color: var(--colorPrincipal);
-  padding: 8px;
-  border-radius: 2px;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-#seccionContactoFooter h1 a{
-  text-decoration: none;
-  color: var(--colorBaseOscuro);
-}
-#seccionSocialMedia {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#seccionSocialMedia img {
-  width: 100px;
-  margin-left: 0px;
-}
-#seccionSocialMedia a{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#socialMedia img {
-  width: 50px;
-}
-@media screen and (max-width: 550px) {
-  .abrir-menu,
-  .cerrar-menu {
-    display: block;
-    background: none;
+
+.nav-list {
+    list-style-type: none;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  #hamburguesa {
-    display: block;
-  }
-  #barraBusqueda {
-    width: 200px;
-  }
-#barraBusqueda p{
-  font-size: 20px;
-}
-  #logo {
-    margin-left: 10px;
-  }
-  .nav {
-    opacity: 0;
-    visibility: hidden;
-    display: flex;
-    position: absolute;
-    margin-right: 0px;
-    flex-direction: column;
-    align-items: end;
     gap: 1rem;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    padding: 2rem;
-    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
-    background-color: var(--colorBaseOscuro);
-  }
-  .nav.visible {
-    opacity: 1;
-    visibility: visible;
-  }
-  .nav-list {
-    flex-direction: column;
-    align-items: end;
-  }
-  .nav-list li a {
-    color: white;
+}
+
+.nav-list li a {
+    text-decoration: none;
     padding: 4px;
     border-radius: 8px;
-
+    color: white;
     &:hover {
-      background-color: var(--principalVariante1);
+        background-color: var(--colorSecundario);
+        color: black;
     }
-  }
+}
 
-  /* PARTE DEL FOOTER */
-  footer {
-    display: grid;
-    grid-column: 1;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  footer section h1 {
-    font-size: 20px;
-  }
+#account {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
 
-  #socialMedia img {
+#account img {
     width: 30px;
-  }
-  footer article {
-    display: none;
-  }
-  #seccionContactoFooter h1 {
-    font-size: 12px;
-  }
-  footer section {
-    display: none;
-  }
-  #seccionContactoFooter p {
-    font-size: 14px;
-  }
+    filter: invert(1);
+    height: 30px;
 }
-.error-message{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  color: red;
+
+.abrir-menu {
+    display: none;
+    margin-right: 25px;
 }
-.error-message2{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  color: red;
+
+.cerrar-menu {
+    display: none;
+}
+
+#hamburguesa {
+    width: 40px;
+}
+
+
+/*Parte del registro*/
+
+.openRegistro {
+    cursor: pointer;
+    border-radius: 12px;
+    background-color: var(--colorTerciario);
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.modal-Registro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(75, 72, 72, 0.4);
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 10;
+}
+
+.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.closeRegistro {
+    display: flex;
+    justify-content: end;
+}
+
+.closeRegistro img {
+    width: 35px;
+    cursor: pointer;
+}
+
+.modalRegistro {
+    background-color: var(--colorBaseClaro);
+    max-width: 100%;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.modalRegistro section {
+    display: flex;
+    flex-direction: row;
+}
+
+.modalRegistro section article {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modalRegistro #imgLogo {
+    width: 50px;
+}
+
+.modalRegistro section p {
+    display: flex;
+    justify-content: center;
+}
+
+#registroRedes {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+#registroRedes img {
+    width: 40px;
+}
+
+#imgModal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#centrarForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalRegistro h1 {
+    display: flex;
+    justify-content: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 48px;
+    color: black;
+}
+
+.mostrarContraseña {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.bx {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 40%;
+    right: 20px;
+    /* Ajusta la posición según tus necesidades */
+    /* Centra verticalmente */
+    /* Ajusta para centrar verticalmente */
+    cursor: pointer;
+}
+
+
+/*Registro formulario*/
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 500px;
+}
+
+input {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    width: 200px;
+    height: 50px;
+    padding: 8px;
+    margin: 12px;
+    background-color: transparent;
+    color: black;
+}
+
+#centrarForm input::placeholder {
+    color: black;
+}
+
+input[type="submit"] {
+    background-color: var(--colorBaseOscuro);
+    border-bottom: none;
+    border-radius: 2px;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+#checkBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#checkBox a {
+    color: var(--colorContraste);
+    text-decoration: none;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--colorPrincipal);
+    transition: 0.3s ease;
+    color: var(--colorBaseOscuro);
+}
+
+#link-A-LogIn {
+    cursor: pointer;
+    text-decoration: underline;
+    color: var(--colorContraste);
+}
+
+@media screen and (max-width: 550px) {
+    header h1 {
+        display: none;
+    }
+    #creaCuenta {
+        background-color: var(--colorBaseOscuro);
+        font-size: 20px;
+        z-index: 2;
+        color: white;
+    }
+    #closeRegistro img {
+        width: 20px;
+        margin-top: -10px;
+        margin-right: -10px;
+    }
+    .modalRegistro h1 {
+        font-size: 25px;
+    }
+    /* .modalRegistro section img {
+        width: 20px;
+    } */
+    #imgModal {
+        display: none;
+    }
+    #registroRedes {
+        gap: 20px;
+    }
+    form {
+        max-width: 250px;
+    }
+    input {
+        width: 100px;
+        height: 30px;
+        padding: 8px;
+        margin: 8px;
+    }
+    .bx {
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        top: 35%;
+        right: 15px;
+        /* Ajusta la posición según tus necesidades */
+        /* Centra verticalmente */
+        /* Ajusta para centrar verticalmente */
+        cursor: pointer;
+    }
+    #checkBox p {
+        font-size: 10px;
+    }
+    input[type="submit"] {
+        font-size: 12px;
+    }
+    .modalRegistro section p {
+        font-size: 12px;
+    }
+     ::placeholder {
+        font-size: 10px;
+    }
+}
+
+
+/*Parte del logIn*/
+
+.openLogIn {
+    cursor: pointer;
+    border-radius: 12px;
+    background-color: var(--colorTerciario);
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.modal-LogIn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(75, 72, 72, 0.4);
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 10;
+}
+
+.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.closeLogIn {
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+}
+
+.closeLogIn img {
+    width: 35px;
+}
+
+.modalLogIn {
+    background-color: var(--colorBaseClaro);
+    max-width: 100%;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.modalLogIn section {
+    display: flex;
+    flex-direction: row;
+}
+
+.modalLogIn section article {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modalLogIn section img {
+    width: 400px;
+}
+
+.modalLogIn h1 {
+    display: flex;
+    justify-content: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 48px;
+    color: black;
+}
+
+#centrarForm2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#centrarForm2 form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    margin-right: 20px;
+}
+
+#centrarForm2 input {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    border-radius: 0px;
+    width: 100%;
+    height: 50px;
+    padding: 8px;
+    margin: 12px;
+    background-color: transparent;
+    color: black;
+}
+
+#centrarForm2 input::placeholder {
+    color: black;
+}
+
+#centrarForm2 input[type="submit"] {
+    background-color: var(--colorBaseOscuro);
+    color: white;
+    border-bottom: none;
+    border-radius: 2px;
+}
+
+#centrarForm2 input[type="submit"]:hover {
+    background-color: var(--colorPrincipal);
+    transition: 0.3s ease;
+    color: var(--colorBaseOscuro);
+}
+
+#link-A-Registro {
+    text-decoration: underline;
+    color: var(--colorContraste);
+    cursor: pointer;
+}
+
+
+/* PARTE DEL FOOTER */
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 16px;
+    gap: 10px;
+    background-color: var(--colorBaseOscuro);
+}
+
+footer section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    justify-content: center;
+    color: var(--colorBaseClaro);
+}
+
+footer article {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    grid-column: span 3;
+    color: var(--colorBaseClaro);
+}
+
+#socialMedia {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#socialMedia img {
+    width: 50px;
+    filter: invert(1);
+}
+
+footer section ul {
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+footer section ul li {
+    padding: 5px;
+}
+
+.fLista {
+    list-style-type: none;
+}
+
+#seccionContactoFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#seccionContactoFooter h1 {
+    background-color: var(--colorPrincipal);
+    padding: 8px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+#seccionContactoFooter h1 a {
+    text-decoration: none;
+    color: var(--colorBaseOscuro);
+}
+
+#seccionSocialMedia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#seccionSocialMedia img {
+    width: 100px;
+    margin-left: 0px;
+}
+
+#seccionSocialMedia a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#socialMedia img {
+    width: 50px;
+}
+
+@media screen and (max-width: 550px) {
+    .abrir-menu,
+    .cerrar-menu {
+        display: block;
+        background: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #hamburguesa {
+        display: block;
+    }
+    #barraBusqueda {
+        width: 200px;
+    }
+    #barraBusqueda p {
+        font-size: 20px;
+    }
+    #logo {
+        margin-left: 10px;
+    }
+    .nav {
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+        position: absolute;
+        margin-right: 0px;
+        flex-direction: column;
+        align-items: end;
+        gap: 1rem;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        padding: 2rem;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+        background-color: var(--colorBaseOscuro);
+    }
+    .nav.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    .nav-list {
+        flex-direction: column;
+        align-items: end;
+    }
+    .nav-list li a {
+        color: white;
+        padding: 4px;
+        border-radius: 8px;
+        &:hover {
+            background-color: var(--principalVariante1);
+        }
+    }
+    /* PARTE DEL FOOTER */
+    footer {
+        display: grid;
+        grid-column: 1;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    footer section h1 {
+        font-size: 20px;
+    }
+    #socialMedia img {
+        width: 30px;
+    }
+    footer article {
+        display: none;
+    }
+    #seccionContactoFooter h1 {
+        font-size: 12px;
+    }
+    footer section {
+        display: none;
+    }
+    #seccionContactoFooter p {
+        font-size: 14px;
+    }
+}
+
+.error-message {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: red;
+}
+
+.error-message2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: red;
 }
