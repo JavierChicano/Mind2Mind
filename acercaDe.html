@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,50 +11,53 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="icon" href="img/logo.png" type="image/x-icon" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
     </style>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+</head>
+
+<body>
     <header>
-      <a href='index.html'><img src="img/logo.png" id="logo"/></a>
-      <h1><a href='index.html'>MIND 2 MIND</a></h1>
-      <div id="barraBusqueda">
-        <img src="img/calendar-month.png">
-        <p><a href='pedirCita.html'>Pedir Cita</a></p> 
-      </div>
-      <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
-      <nav class="nav" id="nav">
-        <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
-        <ul class="nav-list">
-          <li><a href='acercaDe.html'>Acerca de</a></li>
-          <li><a href='tratamientos.html'>Tratamientos</a></li>
-          <li><a href='servicios.html'>Servicios</a></li>
-          <!-- Abrir ventana modal -->
-          <li><a id="account" href='perfil/perfilMain.html'><img src="img/user.png"></a></li>
-          <li ><a class="openRegistro">Regístrate</a></li>
-          <li><a class="openLogIn">Inicia sesión</a></li>
-      </ul>
-      </nav>
+        <a href='index.html'><img src="img/logo.png" id="logo" /></a>
+        <h1><a href='index.html'>MIND 2 MIND</a></h1>
+        <div id="barraBusqueda">
+            <img src="img/calendar-month.png">
+            <p><a href='pedirCita.html'>Pedir Cita</a></p>
+        </div>
+        <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
+        <nav class="nav" id="nav">
+            <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
+            <ul class="nav-list">
+                <li><a href='acercaDe.html'>Acerca de</a></li>
+                <li><a href='tratamientos.html'>Tratamientos</a></li>
+                <li><a href='servicios.html'>Servicios</a></li>
+                <!-- Abrir ventana modal -->
+                <li>
+                    <a id="account" href='perfil/perfilMain.html'><img src="img/user.png"></a>
+                </li>
+                <li><a class="openRegistro">Regístrate</a></li>
+                <li><a class="openLogIn">Inicia sesión</a></li>
+            </ul>
+        </nav>
     </header>
     <!-- Contenedores Registro -->
     <div class="modal-Registro" id="modal-Registro">
-      <div class="modalRegistro">
-        <span class="closeRegistro"><img src="img/closeWindow.png"></span>
-        <section>
-          <span id="imgModal"><img src="img/logo.png"></span>
-          <article>
-            <h1>Crea tu cuenta</h1>
-            <section id="registroRedes">
-              <img src="img/RedesLogIn/brand-google.png">
-              <img src="img/RedesLogIn/brand-meta.png">
-              <img src="img/RedesLogIn/brand-x.png">
-              <img src="img/RedesLogIn/brand-apple.png">
-            </section>
-            <hr>
-            <span id="centrarForm">
+        <div class="modalRegistro">
+            <span class="closeRegistro"><img src="img/closeWindow.png"></span>
+            <section>
+                <span id="imgModal"><img src="img/logo.png"></span>
+                <article>
+                    <h1>Crea tu cuenta</h1>
+                    <section id="registroRedes">
+                        <img src="img/RedesLogIn/brand-google.png">
+                        <img src="img/RedesLogIn/brand-meta.png">
+                        <img src="img/RedesLogIn/brand-x.png">
+                        <img src="img/RedesLogIn/brand-apple.png">
+                    </section>
+                    <hr>
+                    <span id="centrarForm">
               <form action="#" method="post" id="formRegistro">
                 <div id="displayErroresRegistro" class="error-message"></div>
                 <input type="text" id="nombreRegistro" name="nombre" placeholder="Nombre" required>
@@ -62,394 +66,303 @@
             
                 <input type="email" id="emailRegistro" name="email" placeholder="Correo electrónico" required>
             
-                <input type="password" id="passwordRegistro" name="password" placeholder="Contraseña" required>
-            
+                <div class="mostrarContraseña">
+                  <input type="password" id="passwordRegistro" name="password" placeholder="Contraseña" required>
+                  <i class="bx bx-hide"></i>
+              </div>
+
                 <span id="checkBox">
                     <input type="checkbox" id="aceptoTerminosRegistro" name="aceptoTerminos" required>
                     <p for="aceptoTerminos">Acepto los &nbsp<a href='politicaPrivacidad.html'>términos y condiciones</a></p>
                 </span>
-                
-                <input type="submit" value="Crear cuenta">
-            </form>
-            </span>
-            <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
-            
-          </article>
-        </section>
-      </div>
+
+                    <input type="submit" value="Crear cuenta">
+                    </form>
+                    </span>
+                    <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
+
+                </article>
+            </section>
+        </div>
     </div>
     <!-- Contenedores Login -->
     <div class="modal-LogIn" id="modal-LogIn">
-      <div class="modalLogIn">
-        <span class="closeLogIn"><img src="img/closeWindow.png"></span>
-        <section>
-          <span id="imgModal"><img src="img/logo.png"></span>
-          <article>
-            <h1>Inicia sesión</h1>
-            <section id="registroRedes">
-              <img src="img/RedesLogIn/brand-google.png">
-              <img src="img/RedesLogIn/brand-meta.png">
-              <img src="img/RedesLogIn/brand-x.png">
-              <img src="img/RedesLogIn/brand-apple.png">
-            </section>
-            <hr>
-            <span id="centrarForm2">
+        <div class="modalLogIn">
+            <span class="closeLogIn"><img src="img/closeWindow.png"></span>
+            <section>
+                <span id="imgModal"><img src="img/logo.png"></span>
+                <article>
+                    <h1>Inicia sesión</h1>
+                    <section id="registroRedes">
+                        <img src="img/RedesLogIn/brand-google.png">
+                        <img src="img/RedesLogIn/brand-meta.png">
+                        <img src="img/RedesLogIn/brand-x.png">
+                        <img src="img/RedesLogIn/brand-apple.png">
+                    </section>
+                    <hr>
+                    <span id="centrarForm2">
               <div id="displayErroresRegistro" class="error-message"></div>
               <form action="#" method="post" id="formLogIn">
               
                 <input type="email" id="emailLogin" name="email" placeholder="Correo electrónico">
         
-                <input type="password" id="passwordLogin" name="password" placeholder="Contraseña">
-                
+                <div class="mostrarContraseña">
+                    <input type="password" id="passwordLogin" name="password" placeholder="Contraseña" required>
+                    <i class="bx bx-hide"></i>
+                </div>                
                 <input type="submit" value="Entrar en mi cuenta">
               </form>
             </span>
-            <p>¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro">Crea tu cuenta</a></p>
-          </article>
-        </section>
-      </div>
+                    <p>¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro">Crea tu cuenta</a></p>
+                </article>
+            </section>
+        </div>
     </div>
     <main>
-      <section id="headerAcercaDe">
-        <div class="linksTratamientos">
-          <a href="#seccionNosotros">Nosotros</a>
-        </div>
-        <div class="linksTratamientos"><a href="#titTestimonios">Testimonios</a></div>
-        <div class="linksTratamientos" id="noDisponibleMovil"><a href="#titFAQs">FAQs</a></div>
-        <div class="linksTratamientos"><a href="#legal">Legal</a></div>
-      </section>
-      <aside id="imgPortadaAcercaDe">
-        <img
-          src="img/Video/Captura de pantalla 2024-01-12 092630.png"
-          alt="video"
-        />
-        <h1
-          data-aos="fade-up"
-          data-aos-easing="linear"
-          data-aos-duration="1500"
-        >
-          Mind 2 Mind
-        </h1>
-      </aside>
-      <section id="seccionNosotros">
-        <h1>Nosotros</h1>
-        <article>
-          En Mind 2 Mind, nos dedicamos con pasión a la transformación positiva
-          de vidas a través de la psicología especializada en el tratamiento del
-          trastorno bipolar. Con un enfoque integral y personalizado, nuestro
-          equipo altamente calificado trabaja incansablemente para proporcionar
-          un espacio seguro y de apoyo donde los clientes pueden explorar,
-          entender y superar los desafíos del trastorno bipolar. <span class="textoNoMovil">Contamos con un
+        <section id="headerAcercaDe">
+            <div class="linksTratamientos">
+                <a href="#seccionNosotros">Nosotros</a>
+            </div>
+            <div class="linksTratamientos"><a href="#titTestimonios">Testimonios</a></div>
+            <div class="linksTratamientos" id="noDisponibleMovil"><a href="#titFAQs">FAQs</a></div>
+            <div class="linksTratamientos"><a href="#legal">Legal</a></div>
+        </section>
+        <aside id="imgPortadaAcercaDe">
+            <img src="img/Video/Captura de pantalla 2024-01-12 092630.png" alt="video" />
+            <h1 data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
+                Mind 2 Mind
+            </h1>
+        </aside>
+        <section id="seccionNosotros">
+            <h1>Nosotros</h1>
+            <article>
+                En Mind 2 Mind, nos dedicamos con pasión a la transformación positiva de vidas a través de la psicología especializada en el tratamiento del trastorno bipolar. Con un enfoque integral y personalizado, nuestro equipo altamente calificado trabaja incansablemente
+                para proporcionar un espacio seguro y de apoyo donde los clientes pueden explorar, entender y superar los desafíos del trastorno bipolar. <span class="textoNoMovil">Contamos con un
           excelente equipo de profesionales comprometidos con su bienestar
           emocional y mental. Trabajamos codo a codo con nuestros clientes,
           proporcionando herramientas y estrategias prácticas para enfrentar los
           desafíos diarios, construir resiliencia y lograr un equilibrio
           duradero. En el corazón de nuestra filosofía está el entendimiento
           profundo de que la salud mental es una parte fundamental de la
-          experiencia humana.</span> Nuestra misión es guiar a las personas hacia la
-          estabilidad emocional, empoderándolas para que vivan vidas plenas y
-          significativas.
-        </article>
-        <img src="img/Nosotros/CentrosFisicos.png" />
-        <article>
-            <span class="textoNoMovil">
+          experiencia humana.</span> Nuestra misión es guiar a las personas hacia la estabilidad emocional, empoderándolas para que vivan vidas plenas y significativas.
+            </article>
+            <img src="img/Nosotros/CentrosFisicos.png" />
+            <article>
+                <span class="textoNoMovil">
           Explore nuestra página para conocer más sobre nuestros servicios, el
           excelente equipo de trabajadores con el que contamos y las historias
           inspiradoras de aquellos que han encontrado esperanza y recuperación a
-          través de Mind 2 Mind. </span> Estamos aquí para acompañarle en su viaje
-          hacia la salud mental y el bienestar emocional. Gracias por elegir
-          Mind to Mind. Juntos, construyamos un camino hacia una vida plena y
-          equilibrada.
-          <br /><br />
-          El equipo de Mind 2 Mind.
-        </article>
-      </section>
-      <span id="titTestimonios"><h1>Testimonios</h1></span>
-      <section id="testimoniosAcercaDe">
-        <div>
-          <img src="img/Testimonios/persona1.jpg" alt="" />
-          <span class="textoTarjetaTestimonios">
+          través de Mind 2 Mind. </span> Estamos aquí para acompañarle en su viaje hacia la salud mental y el bienestar emocional. Gracias por elegir Mind to Mind. Juntos, construyamos un camino hacia una vida plena y equilibrada.
+                <br /><br /> El equipo de Mind 2 Mind.
+            </article>
+        </section>
+        <span id="titTestimonios"><h1>Testimonios</h1></span>
+        <section id="testimoniosAcercaDe">
+            <div>
+                <img src="img/Testimonios/persona1.jpg" alt="" />
+                <span class="textoTarjetaTestimonios">
             <h1>Adrian</h1>
             <aside>
               La TMS mejoró mi claridad mental y agudeza cognitiva, ofreciendo
               una innovadora forma de cuidar mi cuerpo.
             </aside>
           </span>
-        </div>
-        <div>
-          <img src="img/Testimonios/persona2.jpg" alt="" />
-          <span class="textoTarjetaTestimonios">
+            </div>
+            <div>
+                <img src="img/Testimonios/persona2.jpg" alt="" />
+                <span class="textoTarjetaTestimonios">
             <h1>Adrian</h1>
             <aside>
               La TMS mejoró mi claridad mental y agudeza cognitiva, ofreciendo
               una innovadora forma de cuidar mi cuerpo.
             </aside>
           </span>
-        </div>
-        <div>
-          <img src="img/Testimonios/persona3.jpg" alt="" />
-          <span class="textoTarjetaTestimonios">
+            </div>
+            <div>
+                <img src="img/Testimonios/persona3.jpg" alt="" />
+                <span class="textoTarjetaTestimonios">
             <h1>Adrian</h1>
             <aside>
               La TMS mejoró mi claridad mental y agudeza cognitiva, ofreciendo
               una innovadora forma de cuidar mi cuerpo.
             </aside>
           </span>
-        </div>
-        <div>
-          <img src="img/Testimonios/persona4.jpg" alt="" />
-          <span class="textoTarjetaTestimonios">
+            </div>
+            <div>
+                <img src="img/Testimonios/persona4.jpg" alt="" />
+                <span class="textoTarjetaTestimonios">
             <h1>Adrian</h1>
             <aside>
               La TMS mejoró mi claridad mental y agudeza cognitiva, ofreciendo
               una innovadora forma de cuidar mi cuerpo.
             </aside>
           </span>
-        </div>
-        <div>
-          <img src="img/Testimonios/persona5.jpg" alt="" />
-          <span class="textoTarjetaTestimonios">
+            </div>
+            <div>
+                <img src="img/Testimonios/persona5.jpg" alt="" />
+                <span class="textoTarjetaTestimonios">
             <h1>Adrian</h1>
             <aside>
               La TMS mejoró mi claridad mental y agudeza cognitiva, ofreciendo
               una innovadora forma de cuidar mi cuerpo.
             </aside>
           </span>
-        </div>
-        <div>
-          <img src="img/Testimonios/persona6.jpg" alt="" />
-          <span class="textoTarjetaTestimonios">
+            </div>
+            <div>
+                <img src="img/Testimonios/persona6.jpg" alt="" />
+                <span class="textoTarjetaTestimonios">
             <h1>Adrian</h1>
             <aside>
               La TMS mejoró mi claridad mental y agudeza cognitiva, ofreciendo
               una innovadora forma de cuidar mi cuerpo.
             </aside>
           </span>
-        </div>
-      </section>
-      <span id="titFAQs"><h1>FAQs</h1></span>
-      <section id="preguntasAcercaDe">
-        <div id="colIzquierda">
-          <article
-            class="articulosIz"
-            data-aos="fade-down-right"
-            data-aos-offset="300"
-            data-aos-duration="1500"
-          >
-            <h2>¿Cuáles son los síntomas típicos de trastorno bipolar?</h2>
-            <p>
-              Los síntomas del trastorno bipolar pueden incluir cambios extremos
-              en el estado de ánimo, episodios maníacos o hipomaníacos y
-              episodios depresivos
-            </p>
-          </article>
-          <article
-            class="articulosIz"
-            data-aos="fade-down-right"
-            data-aos-offset="350"
-            data-aos-duration="2500"
-          >
-            <h2>¿Existen diferentes tipos de trastorno bipolar?</h2>
-            <p>
-              Sí, el trastorno bipolar se clasifica en varios tipos, incluyendo
-              el trastorno bipolar tipo I, tipo II y ciclotimia, cada uno con
-              características específicas.
-            </p>
-          </article>
-          <article
-            class="articulosIz"
-            data-aos="fade-down-right"
-            data-aos-offset="350"
-            data-aos-duration="2500"
-          >
-            <h2>¿Cuál es la diferencia entre la manía y la hipomanía?</h2>
-            <p>
-              La manía y la hipomanía son estados de ánimo elevados, pero la
-              manía es más intensa y puede afectar significativamente la vida
-              diaria, mientras que la hipomanía es menos severa.
-            </p>
-          </article>
-          <article
-            class="articulosIz"
-            data-aos="fade-down-right"
-            data-aos-offset="350"
-            data-aos-duration="2500"
-          >
-            <h2>¿Cómo se trata el trastorno bipolar?</h2>
-            <p>
-              El tratamiento puede incluir medicamentos estabilizadores del
-              estado de ánimo, terapia cognitivo-conductual y apoyo psicosocial.
-            </p>
-          </article>
-          <article
-            class="articulosIz"
-            data-aos="fade-down-right"
-            data-aos-offset="350"
-            data-aos-duration="2500"
-          >
-            <h2>¿El trastorno bipolar es hereditario?</h2>
-            <p>
-              Existe una predisposición genética al trastorno bipolar, pero
-              también pueden influir factores ambientales y situacionales.
-            </p>
-          </article>
-        </div>
-        <div id="colDerecha">
-          <article
-            class="articulosDe"
-            data-aos="fade-down-left"
-            data-aos-offset="300"
-            data-aos-duration="1500"
-          >
-            <h2>¿Cómo se diagnostica el trastorno bipolar?</h2>
-            <p>
-              El diagnóstico del trastorno bipolar se realiza mediante la
-              evaluación clínica de los síntomas, la historia médica y, en
-              algunos casos, pruebas adicionales.
-            </p>
-          </article>
-          <article
-            class="articulosDe"
-            data-aos="fade-down-left"
-            data-aos-offset="350"
-            data-aos-duration="2500"
-          >
-            <h2>
-              ¿Cómo afecta el trastorno bipolar a las relaciones
-              interpersonales?
-            </h2>
-            <p>
-              El trastorno bipolar puede afectar las relaciones debido a cambios
-              abruptos en el estado de ánimo y comportamiento durante los
-              episodios maníacos o depresivos.
-            </p>
-          </article>
-          <article
-            class="articulosDe"
-            data-aos="fade-down-left"
-            data-aos-offset="400"
-            data-aos-duration="2500"
-          >
-            <h2>¿Es posible llevar una vida normal con trastorno bipolar?</h2>
-            <p>
-              Sí, con un tratamiento adecuado y apoyo, muchas personas con
-              trastorno bipolar pueden llevar vidas productivas y
-              satisfactorias.
-            </p>
-          </article>
-          <article
-            class="articulosDe"
-            data-aos="fade-down-left"
-            data-aos-offset="400"
-            data-aos-duration="2500"
-          >
-            <h2>
-              ¿El estrés puede desencadenar episodios en personas con trastorno
-              bipolar?
-            </h2>
-            <p>
-              Sí, el estrés puede ser un desencadenante de episodios maníacos o
-              depresivos en personas con trastorno bipolar.
-            </p>
-          </article>
-          <article
-            class="articulosDe"
-            data-aos="fade-down-left"
-            data-aos-offset="400"
-            data-aos-duration="2500"
-          >
-            <h2>
-              ¿Cómo puedo apoyar a un ser querido que tiene trastorno bipolar?
-            </h2>
-            <p>
-              Proporcionar apoyo emocional, educarse sobre la condición, y
-              alentar la adherencia al tratamiento son formas clave de apoyar a
-              alguien con trastorno bipolar.
-            </p>
-          </article>
-        </div>
-      </section>
-      <section id="legal">
-        <h1>Legal</h1>
-        <article>
-          <p>
-            MIND 2 MIND SLP, en estricto cumplimiento de la normativa vigente
-            sobre protección de datos personales, desea informar que la
-            información personal recopilada a través de los formularios en el
-            sitio web: www.mindtomind.com, se incorpora a los ficheros
-            automatizados específicos de usuarios de los servicios de MIND 2
-            MIND SLP. <span class="textoNoMovil">La recopilación y tratamiento automatizado de los datos
+            </div>
+        </section>
+        <span id="titFAQs"><h1>FAQs</h1></span>
+        <section id="preguntasAcercaDe">
+            <div id="colIzquierda">
+                <article class="articulosIz" data-aos="fade-down-right" data-aos-offset="300" data-aos-duration="1500">
+                    <h2>¿Cuáles son los síntomas típicos de trastorno bipolar?</h2>
+                    <p>
+                        Los síntomas del trastorno bipolar pueden incluir cambios extremos en el estado de ánimo, episodios maníacos o hipomaníacos y episodios depresivos
+                    </p>
+                </article>
+                <article class="articulosIz" data-aos="fade-down-right" data-aos-offset="350" data-aos-duration="2500">
+                    <h2>¿Existen diferentes tipos de trastorno bipolar?</h2>
+                    <p>
+                        Sí, el trastorno bipolar se clasifica en varios tipos, incluyendo el trastorno bipolar tipo I, tipo II y ciclotimia, cada uno con características específicas.
+                    </p>
+                </article>
+                <article class="articulosIz" data-aos="fade-down-right" data-aos-offset="350" data-aos-duration="2500">
+                    <h2>¿Cuál es la diferencia entre la manía y la hipomanía?</h2>
+                    <p>
+                        La manía y la hipomanía son estados de ánimo elevados, pero la manía es más intensa y puede afectar significativamente la vida diaria, mientras que la hipomanía es menos severa.
+                    </p>
+                </article>
+                <article class="articulosIz" data-aos="fade-down-right" data-aos-offset="350" data-aos-duration="2500">
+                    <h2>¿Cómo se trata el trastorno bipolar?</h2>
+                    <p>
+                        El tratamiento puede incluir medicamentos estabilizadores del estado de ánimo, terapia cognitivo-conductual y apoyo psicosocial.
+                    </p>
+                </article>
+                <article class="articulosIz" data-aos="fade-down-right" data-aos-offset="350" data-aos-duration="2500">
+                    <h2>¿El trastorno bipolar es hereditario?</h2>
+                    <p>
+                        Existe una predisposición genética al trastorno bipolar, pero también pueden influir factores ambientales y situacionales.
+                    </p>
+                </article>
+            </div>
+            <div id="colDerecha">
+                <article class="articulosDe" data-aos="fade-down-left" data-aos-offset="300" data-aos-duration="1500">
+                    <h2>¿Cómo se diagnostica el trastorno bipolar?</h2>
+                    <p>
+                        El diagnóstico del trastorno bipolar se realiza mediante la evaluación clínica de los síntomas, la historia médica y, en algunos casos, pruebas adicionales.
+                    </p>
+                </article>
+                <article class="articulosDe" data-aos="fade-down-left" data-aos-offset="350" data-aos-duration="2500">
+                    <h2>
+                        ¿Cómo afecta el trastorno bipolar a las relaciones interpersonales?
+                    </h2>
+                    <p>
+                        El trastorno bipolar puede afectar las relaciones debido a cambios abruptos en el estado de ánimo y comportamiento durante los episodios maníacos o depresivos.
+                    </p>
+                </article>
+                <article class="articulosDe" data-aos="fade-down-left" data-aos-offset="400" data-aos-duration="2500">
+                    <h2>¿Es posible llevar una vida normal con trastorno bipolar?</h2>
+                    <p>
+                        Sí, con un tratamiento adecuado y apoyo, muchas personas con trastorno bipolar pueden llevar vidas productivas y satisfactorias.
+                    </p>
+                </article>
+                <article class="articulosDe" data-aos="fade-down-left" data-aos-offset="400" data-aos-duration="2500">
+                    <h2>
+                        ¿El estrés puede desencadenar episodios en personas con trastorno bipolar?
+                    </h2>
+                    <p>
+                        Sí, el estrés puede ser un desencadenante de episodios maníacos o depresivos en personas con trastorno bipolar.
+                    </p>
+                </article>
+                <article class="articulosDe" data-aos="fade-down-left" data-aos-offset="400" data-aos-duration="2500">
+                    <h2>
+                        ¿Cómo puedo apoyar a un ser querido que tiene trastorno bipolar?
+                    </h2>
+                    <p>
+                        Proporcionar apoyo emocional, educarse sobre la condición, y alentar la adherencia al tratamiento son formas clave de apoyar a alguien con trastorno bipolar.
+                    </p>
+                </article>
+            </div>
+        </section>
+        <section id="legal">
+            <h1>Legal</h1>
+            <article>
+                <p>
+                    MIND 2 MIND SLP, en estricto cumplimiento de la normativa vigente sobre protección de datos personales, desea informar que la información personal recopilada a través de los formularios en el sitio web: www.mindtomind.com, se incorpora a los ficheros
+                    automatizados específicos de usuarios de los servicios de MIND 2 MIND SLP. <span class="textoNoMovil">La recopilación y tratamiento automatizado de los datos
                 personales tienen como objetivo principal el mantenimiento de la
                 relación comercial y la ejecución de tareas relacionadas con la
                 información, formación, asesoramiento y otras actividades propias de
                 MIND 2 MIND SLP. Estos datos solo se compartirán con aquellas
                 entidades necesarias con el único propósito de cumplir con la
-                finalidad antes mencionada.</span> 
-          </p>
-          <p>
-            MIND 2 MIND SLP implementa las medidas necesarias para garantizar
-            la seguridad, integridad y confidencialidad de los datos, de acuerdo
-            con lo establecido en el Reglamento (UE) 2016/679 del Parlamento
-            Europeo y del Consejo, de 27 de abril de 2016, relativo a la
-            protección de las personas físicas en lo que respecta al tratamiento
-            de datos personales y a la libre circulación de los mismos. <span class="textoNoMovil">Esto
+                finalidad antes mencionada.</span>
+                </p>
+                <p>
+                    MIND 2 MIND SLP implementa las medidas necesarias para garantizar la seguridad, integridad y confidencialidad de los datos, de acuerdo con lo establecido en el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016, relativo
+                    a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de los mismos. <span class="textoNoMovil">Esto
             deroga la antigua LOPD y se rige por la nueva Ley Orgánica 3/2018,
             de 5 de diciembre, de Protección de Datos y Garantía de los Derechos
             Digitales (LOPDGDD).</span>
-          </p>
-          <p>
-            En cualquier momento, el usuario puede ejercer los derechos de
-            acceso, oposición, rectificación, cancelación, limitación y
-            portabilidad reconocidos en el mencionado Reglamento (UE). <span class="textoNoMovil">Estos
+                </p>
+                <p>
+                    En cualquier momento, el usuario puede ejercer los derechos de acceso, oposición, rectificación, cancelación, limitación y portabilidad reconocidos en el mencionado Reglamento (UE). <span class="textoNoMovil">Estos
             derechos pueden ser ejercidos por el propio usuario a través de
             correo electrónico a: administracion@mind2mind.com o en la
             dirección: C/ Máiquez, 36 - 1º D, C.P. 28009 - Madrid (Madrid).
             </span>
-          </p>
-        </article>
-      </section>
+                </p>
+            </article>
+        </section>
     </main>
 
     <footer>
-      <!-- Seccion about -->
-      <section>
-        <ul>
-          <li>Horario de consultas</li>
-          <li class="fLista">L-V 8:00 - 21:00h</li>
-          <li>Horario atención telefónica</li>
-          <li class="fLista">L-V 10:00 - 21:00h</li>
-        </ul>
-        
-      </section>
+        <!-- Seccion about -->
+        <section>
+            <ul>
+                <li>Horario de consultas</li>
+                <li class="fLista">L-V 8:00 - 21:00h</li>
+                <li>Horario atención telefónica</li>
+                <li class="fLista">L-V 10:00 - 21:00h</li>
+            </ul>
 
-      <!-- Seccion Recursos -->
-      <section id="seccionContactoFooter">
-        <h1><a href='formContacto.html'>FORMULARIO DE CONTACTO</a></h1>
-        <p>C/Alberto Aguilera 52</p>
-        <p>28015 Madrid, España</p>
-        <p>Tel: +34 661 661 662</p>
-        <p>WhatsApp: +34 661 661 662</p>
-      </section>
+        </section>
 
-      <!-- Seccion Social Media -->
-      <section id="seccionSocialMedia">
-        <a href='index.html'><img src="img/logo.png" id="logo"/></a>
-        <article id="socialMedia">
-          <img src="img/mail.png">
-          <img src="img/instagram.png">
-          <img src="img/x.png">
+        <!-- Seccion Recursos -->
+        <section id="seccionContactoFooter">
+            <h1><a href='formContacto.html'>FORMULARIO DE CONTACTO</a></h1>
+            <p>C/Alberto Aguilera 52</p>
+            <p>28015 Madrid, España</p>
+            <p>Tel: +34 661 661 662</p>
+            <p>WhatsApp: +34 661 661 662</p>
+        </section>
+
+        <!-- Seccion Social Media -->
+        <section id="seccionSocialMedia">
+            <a href='index.html'><img src="img/logo.png" id="logo" /></a>
+            <article id="socialMedia">
+                <img src="img/mail.png">
+                <img src="img/instagram.png">
+                <img src="img/x.png">
+            </article>
+        </section>
+        <article>
+            Centro de Salud Mental autorizado por la Conserjería de Sanidad de la Comunidad de Madrid
+            <br> Mind To Mind, S.L.P - Todos los derechos reservados
         </article>
-      </section>
-      <article>
-        Centro de Salud Mental autorizado por la Conserjería de Sanidad de la Comunidad de Madrid
-        <br>
-        Mind To Mind, S.L.P - Todos los derechos reservados
-      </article>
     </footer>
     <script>
-      AOS.init();
+        AOS.init();
     </script>
     <script src="header.js"></script>
     <script src="gestionInformacion.js"></script>
-  </body>
+</body>
+
 </html>
