@@ -18,7 +18,7 @@ if (formRegistro) {
     var displayErrores = document.getElementById("displayErroresRegistro");
 
     // Validacion de formularios
-    var textoLetras = /^[A-Za-z\s]+$/;;
+    var textoLetras = /^[A-Za-z\s]+$/;
 
     if (!textoLetras.test(nombre)) {
       displayErrores.textContent = "El nombre contiene caracteres invalidos";
@@ -97,7 +97,7 @@ if (formContacto) {
     //  var info = document.getElementById("consultaContacto").value;
 
     // Validacion de formularios
-    var textoLetras = /^[A-Za-z\s]+$/;;
+    var textoLetras = /^[A-Za-z\s]+$/;
 
     if (!textoLetras.test(nombre)) {
       displayErrores.textContent = "El nombre contiene caracteres invalidos";
@@ -223,7 +223,7 @@ if (formPedirCita) {
     }
 
     // Validacion de formularios
-    var textoLetras = /^[A-Za-z\s]+$/;;
+    var textoLetras = /^[A-Za-z\s]+$/;
 
     if (!textoLetras.test(nombre)) {
       displayErrores.textContent = "El nombre contiene caracteres invalidos";
@@ -460,9 +460,9 @@ function insertarRegistro(nombre, apellidos, email, password) {
       console.log(response);
       //Comprobacion de la consulta
       if (response.status === "success") {
-          sessionStorage.setItem("sesionIniciada", "true");
-          sessionStorage.setItem("correoUsuario", email); 
-          window.location.href = "perfil/perfilMain.html";
+        sessionStorage.setItem("sesionIniciada", "true");
+        sessionStorage.setItem("correoUsuario", email);
+        window.location.href = "perfil/perfilMain.html";
       } else {
         //Acciones que hace si es erroneo la consulta
         mensajeError.textContent = response.message;
@@ -492,7 +492,7 @@ function insertarContacto(nombre, apellidos, email, telefono, consulta) {
     success: function (response) {
       //Comprobacion de la consulta
       if (response.status === "success") {
-        mensajeUsuario.style.color = "green"
+        mensajeUsuario.style.color = "green";
         mensajeUsuario.textContent = response.message;
       } else {
         //Acciones que hace si es erroneo la consulta
@@ -569,7 +569,7 @@ function consultarLogin(email, password) {
       //Comprobacion de la consulta
       if (response.status === "success") {
         sessionStorage.setItem("sesionIniciada", "true");
-        sessionStorage.setItem("correoUsuario", email); 
+        sessionStorage.setItem("correoUsuario", email);
         window.location.href = "perfil/perfilMain.html";
       } else {
         //Acciones que hace si es erroneo el login
@@ -600,5 +600,69 @@ if (sesionIniciada === "true") {
   for (var j = 0; j < ocultarLogin.length; j++) {
     ocultarLogin[j].style.display = "none";
   }
-  mostrarCuenta.style.display = "block";
+  mostrarCuenta.style.display = "block";  
 }
+
+// Inicializar el índice del doctor en 0
+let doctorIndex = 0;
+
+// Definir la cantidad total de doctores (puedes ajustar esto según tus necesidades)
+const cantidadDoctores = 5;
+
+// Función para obtener datos del doctor desde la base de datos mediante una solicitud AJAX
+function obtenerDatosDoctor(idDoctor) {
+  // Realizar una solicitud AJAX utilizando jQuery
+  console.log("doctor");
+
+  $.ajax({
+    type: "POST",
+    url: "BBDD/selectsDatos.php",
+    data: {
+      funcion: "obtenerDoctor",
+      idDoctor: idDoctor,
+    },
+    success: function (response) {
+      // Comprobacion de la consulta
+      if (response.status === "success") {
+        // Mostrar los datos en servicios.html
+        mostrarDatosDoctor(response.doctor);
+      } else {
+        // Acciones que hace si es erróneo el inicio de sesión
+        console.error("Error en la consulta:", response.message);
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
+    },
+  });
+}
+
+function mostrarDatosDoctor(doctor) {
+  // Actualizar elementos HTML en servicios.html con la información del doctor
+  $("#imgDoctor").text(doctor.imgDoctor);
+  $("#nombreDoctor").text(doctor.nombre);
+  $("#modalidad").text(doctor.modalidad);
+  $("#horario").text("Horario: " + doctor.horario);
+  $("#especialidad").text("Especialidad: " + doctor.especialidad);
+}
+var botonDerecha = document.getElementById("nextDoctorDerecha");
+var botonIzquierda = document.getElementById("nextDoctorIzquierda");
+
+if (botonDerecha && botonIzquierda) {
+  // Evento de clic para la flecha derecha
+  botonDerecha.addEventListener("click", function () {
+    // Incrementar el índice del doctor y ajustarlo al rango de doctores disponibles
+    doctorIndex = (doctorIndex + 1) % cantidadDoctores;
+    // Obtener y mostrar los datos del nuevo doctor
+    obtenerDatosDoctor(doctorIndex);
+  });
+
+  // Evento de clic para la flecha izquierda
+  botonIzquierda.addEventListener("click", function () {
+    // Decrementar el índice del doctor y ajustarlo al rango de doctores disponibles
+    doctorIndex = (doctorIndex - 1 + cantidadDoctores) % cantidadDoctores;
+    // Obtener y mostrar los datos del nuevo doctor
+    obtenerDatosDoctor(doctorIndex);
+  });
+}
+

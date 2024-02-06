@@ -125,43 +125,30 @@
     <!-- Contenedores Login -->
     <div class="modal-LogIn" id="modal-LogIn">
       <div class="modalLogIn">
-        <span class="closeLogIn"><img src="img/closeWindow.png" /></span>
+        <span class="closeLogIn"><img src="img/closeWindow.png"></span>
         <section>
-          <span id="imgModal"><img src="img/logo.png" /></span>
+          <span id="imgModal"><img src="img/logo.png"></span>
           <article>
             <h1>Inicia sesión</h1>
             <section id="registroRedes">
-              <img src="img/RedesLogIn/brand-google.png" />
-              <img src="img/RedesLogIn/brand-meta.png" />
-              <img src="img/RedesLogIn/brand-x.png" />
-              <img src="img/RedesLogIn/brand-apple.png" />
+              <img src="img/RedesLogIn/brand-google.png">
+              <img src="img/RedesLogIn/brand-meta.png">
+              <img src="img/RedesLogIn/brand-x.png">
+              <img src="img/RedesLogIn/brand-apple.png">
             </section>
-            <hr />
+            <hr>
+            <div id="displayErroresLogin" class="error-message"></div>
             <span id="centrarForm2">
-              <div id="displayErroresRegistro" class="error-message"></div>
               <form action="#" method="post" id="formLogIn">
-                <input
-                  type="email"
-                  id="emailLogin"
-                  name="email"
-                  placeholder="Correo electrónico"
-                />
-
-                <input
-                  type="password"
-                  id="passwordLogin"
-                  name="password"
-                  placeholder="Contraseña"
-                />
-
-                <input type="submit" value="Entrar en mi cuenta" />
+              
+                <input type="email" id="emailLogin" name="email" placeholder="Correo electrónico">
+        
+                <input type="password" id="passwordLogin" name="password" placeholder="Contraseña">
+                
+                <input type="submit" value="Entrar en mi cuenta">
               </form>
             </span>
-            <p>
-              ¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro"
-                >Crea tu cuenta</a
-              >
-            </p>
+            <p>¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro">Crea tu cuenta</a></p>
           </article>
         </section>
       </div>
@@ -240,18 +227,18 @@
       </span>
       <section id="seccionChat">
         <aside id="visualizacionChat">
-          <img src="img/Nosotros/1.png" />
+          <img id="imgDoctor" src="img/Nosotros/1.png" />
 
           <span id="centrarBotones">
             <button id="nextDoctorIzquierda" class="botonDoctores">&lt;</button>
-            <h2>Dr. Garcia Vaquero</h2>
-          <button id="nextDoctorDerecha" class="botonDoctores">&gt;</button>
+            <h2 id="nombreDoctor">Dr. Garcia Vaquero</h2>
+            <button id="nextDoctorDerecha" class="botonDoctores">&gt;</button>
           </span>
           <article>
             <ul>
-              <li>Psiquiatria</li>
-              <li>Horario: Tardes</li>
-              <li>Especialidad: Trastorno</li>
+              <li id="modalidad">Psiquiatria</li>
+              <li id="horario">Horario: Tardes</li>
+              <li id="especialidad">Especialidad: Trastorno</li>
             </ul>
           </article>
         </aside>

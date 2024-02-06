@@ -42,51 +42,39 @@
         <section class="perfil">
             <span><h1>Nombre</h1></span>
             <section>
-                <article class="divisiones seleccionada">Perfil</article>
-                <article class="divisiones">Mis Terapias</article>
-                <article class="divisiones">Mis Citas</article>
-                <article class="divisiones">Suscripciones</article>
-                <article class="divisiones">Ayuda</article>
-                <article class="divisiones">Cert. Tratamientos</article>
-                <article class="divisiones">Sign out</article>
+              <article id="perfil" class="divisiones seleccionada">Perfil</article>
+              <article id="misTerapias" class="divisiones">Mis Terapias</article>
+              <article id="misCitas" class="divisiones">Mis Citas</article>
+              <article id="suscripciones" class="divisiones">Suscripciones</article>
+              <article id="ayuda" class="divisiones">Ayuda</article>
+              <article id="certTratamientos" class="divisiones">Cert. Tratamientos</article>
+              <article id="signOut" class="divisiones">Sign out</article>
+              
             </section>
         </section>
         <section id="perfilInfo">
             <aside class="deslizar">
-              <span class="centradoTitulo"><h1 class="titulo">Editar</h1></span>
+              <span class="centradoTitulo"><h1 class="titulo">Perfil</h1></span>
               <div class="fondo">
                 <form action="#" method="POST" id="formEditarPerfil">
-                  <label for="correoElectronico">Correo Electrónico:</label><br>
-                  <input type="email" id="correoElectronico" name="correoElectronico" required><br>
-              
-                  <label for="nombre">Nombre:</label><br>
-                  <input type="text" id="nombre" name="nombre" required><br>
-              
-                  <label for="apellidos">Apellidos:</label><br>
-                  <input type="text" id="apellidos" name="apellidos" required><br>
-              
-                  <label for="contraseña">Contraseña:</label><br>
-                  <input type="password" id="contraseña" name="contraseña" required><br>
-              
-                  <label for="dni">DNI:</label><br>
-                  <input type="text" id="dni" name="dni" pattern="[0-9]{8}[A-Za-z]" required><br>
-              
-                  <label for="provincia">Provincia:</label><br>
-                  <input type="text" id="provincia" name="provincia" required><br>
-              
-                  <label for="domicilio">Domicilio:</label><br>
-                  <input type="text" id="domicilio" name="domicilio" required><br>
-              
-                  <label for="genero">Género:</label><br>
-                  <select id="genero" name="genero">
-                      <option value="Masculino">Masculino</option>
-                      <option value="Femenino">Femenino</option>
-                      <option value="Otro">Otro</option>
-                  </select><br>
-              
-                  <input type="submit" value="Enviar">
-              </form>
-              
+                  <input type="text" id="correoElectronico" name="correoElectronico" placeholder="Correo Electrónico" required>
+                  
+                  <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+                  
+                  <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
+                  
+                  <input type="text" id="contraseña" name="contraseña" placeholder="Contraseña" required>
+                  
+                  <input type="text" id="dni" name="dni" pattern="[0-9]{8}[A-Za-z]" placeholder="DNI" required>
+                  
+                  <input type="text" id="provincia" name="provincia" placeholder="Provincia" required>
+                  
+                  <input type="text" id="domicilio" name="domicilio" placeholder="Domicilio" required>
+                  
+                  <input type="text" id="genero" name="genero" placeholder="Genero" required>
+                  
+                  <input type="submit" value="Editar">
+                </form>
               </div>
             </aside>
             <aside class="deslizar">

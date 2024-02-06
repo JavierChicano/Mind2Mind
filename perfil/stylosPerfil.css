@@ -21,7 +21,7 @@ body {
 #mainPerfil {
   display: grid;
   grid-template-columns: minmax(0, 500px) 1fr;
-  height: 80vh;
+  height: 90vh;
   overflow-y: hidden;
 }
 .perfil {
@@ -75,22 +75,30 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.centradoTitulo{
-  margin: 50px 0;
+.centradoTitulo {
+  margin: 50px 0 20px 0;
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.titulo{
-  background-color: var(--colorBaseOscuro);
-  color: white;
+.titulo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 60px;
+  color: var(--colorBaseOscuro);
   padding: 12px;
   border-radius: 2px;
-} 
-.fondo{
+}
+.fondo {
   background-color: rgb(54, 208, 199, 0.1);
   width: 80%;
-  height: 80%;
+  height: 70vh;
   display: flex;
-  align-items: center;
+  justify-content: center;
+}
+#formEditarPerfil {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1000px;
 }
