@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,52 +9,56 @@
     <link rel="stylesheet" href="styleHF.css" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="img/logo.png" type="image/x-icon" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
     </style>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+</head>
+
+<body>
     <header>
-      <a href='index.html'><img src="img/logo.png" id="logo"/></a>
-      <h1><a href='index.html'>MIND 2 MIND</a></h1>
-      <div id="barraBusqueda">
-        <img src="img/calendar-month.png">
-        <p><a href='pedirCita.html'>Pedir Cita</a></p> 
-      </div>
-      <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
-      <nav class="nav" id="nav">
-        <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
-        <ul class="nav-list">
-          <li><a href='acercaDe.html'>Acerca de</a></li>
-          <li><a href='tratamientos.html'>Tratamientos</a></li>
-          <li><a href='servicios.html'>Servicios</a></li>
-          <!-- Abrir ventana modal -->
-          <li><a id="account" href='perfil/perfilMain.html'><img src="img/user.png"></a></li>
-          <li ><a class="openRegistro">Regístrate</a></li>
-          <li><a class="openLogIn">Inicia sesión</a></li>
-      </ul>
-      </nav>
+        <a href='index.html'><img src="img/logo.png" id="logo" /></a>
+        <h1><a href='index.html'>MIND 2 MIND</a></h1>
+        <div id="barraBusqueda">
+            <img src="img/calendar-month.png">
+            <p><a href='pedirCita.html'>Pedir Cita</a></p>
+        </div>
+        <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
+        <nav class="nav" id="nav">
+            <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" /></span>
+            <ul class="nav-list">
+                <li><a href='acercaDe.html'>Acerca de</a></li>
+                <li><a href='tratamientos.html'>Tratamientos</a></li>
+                <li><a href='servicios.html'>Servicios</a></li>
+                <!-- Abrir ventana modal -->
+                <li>
+                    <a id="account" href='perfil/perfilMain.html'><img src="img/user.png"></a>
+                </li>
+                <li><a class="openRegistro">Regístrate</a></li>
+                <li><a class="openLogIn">Inicia sesión</a></li>
+            </ul>
+        </nav>
     </header>
     <!-- Contenedores Registro -->
     <div class="modal-Registro" id="modal-Registro">
-      <div class="modalRegistro">
-        <span class="closeRegistro"><img src="img/closeWindow.png"></span>
-        <section>
-          <span id="imgModal"><img src="img/logo.png"></span>
-          <article>
-            <h1>Crea tu cuenta</h1>
-            <section id="registroRedes">
-              <img src="img/RedesLogIn/brand-google.png">
-              <img src="img/RedesLogIn/brand-meta.png">
-              <img src="img/RedesLogIn/brand-x.png">
-              <img src="img/RedesLogIn/brand-apple.png">
-            </section>
-            <hr>
-            <span id="centrarForm">
+        <div class="modalRegistro">
+            <span class="closeRegistro"><img src="img/closeWindow.png"></span>
+            <section>
+                <span id="imgModal"><img src="img/logo.png"></span>
+                <article>
+                    <h1>Crea tu cuenta</h1>
+                    <section id="registroRedes">
+                        <img src="img/RedesLogIn/brand-google.png">
+                        <img src="img/RedesLogIn/brand-meta.png">
+                        <img src="img/RedesLogIn/brand-x.png">
+                        <img src="img/RedesLogIn/brand-apple.png">
+                    </section>
+                    <hr>
+                    <span id="centrarForm">
               <form action="#" method="post" id="formRegistro">
                 <div id="displayErroresRegistro" class="error-message"></div>
                 <input type="text" id="nombreRegistro" name="nombre" placeholder="Nombre" required>
@@ -62,69 +67,73 @@
             
                 <input type="email" id="emailRegistro" name="email" placeholder="Correo electrónico" required>
             
-                <input type="password" id="passwordRegistro" name="password" placeholder="Contraseña" required>
+                <div class="mostrarContraseña">
+                  <input type="password" id="passwordRegistro" name="password" placeholder="Contraseña" required>
+                  <i class="bx bx-hide"></i>
+              </div>
             
                 <span id="checkBox">
                     <input type="checkbox" id="aceptoTerminosRegistro" name="aceptoTerminos" required>
                     <p for="aceptoTerminos">Acepto los &nbsp<a href='politicaPrivacidad.html'>términos y condiciones</a></p>
                 </span>
-                
-                <input type="submit" value="Crear cuenta">
-            </form>
-            </span>
-            <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
-            
-          </article>
-        </section>
-      </div>
+
+                    <input type="submit" value="Crear cuenta">
+                    </form>
+                    </span>
+                    <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
+
+                </article>
+            </section>
+        </div>
     </div>
     <!-- Contenedores Login -->
     <div class="modal-LogIn" id="modal-LogIn">
-      <div class="modalLogIn">
-        <span class="closeLogIn"><img src="img/closeWindow.png"></span>
-        <section>
-          <span id="imgModal"><img src="img/logo.png"></span>
-          <article>
-            <h1>Inicia sesión</h1>
-            <section id="registroRedes">
-              <img src="img/RedesLogIn/brand-google.png">
-              <img src="img/RedesLogIn/brand-meta.png">
-              <img src="img/RedesLogIn/brand-x.png">
-              <img src="img/RedesLogIn/brand-apple.png">
-            </section>
-            <hr>
-            <span id="centrarForm2">
+        <div class="modalLogIn">
+            <span class="closeLogIn"><img src="img/closeWindow.png"></span>
+            <section>
+                <span id="imgModal"><img src="img/logo.png"></span>
+                <article>
+                    <h1>Inicia sesión</h1>
+                    <section id="registroRedes">
+                        <img src="img/RedesLogIn/brand-google.png">
+                        <img src="img/RedesLogIn/brand-meta.png">
+                        <img src="img/RedesLogIn/brand-x.png">
+                        <img src="img/RedesLogIn/brand-apple.png">
+                    </section>
+                    <hr>
+                    <span id="centrarForm2">
               <div id="displayErroresRegistro" class="error-message"></div>
               <form action="#" method="post" id="formLogIn">
               
                 <input type="email" id="emailLogin" name="email" placeholder="Correo electrónico">
         
-                <input type="password" id="passwordLogin" name="password" placeholder="Contraseña">
+                <div class="mostrarContraseña">
+                  <input type="password" id="passwordLogin" name="password" placeholder="Contraseña" required>
+                  <i class="bx bx-hide" id="bx1"></i>
+              </div>
                 
                 <input type="submit" value="Entrar en mi cuenta">
               </form>
             </span>
-            <p>¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro">Crea tu cuenta</a></p>
-          </article>
-        </section>
-      </div>
+                    <p>¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro">Crea tu cuenta</a></p>
+                </article>
+            </section>
+        </div>
     </div>
     <main id="mainFormContacto">
         <aside>
             <img src="img/imgRocasContacto.png" alt="imgRocas">
-            <h1 data-aos="fade-up"
-            data-aos-easing="linear"
-            data-aos-duration="1500">Contacto</h1>
+            <h1 data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">Contacto</h1>
         </aside>
         <div>
             <section id="textContacto">
-              <aside>"Equilibrio emocional, transformando vidas:<br>Tu bienestar es nuestra prioridad"</aside>
+                <aside>"Equilibrio emocional, transformando vidas:<br>Tu bienestar es nuestra prioridad"</aside>
                 <div>
-                  <h2>¿Tienes alguna pregunta?</h2>
-                <p>Rellena nuestro formulario de contacto y te contestaremos en la mayor brevedad posible.</p>
-            
+                    <h2>¿Tienes alguna pregunta?</h2>
+                    <p>Rellena nuestro formulario de contacto y te contestaremos en la mayor brevedad posible.</p>
+
                 </div>
-                </section>
+            </section>
             <section id="estiloFondoForm">
                 <form action="#" method="post" id="formContacto">
                     <div id="displayErroresRegistro2" class="error-message2"></div>
@@ -138,52 +147,52 @@
                         <label for="aceptar">Aceptar <a href='politicaPrivacidad.html'>politica de privacidad</a></label>
                     </span>
                     <button type="submit">Enviar</button>
-                  </form>
+                </form>
             </section>
         </div>
-        
+
     </main>
 
     <footer>
         <!-- Seccion about -->
         <section>
-          <ul>
-            <li>Horario de consultas</li>
-            <li class="fLista">L-V 8:00 - 21:00h</li>
-            <li>Horario atención telefónica</li>
-            <li class="fLista">L-V 10:00 - 21:00h</li>
-          </ul>
-          
+            <ul>
+                <li>Horario de consultas</li>
+                <li class="fLista">L-V 8:00 - 21:00h</li>
+                <li>Horario atención telefónica</li>
+                <li class="fLista">L-V 10:00 - 21:00h</li>
+            </ul>
+
         </section>
-  
+
         <!-- Seccion Recursos -->
         <section id="seccionContactoFooter">
-          <h1><a href='politicaPrivacidad.html'>POLITICA PRIVACIDAD</a></h1>
-          <p>C/Alberto Aguilera 52</p>
-          <p>28015 Madrid, España</p>
-          <p>Tel: +34 661 661 662</p>
-          <p>WhatsApp: +34 661 661 662</p>
+            <h1><a href='politicaPrivacidad.html'>POLITICA PRIVACIDAD</a></h1>
+            <p>C/Alberto Aguilera 52</p>
+            <p>28015 Madrid, España</p>
+            <p>Tel: +34 661 661 662</p>
+            <p>WhatsApp: +34 661 661 662</p>
         </section>
-  
+
         <!-- Seccion Social Media -->
         <section id="seccionSocialMedia">
-          <a href='index.html'><img src="img/logo.png" id="logo"/></a>
-          <article id="socialMedia">
-            <img src="img/mail.png">
-            <img src="img/instagram.png">
-            <img src="img/x.png">
-          </article>
+            <a href='index.html'><img src="img/logo.png" id="logo" /></a>
+            <article id="socialMedia">
+                <img src="img/mail.png">
+                <img src="img/instagram.png">
+                <img src="img/x.png">
+            </article>
         </section>
         <article>
-          Centro de Salud Mental autorizado por la Conserjería de Sanidad de la Comunidad de Madrid
-          <br>
-          Mind To Mind, S.L.P - Todos los derechos reservados
+            Centro de Salud Mental autorizado por la Conserjería de Sanidad de la Comunidad de Madrid
+            <br> Mind To Mind, S.L.P - Todos los derechos reservados
         </article>
-      </footer>
+    </footer>
     <script>
-      AOS.init();
+        AOS.init();
     </script>
     <script src="header.js"></script>
     <script src="gestionInformacion.js"></script>
-  </body>
+</body>
+
 </html>
