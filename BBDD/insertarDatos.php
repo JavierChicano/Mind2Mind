@@ -32,14 +32,14 @@ if (isset($_POST['funcion'])) {
             // Preparar la consulta de inserción para el caso de registro
             $verificarExistencia = "SELECT correoElectronico FROM paciente WHERE correoElectronico = '$email'";
             $resultadoVerificacion = $conexion->query($verificarExistencia);
-            
+
             if ($resultadoVerificacion->num_rows > 0) {
                 // Ya existe un registro con esa clave primaria
                 $response = array('status' => 'error', 'message' => 'Correo electrónico ya registrado');
             } else {
                 // No existe un registro con esa clave primaria, proceder con la inserción
                 $sql = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña) VALUES ('$email', '$nombre', '$apellidos', '$password')";
-            
+
                 if ($conexion->query($sql) === TRUE) {
                     // La inserción fue exitosa
                     $response = array('status' => 'success', 'message' => 'Registro exitoso');
@@ -49,7 +49,7 @@ if (isset($_POST['funcion'])) {
                 }
             }
             break;
-            
+
         case 'contacto':
             $nombre = $_POST['nombre'];
             $apellidos = $_POST['apellidos'];
@@ -87,11 +87,11 @@ if (isset($_POST['funcion'])) {
             // Insertar datos en la tabla paciente
             $sqlPaciente = "INSERT INTO paciente (correoElectronico, nombre, apellidos, dni, provincia, domicilio, genero) 
                             VALUES ('$mail', '$nombre', '$apellidos', '$dni', '$provincia', '$domicilio', '$sexo')";
-            
+
             if ($conexion->query($sqlPaciente) === TRUE) {
                 // Obtener el ID insertado (correoElectronico) para usarlo en la tabla cita
                 $idPaciente = $mail;
-                
+
                 // Buscar el idMedico en la tabla especialista basándote en la modalidad y especialidad proporcionadas
                 $sqlBuscarMedico = "SELECT idMedico FROM especialista WHERE modalidad = '$modalidad' AND especialidad = '$profesional'";
                 $resultadoMedico = $conexion->query($sqlBuscarMedico);
@@ -114,6 +114,27 @@ if (isset($_POST['funcion'])) {
                 }
             } else {
                 echo "Error al insertar datos en paciente: " . $conexion->error;
+            }
+            break;
+        case 'insertarPerfil':
+            $correoElectronico = $_POST['correoElectronico'];
+            $nombre = $_POST['nombre'];
+            $apellidos = $_POST['apellidos'];
+            $contraseña = $_POST['contraseña'];
+            $dni = $_POST['dni'];
+            $provincia = $_POST['provincia'];
+            $domicilio = $_POST['domicilio'];
+            $genero = $_POST['genero'];
+            
+            // Preparar la consulta de actualización
+            $sql = "UPDATE paciente SET nombre='$nombre', apellidos='$apellidos', contraseña='$contraseña', dni='$dni', provincia='$provincia', domicilio='$domicilio', genero='$genero' WHERE correoElectronico='$correoElectronico'";
+
+            if ($conexion->query($sql) === TRUE) {
+                // Actualización exitosa
+                $response = array('status' => 'success', 'message' => 'Perfil actualizado correctamente');
+            } else {
+                // Error en la actualización
+                $response = array('status' => 'error', 'message' => 'Error al actualizar el perfil: ' . $conexion->error);
             }
             break;
 

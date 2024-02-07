@@ -22,6 +22,61 @@ linksPerfil.forEach((link, i) => {
     cambiarDivPerfil(currentIndexPerfil);
   });
 });
+
+//Validacion form editar perfil
+var displayErrores = document.getElementById("displayInfoPerfil");
+
+$("#botonEditarPerfil").on("click", function () {
+  var nombre = document.getElementById("nombre").value;
+  var apellidos = document.getElementById("apellidos").value;
+  var contraseña = document.getElementById("contraseña").value;
+  var dni = document.getElementById("dni").value;
+  var provincia = document.getElementById("provincia").value;
+  var domicilio = document.getElementById("domicilio").value;
+  var genero = document.getElementById("genero").value;
+
+  // Validacion de formularios
+  var textoLetras = /^[A-Za-z\s]+$/;
+
+  if (!textoLetras.test(nombre)) {
+    displayErrores.textContent = "El nombre contiene caracteres invalidos";
+    document.getElementById("nombre").style.border = "1px solid red";
+    return false;
+  } else {
+    document.getElementById("nombre").style.border = "";
+    displayErrores.textContent = "";
+  }
+
+  if (!textoLetras.test(apellidos)) {
+    displayErrores.textContent = "Los apellidos contienen caracteres invalidos";
+    document.getElementById("apellidos").style.border = "1px solid red";
+    return false;
+  } else {
+    document.getElementById("apellidos").style.border = "";
+    displayErrores.textContent = "";
+  }
+  var formatoDNI = /^\d{8}[a-zA-Z]$/;
+
+  if (dni !== "" && !formatoDNI.test(dni)) {
+    displayErrores.textContent =
+      "El DNI no tiene el formato correcto (8 Números y 1 Letra)";
+    document.getElementById("dni").style.border = "1px solid red";
+    return false;
+  } else {
+    document.getElementById("dni").style.border = "";
+    displayErrores.textContent = "";
+  }
+  
+  insertarEditarPerfil(
+    nombre,
+    apellidos,
+    contraseña,
+    dni,
+    provincia,
+    domicilio,
+    genero
+  );
+});
 //-------------------------------------------------FUNCIONES MOSTRAR PERFIL----------------------------------------------
 var mostrarCuenta = document.getElementById("account");
 
@@ -57,8 +112,6 @@ function consultaEditarPerfil() {
     success: function (response) {
       //Comprobacion de la consulta
       if (response.status === "success") {
-        console.log(response.paciente);
-
         mostrarPerfil(response.paciente);
       } else {
         //Acciones que hace si es erroneo el login
@@ -72,30 +125,59 @@ function consultaEditarPerfil() {
 }
 function mostrarPerfil(email) {
   // Actualizar elementos HTML en servicios.html con la información del doctor
-  $("#correoElectronico").val(email.correoElectronico || "");
-
+  $("#correoElectronico")
+    .val(email.correoElectronico || "")
+    .prop("disabled", true);
   $("#nombre").val(email.nombre || "");
-
   $("#apellidos").val(email.apellidos || "");
-
   $("#contraseña").val(email.contraseña || "");
-
   $("#dni").val(email.dni || "");
-
   $("#provincia").val(email.provincia || "");
-
   $("#domicilio").val(email.domicilio || "");
-
   $("#genero").val(email.genero || "");
 }
 
-function insertarEditarPerfil() {
-  var correoElectronico = document.getElementById("correoElectronico").value;
-  var nombre = document.getElementById("nombre").value;
-  var apellidos = document.getElementById("apellidos").value;
-  var contraseña = document.getElementById("contraseña").value;
-  var dni = document.getElementById("dni").value;
-  var provincia = document.getElementById("provincia").value;
-  var domicilio = document.getElementById("domicilio").value;
-  var genero = document.getElementById("genero").value;
+function insertarEditarPerfil(
+  nombre,
+  apellidos,
+  contraseña,
+  dni,
+  provincia,
+  domicilio,
+  genero
+) {
+  var idPaciente = sessionStorage.getItem("correoUsuario");
+ 
+  //Pagina perfil
+  $.ajax({
+    type: "POST",
+    url: "../BBDD/insertarDatos.php", // Nombre de tu script PHP
+    data: {
+      funcion: "insertarPerfil",
+      correoElectronico: idPaciente,
+      nombre: nombre,
+      apellidos: apellidos,
+      contraseña: contraseña,
+      dni: dni,
+      provincia: provincia,
+      domicilio: domicilio,
+      genero: genero,
+    },
+    success: function (response) {
+      //Comprobacion de la consulta
+      if (response.status === "success") {
+        console.log("Insert exitoso: " + response.message);
+      } else {
+        console.log(response.message);
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
+    },
+  });
 }
+
+//Boton q envia los nuevos datos de perfil
+$("#botonEditarPerfil").on("click", function () {
+  insertarEditarPerfil();
+});

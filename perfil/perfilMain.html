@@ -57,6 +57,7 @@
               <span class="centradoTitulo"><h1 class="titulo">Perfil</h1></span>
               <div class="fondo">
                 <form action="#" method="POST" id="formEditarPerfil">
+                  <div id="displayInfoPerfil" class="message-info-perfil"></div>
                   <input type="text" id="correoElectronico" name="correoElectronico" placeholder="Correo Electrónico" required>
                   
                   <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
@@ -65,15 +66,15 @@
                   
                   <input type="text" id="contraseña" name="contraseña" placeholder="Contraseña" required>
                   
-                  <input type="text" id="dni" name="dni" pattern="[0-9]{8}[A-Za-z]" placeholder="DNI" required>
+                  <input type="text" id="dni" name="dni"  placeholder="DNI" >
                   
-                  <input type="text" id="provincia" name="provincia" placeholder="Provincia" required>
+                  <input type="text" id="provincia" name="provincia" placeholder="Provincia" >
                   
-                  <input type="text" id="domicilio" name="domicilio" placeholder="Domicilio" required>
+                  <input type="text" id="domicilio" name="domicilio" placeholder="Domicilio" >
                   
-                  <input type="text" id="genero" name="genero" placeholder="Genero" required>
+                  <input type="text" id="genero" name="genero" placeholder="Genero" >
                   
-                  <input type="submit" value="Editar">
+                  <input type="submit" value="Editar" id="botonEditarPerfil">
                 </form>
               </div>
             </aside>

@@ -16,7 +16,6 @@ const contendorModal = document.querySelector(".modal-Registro");
 const cerrarModal = document.querySelector(".closeRegistro");
 const abrilModalCuenta = document.getElementById("creaCuenta");
 const contraseñaRegistro = document.getElementById("passwordRegistro");
-const contraseñaLogin = document.getElementById("passwordLogin");
 const icono = document.querySelector(".bx");
 
 abrirModal.addEventListener("click", () => {
@@ -46,7 +45,23 @@ icono.addEventListener("click", e => {
     }
 })
 
-icono.addEventListener("click", e => {
+//Ventana modal LogIn
+const abrirModal2 = document.querySelector(".openLogIn");
+const contendorModal2 = document.querySelector(".modal-LogIn");
+const cerrarModal2 = document.querySelector(".closeLogIn");
+const contraseñaLogin = document.getElementById("passwordLogin");
+const icono2 = document.querySelector("#bx1");
+
+abrirModal2.addEventListener("click", () => {
+    contendorModal.classList.remove("show");
+    contendorModal2.classList.add("show");
+});
+
+cerrarModal2.addEventListener("click", () => {
+    contendorModal2.classList.remove("show");
+});
+
+icono2.addEventListener("click", e => {
     if (contraseñaLogin.type === "password") {
         contraseñaLogin.type = "text";
         icono.classList.add('bx-show-alt')
@@ -58,21 +73,6 @@ icono.addEventListener("click", e => {
         icono.classList.add('bx-hide');
     }
 })
-
-//Ventana modal LogIn
-const abrirModal2 = document.querySelector(".openLogIn");
-const contendorModal2 = document.querySelector(".modal-LogIn");
-const cerrarModal2 = document.querySelector(".closeLogIn");
-
-abrirModal2.addEventListener("click", () => {
-    contendorModal.classList.remove("show");
-    contendorModal2.classList.add("show");
-});
-
-cerrarModal2.addEventListener("click", () => {
-    contendorModal2.classList.remove("show");
-});
-
 //Intercambio de ventanas
 const abrirLogIn = document.getElementById("link-A-LogIn");
 const abrirRegistro = document.getElementById("link-A-Registro");
