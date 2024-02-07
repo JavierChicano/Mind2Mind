@@ -23,6 +23,21 @@ linksPerfil.forEach((link, i) => {
   });
 });
 
+//Ver contraseña
+const ojo = document.querySelector(".bx");
+const contraseña = document.getElementById("contraseña");
+
+ojo.addEventListener("click", (e) => {
+  if (contraseña.type === "password") {
+    contraseña.type = "text";
+    ojo.classList.add("bx-show-alt");
+    ojo.classList.remove("bx-hide");
+  } else {
+    contraseña.type = "password";
+    ojo.classList.remove("bx-show-alt");
+    ojo.classList.add("bx-hide");
+  }
+});
 //Validacion form editar perfil
 var displayErrores = document.getElementById("displayInfoPerfil");
 
@@ -66,15 +81,16 @@ $("#botonEditarPerfil").on("click", function () {
     document.getElementById("dni").style.border = "";
     displayErrores.textContent = "";
   }
-  console.log(nombre)
-  console.log(apellidos)
-  console.log(contraseña)
-  console.log(dni)
-  console.log(provincia)
-  console.log(domicilio)
-  console.log(genero)
 
-  insertarEditarPerfil(nombre, apellidos, contraseña, dni, provincia, domicilio, genero);
+  insertarEditarPerfil(
+    nombre,
+    apellidos,
+    contraseña,
+    dni,
+    provincia,
+    domicilio,
+    genero
+  );
 });
 //-------------------------------------------------FUNCIONES MOSTRAR PERFIL----------------------------------------------
 var mostrarCuenta = document.getElementById("account");
@@ -94,7 +110,7 @@ var singOut = document.getElementById("signOut");
 if (perfil) {
   consultaEditarPerfil();
 }
-if(singOut){
+if (singOut) {
   logout();
 }
 
@@ -149,7 +165,7 @@ function insertarEditarPerfil(
   genero
 ) {
   var idPaciente = sessionStorage.getItem("correoUsuario");
- 
+
   //Pagina perfil
   $.ajax({
     type: "POST",
@@ -178,7 +194,7 @@ function insertarEditarPerfil(
     },
   });
 }
-function logout (){
+function logout() {
   var botonLogOut = document.getElementById("svgLogout");
 
   botonLogOut.addEventListener("click", function () {
