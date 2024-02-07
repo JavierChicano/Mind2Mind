@@ -135,22 +135,6 @@ if ($resultado->num_rows == 0) {
         $conexion->query($sqlTestimonio);
         $conexion->query($sqlChat);
 
-
-        // Función para insertar un paciente
-        function insertarPaciente($conexion, $correo, $nombre, $apellidos, $contrasena, $dni, $provincia, $domicilio, $genero)
-        {
-            $sql = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña, dni, provincia, domicilio, genero)
-                    VALUES ('$correo', '$nombre', '$apellidos', '$contrasena', '$dni', '$provincia', '$domicilio', '$genero')";
-
-            if ($conexion->query($sql)) {
-                echo "Datos insertados correctamente, en paciente.";
-            } else {
-                echo "Error al insertar datos, en pacientes: " . $conexion->error;
-            }
-
-            return true;
-        }
-
         // Función para insertar un especialista
         function insertarEspecialista($conexion, $nombre, $apellidos, $modalidad, $horario, $especialidad, $ubicacion)
         {

@@ -66,16 +66,15 @@ $("#botonEditarPerfil").on("click", function () {
     document.getElementById("dni").style.border = "";
     displayErrores.textContent = "";
   }
-  
-  insertarEditarPerfil(
-    nombre,
-    apellidos,
-    contraseña,
-    dni,
-    provincia,
-    domicilio,
-    genero
-  );
+  console.log(nombre)
+  console.log(apellidos)
+  console.log(contraseña)
+  console.log(dni)
+  console.log(provincia)
+  console.log(domicilio)
+  console.log(genero)
+
+  insertarEditarPerfil(nombre, apellidos, contraseña, dni, provincia, domicilio, genero);
 });
 //-------------------------------------------------FUNCIONES MOSTRAR PERFIL----------------------------------------------
 var mostrarCuenta = document.getElementById("account");
@@ -94,6 +93,9 @@ var singOut = document.getElementById("signOut");
 
 if (perfil) {
   consultaEditarPerfil();
+}
+if(singOut){
+  logout();
 }
 
 //------------------------------------------------------ACCIONES DEL PEFIL---------------------------------------------------------------------------
@@ -176,8 +178,13 @@ function insertarEditarPerfil(
     },
   });
 }
+function logout (){
+  var botonLogOut = document.getElementById("svgLogout");
 
-//Boton q envia los nuevos datos de perfil
-$("#botonEditarPerfil").on("click", function () {
-  insertarEditarPerfil();
-});
+  botonLogOut.addEventListener("click", function () {
+    // Establecer la sesión como no iniciada
+    sessionStorage.setItem("sesionIniciada", "false");
+    // Recargar la página para restaurar el estado inicial
+    window.location.href = "../index.html";
+  });
+}

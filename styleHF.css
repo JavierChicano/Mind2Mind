@@ -257,6 +257,12 @@ header h1 a {
     display: flex;
     align-items: center;
 }
+.mostrarContraseña:nth-child(2) {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 108%;
+}
 
 .bx {
     width: 20px;
