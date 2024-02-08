@@ -104,7 +104,7 @@
               <div id="displayErroresRegistro" class="error-message"></div>
               <form action="#" method="post" id="formLogIn">
               
-                <input type="email" id="emailLogin" name="email" placeholder="Correo electrónico">
+                <input type="email" id="emailLogin" name="email" placeholder="Correo electrónico" required>
         
                 <div class="mostrarContraseña">
                     <input type="password" id="passwordLogin" name="password" placeholder="Contraseña" required>
@@ -132,18 +132,26 @@
             <form action="#" method="post" id="formPedirCita">
                 <article id="datosPersonales">
                     <div id="displayErroresPedirCita" class="error-message"></div>
+                    <fieldset id="marcoCuentaPC">
+                        <legend id="leyenda1">Este proceso creará una cuenta</legend>
+                        <legend id="leyenda2">Datos de tu cuenta</legend>
+                        <input type="email" id="mailPC" name="mailPC" placeholder="Mail"><br>
+                        <div class="mostrarContraseña">
+                            <input type="password" id="passwordPC" name="passwordPC" placeholder="Contraseña"><br>
+                            <i class="bx bx-hide" id="bx2"></i>
+                        </div>
+                     </fieldset>
                     <input type="text" id="nombrePC" name="nombrePC" placeholder="Nombre"><br>
 
                     <input type="text" id="apellidosPC" name="apellidosPC" placeholder="Apellidos"><br>
 
                     <input type="text" id="dniPC" name="dniPC" placeholder="DNI"><br>
 
-                    <input type="email" id="mailPC" name="mailPC" placeholder="Mail"><br>
-
                     <input type="text" id="provinciaPC" name="provinciaPC" placeholder="Provincia"><br>
 
                     <input type="text" id="domicilioPC" name="domicilioPC" placeholder="Domicilio"><br>
 
+                    <input type="text" id="postalPC" name="postalPC" placeholder="Codigo Postal"><br>
 
                     <select id="sexoPC" name="sexoPC">
               <option value="masculino">Masculino</option>
@@ -167,7 +175,7 @@
                 <option value="telefonica">Telefónica</option>
                 <option value="videoconsulta">Videoconsulta</option>
             </select>
-
+         
                         <div id="campoTelefonoPC" style="display: none;">
                             <input type="tel" id="numeroTelpc" name="numeroTel" placeholder="Número de teléfono">
                         </div>

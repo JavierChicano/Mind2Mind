@@ -75,6 +75,34 @@ if (isset($_POST['funcion'])) {
                 $response = array('status' => 'error', 'message' => 'Error en la consulta');
             }
             break;
+        case 'mostrarPaciente':
+            $email = $_POST['email'];
+            // Consulta SQL para verificar si el correo electrónico existe y la contraseña coincide
+            $sql = "SELECT * FROM paciente WHERE correoElectronico = '$email'";
+            $resultado = $conexion->query($sql);
+
+            if ($resultado->num_rows > 0) {
+                $paciente = $resultado->fetch_assoc();
+                $response = array('status' => 'success', 'paciente' => $paciente);
+            } else {
+                // No se encontró el correo electrónico
+                $response = array('status' => 'error', 'message' => 'Error en la consulta');
+            }
+            break;
+        case 'comprobarCuentaPedirCita':
+            $email = $_POST['email'];
+
+            // Verificar si el correo electrónico ya existe en la base de datos
+            $sqlVerificarEmail = "SELECT correoElectronico FROM paciente WHERE correoElectronico = '$email'";
+            $resultadoEmail = $conexion->query($sqlVerificarEmail);
+
+            if ($resultadoEmail->num_rows > 0) {
+                // El correo electrónico ya existe en la base de datos, envía un mensaje de error
+                $response = array('status' => 'error', 'message' => 'Ese correo ya esta registrado, inicie sesión');
+            } else {
+                $response = array('status' => 'success');
+            }
+            break;
     }
 
     // Enviar la respuesta como JSON

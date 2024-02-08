@@ -1,5 +1,4 @@
 // import insertarRegistro from "./BBDD/funcionesInserts.js";
-
 //Formularios
 var formRegistro = document.getElementById("formRegistro");
 var formLogIn = document.getElementById("formLogIn");
@@ -163,40 +162,9 @@ if (formPedirCita) {
   bFase1.addEventListener("click", function (event) {
     var displayErrores = document.getElementById("displayErroresPedirCita");
 
-    // Obtener los valores de los campos del formulario
-    var nombre = document.getElementById("nombrePC").value;
-    var apellidos = document.getElementById("apellidosPC").value;
-    var dni = document.getElementById("dniPC").value;
     var mail = document.getElementById("mailPC").value;
-    var provincia = document.getElementById("provinciaPC").value;
-    var domicilio = document.getElementById("domicilioPC").value;
-    var sexo = document.getElementById("sexoPC").value;
 
     //Comprobar que los campos estan rellenados
-    if (nombre === "") {
-      document.getElementById("nombrePC").style.border = "1px solid red";
-      displayErrores.textContent = "Por favor, ingrese el nombre.";
-      return false;
-    } else {
-      document.getElementById("nombrePC").style.border = "";
-      displayErrores.textContent = "";
-    }
-    if (apellidos === "") {
-      document.getElementById("apellidosPC").style.border = "1px solid red";
-      displayErrores.textContent = "Por favor, ingrese los apellidos.";
-      return false;
-    } else {
-      document.getElementById("apellidosPC").style.border = "";
-      displayErrores.textContent = "";
-    }
-    if (dni === "") {
-      document.getElementById("dniPC").style.border = "1px solid red";
-      displayErrores.textContent = "Por favor, ingrese el DNI.";
-      return false;
-    } else {
-      document.getElementById("dniPC").style.border = "";
-      displayErrores.textContent = "";
-    }
     if (mail === "") {
       document.getElementById("mailPC").style.border = "1px solid red";
       displayErrores.textContent = "Por favor, ingrese el correo electrónico.";
@@ -205,76 +173,145 @@ if (formPedirCita) {
       document.getElementById("mailPC").style.border = "";
       displayErrores.textContent = "";
     }
-    if (provincia === "") {
-      document.getElementById("provinciaPC").style.border = "1px solid red";
-      displayErrores.textContent = "Por favor, ingrese la provincia.";
-      return false;
-    } else {
-      document.getElementById("provinciaPC").style.border = "";
-      displayErrores.textContent = "";
-    }
-    if (domicilio === "") {
-      document.getElementById("domicilioPC").style.border = "1px solid red";
-      displayErrores.textContent = "Por favor, ingrese el domicilio.";
-      return false;
-    } else {
-      document.getElementById("domicilioPC").style.border = "";
-      displayErrores.textContent = "";
-    }
-
-    // Validacion de formularios
-    var textoLetras = /^[A-Za-z\s]+$/;
-
-    if (!textoLetras.test(nombre)) {
-      displayErrores.textContent = "El nombre contiene caracteres invalidos";
-      document.getElementById("nombrePC").style.border = "1px solid red";
-      return false;
-    } else {
-      document.getElementById("nombrePC").style.border = "";
-      displayErrores.textContent = "";
-    }
-
-    if (!textoLetras.test(apellidos)) {
-      displayErrores.textContent =
-        "Los apellidos contienen caracteres invalidos";
-      document.getElementById("apellidosPC").style.border = "1px solid red";
-      return false;
-    } else {
-      document.getElementById("apellidosPC").style.border = "";
-      displayErrores.textContent = "";
-    }
-
-    var formatoDNI = /^\d{8}[a-zA-Z]$/;
-
-    if (!formatoDNI.test(dni)) {
-      displayErrores.textContent =
-        "El DNI no tiene el formato correcto (8 Números y 1 Letra)";
-      document.getElementById("dniPC").style.border = "1px solid red";
-      return false;
-    } else {
-      document.getElementById("dniPC").style.border = "";
-      displayErrores.textContent = "";
-    }
-
     var formatoMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!formatoMail.test(mail)) {
-      displayErrores.textContent =
-        "Por favor, ingrese un correo electrónico válido.";
-      document.getElementById("mailPC").style.border = "1px solid red";
-      return false;
-    } else {
-      document.getElementById("mailPC").style.border = "";
-      displayErrores.textContent = "";
-    }
-    //Si todo es correcto
-    DPersonales.style.display = "none";
-    DConsulta.style.display = "grid";
-    primeraParte.classList.remove("seleccionado");
-    primeraParte.classList.add("completado");
-    segundaParte.classList.add("seleccionado");
+      if (!formatoMail.test(mail)) {
+        displayErrores.textContent =
+          "El correo electrónico no tiene un formato válido.";
+        document.getElementById("mailPC").style.border = "1px solid red";
+        return false;
+      } else {
+        document.getElementById("mailPC").style.border = "";
+        displayErrores.textContent = "";
+      }
+    comprobarCuentaPedirCita(mail);
   });
 
+  function ejecutarSegundaParteForm() {
+    bFase1.addEventListener("click", function (event) {
+      var displayErrores = document.getElementById("displayErroresPedirCita");
+
+      // Obtener los valores de los campos del formulario
+      var contraseña = document.getElementById("passwordPC").value;
+      var nombre = document.getElementById("nombrePC").value;
+      var apellidos = document.getElementById("apellidosPC").value;
+      var dni = document.getElementById("dniPC").value;
+      var provincia = document.getElementById("provinciaPC").value;
+      var domicilio = document.getElementById("domicilioPC").value;
+      var postal = document.getElementById("postalPC").value;
+      var sexo = document.getElementById("sexoPC").value;
+
+      //Comprobar que los campos estan rellenados
+      if (contraseña === "") {
+        document.getElementById("passwordPC").style.border = "1px solid red";
+        displayErrores.textContent = "Por favor, ingrese una contraseña.";
+        return false;
+      } else {
+        document.getElementById("passwordPC").style.border = "";
+        displayErrores.textContent = "";
+      }
+      if (nombre === "") {
+        document.getElementById("nombrePC").style.border = "1px solid red";
+        displayErrores.textContent = "Por favor, ingrese el nombre.";
+        return false;
+      } else {
+        document.getElementById("nombrePC").style.border = "";
+        displayErrores.textContent = "";
+      }
+      if (apellidos === "") {
+        document.getElementById("apellidosPC").style.border = "1px solid red";
+        displayErrores.textContent = "Por favor, ingrese los apellidos.";
+        return false;
+      } else {
+        document.getElementById("apellidosPC").style.border = "";
+        displayErrores.textContent = "";
+      }
+      if (dni === "") {
+        document.getElementById("dniPC").style.border = "1px solid red";
+        displayErrores.textContent = "Por favor, ingrese el DNI.";
+        return false;
+      } else {
+        document.getElementById("dniPC").style.border = "";
+        displayErrores.textContent = "";
+      }
+
+      if (provincia === "") {
+        document.getElementById("provinciaPC").style.border = "1px solid red";
+        displayErrores.textContent = "Por favor, ingrese la provincia.";
+        return false;
+      } else {
+        document.getElementById("provinciaPC").style.border = "";
+        displayErrores.textContent = "";
+      }
+      if (domicilio === "") {
+        document.getElementById("domicilioPC").style.border = "1px solid red";
+        displayErrores.textContent = "Por favor, ingrese el domicilio.";
+        return false;
+      } else {
+        document.getElementById("domicilioPC").style.border = "";
+        displayErrores.textContent = "";
+      }
+      if (postal === "") {
+        document.getElementById("postalPC").style.border = "1px solid red";
+        displayErrores.textContent = "Por favor, ingrese el domicilio.";
+        return false;
+      } else {
+        document.getElementById("postalPC").style.border = "";
+        displayErrores.textContent = "";
+      }
+
+      // Validacion de formularios
+      var textoLetras = /^[A-Za-z\s]+$/;
+
+      if (!textoLetras.test(nombre)) {
+        displayErrores.textContent = "El nombre contiene caracteres invalidos";
+        document.getElementById("nombrePC").style.border = "1px solid red";
+        return false;
+      } else {
+        document.getElementById("nombrePC").style.border = "";
+        displayErrores.textContent = "";
+      }
+
+      if (!textoLetras.test(apellidos)) {
+        displayErrores.textContent =
+          "Los apellidos contienen caracteres invalidos";
+        document.getElementById("apellidosPC").style.border = "1px solid red";
+        return false;
+      } else {
+        document.getElementById("apellidosPC").style.border = "";
+        displayErrores.textContent = "";
+      }
+
+      var formatoDNI = /^\d{8}[a-zA-Z]$/;
+
+      if (!formatoDNI.test(dni)) {
+        displayErrores.textContent =
+          "El DNI no tiene el formato correcto (8 Números y 1 Letra)";
+        document.getElementById("dniPC").style.border = "1px solid red";
+        return false;
+      } else {
+        document.getElementById("dniPC").style.border = "";
+        displayErrores.textContent = "";
+      }
+
+      var formatoCP = /^\d{5}$/;
+
+      if (!formatoCP.test(postal)) {
+        displayErrores.textContent = "Por favor, un código postal válido.";
+        document.getElementById("postalPC").style.border = "1px solid red";
+        return false;
+      } else {
+        document.getElementById("postalPC").style.border = "";
+        displayErrores.textContent = "";
+      }
+      //Si todo es correcto
+      DPersonales.style.display = "none";
+      DConsulta.style.display = "grid";
+      primeraParte.classList.remove("seleccionado");
+      primeraParte.classList.add("completado");
+      segundaParte.classList.add("seleccionado");
+    });
+  }
   //Parte 2
   bFase2S.addEventListener("click", function (event) {
     var displayErrores = document.getElementById("displayErroresPedirCita2");
@@ -389,13 +426,36 @@ if (formPedirCita) {
     Enviado.style.display = "flex";
     terceraParte.classList.remove("seleccionado");
     terceraParte.classList.add("completado");
+
+    //Recogida de todos los datos
+    var mail = document.getElementById("mailPC").value;
+    var contraseña = document.getElementById("passwordPC").value;
+    var nombre = document.getElementById("nombrePC").value;
+    var apellidos = document.getElementById("apellidosPC").value;
+    var dni = document.getElementById("dniPC").value;
+    var provincia = document.getElementById("provinciaPC").value;
+    var domicilio = document.getElementById("domicilioPC").value;
+    var postal = document.getElementById("postalPC").value;
+    var sexo = document.getElementById("sexoPC").value;
+
+    var profesional = document.getElementById("profesionalPC").value;
+    var modalidad = document.getElementById("modalidadPC").value;
+    var telefono = document.getElementById("numeroTelpc").value;
+    var diagnostico = document.getElementById("autodiagnosticoPC").value;
+
+    var fConsulta = document.getElementById("fechaConsultaPC").value;
+    var poseeAseguradora = document.getElementById("aseguradoraSiNoPC").value;
+    var aseguradora = document.getElementById("aseguradoraEspecificaPC").value;
+
     insertarPedirCita(
+      mail,
+      contraseña,
       nombre,
       apellidos,
       dni,
-      mail,
       provincia,
       domicilio,
+      postal,
       sexo,
       profesional,
       modalidad,
@@ -505,14 +565,40 @@ function insertarContacto(nombre, apellidos, email, telefono, consulta) {
   });
 }
 
+function comprobarCuentaPedirCita(email) {
+  var displayErrores = document.getElementById("displayErroresPedirCita");
+
+  $.ajax({
+    type: "POST",
+    url: "BBDD/selectsDatos.php", // Nombre de tu script PHP para el registro
+    data: {
+      funcion: "comprobarCuentaPedirCita",
+      email: email,
+    },
+    success: function (response) {
+      //Comprobacion de la consulta
+      if (response.status === "success") {
+        ejecutarSegundaParteForm();
+      } else {
+        //Acciones que hace si es erroneo la consulta
+        displayErrores.textContent = response.message;
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
+    },
+  });
+}
 //Insertar pedir cita
 function insertarPedirCita(
+  email,
+  contraseña,
   nombre,
   apellidos,
   dni,
-  mail,
   provincia,
   domicilio,
+  postal,
   sexo,
   profesional,
   modalidad,
@@ -525,15 +611,17 @@ function insertarPedirCita(
   // Página de procesamiento del formulario
   $.ajax({
     type: "POST",
-    url: "BBDD/procesarFormulario.php", // Nombre de tu script PHP para procesar el formulario
+    url: "BBDD/insertarDatos.php", // Nombre de tu script PHP para el registro
     data: {
       funcion: "pedirCita",
+      email: email,
+      contraseña: contraseña,
       nombre: nombre,
       apellidos: apellidos,
       dni: dni,
-      email: mail,
       provincia: provincia,
       domicilio: domicilio,
+      postal: postal,
       sexo: sexo,
       profesional: profesional,
       modalidad: modalidad,
@@ -544,8 +632,16 @@ function insertarPedirCita(
       aseguradora: aseguradora,
     },
     success: function (response) {
-      console.log(response); // Manejar la respuesta del servidor
-      // Puedes redirigir a otra página o realizar acciones adicionales según la respuesta
+      //Comprobacion de la consulta
+      if (response.status === "success") {
+        console.log("exito");
+      } else {
+        //Acciones que hace si es erroneo la consulta
+        displayErrores.textContent = response.message;
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
     },
   });
 }
@@ -591,6 +687,9 @@ if (sesionIniciada === "true") {
   var ocultarLogin = document.getElementsByClassName("openLogIn");
   var mostrarCuenta = document.getElementById("account");
 
+  var ocultarLeyenda1 = document.getElementById("leyenda1");
+  var mostrarLeyenda2 = document.getElementById("leyenda2");
+
   // Ocultar elementos
   // Ocultar todos los elementos con la clase "openRegistro"
   for (var i = 0; i < ocultarRegistro.length; i++) {
@@ -600,7 +699,12 @@ if (sesionIniciada === "true") {
   for (var j = 0; j < ocultarLogin.length; j++) {
     ocultarLogin[j].style.display = "none";
   }
-  mostrarCuenta.style.display = "block";  
+  mostrarCuenta.style.display = "block";
+  if(ocultarLeyenda1){
+    ocultarLeyenda1.style.display = "none";
+    mostrarLeyenda2.style.display = "flex";
+    mostrarDatosPaciente();
+  }
 }
 
 // Inicializar el índice del doctor en 0
@@ -665,4 +769,37 @@ if (botonDerecha && botonIzquierda) {
     obtenerDatosDoctor(doctorIndex);
   });
 }
-
+function mostrarDatosPaciente() {
+  var idPaciente = sessionStorage.getItem("correoUsuario");
+  //Pagina perfil
+  $.ajax({
+    type: "POST",
+    url: "BBDD/selectsDatos.php", // Nombre de tu script PHP
+    data: {
+      funcion: "editarPerfil",
+      email: idPaciente,
+    },
+    success: function (response) {
+      //Comprobacion de la consulta
+      if (response.status === "success") {
+        mostrarDatos(response.paciente);
+      } else {
+        //Acciones que hace si es erroneo el login
+        console.log(response.message);
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
+    },
+  });
+}
+function mostrarDatos(email) {
+  $("#mailPC").val(email.correoElectronico || "").prop("disabled", true);
+  $("#passwordPC").val(email.contraseña || "");
+  $("#nombrePC").val(email.nombre || "");
+  $("#apellidosPC").val(email.apellidos || "");
+  $("#dniPC").val(email.dni || "");
+  $("#provinciaPC").val(email.provincia || "");
+  $("#domicilioPC").val(email.domicilio || "");
+  $("#postalPC").val(email.codigo_postal || "");
+}

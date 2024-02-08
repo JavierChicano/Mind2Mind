@@ -732,10 +732,8 @@ h1 {
 #seccionFormContacto {
   display: flex;
   flex-direction: column;
-  background-image: url("img/fondo1.jpg");
   width: 30%;
-  background-size: cover;
-  background-position: center;
+  background-color: #fff;
   margin: 5%;
   border-radius: 40px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
@@ -1958,6 +1956,24 @@ h1 {
   align-content: center;
   max-width: 100%;
 }
+#marcoCuentaPC {
+  width: 80%;
+  display: flex;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  text-align: center; 
+}
+
+legend {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--colorBaseOscuro);
+  margin-bottom: 10px;
+}
+
+#leyenda2{
+  display: none;
+}
 select {
   padding: 8px;
   font-size: 16px;
@@ -2123,5 +2139,20 @@ select option {
   #formEnviado p {
     font-size: 20px;
     margin-bottom: 20px;
+  }
+  #marcoCuentaPC {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    text-align: center; 
+  }
+  
+  legend {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--colorBaseOscuro);
+    margin-bottom: 10px;
   }
 }
