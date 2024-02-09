@@ -1,4 +1,5 @@
 // import insertarRegistro from "./BBDD/funcionesInserts.js";
+continuar = false;
 //Formularios
 var formRegistro = document.getElementById("formRegistro");
 var formLogIn = document.getElementById("formLogIn");
@@ -184,8 +185,15 @@ if (formPedirCita) {
         document.getElementById("mailPC").style.border = "";
         displayErrores.textContent = "";
       }
-    comprobarCuentaPedirCita(mail);
+
+      //Evita q se compruebe el email
+      if(continuar==true){
+        ejecutarSegundaParteForm();
+      }else {
+        comprobarCuentaPedirCita(mail);
+      }
   });
+
 
   function ejecutarSegundaParteForm() {
     bFase1.addEventListener("click", function (event) {
@@ -783,6 +791,7 @@ function mostrarDatosPaciente() {
       //Comprobacion de la consulta
       if (response.status === "success") {
         mostrarDatos(response.paciente);
+        continuar = true;
       } else {
         //Acciones que hace si es erroneo el login
         console.log(response.message);
@@ -795,11 +804,11 @@ function mostrarDatosPaciente() {
 }
 function mostrarDatos(email) {
   $("#mailPC").val(email.correoElectronico || "").prop("disabled", true);
-  $("#passwordPC").val(email.contraseña || "");
-  $("#nombrePC").val(email.nombre || "");
-  $("#apellidosPC").val(email.apellidos || "");
-  $("#dniPC").val(email.dni || "");
-  $("#provinciaPC").val(email.provincia || "");
-  $("#domicilioPC").val(email.domicilio || "");
-  $("#postalPC").val(email.codigo_postal || "");
+  $("#passwordPC").val(email.contraseña || "").prop("disabled", true);
+  $("#nombrePC").val(email.nombre || "").prop("disabled", email.nombre !== null);
+  $("#apellidosPC").val(email.apellidos || "").prop("disabled", email.apellidos !== null);
+  $("#dniPC").val(email.dni || "").prop("disabled", email.dni !== null);
+  $("#provinciaPC").val(email.provincia || "").prop("disabled", email.provincia !== null);
+  $("#domicilioPC").val(email.domicilio || "").prop("disabled", email.domicilio !== null);
+  $("#postalPC").val(email.codigo_postal || "").prop("disabled", email.codigo_postal !== null);
 }
