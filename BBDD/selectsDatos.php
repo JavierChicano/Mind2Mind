@@ -103,6 +103,23 @@ if (isset($_POST['funcion'])) {
                 $response = array('status' => 'success');
             }
             break;
+
+        //Casos de las consultas de tratamientos
+        case 'mostrarDatosTerapia':
+            $nombre = $_POST['nombre'];
+
+            $sqlTerapia = "SELECT * FROM terapia WHERE nombre = '$nombre'";
+            $resultadoTerapia = $conexion->query($sqlTerapia);
+
+            if ($resultadoTerapia->num_rows > 0) {
+                $terapia = $resultadoTerapia->fetch_assoc();
+                $response = array('status' => 'success', 'terapia' => $terapia);
+            } else {
+                $response = array('status' => 'error', 'message' => 'No se encontraron datos de terapia para el nombre proporcionado');
+            }
+            break;
+
+
     }
 
     // Enviar la respuesta como JSON

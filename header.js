@@ -170,14 +170,17 @@ if (linksTratamientos && window.innerWidth > 550) {
 const contraseñaPC = document.getElementById("passwordPC");
 const icono3 = document.getElementById("bx2");
 
-icono3.addEventListener("click", (e) => {
-  if (contraseñaPC.type === "password") {
-    contraseñaPC.type = "text";
-    icono3.classList.add("bx-show-alt");
-    icono3.classList.remove("bx-hide");
-  } else {
-    contraseñaPC.type = "password";
-    icono3.classList.remove("bx-show-alt");
-    icono3.classList.add("bx-hide");
-  }
-});
+if(icono3){
+  icono3.addEventListener("click", (e) => {
+    if (contraseñaPC.type === "password") {
+      contraseñaPC.type = "text";
+      icono3.classList.add("bx-show-alt");
+      icono3.classList.remove("bx-hide");
+    } else {
+      contraseñaPC.type = "password";
+      icono3.classList.remove("bx-show-alt");
+      icono3.classList.add("bx-hide");
+    }
+  });
+  
+}
