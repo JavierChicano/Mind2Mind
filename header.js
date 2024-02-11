@@ -71,6 +71,21 @@ icono2.addEventListener("click", (e) => {
     icono.classList.add("bx-hide");
   }
 });
+//Para cerrar las ventanas modales clickando fuera de ellas
+const ventanaLogin = document.getElementById("ventanaLogin");
+console.log("hola")
+
+if(contendorModal2.classList=="show"){
+  document.addEventListener("click", function(event) {
+    console.log("fuera")
+
+    if (!ventanaLogin.contains(event.target)) {
+      console.log("dentro")
+        contendorModal2.classList.remove("show");
+    }
+  });
+}
+
 //Intercambio de ventanas
 const abrirLogIn = document.getElementById("link-A-LogIn");
 const abrirRegistro = document.getElementById("link-A-Registro");

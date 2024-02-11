@@ -1,4 +1,3 @@
-// import insertarRegistro from "./BBDD/funcionesInserts.js";
 continuar = false;
 //Formularios
 var formRegistro = document.getElementById("formRegistro");
@@ -716,6 +715,12 @@ if (sesionIniciada === "true") {
     }
 }
 
+// Inicializar el índice del doctor en 0
+let doctorIndex = 0;
+
+// Definir la cantidad total de doctores (puedes ajustar esto según tus necesidades)
+const cantidadDoctores = 5;
+
 // Función para obtener datos del doctor desde la base de datos mediante una solicitud AJAX
 function obtenerDatosDoctor(idDoctor) {
     // Realizar una solicitud AJAX utilizando jQuery
@@ -743,12 +748,6 @@ function obtenerDatosDoctor(idDoctor) {
         },
     });
 }
-
-// Inicializar el índice del doctor en 0
-let doctorIndex = 0;
-
-// Definir la cantidad total de doctores (puedes ajustar esto según tus necesidades)
-const cantidadDoctores = 5;
 
 function mostrarDatosDoctor(doctor) {
     // Actualizar elementos HTML en servicios.html con la información del doctor
