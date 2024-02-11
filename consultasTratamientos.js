@@ -160,4 +160,19 @@ if(cajaPrecio && sesionIniciada !== "true"){
     corazonVacio.addEventListener("click", function () {
         logueo.classList.add("show");
     });
+
+//Visualiacion sesion INICIADA
+}else if((cajaPrecio && sesionIniciada === "true")){
+    corazonVacio.addEventListener("click", function () {
+      corazonVacio.style.display = "none"
+      corazonLleno.style.display = "block"
+
+      //Agregar terapia a la BBDD
+    });
+    corazonLleno.addEventListener("click", function () {
+      corazonLleno.style.display = "none"
+      corazonVacio.style.display = "block"
+
+      //Quitar terapia de la BBDD
+    });
 }

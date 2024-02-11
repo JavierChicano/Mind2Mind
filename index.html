@@ -46,16 +46,16 @@
     <!-- Contenedores Registro -->
     <div class="modal-Registro" id="modal-Registro">
         <div class="modalRegistro">
-            <span class="closeRegistro"><img src="img/closeWindow.png" alt="Icono Cerrar Ventana"></span>
+            <span class="closeRegistro"><img src="img/closeWindow.png"></span>
             <section>
-                <span id="imgModal"><img src="img/logo.png" alt="Logo Mind2Mind"></span>
+                <span id="imgModal"><img class="imgLogo" src="img/logo.png"></span>
                 <article>
                     <h1>Crea tu cuenta</h1>
                     <section id="registroRedes">
-                        <img src="img/RedesLogIn/brand-google.png" alt="Icono de Iniciar Sesión de Google">
-                        <img src="img/RedesLogIn/brand-meta.png" alt="Icono de Iniciar Sesión de Meta">
-                        <img src="img/RedesLogIn/brand-x.png" alt="Icono de Iniciar Sesión de X">
-                        <img src="img/RedesLogIn/brand-apple.png" alt="Icono de Iniciar Sesión de Apple">
+                        <img src="img/RedesLogIn/brand-google.png">
+                        <img src="img/RedesLogIn/brand-meta.png">
+                        <img src="img/RedesLogIn/brand-x.png">
+                        <img src="img/RedesLogIn/brand-apple.png">
                     </section>
                     <hr>
                     <span id="centrarForm">
@@ -66,50 +66,47 @@
                 <input type="text" id="apellidosRegistro" name="apellidos" placeholder="Apellidos" required>
             
                 <input type="email" id="emailRegistro" name="email" placeholder="Correo electrónico" required>
-            
                 <div class="mostrarContraseña">
-                  <input type="password" id="passwordRegistro" name="password" placeholder="Contraseña" required>
-                  <i class="bx bx-hide" id="bx1"></i>
-              </div>
+                    <input type="password" id="passwordRegistro" name="password" placeholder="Contraseña" required>
+                    <i class="bx bx-hide"></i>
+                </div>
             
                 <span id="checkBox">
                     <input type="checkbox" id="aceptoTerminosRegistro" name="aceptoTerminos" required>
                     <p for="aceptoTerminos">Acepto los &nbsp<a href='politicaPrivacidad.html'>términos y condiciones</a></p>
                 </span>
-
                     <input type="submit" value="Crear cuenta">
                     </form>
                     </span>
                     <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
-
                 </article>
             </section>
         </div>
     </div>
     <!-- Contenedores Login -->
     <div class="modal-LogIn" id="modal-LogIn">
-        <div class="modalLogIn" id="ventanaLogin">
-            <span class="closeLogIn"><img src="img/closeWindow.png" alt="Icono Cerrar Ventana"></span>
+        <div class="modalLogIn">
+            <span class="closeLogIn"><img src="img/closeWindow.png" id="cerrarL"></span>
             <section>
-                <span id="imgModal"><img src="img/logo.png" alt="Logo Mind2Mind"></span>
+                <span id="imgModal"><img src="img/logo.png"></span>
                 <article>
                     <h1>Inicia sesión</h1>
                     <section id="registroRedes">
-                        <img src="img/RedesLogIn/brand-google.png" alt="Icono De Inciar Sesión de Google">
-                        <img src="img/RedesLogIn/brand-meta.png" alt="Icono De Inciar Sesión de Meta">
-                        <img src="img/RedesLogIn/brand-x.png" alt="Icono De Inciar Sesión de X">
-                        <img src="img/RedesLogIn/brand-apple.png" alt="Icono De Inciar Sesión de Apple">
+                        <img src="img/RedesLogIn/brand-google.png">
+                        <img src="img/RedesLogIn/brand-meta.png">
+                        <img src="img/RedesLogIn/brand-x.png">
+                        <img src="img/RedesLogIn/brand-apple.png">
                     </section>
                     <hr>
+                    <div id="displayErroresLogin" class="error-message"></div>
                     <span id="centrarForm2">
-              <div id="displayErroresRegistro" class="error-message"></div>
               <form action="#" method="post" id="formLogIn">
               
                 <input type="email" id="emailLogin" name="email" placeholder="Correo electrónico" required>
         
                 <div class="mostrarContraseña">
                   <input type="password" id="passwordLogin" name="password" placeholder="Contraseña" required>
-                  <i class="bx bx-hide"></i>
+                  <i class="bx bx-hide" id="bx1"></i>
               </div>
                 
                 <input type="submit" value="Entrar en mi cuenta">

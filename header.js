@@ -13,7 +13,7 @@ cerrar.addEventListener("click", () => {
 //Ventana modal Registro
 const abrirModal = document.querySelector(".openRegistro");
 const contendorModal = document.querySelector(".modal-Registro");
-const cerrarModal = document.querySelector(".closeRegistro");
+const cerrarModal = document.querySelector("img[src='img/closeWindow.png']");
 const abrilModalCuenta = document.getElementById("creaCuenta");
 const contraseñaRegistro = document.getElementById("passwordRegistro");
 const icono = document.querySelector(".bx");
@@ -47,7 +47,7 @@ icono.addEventListener("click", (e) => {
 //Ventana modal LogIn
 const abrirModal2 = document.querySelector(".openLogIn");
 const contendorModal2 = document.querySelector(".modal-LogIn");
-const cerrarModal2 = document.querySelector(".closeLogIn");
+const cerrarModal2 = document.getElementById("cerrarL");
 const contraseñaLogin = document.getElementById("passwordLogin");
 const icono2 = document.getElementById("bx1");
 
@@ -71,20 +71,6 @@ icono2.addEventListener("click", (e) => {
     icono.classList.add("bx-hide");
   }
 });
-//Para cerrar las ventanas modales clickando fuera de ellas
-const ventanaLogin = document.getElementById("ventanaLogin");
-console.log("hola")
-
-if(contendorModal2.classList=="show"){
-  document.addEventListener("click", function(event) {
-    console.log("fuera")
-
-    if (!ventanaLogin.contains(event.target)) {
-      console.log("dentro")
-        contendorModal2.classList.remove("show");
-    }
-  });
-}
 
 //Intercambio de ventanas
 const abrirLogIn = document.getElementById("link-A-LogIn");
