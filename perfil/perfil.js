@@ -98,7 +98,7 @@ var mostrarCuenta = document.getElementById("account");
 mostrarCuenta.addEventListener("click", function () {
   consultaEditarPerfil();
 });
-
+nombrePaciente ();
 var perfil = document.getElementById("perfil");
 var misTerapias = document.getElementById("misTerapias");
 var misCitas = document.getElementById("misCitas");
@@ -117,6 +117,33 @@ if (singOut) {
   logout();
 }
 
+function nombrePaciente (){
+  var idPaciente = sessionStorage.getItem("correoUsuario");
+  var nombrePaciente = document.getElementById("nombrePaciente");
+  console.log(nombrePaciente)
+
+  //Pagina perfil
+  $.ajax({
+    type: "POST",
+    url: "../BBDD/selectsDatos.php", // Nombre de tu script PHP
+    data: {
+      funcion: "nombrePaciente",
+      email: idPaciente,
+    },
+    success: function (response) {
+      //Comprobacion de la consulta
+      if (response.status === "success") {
+        console.log(response.nombre)
+        nombrePaciente.textContent = response.nombre;
+      } else {
+        console.log(response.message);
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
+    },
+  });
+}
 //------------------------------------------------------ACCIONES DEL PERFIL---------------------------------------------------------------------------
 
 function consultaEditarPerfil() {
@@ -197,16 +224,7 @@ function insertarEditarPerfil(
     },
   });
 }
-function logout() {
-  var botonLogOut = document.getElementById("svgLogout");
-
-  botonLogOut.addEventListener("click", function () {
-    // Establecer la sesión como no iniciada
-    sessionStorage.setItem("sesionIniciada", "false");
-    // Recargar la página para restaurar el estado inicial
-    window.location.href = "../index.html";
-  });
-}
+//------------------------------------------------------ACCIONES DE MIS TERAPIAS---------------------------------------------------------------------------
 function comprobarTerapias() {
   var idPaciente = sessionStorage.getItem("correoUsuario");
   var sugerenciaP = document.getElementById("parrafoSugerencias");
@@ -285,7 +303,7 @@ function mostrarRestoTerapias(idPaciente) {
       if (response.status === "success") {
         var terapias = response.terapias;
         console.log(terapias)
-        mostrarDatosConsultasTerapias(terapias, contenedorTerapias, true);
+        mostrarDatosConsultasTerapias(terapias, contenedorTerapias);
       } else {
         console.log("fallo al mostrar RESTO de las terapias");
       }
@@ -297,6 +315,7 @@ function mostrarRestoTerapias(idPaciente) {
 }
 function mostrarTerapiasAsociadas(idPaciente) {
   var contenedorTerapiasFavoritas = document.getElementById("cajaTerapiasFavoritas");
+  contenedorTerapiasFavoritas.style.padding = "20px 30px";
 
   //Pagina perfil
   $.ajax({
@@ -310,7 +329,7 @@ function mostrarTerapiasAsociadas(idPaciente) {
       //Comprobacion de la consulta
       if (response.status === "success") {
         var terapias = response.terapias;
-        mostrarDatosConsultasTerapias(terapias, contenedorTerapiasFavoritas, false);
+        mostrarDatosConsultasTerapias(terapias, contenedorTerapiasFavoritas);
       } else {
       }
     },
@@ -320,9 +339,7 @@ function mostrarTerapiasAsociadas(idPaciente) {
   });
 }
 
-//Muestra todos los datos posibles de terapias
-function mostrarDatosConsultasTerapias(terapias, contenedorTerapias, corazon) {
-
+function mostrarDatosConsultasTerapias(terapias, contenedorTerapias) {
   // Iterar sobre cada objeto terapia en el array
   terapias.forEach(function (terapia) {
     // Crear un nuevo div para la terapia
@@ -350,8 +367,10 @@ function mostrarDatosConsultasTerapias(terapias, contenedorTerapias, corazon) {
     // Crear el enlace
     var enlaceTerapia = document.createElement("a");
     enlaceTerapia.className = "linkTerapia";
-    enlaceTerapia.href = "#"; //flkdlkflkhf
     enlaceTerapia.textContent = "Ir a la terapia";
+
+    // Convertir el objeto terapia a JSON y asignarlo al dataset
+    enlaceTerapia.dataset.terapia = JSON.stringify(terapia);
 
     // Imagen del enlace
     var imgEnlace = document.createElement("img");
@@ -367,5 +386,26 @@ function mostrarDatosConsultasTerapias(terapias, contenedorTerapias, corazon) {
 
     // Agregar el divTerapia al contenedor
     contenedorTerapias.appendChild(divTerapia);
+
+    // Agregar el event listener al enlace
+    enlaceTerapia.addEventListener("click", function () {
+      // Acceder a la información específica del enlace que se hizo clic
+      const terapia = JSON.parse(this.dataset.terapia);
+      console.log(terapia);
+      sessionStorage.setItem("terapia", JSON.stringify(terapia));
+      window.location.href = '../terapiaEspecifica.html';
+    });
+  });
+}
+
+//------------------------------------------------------ACCIONES DEL LOGOUT---------------------------------------------------------------------------
+function logout() {
+  var botonLogOut = document.getElementById("svgLogout");
+
+  botonLogOut.addEventListener("click", function () {
+    // Establecer la sesión como no iniciada
+    sessionStorage.setItem("sesionIniciada", "false");
+    // Recargar la página para restaurar el estado inicial
+    window.location.href = "../index.html";
   });
 }

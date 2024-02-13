@@ -38,8 +38,10 @@ body {
   display: flex;
   justify-content: center;
 }
-.perfil h1 {
-  font-size: 40px;
+#nombrePaciente{
+  font-family: "Montserrat", sans-serif;
+  font-size: 60px;
+  margin-top: -15px;
 }
 .divisiones {
   font-size: 25px;
@@ -118,7 +120,7 @@ body {
 #cajaTerapiasFavoritas{
   display: flex;
   flex-wrap: wrap;
-  padding: 30px 20px;
+  justify-content: center;
   gap: 20px;
 }
 #cajaTerapias{

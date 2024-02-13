@@ -60,7 +60,24 @@ if (isset($_POST['funcion'])) {
                 $response = array('status' => 'error', 'message' => 'Doctor no encontrado');
             }
             break;
+        case 'nombrePaciente':
+            // Obtener el email del paciente desde la solicitud POST
+            $email = $_POST['email'];
 
+            // Consultar la base de datos para obtener la información del paciente
+            $sql = "SELECT nombre FROM paciente WHERE correoElectronico = '$email'";
+            $resultado = $conexion->query($sql);
+
+            if ($resultado->num_rows > 0) {
+                // Si se encuentra el paciente, obtener el nombre y asignar la respuesta de éxito a la variable $response
+                $paciente = $resultado->fetch_assoc();
+                $nombrePaciente = $paciente['nombre'];
+                $response = array('status' => 'success', 'nombre' => $nombrePaciente);
+            } else {
+                // Si no se encuentra el paciente, asignar la respuesta de error a la variable $response
+                $response = array('status' => 'error', 'message' => 'Paciente no encontrado');
+            }
+            break;
         case 'editarPerfil':
             $email = $_POST['email'];
             // Consulta SQL para verificar si el correo electrónico existe y la contraseña coincide

@@ -5,32 +5,45 @@ var botonPsicoterapia = document.getElementById("Psicoterapia");
 var botonMindfulness = document.getElementById("Mindfulness");
 var botonArteExpresivo = document.getElementById("ArteExpresivo");
 
+var bandera = false;
 if (botonTranscraneal) {
+  bandera = true;
   botonTranscraneal.addEventListener("click", () => {
     mostrarDatosTerapia("Est. Transcraneal");
+    window.location.href = "terapiaEspecifica.html";
   });
 
   botonTerapiaLuz.addEventListener("click", () => {
     mostrarDatosTerapia("Terapia de Luz");
+    window.location.href = "terapiaEspecifica.html";
   });
 
   botonElectroconvulsiva.addEventListener("click", () => {
     mostrarDatosTerapia("Electroconvulsiva");
+    window.location.href = "terapiaEspecifica.html";
   });
 
   botonPsicoterapia.addEventListener("click", () => {
     mostrarDatosTerapia("Psicoterapia");
+    window.location.href = "terapiaEspecifica.html";
   });
 
   botonMindfulness.addEventListener("click", () => {
     mostrarDatosTerapia("Mindfulness");
+    window.location.href = "terapiaEspecifica.html";
   });
 
   botonArteExpresivo.addEventListener("click", () => {
     mostrarDatosTerapia("Arte Expresivo");
+    window.location.href = "terapiaEspecifica.html";
   });
 }
-
+if (!bandera && sessionStorage.getItem("terapia")) {
+  var terapia = JSON.parse(sessionStorage.getItem("terapia"));
+  console.log(terapia)
+  mostrarDatosTerapia(terapia.nombre);
+  bandera = true;
+}
 function mostrarDatosTerapia(nombre) {
   console.log(nombre);
   $.ajax({
@@ -44,7 +57,11 @@ function mostrarDatosTerapia(nombre) {
       //Comprobacion de la consulta
       if (response.status === "success") {
         sessionStorage.setItem("terapia", JSON.stringify(response.terapia));
-        window.location.href = "terapiaEspecifica.html";
+        var terapia = JSON.parse(sessionStorage.getItem("terapia"));
+      console.log(terapia)
+      datosXPantalla(terapia);
+      comprobarTerapia();
+
       } else {
         console.log(response.message);
       }
@@ -55,12 +72,8 @@ function mostrarDatosTerapia(nombre) {
   });
 }
 
-//Mostrar los datos en la pagina TerapiaEspecifica
-var datosTerapia = sessionStorage.getItem("terapia");
-// Verificar si los datos de la terapia están disponibles
-if (datosTerapia) {
+function datosXPantalla (terapia) {
   // Parsear los datos y mostrar la parte por defecto
-  var terapia = JSON.parse(datosTerapia);
   mostrarDatosTerapia2(terapia, "parte1");
 
   // También puedes mostrar el nombre de la terapia al cargar la página
@@ -70,9 +83,7 @@ if (datosTerapia) {
   $(".precioAlto").text(Math.floor(terapia.coste * 1.2) + "€");
   $(".precio").text(Math.floor(terapia.coste) + "€");
   $(".imgTerapia").attr("src", "img/Tratamientos/" + terapia.imagen);
-} else {
-  console.error("No se encontraron datos de terapia en sessionStorage");
-}
+} 
 //mostrar los datos
 function mostrarDatosTerapia2(terapia, parte) {
   // Mostrar cada parte en el elemento correspondiente
@@ -164,8 +175,7 @@ if (cajaPrecio && sesionIniciada !== "true") {
 
 //Visualiacion sesion INICIADA (CORAZONES)
 } else if (cajaPrecio && sesionIniciada === "true") {
-
-  comprobarTerapia(corazonVacio,corazonLleno);
+console.log("hola buebnos dias")
     corazonVacio.addEventListener("click", function () {
       corazonVacio.style.display = "none";
       corazonLleno.style.display = "block";
@@ -236,12 +246,14 @@ function eliminarTerapia() {
     },
   });
 }
-function comprobarTerapia(corazonVacio,corazonLleno ){
-
+function comprobarTerapia(){
+  var corazonVacio = document.getElementById("corazonVacio");
+  var corazonLleno = document.getElementById("corazonLleno");
   //Mostrar los datos en la pagina TerapiaEspecifica
   var datosTerapia = sessionStorage.getItem("terapia");
   var datosUsuario = sessionStorage.getItem("correoUsuario");
   var terapia = JSON.parse(datosTerapia);
+  console.log("TERAPIA FINAL: "+terapia)
   console.log(datosUsuario)
   console.log(terapia.idTerapia)
   $.ajax({
