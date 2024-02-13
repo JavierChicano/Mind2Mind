@@ -162,8 +162,10 @@ if (cajaPrecio && sesionIniciada !== "true") {
     logueo.classList.add("show");
   });
 
-  //Visualiacion sesion INICIADA
+//Visualiacion sesion INICIADA (CORAZONES)
 } else if (cajaPrecio && sesionIniciada === "true") {
+
+  comprobarTerapia(corazonVacio,corazonLleno);
     corazonVacio.addEventListener("click", function () {
       corazonVacio.style.display = "none";
       corazonLleno.style.display = "block";
@@ -213,7 +215,6 @@ function eliminarTerapia() {
   var datosUsuario = sessionStorage.getItem("correoUsuario");
   var terapia = JSON.parse(datosTerapia);
 
-  //Pagina logIn
   $.ajax({
     type: "POST",
     url: "BBDD/insertarDatos.php", // Nombre de tu script PHP
@@ -228,6 +229,39 @@ function eliminarTerapia() {
         console.log(response.message);
       } else {
         console.log(response.message);
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
+    },
+  });
+}
+function comprobarTerapia(corazonVacio,corazonLleno ){
+
+  //Mostrar los datos en la pagina TerapiaEspecifica
+  var datosTerapia = sessionStorage.getItem("terapia");
+  var datosUsuario = sessionStorage.getItem("correoUsuario");
+  var terapia = JSON.parse(datosTerapia);
+  console.log(datosUsuario)
+  console.log(terapia.idTerapia)
+  $.ajax({
+    type: "POST",
+    url: "BBDD/selectsDatos.php", // Nombre de tu script PHP
+    data: {
+      funcion: "comprobarTerapia",
+      idTerapia: terapia.idTerapia,
+      idPaciente: datosUsuario
+    },
+    success: function (response) {
+      //Comprobacion de la consulta
+      if (response.status === "success") {
+        console.log("hola desaparece")
+        corazonVacio.style.display= "none"
+        console.log(response.message)
+        corazonLleno.style.display= "block"
+      } else {
+        console.log("hola aparece")
+        console.log(response.message)
       }
     },
     error: function (jqXHR, textStatus, errorThrown) {

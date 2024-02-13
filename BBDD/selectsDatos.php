@@ -103,7 +103,22 @@ if (isset($_POST['funcion'])) {
                 $response = array('status' => 'success');
             }
             break;
+        //Casos de pagina terapias especificas
+        case 'comprobarTerapia':
+            $idTerapia = $_POST['idTerapia'];
+            $idPaciente = $_POST['idPaciente'];
 
+            // Consulta SQL para verificar si ya existe una tupla con los valores proporcionados
+            $sqlComprobarTerapia = "SELECT * FROM terapiaPaciente WHERE correoElectronico = '$idPaciente' AND idTerapia = $idTerapia";
+            $resultadoComprobarTerapia = $conexion->query($sqlComprobarTerapia);
+
+            // Verificar si hay resultados
+            if ($resultadoComprobarTerapia->num_rows > 0) {
+                $response = array('status' => 'success', 'message' => 'La tupla ya existe en la tabla terapiaPaciente');
+            } else {
+                $response = array('status' => 'error', 'message' => 'La tupla no existe en la tabla terapiaPaciente');
+            }
+            break;
         //Casos de las consultas de tratamientos
         case 'mostrarDatosTerapia':
             $nombre = $_POST['nombre'];
@@ -172,29 +187,29 @@ if (isset($_POST['funcion'])) {
                 $response = array('status' => 'error', 'message' => 'No se encontraron Terapias asociadas para el correo electrónico proporcionado');
             }
             break;
-            case 'mostrarRestoTerapias':
-                $correoElectronico = $_POST['correoElectronico'];
-            
-                // Consulta SQL para seleccionar las terapias no asociadas al correo electrónico proporcionado
-                $sqlMostrarRestoTerapias = "SELECT nombre, imagen, mini_descripcion FROM terapia 
+        case 'mostrarRestoTerapias':
+            $correoElectronico = $_POST['correoElectronico'];
+
+            // Consulta SQL para seleccionar las terapias no asociadas al correo electrónico proporcionado
+            $sqlMostrarRestoTerapias = "SELECT nombre, imagen, mini_descripcion FROM terapia 
                                             WHERE idTerapia NOT IN 
                                             (SELECT idTerapia FROM terapiaPaciente WHERE correoElectronico = '$correoElectronico')";
-                                            
-                $resultadoMostrarRestoTerapias = $conexion->query($sqlMostrarRestoTerapias);
-            
-                // Verificar si hay resultados
-                if ($resultadoMostrarRestoTerapias->num_rows > 0) {
-                    $terapias = array();
-                    while ($terapia = $resultadoMostrarRestoTerapias->fetch_assoc()) {
-                        $terapias[] = $terapia;
-                    }
-                    $response = array('status' => 'success', 'terapias' => $terapias);
-                } else {
-                    $response = array('status' => 'error', 'message' => 'No se encontraron Terapias no asociadas para el correo electrónico proporcionado');
+
+            $resultadoMostrarRestoTerapias = $conexion->query($sqlMostrarRestoTerapias);
+
+            // Verificar si hay resultados
+            if ($resultadoMostrarRestoTerapias->num_rows > 0) {
+                $terapias = array();
+                while ($terapia = $resultadoMostrarRestoTerapias->fetch_assoc()) {
+                    $terapias[] = $terapia;
                 }
-                break;
-            
-            
+                $response = array('status' => 'success', 'terapias' => $terapias);
+            } else {
+                $response = array('status' => 'error', 'message' => 'No se encontraron Terapias no asociadas para el correo electrónico proporcionado');
+            }
+            break;
+
+
     }
 
     // Enviar la respuesta como JSON
