@@ -23,11 +23,11 @@ if (botonTranscraneal) {
   });
 
   botonMindfulness.addEventListener("click", () => {
-    mostrarDatosTerapia("Terapia de Mindfulness");
+    mostrarDatosTerapia("Mindfulness");
   });
 
   botonArteExpresivo.addEventListener("click", () => {
-    mostrarDatosTerapia("Terapia de Arte Expresivo");
+    mostrarDatosTerapia("Arte Expresivo");
   });
 }
 
@@ -67,7 +67,8 @@ if (datosTerapia) {
   $(".nombreTerapia").text(terapia.nombre);
   $(".descripcion1").text(terapia.descripcion);
   $(".descripcion2").text(terapia.mini_descripcion);
-  $(".precio").text(terapia.coste);
+  $(".precioAlto").text(Math.floor(terapia.coste * 1.2) + "€");
+  $(".precio").text(Math.floor(terapia.coste) + "€");
   $(".imgTerapia").attr("src", "img/Tratamientos/" + terapia.imagen);
 } else {
   console.error("No se encontraron datos de terapia en sessionStorage");
@@ -151,28 +152,86 @@ var corazonLleno = document.getElementById("corazonLleno");
 var sesionIniciada = sessionStorage.getItem("sesionIniciada");
 
 //Visualizacion sesion NO INICIADA
-if(cajaPrecio && sesionIniciada !== "true"){
-    var logueo = document.querySelector(".modal-LogIn");
+if (cajaPrecio && sesionIniciada !== "true") {
+  var logueo = document.querySelector(".modal-LogIn");
 
-    cajaPrecio.addEventListener("click", function () {
-        logueo.classList.add("show");
-    });
+  cajaPrecio.addEventListener("click", function () {
+    logueo.classList.add("show");
+  });
+  corazonVacio.addEventListener("click", function () {
+    logueo.classList.add("show");
+  });
+
+  //Visualiacion sesion INICIADA
+} else if (cajaPrecio && sesionIniciada === "true") {
     corazonVacio.addEventListener("click", function () {
-        logueo.classList.add("show");
-    });
-
-//Visualiacion sesion INICIADA
-}else if((cajaPrecio && sesionIniciada === "true")){
-    corazonVacio.addEventListener("click", function () {
-      corazonVacio.style.display = "none"
-      corazonLleno.style.display = "block"
-
-      //Agregar terapia a la BBDD
+      corazonVacio.style.display = "none";
+      corazonLleno.style.display = "block";
+      agregarTerapia();
     });
     corazonLleno.addEventListener("click", function () {
-      corazonLleno.style.display = "none"
-      corazonVacio.style.display = "block"
+      corazonLleno.style.display = "none";
+      corazonVacio.style.display = "block";
+      eliminarTerapia();
+    });   
+}
 
-      //Quitar terapia de la BBDD
-    });
+//----------------------------------------------------------FUNCIONES---------------------------------------------------------------
+//Agregar terapia a la BBDD
+function agregarTerapia() {
+  //Mostrar los datos en la pagina TerapiaEspecifica
+  var datosTerapia = sessionStorage.getItem("terapia");
+  var datosUsuario = sessionStorage.getItem("correoUsuario");
+  var terapia = JSON.parse(datosTerapia);
+
+  //Pagina logIn
+  $.ajax({
+    type: "POST",
+    url: "BBDD/insertarDatos.php", // Nombre de tu script PHP
+    data: {
+      funcion: "vincularTerapia",
+      nombre: terapia.nombre,
+      idPaciente: datosUsuario
+    },
+    success: function (response) {
+      //Comprobacion de la consulta
+      if (response.status === "success") {
+        console.log(response.message);
+      } else {
+        console.log(response.message);
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
+    },
+  });
+}
+//Eliminar terapia de la BBDD
+function eliminarTerapia() {
+  //Mostrar los datos en la pagina TerapiaEspecifica
+  var datosTerapia = sessionStorage.getItem("terapia");
+  var datosUsuario = sessionStorage.getItem("correoUsuario");
+  var terapia = JSON.parse(datosTerapia);
+
+  //Pagina logIn
+  $.ajax({
+    type: "POST",
+    url: "BBDD/insertarDatos.php", // Nombre de tu script PHP
+    data: {
+      funcion: "eliminarTerapia",
+      nombre: terapia.nombre,
+      idPaciente: datosUsuario
+    },
+    success: function (response) {
+      //Comprobacion de la consulta
+      if (response.status === "success") {
+        console.log(response.message);
+      } else {
+        console.log(response.message);
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
+    },
+  });
 }

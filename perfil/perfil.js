@@ -110,11 +110,14 @@ var singOut = document.getElementById("signOut");
 if (perfil) {
   consultaEditarPerfil();
 }
+if (misTerapias) {
+  comprobarTerapias();
+}
 if (singOut) {
   logout();
 }
 
-//------------------------------------------------------ACCIONES DEL PEFIL---------------------------------------------------------------------------
+//------------------------------------------------------ACCIONES DEL PERFIL---------------------------------------------------------------------------
 
 function consultaEditarPerfil() {
   var idPaciente = sessionStorage.getItem("correoUsuario");
@@ -202,5 +205,167 @@ function logout() {
     sessionStorage.setItem("sesionIniciada", "false");
     // Recargar la página para restaurar el estado inicial
     window.location.href = "../index.html";
+  });
+}
+function comprobarTerapias() {
+  var idPaciente = sessionStorage.getItem("correoUsuario");
+  var sugerenciaP = document.getElementById("parrafoSugerencias");
+  var sugerenciaT = document.getElementById("sugerencias");
+
+  //Pagina perfil
+  $.ajax({
+    type: "POST",
+    url: "../BBDD/selectsDatos.php", // Nombre de tu script PHP
+    data: {
+      funcion: "comprobarTerapias",
+      correoElectronico: idPaciente,
+    },
+    success: function (response) {
+      //Comprobacion de la consulta
+      if (response.status === "success") {
+        //Se muestran las terapias
+        sugerenciaP.style.display = "none";
+        
+        mostrarTerapiasAsociadas(idPaciente);
+        //Se muestran las sugerencias si el paciente posee menos de 3 terapias
+        if (response.numConsultas < 3) {
+          mostrarRestoTerapias(idPaciente);
+        } else {
+          //Ocultamos sugerencias
+          sugerenciaT.style.display = "none";
+        }
+      } else {
+        console.log("comprobar terapias fail");
+        //Se muestras terapias como sugerencia
+        mostrarTodasTerapias();
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
+    },
+  });
+}
+function mostrarTodasTerapias() {
+  var contenedorTerapias = document.getElementById("cajaTerapias");
+
+  //Pagina perfil
+  $.ajax({
+    type: "POST",
+    url: "../BBDD/selectsDatos.php", // Nombre de tu script PHP
+    data: {
+      funcion: "mostrarTodasTerapias",
+    },
+    success: function (response) {
+      //Comprobacion de la consulta
+      if (response.status === "success") {
+        var terapias = response.terapias;
+        mostrarDatosConsultasTerapias(terapias, contenedorTerapias);
+      } else {
+        console.log("fallo al mostrar Todas las terapias");
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
+    },
+  });
+}
+function mostrarRestoTerapias(idPaciente) {
+  var contenedorTerapias = document.getElementById("cajaTerapias");
+  console.log(idPaciente)
+  //Pagina perfil
+  $.ajax({
+    type: "POST",
+    url: "../BBDD/selectsDatos.php", // Nombre de tu script PHP
+    data: {
+      funcion: "mostrarRestoTerapias",
+      correoElectronico: idPaciente,
+    },
+    success: function (response) {
+      //Comprobacion de la consulta
+      if (response.status === "success") {
+        var terapias = response.terapias;
+        console.log(terapias)
+        mostrarDatosConsultasTerapias(terapias, contenedorTerapias, true);
+      } else {
+        console.log("fallo al mostrar RESTO de las terapias");
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
+    },
+  });
+}
+function mostrarTerapiasAsociadas(idPaciente) {
+  var contenedorTerapiasFavoritas = document.getElementById("cajaTerapiasFavoritas");
+
+  //Pagina perfil
+  $.ajax({
+    type: "POST",
+    url: "../BBDD/selectsDatos.php", // Nombre de tu script PHP
+    data: {
+      funcion: "mostrarTerapiasAsociadas",
+      correoElectronico: idPaciente,
+    },
+    success: function (response) {
+      //Comprobacion de la consulta
+      if (response.status === "success") {
+        var terapias = response.terapias;
+        mostrarDatosConsultasTerapias(terapias, contenedorTerapiasFavoritas, false);
+      } else {
+      }
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
+    },
+  });
+}
+
+//Muestra todos los datos posibles de terapias
+function mostrarDatosConsultasTerapias(terapias, contenedorTerapias, corazon) {
+
+  // Iterar sobre cada objeto terapia en el array
+  terapias.forEach(function (terapia) {
+    // Crear un nuevo div para la terapia
+    var divTerapia = document.createElement("div");
+    divTerapia.className = "divTerapia";
+
+    // Crear la imagen
+    var imagenTerapia = document.createElement("img");
+    imagenTerapia.className = "portadaTerapia";
+    imagenTerapia.src = "../img/Tratamientos/" + terapia.imagen;
+    divTerapia.appendChild(imagenTerapia);
+
+    // Crear el título
+    var tituloTerapia = document.createElement("h1");
+    tituloTerapia.className = "tituloTerapia";
+    tituloTerapia.textContent = terapia.nombre;
+    divTerapia.appendChild(tituloTerapia);
+
+    // Crear la descripción
+    var descripTerapia = document.createElement("article");
+    descripTerapia.className = "descripTerapia";
+    descripTerapia.textContent = terapia.mini_descripcion;
+    divTerapia.appendChild(descripTerapia);
+
+    // Crear el enlace
+    var enlaceTerapia = document.createElement("a");
+    enlaceTerapia.className = "linkTerapia";
+    enlaceTerapia.href = "#"; //flkdlkflkhf
+    enlaceTerapia.textContent = "Ir a la terapia";
+
+    // Imagen del enlace
+    var imgEnlace = document.createElement("img");
+    imgEnlace.src = "../img/external-link.png";
+    imgEnlace.className = "linkTarjetaImg";
+    imgEnlace.alt = "Icono de enlace directo externo";
+
+    // Agregar la imagen al enlace
+    enlaceTerapia.appendChild(imgEnlace);
+
+    // Agregar el enlace al divTerapia
+    divTerapia.appendChild(enlaceTerapia);
+
+    // Agregar el divTerapia al contenedor
+    contenedorTerapias.appendChild(divTerapia);
   });
 }

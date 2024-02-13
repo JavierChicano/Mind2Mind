@@ -139,6 +139,68 @@ if (isset($_POST['funcion'])) {
                 $response = array('status' => 'error', 'message' => 'Error al actualizar el perfil: ' . $conexion->error);
             }
             break;
+        case 'vincularTerapia':
+            $nombre = $_POST['nombre'];
+            $paciente = $_POST['idPaciente'];
+
+            // Consulta para obtener el idTerapia correspondiente al nombre de la terapia
+            $sqlObtenerIdTerapia = "SELECT idTerapia FROM terapia WHERE nombre = '$nombre'";
+            $resultado = $conexion->query($sqlObtenerIdTerapia);
+
+            if ($resultado->num_rows > 0) {
+                // Obtener el idTerapia
+                $fila = $resultado->fetch_assoc();
+                $idTerapia = $fila['idTerapia'];
+
+                // Consulta para insertar la vinculación en la tabla terapiaPaciente
+                $sqlInsertarTerapiaPaciente = "INSERT INTO terapiaPaciente (correoElectronico, idTerapia) 
+                                                   VALUES ('$paciente', $idTerapia)";
+
+                // Ejecutar la consulta
+                if ($conexion->query($sqlInsertarTerapiaPaciente) === TRUE) {
+                    // Inserción exitosa
+                    $response = array('status' => 'success', 'message' => 'Terapia vinculada correctamente');
+                } else {
+                    // Error en la inserción
+                    $response = array('status' => 'error', 'message' => 'Error al vincular la terapia: ' . $conexion->error);
+                }
+            } else {
+                // No se encontró la terapia con el nombre proporcionado
+                $response = array('status' => 'error', 'message' => 'No se encontró la terapia con el nombre proporcionado');
+            }
+            break;
+
+        case 'eliminarTerapia':
+            $nombre = $_POST['nombre'];
+            $paciente = $_POST['idPaciente'];
+
+            // Consulta para obtener el idTerapia correspondiente al nombre de la terapia
+            $sqlObtenerIdTerapia = "SELECT idTerapia FROM terapia WHERE nombre = '$nombre'";
+            $resultado = $conexion->query($sqlObtenerIdTerapia);
+
+            if ($resultado->num_rows > 0) {
+                // Obtener el idTerapia
+                $fila = $resultado->fetch_assoc();
+                $idTerapia = $fila['idTerapia'];
+
+                // Consulta para eliminar la vinculación en la tabla terapiaPaciente
+                $sqlEliminarTerapiaPaciente = "DELETE FROM terapiaPaciente 
+                                                       WHERE correoElectronico = '$paciente' 
+                                                       AND idTerapia = $idTerapia";
+
+                // Ejecutar la consulta
+                if ($conexion->query($sqlEliminarTerapiaPaciente) === TRUE) {
+                    // Eliminación exitosa
+                    $response = array('status' => 'success', 'message' => 'Terapia eliminada correctamente');
+                } else {
+                    // Error en la eliminación
+                    $response = array('status' => 'error', 'message' => 'Error al eliminar la terapia: ' . $conexion->error);
+                }
+            } else {
+                // No se encontró la terapia con el nombre proporcionado
+                $response = array('status' => 'error', 'message' => 'No se encontró la terapia con el nombre proporcionado');
+            }
+            break;
 
         default:
             // Manejar el caso por defecto (si la función no coincide con ninguna)

@@ -331,7 +331,7 @@ main {
     align-items: center;
     justify-content: center;
     width: 350px;
-    height: 430px;
+    height: 450px;
     box-shadow: 0 0 10px 10px rgba(247, 207, 208, 0.3);
     border: 2px solid white;
     &:hover {
@@ -370,6 +370,7 @@ main {
     padding: 8px;
     border-radius: 8px;
     margin-top: 10px;
+    cursor: pointer;
     background-color: var(--colorBaseOscuro);
     &:hover {
         box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.3);
@@ -1513,7 +1514,6 @@ h1 {
     display: flex;
     align-items: center;
 }
-
 #cajaPrecio p {
     background-color: var(--colorSecundario);
     padding: 12px;
@@ -1590,8 +1590,8 @@ h1 {
 }
 
 #seccion2Terapias p {
-    margin: 90px 100px;
-    font-size: 25px;
+    margin: 20px 100px;
+    font-size: 20px;
 }
 
 #seccion2Terapias video {

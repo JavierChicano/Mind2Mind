@@ -118,8 +118,83 @@ if (isset($_POST['funcion'])) {
                 $response = array('status' => 'error', 'message' => 'No se encontraron datos de terapia para el nombre proporcionado');
             }
             break;
+        case 'comprobarTerapias':
+            $correoElectronico = $_POST['correoElectronico'];
 
+            // Consulta SQL para verificar la existencia de tuplas
+            $sqlComprobarTerapias = "SELECT idTerapia FROM terapiaPaciente WHERE correoElectronico = '$correoElectronico'";
+            $resultadoComprobarTerapias = $conexion->query($sqlComprobarTerapias);
 
+            // Verificar si hay resultados
+            $numConsultas = $resultadoComprobarTerapias->num_rows; // Número de consultas resultantes
+
+            if ($numConsultas > 0) {
+                $idsTerapias = array();
+                while ($fila = $resultadoComprobarTerapias->fetch_assoc()) {
+                    $idsTerapias[] = $fila['idTerapia']; // Guardar los IDs de las terapias
+                }
+                $response = array('status' => 'success', 'message' => 'Existen terapias asociadas al correo electrónico proporcionado', 'numConsultas' => $numConsultas, 'idsTerapias' => $idsTerapias);
+            } else {
+                $response = array('status' => 'error', 'message' => 'No se encontraron terapias asociadas al correo electrónico proporcionado');
+            }
+            break;
+        case 'mostrarTodasTerapias':
+            $sqlTerapia = "SELECT nombre, imagen, mini_descripcion FROM terapia";
+            $resultadoTerapia = $conexion->query($sqlTerapia);
+
+            if ($resultadoTerapia->num_rows > 0) {
+                $terapias = array();
+                while ($terapia = $resultadoTerapia->fetch_assoc()) {
+                    $terapias[] = $terapia;
+                }
+                $response = array('status' => 'success', 'terapias' => $terapias);
+            } else {
+                $response = array('status' => 'error', 'message' => 'No se encontraron Terapias');
+            }
+            break;
+        case 'mostrarTerapiasAsociadas':
+            $correoElectronico = $_POST['correoElectronico'];
+
+            // Consulta SQL para seleccionar las terapias asociadas con el correo electrónico proporcionado
+            $sqlTerapiaAsociada = "SELECT nombre, imagen, mini_descripcion FROM terapia 
+                                       INNER JOIN terapiaPaciente ON terapia.idTerapia = terapiaPaciente.idTerapia 
+                                       WHERE terapiaPaciente.correoElectronico = '$correoElectronico'";
+
+            $resultadoTerapiaAsociada = $conexion->query($sqlTerapiaAsociada);
+
+            if ($resultadoTerapiaAsociada->num_rows > 0) {
+                $terapias = array();
+                while ($terapia = $resultadoTerapiaAsociada->fetch_assoc()) {
+                    $terapias[] = $terapia;
+                }
+                $response = array('status' => 'success', 'terapias' => $terapias);
+            } else {
+                $response = array('status' => 'error', 'message' => 'No se encontraron Terapias asociadas para el correo electrónico proporcionado');
+            }
+            break;
+            case 'mostrarRestoTerapias':
+                $correoElectronico = $_POST['correoElectronico'];
+            
+                // Consulta SQL para seleccionar las terapias no asociadas al correo electrónico proporcionado
+                $sqlMostrarRestoTerapias = "SELECT nombre, imagen, mini_descripcion FROM terapia 
+                                            WHERE idTerapia NOT IN 
+                                            (SELECT idTerapia FROM terapiaPaciente WHERE correoElectronico = '$correoElectronico')";
+                                            
+                $resultadoMostrarRestoTerapias = $conexion->query($sqlMostrarRestoTerapias);
+            
+                // Verificar si hay resultados
+                if ($resultadoMostrarRestoTerapias->num_rows > 0) {
+                    $terapias = array();
+                    while ($terapia = $resultadoMostrarRestoTerapias->fetch_assoc()) {
+                        $terapias[] = $terapia;
+                    }
+                    $response = array('status' => 'success', 'terapias' => $terapias);
+                } else {
+                    $response = array('status' => 'error', 'message' => 'No se encontraron Terapias no asociadas para el correo electrónico proporcionado');
+                }
+                break;
+            
+            
     }
 
     // Enviar la respuesta como JSON

@@ -7,114 +7,190 @@
     <title>Mind 2 Mind</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="icon" href="../img/logo.png" type="image/x-icon" alt="Logo de Mind2Mind">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link
+      rel="icon"
+      href="../img/logo.png"
+      type="image/x-icon"
+      alt="Logo de Mind2Mind"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
     </style>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="../styleHF.css" />
-    <link rel="stylesheet" href="stylosPerfil.css">
+    <link rel="stylesheet" href="stylosPerfil.css" />
   </head>
   <body>
     <header>
-      <a href='../index.html'><img src="../img/logo.png" id="logo" alt="Logo de Mind2Mind"/></a>
-      <h1><a href='../index.html'>MIND 2 MIND</a></h1>
+      <a href="../index.html"
+        ><img src="../img/logo.png" id="logo" alt="Logo de Mind2Mind"
+      /></a>
+      <h1><a href="../index.html">MIND 2 MIND</a></h1>
       <div id="barraBusqueda">
-        <img src="../img/calendar-month.png" alt="Icono Calendario">
-        <p><a href='../pedirCita.html'>Pedir Cita</a></p> 
+        <img src="../img/calendar-month.png" alt="Icono Calendario" />
+        <p><a href="../pedirCita.html">Pedir Cita</a></p>
       </div>
-      <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="../img/menuHamburguesa.png" alt="Icono Menu hamburguesa" /></span>
+      <span class="abrir-menu" id="abrir"
+        ><img
+          id="hamburguesa"
+          src="../img/menuHamburguesa.png"
+          alt="Icono Menu hamburguesa"
+      /></span>
       <nav class="nav" id="nav">
-        <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="../img/menuHamburguesa.png" alt="Icono Menu hamburguesa" /></span>
+        <span class="cerrar-menu" id="cerrar"
+          ><img
+            id="hamburguesa"
+            src="../img/menuHamburguesa.png"
+            alt="Icono Menu hamburguesa"
+        /></span>
         <ul class="nav-list">
-          <li><a href='../acercaDe.html'>Acerca de</a></li>
-          <li><a href='../tratamientos.html'>Tratamientos</a></li>
-          <li><a href='../servicios.html'>Servicios</a></li>
+          <li><a href="../acercaDe.html">Acerca de</a></li>
+          <li><a href="../tratamientos.html">Tratamientos</a></li>
+          <li><a href="../servicios.html">Servicios</a></li>
           <!-- Abrir ventana modal -->
-          <li><a id="account" href='perfilMain.html'><img src="../img/user.png" alt="Icono Usuario"></a></li>
-          <li ><a class="openRegistro">Regístrate</a></li>
+          <li>
+            <a id="account" href="perfilMain.html"
+              ><img src="../img/user.png" alt="Icono Usuario"
+            /></a>
+          </li>
+          <li><a class="openRegistro">Regístrate</a></li>
           <li><a class="openLogIn">Inicia sesión</a></li>
-      </ul>
+        </ul>
       </nav>
     </header>
-   <main id="mainPerfil">
-        <section class="perfil">
-            <span><h1>Nombre</h1></span>
-            <section>
-              <article id="perfil" class="divisiones seleccionada">Perfil</article>
-              <article id="misTerapias" class="divisiones">Mis Terapias</article>
-              <article id="misCitas" class="divisiones">Mis Citas</article>
-              <article id="suscripciones" class="divisiones">Suscripciones</article>
-              <article id="ayuda" class="divisiones">Ayuda</article>
-              <article id="certTratamientos" class="divisiones">Cert. Tratamientos</article>
-              <article id="signOut" class="divisiones">Sign out</article>
-              
-            </section>
+    <main id="mainPerfil">
+      <section class="perfil">
+        <span><h1>Nombre</h1></span>
+        <section>
+          <article id="perfil" class="divisiones seleccionada">Perfil</article>
+          <article id="misTerapias" class="divisiones">Mis Terapias</article>
+          <article id="misCitas" class="divisiones">Mis Citas</article>
+          <article id="suscripciones" class="divisiones">Suscripciones</article>
+          <article id="ayuda" class="divisiones">Ayuda</article>
+          <article id="certTratamientos" class="divisiones">
+            Cert. Tratamientos
+          </article>
+          <article id="signOut" class="divisiones">Sign out</article>
         </section>
-        <section id="perfilInfo">
-            <aside class="deslizar">
-              <span class="centradoTitulo"><h1 class="titulo">Perfil</h1></span>
-              <div class="fondo">
-                <form action="#" method="POST" id="formEditarPerfil">
-                  <div id="displayInfoPerfil" class="message-info-perfil"></div>
-                  <input type="text" id="correoElectronico" name="correoElectronico" placeholder="Correo Electrónico" required>
-                  
-                  <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
-                  
-                  <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
-                  
-                  <div class="mostrarContraseña">
-                    <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required>
-                    <i class="bx bx-hide"></i>
-                </div>
-                  <input type="text" id="dni" name="dni"  placeholder="DNI" >
-                  
-                  <input type="text" id="provincia" name="provincia" placeholder="Provincia" >
-                  
-                  <input type="text" id="domicilio" name="domicilio" placeholder="Domicilio" >
-                  
-                  <input type="text" id="genero" name="genero" placeholder="Genero" >
-                  
-                  <input type="submit" value="Editar" id="botonEditarPerfil">
-                </form>
+      </section>
+      <section id="perfilInfo">
+        <aside class="deslizar">
+          <span class="centradoTitulo"><h1 class="titulo">Perfil</h1></span>
+          <div class="fondo">
+            <form action="#" method="POST" id="formEditarPerfil">
+              <div id="displayInfoPerfil" class="message-info-perfil"></div>
+              <input
+                type="text"
+                id="correoElectronico"
+                name="correoElectronico"
+                placeholder="Correo Electrónico"
+                required
+              />
+
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Nombre"
+                required
+              />
+
+              <input
+                type="text"
+                id="apellidos"
+                name="apellidos"
+                placeholder="Apellidos"
+                required
+              />
+
+              <div class="mostrarContraseña">
+                <input
+                  type="password"
+                  id="contraseña"
+                  name="contraseña"
+                  placeholder="Contraseña"
+                  required
+                />
+                <i class="bx bx-hide"></i>
               </div>
-            </aside>
-            <aside class="deslizar">
-              <span class="centradoTitulo"><h1 class="titulo">Mis Terapias</h1></span>
-              <div class="fondo">
-              </div>
-            </aside>
-            <aside class="deslizar">
-              <span class="centradoTitulo"><h1 class="titulo">Mis Citas</h1></span>
-              <div class="fondo">
-              </div>
-            </aside>
-            <aside class="deslizar">
-              <span class="centradoTitulo"><h1 class="titulo">Suscripciones</h1></span>
-              <div class="fondo">
-              </div>
-            </aside>
-            <aside class="deslizar">
-              <span class="centradoTitulo"><h1 class="titulo">Ayuda</h1></span>
-              <div class="fondo">
-              </div>
-            </aside>
-            <aside class="deslizar">
-              <span class="centradoTitulo"><h1 class="titulo">Cert. Tratamientos</h1></span>
-              <div class="fondo">
-              </div>
-            </aside>
-            <aside class="deslizar">
-              <span class="centradoTitulo"><h1 class="titulo">Sign out</h1></span>
-              <div class="fondo">
-                <h1></h1>
-                <img src="../img/logout.svg" id="svgLogout" alt="Icono Cerrar sesión">
-              </div>
-            </aside>
-        </section>
-   </main>
+              <input type="text" id="dni" name="dni" placeholder="DNI" />
+
+              <input
+                type="text"
+                id="provincia"
+                name="provincia"
+                placeholder="Provincia"
+              />
+
+              <input
+                type="text"
+                id="domicilio"
+                name="domicilio"
+                placeholder="Domicilio"
+              />
+
+              <input
+                type="text"
+                id="genero"
+                name="genero"
+                placeholder="Genero"
+              />
+
+              <input type="submit" value="Editar" id="botonEditarPerfil" />
+            </form>
+          </div>
+        </aside>
+        <aside class="deslizar">
+          <span class="centradoTitulo"
+            ><h1 class="titulo">Mis Terapias</h1></span
+          >
+          <div class="fondo" id="fondoTerapias">
+            <div id="cajaTerapiasFavoritas"></div>
+            <p id="parrafoSugerencias">Aqui apareceran tus terapias favoritas, de momento te recomendamos estas otras</p>
+            <h1 id="sugerencias">Sugerencias</h1>
+            <span id="cajaTerapias">
+           <!-- AQUI VAN LAS TERAPIAS -->
+          </span>
+          </div>
+        </aside>
+        <aside class="deslizar">
+          <span class="centradoTitulo"><h1 class="titulo">Mis Citas</h1></span>
+          <div class="fondo"></div>
+        </aside>
+        <aside class="deslizar">
+          <span class="centradoTitulo"
+            ><h1 class="titulo">Suscripciones</h1></span
+          >
+          <div class="fondo"></div>
+        </aside>
+        <aside class="deslizar">
+          <span class="centradoTitulo"><h1 class="titulo">Ayuda</h1></span>
+          <div class="fondo"></div>
+        </aside>
+        <aside class="deslizar">
+          <span class="centradoTitulo"
+            ><h1 class="titulo">Cert. Tratamientos</h1></span
+          >
+          <div class="fondo"></div>
+        </aside>
+        <aside class="deslizar">
+          <span class="centradoTitulo"><h1 class="titulo">Sign out</h1></span>
+          <div class="fondo">
+            <h1></h1>
+            <img
+              src="../img/logout.svg"
+              id="svgLogout"
+              alt="Icono Cerrar sesión"
+            />
+          </div>
+        </aside>
+      </section>
+    </main>
 
     <footer>
       <!-- Seccion about -->
@@ -125,12 +201,11 @@
           <li>Horario atención telefónica</li>
           <li class="fLista">L-V 10:00 - 21:00h</li>
         </ul>
-        
       </section>
 
       <!-- Seccion Recursos -->
       <section id="seccionContactoFooter">
-        <h1><a href='formContacto.html'>FORMULARIO DE CONTACTO</a></h1>
+        <h1><a href="formContacto.html">FORMULARIO DE CONTACTO</a></h1>
         <p>C/Alberto Aguilera 52</p>
         <p>28015 Madrid, España</p>
         <p>Tel: +34 661 661 662</p>
@@ -139,16 +214,19 @@
 
       <!-- Seccion Social Media -->
       <section id="seccionSocialMedia">
-        <a href='index.html'><img src="../img/logo.png" id="logo" alt="Logo Mind2Mind"/></a>
+        <a href="index.html"
+          ><img src="../img/logo.png" id="logo" alt="Logo Mind2Mind"
+        /></a>
         <article id="socialMedia">
-          <img src="../img/mail.png" alt="Icono Correo Electrónico">
-          <img src="../img/instagram.png" alt="Icono de instagram">
-          <img src="../img/x.png" alt="Icono de X">
+          <img src="../img/mail.png" alt="Icono Correo Electrónico" />
+          <img src="../img/instagram.png" alt="Icono de instagram" />
+          <img src="../img/x.png" alt="Icono de X" />
         </article>
       </section>
       <article>
-        Centro de Salud Mental autorizado por la Conserjería de Sanidad de la Comunidad de Madrid
-        <br>
+        Centro de Salud Mental autorizado por la Conserjería de Sanidad de la
+        Comunidad de Madrid
+        <br />
         Mind To Mind, S.L.P - Todos los derechos reservados
       </article>
     </footer>

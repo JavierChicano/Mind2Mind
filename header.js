@@ -13,6 +13,7 @@ cerrar.addEventListener("click", () => {
 //Ventana modal Registro
 const abrirModal = document.querySelector(".openRegistro");
 const contendorModal = document.querySelector(".modal-Registro");
+const modal = document.getElementsByClassName("modalRegistro");
 const cerrarModal = document.querySelector("img[src='img/closeWindow.png']");
 const abrilModalCuenta = document.getElementById("creaCuenta");
 const contraseñaRegistro = document.getElementById("passwordRegistro");
@@ -22,12 +23,23 @@ abrirModal.addEventListener("click", () => {
   contendorModal2.classList.remove("show");
   contendorModal.classList.add("show");
 });
+document.addEventListener("keydown", (e)=>{
+  if(e.key==="Escape"){
+    contendorModal.classList.remove("show");
+  }
+})
+//Cerrar el contenedor cuando se clicka fuera
+contendorModal.addEventListener("click", function (event) {
+  // Comprobar si el clic ocurrió fuera del contenedor específico
+  if (!modal[0].contains(event.target)) {
+    contendorModal.classList.remove("show");
+  }
+});
 if (abrilModalCuenta) {
   abrilModalCuenta.addEventListener("click", () => {
     contendorModa1.classList.add("show");
   });
 }
-
 cerrarModal.addEventListener("click", () => {
   contendorModal.classList.remove("show");
 });
@@ -47,6 +59,7 @@ icono.addEventListener("click", (e) => {
 //Ventana modal LogIn
 const abrirModal2 = document.querySelector(".openLogIn");
 const contendorModal2 = document.querySelector(".modal-LogIn");
+const modal2 = document.getElementsByClassName("modalLogIn");
 const cerrarModal2 = document.getElementById("cerrarL");
 const contraseñaLogin = document.getElementById("passwordLogin");
 const icono2 = document.getElementById("bx1");
@@ -55,7 +68,19 @@ abrirModal2.addEventListener("click", () => {
   contendorModal.classList.remove("show");
   contendorModal2.classList.add("show");
 });
+document.addEventListener("keydown", (e)=>{
+  if(e.key==="Escape"){
+    contendorModal2.classList.remove("show");
 
+  }
+})
+//Cerrar el contenedor cuando se clicka fuera
+contendorModal2.addEventListener("click", function (event) {
+  // Comprobar si el clic ocurrió fuera del contenedor específico
+  if (!modal2[0].contains(event.target)) {
+    contendorModal2.classList.remove("show");
+  }
+});
 cerrarModal2.addEventListener("click", () => {
   contendorModal2.classList.remove("show");
 });
@@ -171,7 +196,7 @@ if (linksTratamientos && window.innerWidth > 550) {
 const contraseñaPC = document.getElementById("passwordPC");
 const icono3 = document.getElementById("bx2");
 
-if(icono3){
+if (icono3) {
   icono3.addEventListener("click", (e) => {
     if (contraseñaPC.type === "password") {
       contraseñaPC.type = "text";
@@ -183,5 +208,4 @@ if(icono3){
       icono3.classList.add("bx-hide");
     }
   });
-  
 }
