@@ -125,7 +125,7 @@ if (formContacto) {
             return false;
         }
         // Validar que el teléfono solo contenga números
-        if (!/^\d$/.test(telefono)) {
+        if (!/^\d{9}$/.test(telefono)) {
             displayErrores.textContent =
                 "El teléfono debe contener 9 dígitos numéricos";
             document.getElementById("telefonoContacto").style.border =
@@ -544,7 +544,8 @@ function insertarRegistro(nombre, apellidos, email, password) {
 
 //Insert del form contacto
 function insertarContacto(nombre, apellidos, email, telefono, consulta) {
-    var mensajeUsuario = getElementById("displayErroresRegistro2");
+    var mensajeUsuario = document.getElementById("displayErroresRegistro2");
+    console.log(mensajeUsuario);
     // Página de registro
     $.ajax({
         type: "POST",
@@ -561,10 +562,10 @@ function insertarContacto(nombre, apellidos, email, telefono, consulta) {
             //Comprobacion de la consulta
             if (response.status === "success") {
                 mensajeUsuario.style.color = "green";
-                mensajeUsuario.textContent = response.message;
+                mensajeUsuario.textContent = "Envio correcto";
             } else {
                 //Acciones que hace si es erroneo la consulta
-                mensajeError.textContent = response.message;
+                mensajeUsuario.textContent = "Envio incorrecto";
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -616,7 +617,6 @@ function insertarPedirCita(
     poseeAseguradora,
     aseguradora
 ) {
-    // Página de procesamiento del formulario
     $.ajax({
         type: "POST",
         url: "BBDD/insertarDatos.php", // Nombre de tu script PHP para el registro
@@ -642,10 +642,13 @@ function insertarPedirCita(
         success: function(response) {
             //Comprobacion de la consulta
             if (response.status === "success") {
-                console.log("exito");
+                console.log(response.message);
             } else {
                 //Acciones que hace si es erroneo la consulta
-                displayErrores.textContent = response.message;
+                // displayErrores.textContent = response.message;
+                console.log(response.message);
+                console.log("respuesta: "+response)
+
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -807,10 +810,10 @@ function mostrarDatosPaciente() {
 function mostrarDatos(email) {
     $("#mailPC").val(email.correoElectronico || "").prop("disabled", true);
     $("#passwordPC").val(email.contraseña || "").prop("disabled", true);
-    $("#nombrePC").val(email.nombre || "").prop("disabled", email.nombre !== null);
-    $("#apellidosPC").val(email.apellidos || "").prop("disabled", email.apellidos !== null);
-    $("#dniPC").val(email.dni || "").prop("disabled", email.dni !== null);
-    $("#provinciaPC").val(email.provincia || "").prop("disabled", email.provincia !== null);
-    $("#domicilioPC").val(email.domicilio || "").prop("disabled", email.domicilio !== null);
-    $("#postalPC").val(email.codigo_postal || "").prop("disabled", email.codigo_postal !== null);
+    $("#nombrePC").val(email.nombre || "");
+    $("#apellidosPC").val(email.apellidos || "");
+    $("#dniPC").val(email.dni || "");
+    $("#provinciaPC").val(email.provincia || "");
+    $("#domicilioPC").val(email.domicilio || "");
+    $("#postalPC").val(email.codigo_postal || "");
 }
