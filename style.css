@@ -1514,6 +1514,7 @@ h1 {
     display: flex;
     align-items: center;
 }
+
 #cajaPrecio p {
     background-color: var(--colorSecundario);
     padding: 12px;
@@ -1599,6 +1600,12 @@ h1 {
     width: 640px;
     height: 360px;
     margin-left: 120px;
+}
+
+.videoTerapias {
+    margin: 50px;
+    margin-left: 120px;
+    border: solid 2px #757780;
 }
 
 .parteVisualizando {
