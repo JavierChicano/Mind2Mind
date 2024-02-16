@@ -225,7 +225,35 @@ if (isset($_POST['funcion'])) {
                 $response = array('status' => 'error', 'message' => 'No se encontraron Terapias no asociadas para el correo electrónico proporcionado');
             }
             break;
+        case 'consultarCitas':
+            $correo_electronico_deseado = $_POST['correoElectronico'];
 
+            // Consulta SQL para obtener la fecha, especialidad y modalidad en función del correo electrónico
+            $sql_select_cita = "SELECT fecha, especialidad, modalidad
+                    FROM cita
+                    WHERE correoElectronico = '$correo_electronico_deseado'";
+
+            // Ejecutar la consulta
+            $resultado_select_cita = $conexion->query($sql_select_cita);
+
+            // Verificar si se obtuvieron resultados
+            if ($resultado_select_cita->num_rows > 0) {
+                $citas = array();
+                // Recorrer los resultados y almacenarlos en un array
+                while ($fila = $resultado_select_cita->fetch_assoc()) {
+                    $citas[] = array(
+                        'fecha' => $fila['fecha'],
+                        'especialidad' => $fila['especialidad'],
+                        'modalidad' => $fila['modalidad']
+                    );
+                }
+                // Crear respuesta con el array de citas
+                $response = array('status' => 'success', 'citas' => $citas);
+            } else {
+                // No se encontraron resultados
+                $response = array('status' => 'error', 'message' => 'No se encontraron citas para el correo electrónico especificado');
+            }
+            break;
 
     }
 

@@ -2,6 +2,10 @@
 const contenedorPerfil = document.querySelector("#perfilInfo");
 const linksPerfil = document.querySelectorAll(".divisiones");
 
+ // Variables para almacenar el año y mes actual
+ let añoActual = new Date().getFullYear();
+ let mesActual = new Date().getMonth();
+
 let currentIndexPerfil = 0;
 
 // Función para cambiar el div según el índice
@@ -112,6 +116,9 @@ if (perfil) {
 }
 if (misTerapias) {
     comprobarTerapias();
+}
+if(misCitas){
+    mostrarCitas();
 }
 if (singOut) {
     logout();
@@ -403,7 +410,7 @@ function mostrarDatosConsultasTerapias(terapias, contenedorTerapias) {
 
 //------------------------------------------------------ACCIONES DEL LOGOUT---------------------------------------------------------------------------
 function logout() {
-    var botonLogOut = document.getElementById("gifAdios");
+    var botonLogOut = document.getElementById("logOutGif");
 
     botonLogOut.addEventListener("click", function() {
         // Establecer la sesión como no iniciada
@@ -412,3 +419,134 @@ function logout() {
         window.location.href = "../index.html";
     });
 }
+//------------------------------------------------------ACCIONES DE PEDIR CITA---------------------------------------------------------------------------
+var citas = 0;
+function mostrarCitas() {
+    var idPaciente = sessionStorage.getItem("correoUsuario");
+
+    //Pagina perfil
+    $.ajax({
+        type: "POST",
+        url: "../BBDD/selectsDatos.php", // Nombre de tu script PHP
+        data: {
+            funcion: "consultarCitas",
+            correoElectronico: idPaciente,
+        },
+        success: function(response) {
+            //Comprobacion de la consulta
+            if (response.status === "success") {
+                console.log(citas)
+                citas = response.citas;
+                console.log(citas)
+                generarCalendario(añoActual, mesActual, citas);
+            } else {
+                console.log(response)
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
+        },
+    });
+}
+function diasEnMes(mes, año) {
+    return new Date(año, mes + 1, 0).getDate();
+  }
+  function generarCalendario(año, mes, citas) {
+    console.log("hola buens dias")
+    const cuerpoCalendario = document.getElementById("cuerpo-calendario");
+    cuerpoCalendario.innerHTML = "";
+  
+    const primerDia = new Date(año, mes, 1).getDay();
+    const totalDias = diasEnMes(mes, año);
+  
+    let fecha = 1;
+  
+    for (let i = 0; i < 6; i++) {
+      const fila = document.createElement("tr");
+  
+      for (let j = 0; j < 7; j++) {
+        const celda = document.createElement("td");
+  
+        if (i === 0 && j < primerDia) {
+          const textoCelda = document.createTextNode("");
+          celda.appendChild(textoCelda);
+        } else if (fecha > totalDias) {
+          break;
+        } else {
+          const textoCelda = document.createTextNode(fecha);
+          celda.appendChild(textoCelda);
+  
+          // Verificar si hay citas programadas para esta fecha
+          const fechaActual = new Date(año, mes, fecha).toISOString().slice(0, 10);
+          const citasEnFecha = citas.filter(cita => cita.fecha === fechaActual);
+          
+          // Si hay citas, agregarlas a la celda
+          if (citasEnFecha.length > 0) {
+            const listaCitas = document.createElement("ul");
+            listaCitas.classList.add("lista-citas"); // Agrega la clase "lista-citas"
+            citasEnFecha.forEach(cita => {
+              const itemCita = document.createElement("li");
+              itemCita.textContent = `- ${cita.especialidad} \n- ${cita.modalidad}`; 
+              listaCitas.appendChild(itemCita);
+            });
+            celda.appendChild(listaCitas);
+          }
+  
+          fecha++;
+        }
+  
+        fila.appendChild(celda);
+      }
+  
+      cuerpoCalendario.appendChild(fila);
+    }
+  
+    // Actualizar el título con el mes y año actual
+    document.getElementById("titulo-mes").textContent = new Date(año, mes).toLocaleDateString('es-ES', { month: 'long', year: 'numeric' });
+  
+    // Actualizar las variables del año y mes actual
+    añoActual = año;
+    mesActual = mes;
+  }
+  
+
+  // Manejar la navegación entre meses
+  document.getElementById("mes-anterior").addEventListener("click", function() {
+    let añoAnterior = añoActual;
+    let mesAnterior = mesActual - 1;
+    if (mesAnterior < 0) {
+      mesAnterior = 11;
+      añoAnterior--;
+    }
+    generarCalendario(añoAnterior, mesAnterior, citas);
+  });
+
+  document.getElementById("mes-siguiente").addEventListener("click", function() {
+    let añoSiguiente = añoActual;
+    let mesSiguiente = mesActual + 1;
+    if (mesSiguiente > 11) {
+      mesSiguiente = 0;
+      añoSiguiente++;
+    }
+    generarCalendario(añoSiguiente, mesSiguiente, citas);
+  });
+
+  // Botón "Mes actual"
+  document.getElementById("mes-actual").addEventListener("click", function() {
+    const fechaActual = new Date();
+    generarCalendario(fechaActual.getFullYear(), fechaActual.getMonth(), citas);
+  });
+  
+  let indiceCitaActual = 0;
+  document.getElementById("mis-citas").addEventListener("click", function() {
+    // Aumentar el índice de la cita actual
+    indiceCitaActual++;
+    // Si el índice excede el número de citas, volver al principio
+    if (indiceCitaActual >= citas.length) {
+        indiceCitaActual = 0;
+    }
+    // Obtener la fecha de la cita actual
+    const fechaCitaActual = new Date(citas[indiceCitaActual].fecha);
+    // Generar el calendario para el mes de la cita actual
+    generarCalendario(fechaCitaActual.getFullYear(), fechaCitaActual.getMonth(), citas);
+});
