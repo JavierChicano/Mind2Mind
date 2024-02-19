@@ -10,7 +10,7 @@ let currentIndexPerfil = 0;
 
 // Función para cambiar el div según el índice
 function cambiarDivPerfil(index) {
-    let operation = index * -(100 / 7);
+    let operation = index * -(100 / 6);
     contenedorPerfil.style.transform = `translateY(${operation}%)`;
 
     linksPerfil.forEach((link, i) => {
@@ -410,7 +410,7 @@ function mostrarDatosConsultasTerapias(terapias, contenedorTerapias) {
 
 //------------------------------------------------------ACCIONES DEL LOGOUT---------------------------------------------------------------------------
 function logout() {
-    var botonLogOut = document.getElementById("logOutGif");
+    var botonLogOut = document.getElementById("signOut");
 
     botonLogOut.addEventListener("click", function() {
         // Establecer la sesión como no iniciada
@@ -441,6 +441,8 @@ function mostrarCitas() {
                 generarCalendario(añoActual, mesActual, citas);
             } else {
                 console.log(response)
+                generarCalendario(añoActual, mesActual, citas);
+
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -452,7 +454,6 @@ function diasEnMes(mes, año) {
     return new Date(año, mes + 1, 0).getDate();
   }
   function generarCalendario(año, mes, citas) {
-    console.log("hola buens dias")
     const cuerpoCalendario = document.getElementById("cuerpo-calendario");
     cuerpoCalendario.innerHTML = "";
   
@@ -478,18 +479,20 @@ function diasEnMes(mes, año) {
   
           // Verificar si hay citas programadas para esta fecha
           const fechaActual = new Date(año, mes, fecha).toISOString().slice(0, 10);
-          const citasEnFecha = citas.filter(cita => cita.fecha === fechaActual);
-          
-          // Si hay citas, agregarlas a la celda
-          if (citasEnFecha.length > 0) {
-            const listaCitas = document.createElement("ul");
-            listaCitas.classList.add("lista-citas"); // Agrega la clase "lista-citas"
-            citasEnFecha.forEach(cita => {
-              const itemCita = document.createElement("li");
-              itemCita.textContent = `- ${cita.especialidad} \n- ${cita.modalidad}`; 
-              listaCitas.appendChild(itemCita);
-            });
-            celda.appendChild(listaCitas);
+          if (citas.length > 0) {
+            const citasEnFecha = citas.filter(cita => cita.fecha === fechaActual);
+            
+            // Si hay citas, agregarlas a la celda
+            if (citasEnFecha.length > 0) {
+              const listaCitas = document.createElement("ul");
+              listaCitas.classList.add("lista-citas"); // Agrega la clase "lista-citas"
+              citasEnFecha.forEach(cita => {
+                const itemCita = document.createElement("li");
+                itemCita.textContent = `- ${cita.especialidad} \n- ${cita.modalidad}`; 
+                listaCitas.appendChild(itemCita);
+              });
+              celda.appendChild(listaCitas);
+            }
           }
   
           fecha++;
@@ -550,3 +553,52 @@ function diasEnMes(mes, año) {
     // Generar el calendario para el mes de la cita actual
     generarCalendario(fechaCitaActual.getFullYear(), fechaCitaActual.getMonth(), citas);
 });
+//------------------------------------------------------ACCIONES DE ELIMINAR CUENTA---------------------------------------------------------------------------
+
+var eliminarCuenta = document.getElementById("botonEliminarCuenta");
+var cuadroConfirmacion = document.getElementById("preguntaConfirmacion");
+var respuestaNO = document.getElementById("noSeguro");
+var respuestaSI = document.getElementById("siSeguro");
+
+eliminarCuenta.addEventListener("click", function() {
+    eliminarCuenta.style.display="none"
+    cuadroConfirmacion.style.display="flex"
+});
+
+//Si elige que no, volvemos a lo anterior
+respuestaNO.addEventListener("click", function() {
+    cuadroConfirmacion.style.display="none"
+    eliminarCuenta.style.display="flex"
+});
+
+//Si elige si, borramos el usuario
+respuestaSI.addEventListener("click", function() {
+    eliminarCuentaFuncion();
+    sessionStorage.setItem("sesionIniciada", "false");
+    window.location.href = "../index.html";
+});
+
+function eliminarCuentaFuncion(){
+    var correoElectronico = sessionStorage.getItem("correoUsuario");
+
+    //Pagina perfil
+    $.ajax({
+        type: "POST",
+        url: "../BBDD/selectsDatos.php", // Nombre de tu script PHP
+        data: {
+            funcion: "eliminarPaciente",
+            correoElectronico: correoElectronico,
+        },
+        success: function(response) {
+            //Comprobacion de la consulta
+            if (response.status === "success") {
+                console.log("Cuenta eliminada")
+            } else {
+                console.log(response)
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
+        },
+    });
+}

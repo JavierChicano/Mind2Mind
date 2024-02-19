@@ -58,15 +58,14 @@
                 <article id="perfil" class="divisiones seleccionada">Perfil</article>
                 <article id="misTerapias" class="divisiones">Mis Terapias</article>
                 <article id="misCitas" class="divisiones">Mis Citas</article>
-                <article id="suscripciones" class="divisiones">Suscripciones</article>
                 <article id="ayuda" class="divisiones">Ayuda</article>
-                <article id="certTratamientos" class="divisiones">
-                    Cert. Tratamientos
-                </article>
                 <article id="signOut" class="divisiones">
                     Sign out
                     <img src="../img/Video/bye.gif" alt="" class="gifAdios" id="logOutGif">
                     <img src="../img/logout.svg" id="svgLogout" class="svgLogout" alt="Icono Cerrar sesión" />
+                </article>
+                <article id="certTratamientos" class="divisiones">
+                    Eliminar Cuenta
                 </article>
             </section>
         </section>
@@ -139,27 +138,53 @@
                 </div>
             </aside>
             <aside class="deslizar">
-                <span class="centradoTitulo"><h1 class="titulo">Suscripciones</h1></span
-          >
-          <div class="fondo"></div>
-        </aside>
-        <aside class="deslizar">
-          <span class="centradoTitulo"><h1 class="titulo">Ayuda</h1></span>
-                <div class="fondo"></div>
-            </aside>
+            <span class="centradoTitulo"><h1 class="titulo">Ayuda</h1></span>
+                    <div class="fondo" id="ayudaContenedor">
+                        <h2>Preguntas frecuentes</h2>
+                        <li>Informacion sobre tratamientos
+                            <ul>Nuestros tratamientos estan certificados por profesionales del sector.
+                                Forman parte del proceso curativo del paciente
+                            </ul>
+                            <ul>Podrás encontrar <a href="../tratamientos.html">aquí</a> las terapias que mejor encajen contigo</ul>
+                        </li>
+                        <li>¿Dudas acerca que terapia elegir?
+                            <ul>Puede asesorarse de manera; telefónica, presencial o por videollamada, <a href="../pedirCita.html">pidiendo una cita</a>
+                            </ul>
+                            <ul>Disponemos de un <a href="../acercaDe.html">chat privado</a> con un profesional</ul>
+                        </li>
+                        <li>¿Problemas con los pagos?
+                            <ul>Disponemos de <a href="../servicios.html">ayudas económicas</a> y facilidades de pago, para que la pagina sea accesible a todo tipo de clientes.
+                            </ul>
+                        </li>
+                        <li>Eliminar la cuenta
+                            <ul>Al eliminar su cuenta asume que todas las citas y datos guardadas en ella se eliminaran, este proceso no es reversible
+                            </ul>
+                        </li>
+                    </div>
+                </aside>        
+            <aside class="deslizarLogOut">
+            <span class="centradoTitulo"><h1 class="titulo">Sign out</h1></span>
+                    <div class="fondoLogOut">
+                        <h1></h1>
+                        <img src="../img/Video/bye.gif" alt="" class="gifAdios" id="logOutGif">
+                        <img src="../img/logout.svg" id="svgLogout" class="svgLogout" alt="Icono Cerrar sesión" />
+                    </div>
+                </aside>
             <aside class="deslizar">
-                <span class="centradoTitulo"><h1 class="titulo">Cert. Tratamientos</h1></span
-          >
-          <div class="fondo"></div>
-        </aside>
-        <aside class="deslizarLogOut">
-          <span class="centradoTitulo"><h1 class="titulo">Sign out</h1></span>
-                <div class="fondoLogOut">
-                    <h1></h1>
-                    <img src="../img/Video/bye.gif" alt="" id="gifAdios" class="gifAdios">
-                    <img src="../img/logout.svg" id="svgLogout" class="svgLogout" alt="Icono Cerrar sesión" />
+                <span class="centradoTitulo"><h1 class="titulo" id="eliminarCuenta">Eliminar Cuenta</h1></span>
+            <div class="fondo" id="contenedorEliminarCuenta">
+                <p>Este proceso eliminará su cuenta y con ello todos sus datos, siendo esto irreversible</p>
+                <div id="botonEliminarCuenta">Eliminar cuenta</div>
+                <div id="preguntaConfirmacion">
+                    ¿Está seguro?
+                    <span>
+                        <div id="noSeguro">No</div>
+                        <div id="siSeguro">Sí</div>
+                    </span>
+                    
                 </div>
-            </aside>
+            </div>
+        </aside>
         </section>
     </main>
 

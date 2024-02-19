@@ -73,7 +73,7 @@ body {
 }
 
 #perfilInfo {
-  height: 700%;
+  height: 600%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,7 +82,7 @@ body {
 }
 
 .deslizar {
-  height: calc(100% / 7);
+  height: calc(100% / 6);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -91,7 +91,7 @@ body {
 }
 
 .deslizarLogOut {
-  height: calc(100% / 7);
+  height: calc(100% / 6);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -339,4 +339,82 @@ td {
 .lista-citas li:first-child {
     border-top: none;
     padding-top: 0px;
+}
+
+#ayudaContenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 100px;
+}
+#ayudaContenedor h2{
+    font-size: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: -50px;
+    margin-bottom: 50px;
+}
+#ayudaContenedor ul li {
+    list-style-type: arrow;
+}
+#ayudaContenedor li{
+    font-size: 20px;
+    margin-top: 15px;
+}
+#ayudaContenedor ul{
+    font-size: 15px;
+    margin: 15px 0 15px 50px;
+}
+
+#contenedorEliminarCuenta{
+  padding: 100px;
+  color: red;
+  flex-direction: column;
+    align-items: center;
+    font-size: 22px;
+}
+#contenedorEliminarCuenta p{
+    display: flex;
+}
+#botonEliminarCuenta{
+    padding: 20px;
+    border-radius: 12px;
+    background-color: rgba(255, 0, 0, 0.7);
+    margin: 100px;
+    color: white;
+    cursor: pointer;
+}
+#preguntaConfirmacion {
+    display: none;
+    background-color: var(--colorBaseOscuro);
+    padding: 12px;
+    border-radius: 12px;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    font-size: 30px;
+    margin-top: 100px;
+}
+#preguntaConfirmacion span{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 30px;
+}
+#preguntaConfirmacion span div:first-child{
+    background-color: var(--colorSecundario);
+}
+#preguntaConfirmacion span div{
+    background-color: red;
+    padding: 12px;
+    width: 100px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: rgb(54, 208, 199);
 }

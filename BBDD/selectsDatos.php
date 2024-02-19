@@ -254,6 +254,28 @@ if (isset($_POST['funcion'])) {
                 $response = array('status' => 'error', 'message' => 'No se encontraron citas para el correo electrónico especificado');
             }
             break;
+        case 'eliminarPaciente':
+            // Obtener el correo electrónico del paciente a eliminar
+            $correo_electronico_especifico = $_POST['correoElectronico'];
+
+            // Eliminar las filas relacionadas en la tabla 'terapiaPaciente'
+            $sql_eliminar_terapiaPaciente = "DELETE FROM terapiaPaciente WHERE correoElectronico = '$correo_electronico_especifico'";
+            $conexion->query($sql_eliminar_terapiaPaciente);
+
+            // Eliminar la fila correspondiente en la tabla 'paciente'
+            $sql_eliminar_paciente = "DELETE FROM paciente WHERE correoElectronico = '$correo_electronico_especifico'";
+            $conexion->query($sql_eliminar_paciente);
+
+            // Verificar si se realizaron las eliminaciones correctamente
+            if ($conexion->affected_rows > 0) {
+                // Eliminación exitosa
+                $response = array('status' => 'success', 'message' => 'Paciente y sus datos relacionados eliminados correctamente');
+            } else {
+                // No se encontraron registros para eliminar
+                $response = array('status' => 'error', 'message' => 'No se encontraron registros para eliminar');
+            }
+            break;
+
 
     }
 
