@@ -678,7 +678,10 @@ function consultarLogin(email, password) {
                 sessionStorage.setItem("sesionIniciada", "true");
                 sessionStorage.setItem("correoUsuario", email);
                 window.location.href = "perfil/perfilMain.html";
-            } else {
+            } else if(response.status === "admin"){
+                window.location.href = "medico/index.html";
+                sessionStorage.setItem("medico", email);
+            }else {
                 //Acciones que hace si es erroneo el login
                 mensajeError.textContent = response.message;
             }

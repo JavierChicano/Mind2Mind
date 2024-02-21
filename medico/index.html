@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mind 2 Mind</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="icon" href="../img/logo.png" type="image/x-icon" alt="Logo de Mind2Mind" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+    </style>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../styleHF.css">
+</head>
+
+<body>
+    <header>
+        <a href="../index.html"><img src="../img/logo.png" id="logo" alt="Logo de Mind2Mind" /></a>
+        <h1><a href="../index.html">MIND 2 MIND</a></h1>
+        <h2>Panel de administración médico</h2>
+    </header>
+    <main>
+        <section id="contenedorGrid">
+            <div id="perfilMedico">
+                <img id="imgDoctor" src="../img/Equipo/1.png">
+                <h2 id="nombreDoctor">Dr Garcia</h2>
+                <ul>
+                    <li id="horario">Horario: </li>
+                    <li id="especialidad">Especialidad: </li>
+                    <li id="modalidad">Modalidad: </li>
+                    <li id="clinica">Clínica: </li>
+                </ul>
+            </div>
+            <div id="chatMedico">
+                <h2 id="nombrePaciente">Chat paciente: </h2>
+                <aside id="chat">
+                    <p class="recibir">
+                        <span>Buenos dias, en que puedo ayudarte!</span>
+                    </p>
+                    
+                    <form id="formularioChat">
+                        <input type="text" id="mensaje" placeholder="Escribe tu mensaje aquí" />
+                        <button type="submit">Enviar</button>
+                    </form>
+                </aside>
+            </div>
+            <div id="pacienteActual">
+                <h2>Paciente actual</h2>
+                <p id="datosPaciente">iljlkjlkjlk</p>
+                <h3>Seleccionar otro paciente</h3>
+                <select id="selectsPacientes"></select>
+            </div>
+            <div id="citasPaciente"><h2>Próximas citas</h2>
+                <aside>
+                    <p id="numConsultas">Totales: </p>
+                    <p id="numConsultasPaciente"> Paciente: </p></aside>
+                <select id="selectsCitas"></select>
+                <span id="eliminarCita">Eliminar Cita</span>
+                
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Seccion about -->
+        <section>
+            <ul>
+                <li>Horario de consultas</li>
+                <li class="fLista">L-V 8:00 - 21:00h</li>
+                <li>Horario atención telefónica</li>
+                <li class="fLista">L-V 10:00 - 21:00h</li>
+            </ul>
+        </section>
+
+        <!-- Seccion Recursos -->
+        <section id="seccionContactoFooter">
+            <p>C/Alberto Aguilera 52</p>
+            <p>28015 Madrid, España</p>
+            <p>Tel: +34 661 661 662</p>
+            <p>WhatsApp: +34 661 661 662</p>
+        </section>
+
+        <!-- Seccion Social Media -->
+        <section id="seccionSocialMedia">
+            <a href="../index.html"><img src="../img/logo.png" id="logo" alt="Logo Mind2Mind" /></a>
+            <article id="socialMedia">
+                <img src="../img/mail.png" alt="Icono Correo Electrónico" />
+                <img src="../img/instagram.png" alt="Icono de instagram" />
+                <img src="../img/x.png" alt="Icono de X" />
+            </article>
+        </section>
+        <article>
+            Centro de Salud Mental autorizado por la Conserjería de Sanidad de la Comunidad de Madrid
+            <br /> Mind To Mind, S.L.P - Todos los derechos reservados
+        </article>
+    </footer>
+    <script src="consultasMedico.js"></script>
+
+</body>
+
+</html>

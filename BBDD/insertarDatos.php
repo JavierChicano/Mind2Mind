@@ -18,10 +18,7 @@ if (isset($_POST['funcion'])) {
     if ($conexion->connect_error) {
         die("La conexión a la base de datos ha fallado: " . $conexion->connect_error);
     }
-
-    // Inicializar las variables
-    $nombre = $apellidos = $email = $password = $dni = $telefono = $provincia = $domicilio = $sexo = $profesional = $modalidad = $diagnostico = $fConsulta = $poseeAseguradora = $aseguradora = $consulta = "";
-
+    
     switch ($funcion) {
         case 'registro':
             $nombre = $_POST['nombre'];

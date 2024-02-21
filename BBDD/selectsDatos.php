@@ -23,17 +23,31 @@ if (isset($_POST['funcion'])) {
         case 'login':
             $email = $_POST['email'];
             $password = $_POST['password'];
-
+        
             // Consulta SQL para verificar si el correo electrónico existe y la contraseña coincide
             $sql = "SELECT * FROM paciente WHERE correoElectronico = '$email'";
             $resultado = $conexion->query($sql);
-
+        
             if ($resultado->num_rows > 0) {
                 // El correo electrónico existe, ahora verificamos la contraseña
                 $row = $resultado->fetch_assoc();
                 if ($row['contraseña'] == $password) {
-                    // El correo electrónico y la contraseña coinciden, el usuario ha iniciado sesión con éxito
-                    $response = array('status' => 'success', 'message' => 'Inicio de sesión exitoso');
+                    // El correo electrónico y la contraseña coinciden
+                    // Verificar si las credenciales coinciden con alguna de las 5 duplas específicas
+                    $duplas_admin = array(
+                        "admin1@doctor.com" => "admin1",
+                        "admin2@doctor.com" => "admin2",
+                        "admin3@doctor.com" => "admin3",
+                        "admin4@doctor.com" => "admin4",
+                        "admin5@doctor.com" => "admin5"
+                    );
+                    if (array_key_exists($email, $duplas_admin) && $duplas_admin[$email] == $password) {
+                        // Las credenciales coinciden con una de las 5 duplas específicas
+                        $response = array('status' => 'admin', 'message' => 'Inicio de sesión exitoso como administrador');
+                    } else {
+                        // Las credenciales coinciden pero no son una de las 5 duplas específicas
+                        $response = array('status' => 'success', 'message' => 'Inicio de sesión exitoso como paciente');
+                    }
                 } else {
                     // La contraseña no coincide
                     $response = array('status' => 'error', 'message' => 'Contraseña no válida');
@@ -43,6 +57,7 @@ if (isset($_POST['funcion'])) {
                 $response = array('status' => 'error', 'message' => 'Correo no existente');
             }
             break;
+        
         case 'obtenerDoctor':
             // En caso de obtener información del doctor
             $doctorIndex = $_POST['idDoctor'];

@@ -145,6 +145,22 @@ if ($resultado->num_rows == 0) {
         $conexion->query($sqlTestimonio);
         $conexion->query($sqlChat);
 
+    //Funcion que crea los admins
+    function insertarAdmin($conexion, $correoElectronico, $nombre, $apellidos, $contraseña){
+        $sql = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña) VALUES ('$correoElectronico', '$nombre', '$apellidos', '$contraseña')";
+        if ($conexion->query($sql) === TRUE) {
+            echo "Datos insertados correctamente, en paciente.<br>";
+        } else {
+            die("Error al insertar datos, en paciente: " . $conexion->error);
+        }
+        return true;
+    }
+    insertarAdmin($conexion, "admin1@doctor.com", "Dr. Garcia", "Vaquero", "admin1");
+    insertarAdmin($conexion, "admin2@doctor.com", "Dr. Flor", "Esgueva", "admin2");
+    insertarAdmin($conexion, "admin3@doctor.com", "Dr. Don", "Simón", "admin3");
+    insertarAdmin($conexion, "admin4@doctor.com", "Dra. Häagen", "Dazs", "admin4");
+    insertarAdmin($conexion, "admin5@doctor.com", "Dra. María", "Gutierrez", "admin5");
+
      // Función para insertar un especialista
     function insertarEspecialista($conexion, $nombre, $apellidos, $modalidad, $horario, $especialidad, $ubicacion, $imagen)
     {
@@ -159,9 +175,6 @@ if ($resultado->num_rows == 0) {
 
         return true;
     }
-
-
-
        // Insertar datos de especialistas con imágenes
         insertarEspecialista($conexion, "Dr. Garcia", "Vaquero", "Presencial", "Tardes", "Psicólogo", "Hospital XYZ", "1.png");
         insertarEspecialista($conexion, "Dr. Flor", "Esgueva", "Videoconsulta", "Mañanas", "Psicólogo", "Clínica ABC", "2.png");
