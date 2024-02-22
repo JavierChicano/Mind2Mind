@@ -2307,7 +2307,14 @@ select option {
 #formEnviado p {
     font-size: 20px;
 }
-
+#botonIrPerfil{
+    background-color: var(--colorBaseOscuro);
+    padding: 8px;
+    border-radius: 2px;
+    color: white;
+    margin: 20px;
+    cursor: pointer;
+}
 @media screen and (max-width: 550px) {
     #mainContacto {
         flex-direction: column-reverse;

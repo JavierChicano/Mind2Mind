@@ -192,7 +192,9 @@ if (formPedirCita) {
             comprobarCuentaPedirCita(mail);
         }
     });
-
+    document.getElementById("botonIrPerfil").addEventListener("click", function() {
+        window.location.href = "perfil/perfilMain.html"; 
+    });
 
     function ejecutarSegundaParteForm() {
         bFase1.addEventListener("click", function(event) {

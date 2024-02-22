@@ -63,13 +63,6 @@ if ($resultado->num_rows == 0) {
             link_al_video VARCHAR(255)
         )";
 
-        // Codigo de Descuento
-        $sqlDescuento = "CREATE TABLE descuento (
-            codDescuento VARCHAR(7) PRIMARY KEY,
-            nombre VARCHAR(255),
-            fecha DATE
-        )";
-
         // Consulta
         $sqlConsulta = "CREATE TABLE consulta (
             correoElectronico VARCHAR(255) PRIMARY KEY,
@@ -101,16 +94,6 @@ if ($resultado->num_rows == 0) {
             FOREIGN KEY (correoElectronico) REFERENCES paciente(correoElectronico),
             FOREIGN KEY (idTerapia) REFERENCES terapia(idTerapia)
         )";
-
-        // Terapia Descuento
-        $sqlTerapiaDescuento = "CREATE TABLE terapiaDescuento (
-            idTerapiaDescuento INT AUTO_INCREMENT PRIMARY KEY,
-            idTerapia INT,
-            codDescuento VARCHAR(7),
-            FOREIGN KEY (idTerapia) REFERENCES terapia(idTerapia),
-            FOREIGN KEY (codDescuento) REFERENCES descuento(codDescuento)
-        )";
-
         // Testimonio
         $sqlTestimonio = "CREATE TABLE testimonio (
             idTestimonio INT AUTO_INCREMENT PRIMARY KEY,
@@ -137,11 +120,9 @@ if ($resultado->num_rows == 0) {
         $conexion->query($sqlPaciente);
         $conexion->query($sqlEspecialista);
         $conexion->query($sqlTerapia);
-        $conexion->query($sqlDescuento);
         $conexion->query($sqlConsulta);
         $conexion->query($sqlCita);
         $conexion->query($sqlTerapiaPaciente);
-        $conexion->query($sqlTerapiaDescuento);
         $conexion->query($sqlTestimonio);
         $conexion->query($sqlChat);
 
@@ -161,6 +142,18 @@ if ($resultado->num_rows == 0) {
     insertarAdmin($conexion, "admin4@doctor.com", "Dra. Häagen", "Dazs", "admin4");
     insertarAdmin($conexion, "admin5@doctor.com", "Dra. María", "Gutierrez", "admin5");
 
+    //Insertar 10 pacientes como prueba
+    insertarAdmin($conexion, "paciente1@paciente.com", "Juan", "García", "paciente1");
+    insertarAdmin($conexion, "paciente2@paciente.com", "María", "Martínez", "paciente2");
+    insertarAdmin($conexion, "paciente3@paciente.com", "Carlos", "Sánchez", "paciente3");
+    insertarAdmin($conexion, "paciente4@paciente.com", "Ana", "López", "paciente4");
+    insertarAdmin($conexion, "paciente5@paciente.com", "David", "Fernández", "paciente5");
+    insertarAdmin($conexion, "paciente6@paciente.com", "Laura", "González", "paciente6");
+    insertarAdmin($conexion, "paciente7@paciente.com", "Pedro", "Rodríguez", "paciente7");
+    insertarAdmin($conexion, "paciente8@paciente.com", "Sofía", "Pérez", "paciente8");
+    insertarAdmin($conexion, "paciente9@paciente.com", "Javier", "Hernández", "paciente9");
+    insertarAdmin($conexion, "paciente10@paciente.com", "Elena", "Díaz", "paciente10");
+
      // Función para insertar un especialista
     function insertarEspecialista($conexion, $nombre, $apellidos, $modalidad, $horario, $especialidad, $ubicacion, $imagen)
     {
@@ -175,12 +168,12 @@ if ($resultado->num_rows == 0) {
 
         return true;
     }
-       // Insertar datos de especialistas con imágenes
-        insertarEspecialista($conexion, "Dr. Garcia", "Vaquero", "Presencial", "Tardes", "Psicólogo", "Hospital XYZ", "1.png");
-        insertarEspecialista($conexion, "Dr. Flor", "Esgueva", "Videoconsulta", "Mañanas", "Psicólogo", "Clínica ABC", "2.png");
-        insertarEspecialista($conexion, "Dr. Don", "Simón", "Presencial", "Tardes", "Psiquiatra", "Hospital ABC", "4.png");
-        insertarEspecialista($conexion, "Dra. Häagen", "Dazs", "Telefónica", "Tardes", "Psicólogo", "Clínica XYZ", "5.png");
-        insertarEspecialista($conexion, "Dra. María", "Gutierrez", "Telefónica", "Todo el día", "Psiquiatra", "Hospital XYZ", "6.png");
+    // Insertar datos de especialistas con imágenes
+    insertarEspecialista($conexion, "Dr. Garcia", "Vaquero", "Presencial", "Tardes", "Psicólogo", "Hospital XYZ", "1.png");
+    insertarEspecialista($conexion, "Dr. Flor", "Esgueva", "Videoconsulta", "Mañanas", "Psicólogo", "Clínica ABC", "2.png");
+    insertarEspecialista($conexion, "Dr. Don", "Simón", "Presencial", "Tardes", "Psiquiatra", "Hospital ABC", "4.png");
+    insertarEspecialista($conexion, "Dra. Häagen", "Dazs", "Telefónica", "Tardes", "Psicólogo", "Clínica XYZ", "5.png");
+    insertarEspecialista($conexion, "Dra. María", "Gutierrez", "Telefónica", "Todo el día", "Psiquiatra", "Hospital XYZ", "6.png");
 
      // Función para insertar una terapia
     function insertarTerapia($conexion, $nombre, $imagen, $coste, $miniDescripcion, $descripcion, $parte1, $parte2, $parte3, $parte4, $linkAlVideo)
@@ -205,27 +198,6 @@ if ($resultado->num_rows == 0) {
         insertarTerapia($conexion, "Psicoterapia", "psychotherapy.jpg", "199", "Embárcate en un viaje de autodescubrimiento a través de la psicoterapia, donde cada sesión es una oportunidad para comprender y sanar.", "Función de la Psicoterapia: La Psicoterapia proporciona un espacio seguro y confidencial donde los pacientes pueden explorar sus pensamientos, emociones y comportamientos relacionados con el trastorno bipolar, con el objetivo de mejorar la comprensión de sí mismos y desarrollar estrategias efectivas de afrontamiento. Al trabajar en colaboración con un terapeuta capacitado, los pacientes pueden identificar y abordar los desafíos específicos que enfrentan, promoviendo así el crecimiento personal y el bienestar emocional a largo plazo.", "Evaluación Inicial y Formulación de Objetivos: Durante las primeras sesiones, se realiza una evaluación exhaustiva de los síntomas, la historia personal y los factores desencadenantes del paciente. Se establecen objetivos terapéuticos en colaboración con el paciente, identificando áreas de cambio y crecimiento potencial.", "Implementación de Técnicas Terapéuticas: Se utilizan diversas técnicas terapéuticas, como la terapia cognitivo-conductual, la terapia interpersonal o la terapia de aceptación y compromiso, adaptadas a las necesidades individuales del paciente y los objetivos terapéuticos establecidos. A través del diálogo y la exploración, se fomenta la autoconciencia y se promueve el cambio positivo.", "Exploración y Procesamiento Emocional: Durante las sesiones, se anima al paciente a explorar y procesar emociones difíciles, identificando patrones de pensamiento y comportamiento que puedan estar contribuyendo a su malestar emocional. Se ofrece apoyo emocional y se fomenta la expresión abierta y honesta de sentimientos.", "Integración y Planificación a Largo Plazo: A medida que avanza la terapia, se trabaja en la integración de los insights y las habilidades adquiridas en la vida cotidiana del paciente, promoviendo así la autonomía y el empoderamiento. Se desarrolla un plan de acción a largo plazo para mantener y mejorar el bienestar emocional, incluyendo estrategias de prevención de recaídas y manejo del estrés.", "https://www.youtube.com/embed/Livf43NubpA?si=ShrN1uQ2kbmgZTPe");
         insertarTerapia($conexion, "Mindfulness", "TerapiaMindfulness.jpg", "99", "Descubre cómo cultivar la atención plena para manejar el estrés y las emociones, aprendiendo a estar presente en el momento presente y fomentando la calma mental y la claridad.", "Función de la Terapia de Mindfulness: La Terapia de Mindfulness enseña a los pacientes a cultivar la conciencia plena del momento presente, ayudándoles a desarrollar una relación más equilibrada y compasiva consigo mismos y sus experiencias. Al practicar la atención plena, los pacientes pueden aprender a responder de manera más flexible a los desafíos de la vida y reducir el estrés asociado con el trastorno bipolar.", "Introducción a la Práctica de Mindfulness: Se inicia con una introducción a los conceptos básicos de la atención plena y la práctica de la meditación. Se enseñan ejercicios de respiración y técnicas de relajación para desarrollar la capacidad de estar presente en el momento presente.", "Aplicación en la Vida Diaria: Se exploran formas de integrar la atención plena en la vida cotidiana, aplicándola a situaciones estresantes, relaciones interpersonales y desafíos relacionados con el trastorno bipolar. Se fomenta la práctica informal de mindfulness en actividades diarias como comer, caminar o interactuar con los demás.", "Cultivo de la Autorregulación Emocional: Se practican técnicas de regulación emocional basadas en la atención plena para gestionar eficazmente los cambios de humor y los desencadenantes emocionales asociados con el trastorno bipolar. Se promueve la aceptación y la compasión hacia uno mismo y los demás.", "Mantenimiento y Continuidad: Se fomenta la práctica continua de mindfulness como una herramienta de autocuidado a largo plazo. Se ofrecen recursos y apoyo para mantener una práctica regular y sostenible en el tiempo, incluyendo grupos de apoyo y aplicaciones de mindfulness. Se enfatiza la importancia de la consistencia y la perseverancia en el desarrollo de la capacidad de atención plena.", "https://www.youtube.com/embed/LE2tlZLmzG4?si=_H0A-OoGlDXG_97n");
         insertarTerapia($conexion, "Arte Expresivo", "TerapiaExpresiva.jpg", "499", "Sumérgete en un viaje creativo para explorar y procesar tus emociones a través del arte, utilizando diferentes formas de expresión para promover la autoexpresión y el bienestar emocional.", "Función de la Terapia de Arte Expresivo: La Terapia de Arte Expresivo utiliza diversas formas de expresión artística, como la pintura, la escritura, la música y la danza, como herramientas terapéuticas para ayudar a los pacientes a explorar y procesar sus emociones, pensamientos y experiencias de manera no verbal. A través del proceso creativo, los pacientes pueden expresar libremente lo que les resulta difícil de comunicar verbalmente, promoviendo así la autoexpresión, la autoexploración y la sanación emocional.", "Exploración Creativa: Durante las sesiones de terapia, se anima al paciente a experimentar libremente con diferentes medios artísticos y técnicas sin preocuparse por el resultado final. Se proporcionan materiales artísticos y se establece un espacio seguro y de apoyo donde los pacientes pueden dejar volar su creatividad y explorar libremente sus emociones.", "Comunicación No Verbal: El arte se utiliza como un medio de comunicación no verbal para expresar emociones, pensamientos y experiencias que pueden ser difíciles de expresar verbalmente. A través de la creación artística, los pacientes pueden externalizar sus sentimientos y darles forma, lo que les permite procesar y comprender mejor sus experiencias internas.", "Proceso de Reflexión: Después de completar una obra de arte, se invita al paciente a reflexionar sobre su trabajo y explorar el significado personal detrás de las imágenes o símbolos creados. Se fomenta la autoconciencia y la autorreflexión, permitiendo al paciente profundizar en su comprensión de sí mismo y de sus emociones.", "Integración y Transformación: A lo largo del proceso de terapia, se trabaja en la integración de los insights y las emociones surgidas durante la creación artística en la vida cotidiana del paciente. Se exploran formas de aplicar las lecciones aprendidas y las experiencias vividas en la terapia a situaciones fuera del entorno terapéutico, promoviendo así la autenticidad, el crecimiento personal y la transformación emocional a largo plazo.", "http://localhost/ProyectoIntegrador/Mind2Mind/terapiaEspecifica.html");
-
-
-        // Función para insertar un código de descuento
-        function insertarDescuento($conexion, $codDescuento, $nombre, $fecha)
-        {
-            $sql = "INSERT INTO descuento (codDescuento, nombre, fecha)
-                    VALUES ('$codDescuento', '$nombre', '$fecha')";
-
-            if ($conexion->query($sql)) {
-                echo "Datos insertados correctamente, en descuento.";
-            } else {
-                echo "Error al insertar datos, en descuento: " . $conexion->error;
-            }
-
-            return true;
-        }
-
-        // Insertar datos de descuento
-        insertarDescuento($conexion, "123456A", "Descuento 1", "12/02/24");
-        insertarDescuento($conexion, "123456B", "Descuento 2", "20/10/24");
-        insertarDescuento($conexion, "123456C", "Descuento 3", "02/08/23");
 
         // Función para insertar un testimonio
         function insertarTestimonio($conexion, $comentario, $calificacion, $fecha, $correoElectronico)
@@ -257,7 +229,32 @@ if ($resultado->num_rows == 0) {
             return true;
         }
 
+        //Funcion para insertar CITAS, esto vinculara al paciente con un doctor
+        function insertarCita($conexion, $especialidad, $modalidad, $numeroTelefono, $diagnostico, $fecha, $aseguradoraNombre, $correoElectronico, $idMedico)
+        {
+            $sql = "INSERT INTO cita (especialidad, modalidad, numeroTelefono, diagnostico, fecha, aseguradoraNombre, correoElectronico, idMedico)
+                    VALUES ('$especialidad', '$modalidad', $numeroTelefono, '$diagnostico', '$fecha', '$aseguradoraNombre', '$correoElectronico', $idMedico)";
 
+            if ($conexion->query($sql)) {
+                echo "Datos insertados correctamente en la tabla cita.";
+            } else {
+                echo "Error al insertar datos en la tabla cita: " . mysqli_error($conexion);
+            }
+
+            return true;
+        }
+
+        insertarCita($conexion, "psicologo", "presencial", "871444555", "Me duele la tripa", "2024-04-04", "NULL", "paciente1@paciente.com", "1");
+        insertarCita($conexion, "psiquiatra", "presencial", "871123456", "Depresión leve", "2024-03-01", "Asisas", "paciente2@paciente.com", "3");
+        insertarCita($conexion, "psicologo", "presencial", "871987654", "Ansiedad", "2024-03-05", "NULL", "paciente3@paciente.com", "1");
+        insertarCita($conexion, "psicologo", "telefónica", "871555444", "Problemas de pareja", "2024-03-07", "NULL", "paciente4@paciente.com", "4");
+        insertarCita($conexion, "psiquiatra", "presencial", "871888999", "Trastorno obsesivo-compulsivo", "2024-03-10", "NULL", "paciente5@paciente.com", "3");
+        insertarCita($conexion, "psicologo", "videoconsulta", "871222333", "Estrés laboral", "2024-03-15", "NULL", "paciente6@paciente.com", "2");
+        insertarCita($conexion, "psiquiatra", "presencial", "871333666", "Trastorno bipolar", "2024-03-20", "NULL", "paciente7@paciente.com", "3");
+        insertarCita($conexion, "psicologo", "presencial", "871111222", "Trastorno de ansiedad generalizada", "2024-03-25", "NULL", "paciente8@paciente.com", "1");
+        insertarCita($conexion, "psiquiatra", "telefónica", "871444777", "Esquizofrenia", "2024-03-28", "NULL", "paciente9@paciente.com", "5");
+        insertarCita($conexion, "psiquiatra", "presencial", "871666999", "Trastorno de estrés postraumático", "2024-03-30", "NULL", "paciente10@paciente.com", "3");
+        insertarCita($conexion, "psicologo", "presencial", "871777888", "Trastorno de la personalidad", "2024-04-01", "NULL", "paciente1@paciente.com", "1");
 
 
 
