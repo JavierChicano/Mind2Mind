@@ -12,8 +12,9 @@ if (isset($_POST['funcion'])) {
     $contrasena = "";
     $base_datos = "mind2mind";
 
-    $conexion = new mysqli($host, $usuario, $contrasena, $base_datos);
-
+    $conexion = new mysqli($host, $usuario, $contrasena, $base_datos);  
+    $mensaje = null;
+    $correoElectronico = null;
     // Verificar la conexión
     if ($conexion->connect_error) {
         die("La conexión a la base de datos ha fallado: " . $conexion->connect_error);
@@ -126,6 +127,44 @@ if (isset($_POST['funcion'])) {
                         $response = array('status' => 'error', 'message' => 'Error al eliminar la cita: ' . $conexion->error);
                     }
                     break;
+
+                case 'enviarMensajeAlServidor':
+                        echo json_encode(array(
+                            'usuario' => $usuario,
+                            'mensaje' => $mensaje,
+                            'correoElectronico' => $correoElectronico
+                        ));
+                        $usuario = $_POST['usuario'];
+                        $mensaje = $_POST['mensaje'];
+                        $correoElectronico = $_POST['correoElectronico'];
+                        $idMedico = $_POST['idMedico'];
+                        
+                            $sqlInsertarMensaje = "INSERT INTO chat (usuario, mensaje, correoElectronico, idMedico)
+                                                   VALUES ('$usuario', '$mensaje', '$correoElectronico', '$idMedico')";
+                        
+                            if ($conexion->query($sqlInsertarMensaje)) {
+                                $response = array('status' => 'success', 'message' => 'Mensaje enviado correctamente');
+                            } else {
+                                $response = array('status' => 'error', 'message' => 'Error al enviar el mensaje: ' . $conexion->error);
+                            }
+                            break;
+        case 'mostrarDatosChat':
+            $correoElectronico = $_POST['correoElectronico'];
+            $idMedico = $_POST['idMedico'];
+                
+            $sqlMensajes = "SELECT * FROM chat WHERE correoElectronico = '$correoElectronico' AND idMedico = $idMedico ORDER BY fecha";
+            $resultadoMensajes = $conexion->query($sqlMensajes);
+                
+            if ($resultadoMensajes->num_rows > 0) {
+                $mensajes = array();
+                while ($mensaje = $resultadoMensajes->fetch_assoc()) {
+                    $mensajes[] = $mensaje;
+                }
+                $response = array('status' => 'success', 'mensajes' => $mensajes);
+            } else {
+                $response = array('status' => 'error', 'message' => 'No se encontraron mensajes para el usuario y médico proporcionados');
+            }
+            break;
         
         default:
             // Manejar el caso por defecto (si la función no coincide con ninguna)

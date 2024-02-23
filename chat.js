@@ -191,7 +191,8 @@ function mostrarMensajes(mensajes) {
     if (mensajes.length > 0) {
         mensajes.forEach(function(mensaje) {
             var nuevoMensaje = document.createElement("p");
-            nuevoMensaje.className = (mensaje.correoElectronico === sessionStorage.getItem("correoUsuario")) ? "enviar" : "recibir";
+            nuevoMensaje.className = (mensaje.usuario === sessionStorage.getItem("correoUsuario")) ? "enviar" : "recibir";
+            nuevoMensaje.className = (mensaje.usuario === sessionStorage.getItem("idMedico")) ? "recibir" : "enviar";
             nuevoMensaje.innerHTML = "<span>" + mensaje.mensaje + "</span>";
             mensajesChat.appendChild(nuevoMensaje);
         });

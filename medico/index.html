@@ -14,8 +14,8 @@
         @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
         @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
     </style>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="../styleHF.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../styleHF.css">
 </head>
 
 <body>
@@ -39,10 +39,15 @@
             <div id="chatMedico">
                 <h2 id="nombrePaciente">Chat paciente: </h2>
                 <aside id="chat">
-                    <p class="recibir">
-                        <span>Buenos dias, en que puedo ayudarte!</span>
-                    </p>
-                    
+                    <div id="mensajesChat">
+                        <p class="recibir">
+                            <span>Buenos días, ¿en qué puedo ayudarte?</span>
+                        </p>
+                        <p class="enviar">
+                            <span></span>
+                        </p>
+                    </div>
+
                     <form id="formularioChat">
                         <input type="text" id="mensaje" placeholder="Escribe tu mensaje aquí" />
                         <button type="submit">Enviar</button>
@@ -55,13 +60,15 @@
                 <h3>Seleccionar otro paciente</h3>
                 <select id="selectsPacientes"></select>
             </div>
-            <div id="citasPaciente"><h2>Próximas citas</h2>
+            <div id="citasPaciente">
+                <h2>Próximas citas</h2>
                 <aside>
                     <p id="numConsultas">Totales: </p>
-                    <p id="numConsultasPaciente"> Paciente: </p></aside>
+                    <p id="numConsultasPaciente"> Paciente: </p>
+                </aside>
                 <select id="selectsCitas"></select>
                 <span id="eliminarCita">Eliminar Cita</span>
-                
+
             </div>
         </section>
     </main>

@@ -255,27 +255,6 @@ if (isset($_POST['funcion'])) {
                 }
                 break;
 
-        case 'enviarMensajeAlServidor':
-            echo json_encode(array(
-                'usuario' => $usuario,
-                'mensaje' => $mensaje,
-                'correoElectronico' => $correoElectronico
-            ));
-            $usuario = $_POST['usuario'];
-            $mensaje = $_POST['mensaje'];
-            $correoElectronico = $_POST['correoElectronico'];
-            $idMedico = $_POST['idMedico'];
-            
-                $sqlInsertarMensaje = "INSERT INTO chat (usuario, mensaje, correoElectronico, idMedico)
-                                       VALUES ('$usuario', '$mensaje', '$correoElectronico', $idMedico)";
-            
-                if ($conexion->query($sqlInsertarMensaje)) {
-                    $response = array('status' => 'success', 'message' => 'Mensaje enviado correctamente');
-                } else {
-                    $response = array('status' => 'error', 'message' => 'Error al enviar el mensaje: ' . $conexion->error);
-                }
-                break;
-
         default:
             // Manejar el caso por defecto (si la función no coincide con ninguna)
             break;
