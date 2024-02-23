@@ -20,24 +20,24 @@
 </head>
 
 <body>
-  <header>
-    <a href='index.html'><img src="img/logo.png" id="logo" alt="Logo Mind2Mind" /></a>
-    <h1><a href='index.html'>MIND 2 MIND</a></h1>
-    <div id="barraBusqueda">
-        <img src="img/calendar-month.png" alt="Icono Calendario">
-        <p><a href='pedirCita.html'>Pedir Cita</a></p>
-    </div>
-    <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" alt="Icono Menu Hamburguesa" /></span>
-    <nav class="nav" id="nav">
-        <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" alt="Icono Menu Hamburguesa" /></span>
-        <ul class="nav-list">
-            <li><a href='acercaDe.html'>Acerca de</a></li>
-            <li><a href='tratamientos.html'>Tratamientos</a></li>
-            <li><a href='servicios.html'>Servicios</a></li>
-            <!-- Abrir ventana modal -->
-            <li>
-                <a id="account" href='perfil/perfilMain.html'><img src="img/user.png" alt="Icono Usuario"></a>
-            </li>
+    <header>
+        <a href='index.html'><img src="img/logo.png" id="logo" alt="Logo Mind2Mind" /></a>
+        <h1><a href='index.html'>MIND 2 MIND</a></h1>
+        <div id="barraBusqueda">
+            <img src="img/calendar-month.png" alt="Icono Calendario">
+            <p><a href='pedirCita.html'>Pedir Cita</a></p>
+        </div>
+        <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" alt="Icono Menu Hamburguesa" /></span>
+        <nav class="nav" id="nav">
+            <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" alt="Icono Menu Hamburguesa" /></span>
+            <ul class="nav-list">
+                <li><a href='acercaDe.html'>Acerca de</a></li>
+                <li><a href='tratamientos.html'>Tratamientos</a></li>
+                <li><a href='servicios.html'>Servicios</a></li>
+                <!-- Abrir ventana modal -->
+                <li>
+                    <a id="account" href='perfil/perfilMain.html'><img src="img/user.png" alt="Icono Usuario"></a>
+                </li>
                 <li><a class="openRegistro">Regístrate</a></li>
                 <li><a class="openLogIn">Inicia sesión</a></li>
             </ul>
@@ -45,20 +45,20 @@
     </header>
     <!-- Contenedores Registro -->
     <div class="modal-Registro" id="modal-Registro">
-      <div class="modalRegistro">
-          <span class="closeRegistro"><img src="img/closeWindow.png"></span>
-          <section>
-              <span id="imgModal"><img class="imgLogo" src="img/logo.png"></span>
-              <article>
-                  <h1>Crea tu cuenta</h1>
-                  <section id="registroRedes">
-                      <img src="img/RedesLogIn/brand-google.png">
-                      <img src="img/RedesLogIn/brand-meta.png">
-                      <img src="img/RedesLogIn/brand-x.png">
-                      <img src="img/RedesLogIn/brand-apple.png">
-                  </section>
-                  <hr>
-                  <span id="centrarForm">
+        <div class="modalRegistro">
+            <span class="closeRegistro"><img src="img/closeWindow.png"></span>
+            <section>
+                <span id="imgModal"><img class="imgLogo" src="img/logo.png"></span>
+                <article>
+                    <h1>Crea tu cuenta</h1>
+                    <section id="registroRedes">
+                        <img src="img/RedesLogIn/brand-google.png">
+                        <img src="img/RedesLogIn/brand-meta.png">
+                        <img src="img/RedesLogIn/brand-x.png">
+                        <img src="img/RedesLogIn/brand-apple.png">
+                    </section>
+                    <hr>
+                    <span id="centrarForm">
             <form action="#" method="post" id="formRegistro">
               <div id="displayErroresRegistro" class="error-message"></div>
               <input type="text" id="nombreRegistro" name="nombre" placeholder="Nombre" required>
@@ -75,31 +75,31 @@
                   <input type="checkbox" id="aceptoTerminosRegistro" name="aceptoTerminos" required>
                   <p for="aceptoTerminos">Acepto los &nbsp<a href='politicaPrivacidad.html'>términos y condiciones</a></p>
               </span>
-                  <input type="submit" value="Crear cuenta">
-                  </form>
-                  </span>
-                  <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
-              </article>
-          </section>
-      </div>
-  </div>
-  <!-- Contenedores Login -->
-  <div class="modal-LogIn" id="modal-LogIn">
-      <div class="modalLogIn">
-          <span class="closeLogIn"><img src="img/closeWindow.png" id="cerrarL"></span>
-          <section>
-              <span id="imgModal"><img src="img/logo.png"></span>
-              <article>
-                  <h1>Inicia sesión</h1>
-                  <section id="registroRedes">
-                      <img src="img/RedesLogIn/brand-google.png">
-                      <img src="img/RedesLogIn/brand-meta.png">
-                      <img src="img/RedesLogIn/brand-x.png">
-                      <img src="img/RedesLogIn/brand-apple.png">
-                  </section>
-                  <hr>
-                  <div id="displayErroresLogin" class="error-message"></div>
-                  <span id="centrarForm2">
+                    <input type="submit" value="Crear cuenta">
+                    </form>
+                    </span>
+                    <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
+                </article>
+            </section>
+        </div>
+    </div>
+    <!-- Contenedores Login -->
+    <div class="modal-LogIn" id="modal-LogIn">
+        <div class="modalLogIn">
+            <span class="closeLogIn"><img src="img/closeWindow.png" id="cerrarL"></span>
+            <section>
+                <span id="imgModal"><img src="img/logo.png"></span>
+                <article>
+                    <h1>Inicia sesión</h1>
+                    <section id="registroRedes">
+                        <img src="img/RedesLogIn/brand-google.png">
+                        <img src="img/RedesLogIn/brand-meta.png">
+                        <img src="img/RedesLogIn/brand-x.png">
+                        <img src="img/RedesLogIn/brand-apple.png">
+                    </section>
+                    <hr>
+                    <div id="displayErroresLogin" class="error-message"></div>
+                    <span id="centrarForm2">
             <form action="#" method="post" id="formLogIn">
             
               <input type="email" id="emailLogin" name="email" placeholder="Correo electrónico" required>
@@ -112,11 +112,11 @@
               <input type="submit" value="Entrar en mi cuenta">
             </form>
           </span>
-                  <p>¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro">Crea tu cuenta</a></p>
-              </article>
-          </section>
-      </div>
-  </div>
+                    <p>¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro">Crea tu cuenta</a></p>
+                </article>
+            </section>
+        </div>
+    </div>
     <main>
         <section id="headerTratamientos">
             <div class="linksTratamientos">
@@ -132,7 +132,7 @@
         <section id="videollamadas">
             <span class="centrarTituloServicios"> <h1>Videollamadas</h1> </span>
             <div>
-                <input type="text" id="mensaje" placeholder="Escribe tu mensaje aquí" />
+                <!-- <input type="text" id="mensaje" placeholder="Escribe tu mensaje aquí" /> -->
                 <button type="submit" id="botonVideollamadas">Enviar</button>
             </div>
             <img src="img/servicios/Composicion.png" alt="Imagen Videollamada" />
@@ -186,7 +186,7 @@
       </span>
         <section id="seccionChat">
             <aside id="visualizacionChat">
-                <img id="imgDoctor" src="img/Equipo/1.png" alt="Imagen del Dr. Garcia Vaquero"/>
+                <img id="imgDoctor" src="img/Equipo/1.png" alt="Imagen del Dr. Garcia Vaquero" />
 
                 <span id="centrarBotones">
             <button id="nextDoctorIzquierda" class="botonDoctores">&lt;</button>
@@ -202,20 +202,15 @@
                 </article>
             </aside>
             <div id="chat">
-                <p class="recibir">
-                    <span>Buenos dias, en que puedo ayudarte!</span>
-                </p>
-                <p class="enviar"><span>Tengo un problema mental</span></p>
-                <p class="recibir"><span>Entiendo, para eso estamos</span></p>
-                <p class="recibir">
-                    <span>Intentaremos darte el mejor tratamiento posible</span>
-                </p>
-                <p class="enviar">
-                    <span>Muchas gracias por la ayuda y compromiso</span>
-                </p>
-                <p class="enviar">
-                    <span>Esta pagina web es la mejor del mundo</span>
-                </p>
+                <div id="mensajesChat">
+                    <p class="recibir">
+                        <span>Buenos días, ¿en qué puedo ayudarte?</span>
+                    </p>
+                    <p class="enviar">
+                        <span></span>
+                    </p>
+                </div>
+
                 <form id="formularioChat">
                     <input type="text" id="mensaje" placeholder="Escribe tu mensaje aquí" />
                     <button type="submit">Enviar</button>
@@ -246,12 +241,12 @@
 
         <!-- Seccion Social Media -->
         <section id="seccionSocialMedia">
-          <a href='index.html'><img src="img/logo.png" id="logo" alt="Logo de Mind2Mind" /></a>
-          <article id="socialMedia">
-              <img src="img/mail.png" alt="Icono de Gmail">
-              <img src="img/instagram.png" alt="Icono de Instagram">
-              <img src="img/x.png" alt="Icono de X">
-          </article>
+            <a href='index.html'><img src="img/logo.png" id="logo" alt="Logo de Mind2Mind" /></a>
+            <article id="socialMedia">
+                <img src="img/mail.png" alt="Icono de Gmail">
+                <img src="img/instagram.png" alt="Icono de Instagram">
+                <img src="img/x.png" alt="Icono de X">
+            </article>
         </section>
         <article>
             Centro de Salud Mental autorizado por la Conserjería de Sanidad de la Comunidad de Madrid
@@ -263,6 +258,7 @@
     </script>
     <script src="gestionInformacion.js"></script>
     <script src="header.js"></script>
+    <script src="chat.js"></script>
 </body>
 
 </html>

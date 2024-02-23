@@ -649,7 +649,7 @@ function insertarPedirCita(
                 //Acciones que hace si es erroneo la consulta
                 // displayErrores.textContent = response.message;
                 console.log(response.message);
-                console.log("respuesta: "+response)
+                console.log("respuesta: " + response)
 
             }
         },
@@ -723,14 +723,10 @@ if (sesionIniciada === "true") {
     }
 }
 
-// Inicializar el índice del doctor en 0
-let doctorIndex = 0;
-
-// Definir la cantidad total de doctores (puedes ajustar esto según tus necesidades)
-const cantidadDoctores = 5;
-
+var doctor;
+var doctorIndex = 0;
 // Función para obtener datos del doctor desde la base de datos mediante una solicitud AJAX
-function obtenerDatosDoctor(idDoctor) {
+function obtenerDatosDoctor() {
     // Realizar una solicitud AJAX utilizando jQuery
     console.log("doctor");
 
@@ -739,13 +735,16 @@ function obtenerDatosDoctor(idDoctor) {
         url: "BBDD/selectsDatos.php",
         data: {
             funcion: "obtenerDoctor",
-            idDoctor: idDoctor,
         },
         success: function(response) {
             // Comprobacion de la consulta
             if (response.status === "success") {
                 // Mostrar los datos en servicios.html
-                mostrarDatosDoctor(response.doctor);
+                mostrarDatosDoctor(response.doctores, 0);
+                doctor = response.doctores;
+                console.log("Array: " + doctor);
+                console.log("Servidor " + response);
+
             } else {
                 // Acciones que hace si es erróneo el inicio de sesión
                 console.error("Error en la consulta:", response.message);
@@ -757,32 +756,47 @@ function obtenerDatosDoctor(idDoctor) {
     });
 }
 
-function mostrarDatosDoctor(doctor) {
-    // Actualizar elementos HTML en servicios.html con la información del doctor
-    $("#imgDoctor").attr("src", "img/Equipo/" + doctor.imagen);
-    $("#nombreDoctor").text(doctor.nombre);
-    $("#modalidad").text(doctor.modalidad);
-    $("#horario").text("Horario: " + doctor.horario);
-    $("#especialidad").text("Especialidad: " + doctor.especialidad);
+
+function mostrarDatosDoctor(doctor, doctorIndex) {
+    console.log("Indice doctores: " + doctorIndex);
+    console.log("Array doctor:" + doctor);
+    // Verificar que el índice esté en el rango correcto
+    if (doctorIndex >= 0 && doctorIndex < doctor.length) {
+        // Obtener el doctor actual
+        var doctor = doctor[doctorIndex];
+
+        // Actualizar elementos HTML en servicios.html con la información del doctor
+        $("#imgDoctor").attr("src", "img/Equipo/" + doctor.imagen);
+        $("#nombreDoctor").text(doctor.nombre);
+        $("#modalidad").text(doctor.modalidad);
+        $("#horario").text("Horario: " + doctor.idMedico);
+        $("#especialidad").text("Especialidad: " + doctor.especialidad);
+        sessionStorage.setItem("idMedico", doctor.idMedico);
+    } else {
+        console.error("Índice de doctor fuera de rango.");
+    }
+
 }
+
 var botonDerecha = document.getElementById("nextDoctorDerecha");
 var botonIzquierda = document.getElementById("nextDoctorIzquierda");
 
 if (botonDerecha && botonIzquierda) {
+    obtenerDatosDoctor();
     // Evento de clic para la flecha derecha
     botonDerecha.addEventListener("click", function() {
         // Incrementar el índice del doctor y ajustarlo al rango de doctores disponibles
-        doctorIndex = (doctorIndex + 1) % cantidadDoctores;
+        doctorIndex = (doctorIndex + 1) % doctor.length;
         // Obtener y mostrar los datos del nuevo doctor
-        obtenerDatosDoctor(doctorIndex);
+        mostrarDatosDoctor(doctor, doctorIndex);
     });
 
     // Evento de clic para la flecha izquierda
     botonIzquierda.addEventListener("click", function() {
         // Decrementar el índice del doctor y ajustarlo al rango de doctores disponibles
-        doctorIndex = (doctorIndex - 1 + cantidadDoctores) % cantidadDoctores;
+        doctorIndex = (doctorIndex - 1 + doctor.length) % doctor.length;
         // Obtener y mostrar los datos del nuevo doctor
-        obtenerDatosDoctor(doctorIndex);
+        mostrarDatosDoctor(doctor, doctorIndex);
     });
 }
 
