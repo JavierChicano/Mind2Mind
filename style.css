@@ -1894,20 +1894,26 @@ h1 {
 #chat {
     width: 65%;
     display: flex;
-    align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     flex-direction: column;
     background-color: var(--colorBaseClaro);
     border-radius: 0 24px;
     border: 1px solid black;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 2);
-    padding: 10px 50px;
+    padding: 10px 40px;
+    max-height: 90%;
+    overflow-y: hidden;
+}
+
+#mensajesChat {
+    overflow-y: auto;
+    max-height: 520px;
 }
 
 .recibir {
     display: flex;
     width: 100%;
-    justify-content: start;
+    justify-content: flex-start;
     margin-bottom: 20px;
 }
 

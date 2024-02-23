@@ -20,7 +20,8 @@ if (isset($_POST['funcion'])) {
     }
 
     // Inicializar las variables
-    $nombre = $apellidos = $email = $password = $dni = $telefono = $provincia = $domicilio = $sexo = $profesional = $modalidad = $diagnostico = $fConsulta = $poseeAseguradora = $aseguradora = $consulta = "";
+    $nombre = $apellidos = $email = $password = $dni = $telefono = $provincia = $domicilio = $sexo = $profesional = $modalidad = $diagnostico = $fConsulta = $poseeAseguradora = $aseguradora = $consulta = $usuario = $mensaje = $correoElectronico = $idMedico = $fecha = "";
+    
 
     switch ($funcion) {
         case 'registro':
@@ -233,6 +234,27 @@ if (isset($_POST['funcion'])) {
             }
             break;
 
+        case 'enviarMensajeAlServidor':
+            echo json_encode(array(
+                'usuario' => $usuario,
+                'mensaje' => $mensaje,
+                'correoElectronico' => $correoElectronico
+            ));
+            $usuario = $_POST['usuario'];
+            $mensaje = $_POST['mensaje'];
+            $correoElectronico = $_POST['correoElectronico'];
+            $idMedico = $_POST['idMedico'];
+            
+                $sqlInsertarMensaje = "INSERT INTO chat (usuario, mensaje, correoElectronico, idMedico)
+                                       VALUES ('$usuario', '$mensaje', '$correoElectronico', $idMedico)";
+            
+                if ($conexion->query($sqlInsertarMensaje)) {
+                    $response = array('status' => 'success', 'message' => 'Mensaje enviado correctamente');
+                } else {
+                    $response = array('status' => 'error', 'message' => 'Error al enviar el mensaje: ' . $conexion->error);
+                }
+                break;
+
         default:
             // Manejar el caso por defecto (si la función no coincide con ninguna)
             break;
@@ -240,7 +262,7 @@ if (isset($_POST['funcion'])) {
 
     // Enviar la respuesta como JSON
     header('Content-Type: application/json');
-    echo json_encode($response);
+    echo json_encode($response, JSON_FORCE_OBJECT);
 
     // Cerrar la conexión
     $conexion->close();

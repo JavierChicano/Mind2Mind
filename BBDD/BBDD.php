@@ -145,6 +145,28 @@ if ($resultado->num_rows == 0) {
         $conexion->query($sqlTestimonio);
         $conexion->query($sqlChat);
 
+
+    // Función para insertar un paciente
+    function insertarPaciente($conexion, $correoElectronico, $nombre, $apellidos, $contraseña, $dni, $provincia, $domicilio, $codigo_postal, $genero)
+    {
+        $sql = "INSERT INTO paciente (correoElectronico,nombre, apellidos, contraseña, dni, provincia, domicilio, codigo_postal, genero)
+                VALUES ('$correoElectronico','$nombre', '$apellidos', '$contraseña', '$dni', '$provincia', '$domicilio', '$codigo_postal', '$genero')";
+
+        if ($conexion->query($sql) === TRUE) {
+            echo "Datos insertados correctamente, en paciente.<br>";
+        } else {
+            die("Error al insertar datos, en paciente: " . $conexion->error);
+        }
+
+        return true;
+    }
+
+    //Insertar datos de paciente
+    insertarPaciente($conexion, "juancortes1bx@hotmail.es" ,"Juan", "Cortés", "cristina18", "54480598S", "Madrid", "Pozuelo", 28224, "Hombre");
+    insertarPaciente($conexion, "p@hotmail.es" ,"p", "p", "p", "54480598L", "Madrid", "Pozuelo", 28224, "Hombre");
+
+
+
      // Función para insertar un especialista
     function insertarEspecialista($conexion, $nombre, $apellidos, $modalidad, $horario, $especialidad, $ubicacion, $imagen)
     {

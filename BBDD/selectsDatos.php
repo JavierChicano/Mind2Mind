@@ -45,16 +45,19 @@ if (isset($_POST['funcion'])) {
             break;
         case 'obtenerDoctor':
             // En caso de obtener información del doctor
-            $doctorIndex = $_POST['idDoctor'];
-
             // Consultar la base de datos para obtener la información del doctor
-            $sql = "SELECT * FROM especialista LIMIT 1 OFFSET $doctorIndex";
+            $sql = "SELECT * FROM especialista";
             $resultado = $conexion->query($sql);
 
             if ($resultado->num_rows > 0) {
-                // Si se encuentran datos del doctor, asignar la respuesta de éxito a la variable $response
-                $doctor = $resultado->fetch_assoc();
-                $response = array('status' => 'success', 'doctor' => $doctor);
+                // Si se encuentran datos de doctores, asignar la respuesta de éxito a la variable $response
+                $doctores = array();
+        
+                // Iterar a través de los resultados y agregar cada doctor al array
+                while ($doctor = $resultado->fetch_assoc()) {
+                    $doctores[] = $doctor;
+                }
+                $response = array('status' => 'success', 'doctores' => $doctores);
             } else {
                 // Si no se encuentra el doctor, asignar la respuesta de error a la variable $response
                 $response = array('status' => 'error', 'message' => 'Doctor no encontrado');
@@ -225,7 +228,26 @@ if (isset($_POST['funcion'])) {
                 $response = array('status' => 'error', 'message' => 'No se encontraron Terapias no asociadas para el correo electrónico proporcionado');
             }
             break;
-
+        
+        case 'mostrarDatosChat':
+            $correoElectronico = $_POST['correoElectronico'];
+            $idMedico = $_POST['idMedico'];
+                
+            $sqlMensajes = "SELECT * FROM chat WHERE correoElectronico = '$correoElectronico' AND idMedico = $idMedico ORDER BY fecha";
+            $resultadoMensajes = $conexion->query($sqlMensajes);
+                
+            if ($resultadoMensajes->num_rows > 0) {
+                $mensajes = array();
+                while ($mensaje = $resultadoMensajes->fetch_assoc()) {
+                    $mensajes[] = $mensaje;
+                }
+                $response = array('status' => 'success', 'mensajes' => $mensajes);
+            } else {
+                $response = array('status' => 'error', 'message' => 'No se encontraron mensajes para el usuario y médico proporcionados');
+            }
+            break;
+        
+            
 
     }
 
