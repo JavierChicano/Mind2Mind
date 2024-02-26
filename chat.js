@@ -1,87 +1,11 @@
-// $(document).ready(function() {
-//     // Actualiza el intervalo de actualización según tus necesidades
-//     setInterval(cargarMensajes, 1000);
-
-//     $("#formularioChat").submit(function(e) {
-//         e.preventDefault();
-//         enviarMensaje();
-//     });
-// });
-
-// function enviarMensaje() {
-//     var mensaje = $("#mensaje").val();
-//     var correoElectronico = sessionStorage.getItem("correoUsuario");
-//     var idMedico = sessionStorage.getItem("idMedico");
-
-//     if (mensaje.trim() !== "") {
-//         // Envia el mensaje al servidor
-//         $.ajax({
-//             url: "insertarDatos.php",
-//             type: "POST",
-//             data: {
-//                 funcion: "enviarMensaje",
-//                 usuario: correoElectronico, // Cambié "usuario" a "correoElectronico"
-//                 mensaje: mensaje,
-//                 correoElectronico: correoElectronico,
-//                 idMedico: idMedico,
-//             },
-//             success: function() {
-//                 cargarMensajes();
-//                 // Limpiar el campo de mensaje después de enviar
-//                 $("#mensajeChat").val("");
-//                 // Actualiza los mensajes después de enviar uno nuevo
-//             },
-//             error: function(error) {
-//                 console.error("Error al enviar mensaje:", error);
-//             },
-//         });
-//     }
-// }
-
-// function cargarMensajes() {
-//     var correoElectronico = sessionStorage.getItem("correoUsuario");
-//     var idMedico = sessionStorage.getItem("idMedico");
-
-//     $.ajax({
-//         url: "selectsDatos.php",
-//         type: "POST",
-//         data: {
-//             funcion: "mostrarDatosChat",
-//             correoElectronico: correoElectronico,
-//             idMedico: idMedico,
-//         },
-//         success: function(data) {
-//             if (data.status === 'success') {
-//                 mostrarMensajes(data.mensajes);
-//             } else {
-//                 console.error("Error al obtener mensajes:", data.message);
-//             }
-//         },
-//         error: function(error) {
-//             console.error("Error al obtener mensajes:", error);
-//         },
-//     });
-// }
-
-// function mostrarMensajes(mensajes) {
-//     var mensajesHTML = "";
-
-//     mensajes.forEach(function(mensaje) {
-//         mensajesHTML += '<p class="' + mensaje.usuario.toLowerCase() + '"><span>' + mensaje.mensaje + '</span></p>';
-//     });
-
-//     $("#mensajesChat").html(mensajesHTML);
-// }
-
-// function setSessionInformation(usuario, correoElectronico, idMedico) {
-//     sessionStorage.setItem("usuario", usuario);
-//     sessionStorage.setItem("correoElectronico", correoElectronico);
-//     sessionStorage.setItem("idMedico", idMedico);
-// }
-
-// setSessionInformation("paciente", "juancortes1bx@hotmail.es", 1);
-
-
+//Quitar el bloqueo del chat
+document.addEventListener("DOMContentLoaded", function() {
+    if(sessionStorage.getItem("sesionIniciada")==="true"){
+        document.getElementById("bloqueoChat").style.display="none";
+    }else {
+        document.getElementById("bloqueoChat").style.display="flex";
+    }
+});
 // Función para enviar el mensaje al servidor usando AJAX
 function enviarMensajeAlServidor(usuario, mensaje, correoElectronico, idMedico) {
     var idMedico = sessionStorage.getItem("idMedico");

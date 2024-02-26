@@ -1909,7 +1909,18 @@ h1 {
     overflow-y: auto;
     max-height: 520px;
 }
-
+#bloqueoChat{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 89.5%;
+    display: flex;
+    justify-content: center;
+    height: 64.5%;
+    align-items: center;
+    font-size: 80px;
+    color: white;
+    border-radius: 0 24px;
+}
 .recibir {
     display: flex;
     width: 100%;

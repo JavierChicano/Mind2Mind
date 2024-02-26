@@ -167,7 +167,7 @@ function consultaEditarPerfil() {
         success: function(response) {
             //Comprobacion de la consulta
             if (response.status === "success") {
-                mostrarPerfil(response.paciente);
+                mostrarPerfil(response.paciente, response.contraseña);
             } else {
                 //Acciones que hace si es erroneo el login
                 console.log(response.message);
@@ -179,14 +179,14 @@ function consultaEditarPerfil() {
     });
 }
 
-function mostrarPerfil(email) {
-    // Actualizar elementos HTML en servicios.html con la información del doctor
+function mostrarPerfil(email, contraseña) {
+     console.log("hola buenas: : : :: : :"+contraseña)
     $("#correoElectronico")
         .val(email.correoElectronico || "")
         .prop("disabled", true);
     $("#nombre").val(email.nombre || "");
     $("#apellidos").val(email.apellidos || "");
-    $("#contraseña").val(email.contraseña || "");
+    $("#contraseña").val(contraseña || "");
     $("#dni").val(email.dni || "");
     $("#provincia").val(email.provincia || "");
     $("#domicilio").val(email.domicilio || "");
@@ -414,7 +414,7 @@ function logout() {
 
     botonLogOut.addEventListener("click", function() {
         // Establecer la sesión como no iniciada
-        sessionStorage.setItem("sesionIniciada", "false");
+        sessionStorage.clear();
         // Recargar la página para restaurar el estado inicial
         window.location.href = "../index.html";
     });

@@ -23,16 +23,17 @@ if (isset($_POST['funcion'])) {
         case 'login':
             $email = $_POST['email'];
             $password = $_POST['password'];
-        
-            // Consulta SQL para verificar si el correo electrónico existe y la contraseña coincide
+
+            // Consulta SQL para verificar si el correo electrónico existe
             $sql = "SELECT * FROM paciente WHERE correoElectronico = '$email'";
             $resultado = $conexion->query($sql);
-        
+
             if ($resultado->num_rows > 0) {
                 // El correo electrónico existe, ahora verificamos la contraseña
                 $row = $resultado->fetch_assoc();
-                if ($row['contraseña'] == $password) {
-                    // El correo electrónico y la contraseña coinciden
+                $hashedPassword = $row['contraseña'];
+                if (password_verify($password, $hashedPassword)) {
+                    // La contraseña coincide
                     // Verificar si las credenciales coinciden con alguna de las 5 duplas específicas
                     $duplas_admin = array(
                         "admin1@doctor.com" => "admin1",
@@ -57,7 +58,8 @@ if (isset($_POST['funcion'])) {
                 $response = array('status' => 'error', 'message' => 'Correo no existente');
             }
             break;
-        
+
+
         case 'obtenerDoctor':
             // En caso de obtener información del doctor
             // Consultar la base de datos para obtener la información del doctor
@@ -67,7 +69,7 @@ if (isset($_POST['funcion'])) {
             if ($resultado->num_rows > 0) {
                 // Si se encuentran datos de doctores, asignar la respuesta de éxito a la variable $response
                 $doctores = array();
-        
+
                 // Iterar a través de los resultados y agregar cada doctor al array
                 while ($doctor = $resultado->fetch_assoc()) {
                     $doctores[] = $doctor;
@@ -104,26 +106,17 @@ if (isset($_POST['funcion'])) {
 
             if ($resultado->num_rows > 0) {
                 $paciente = $resultado->fetch_assoc();
-                $response = array('status' => 'success', 'paciente' => $paciente);
+                // Eliminar la contraseña del resultado si no deseas pasarla hasheada
+                $contraseña = $paciente['contraseña'];
+                unset($paciente['contraseña']);
+                $contraseña_deshasheada = password_verify($contraseña, PASSWORD_DEFAULT);
+                $response = array('status' => 'success', 'paciente' => $paciente, 'contraseña' => $contraseña);
             } else {
                 // No se encontró el correo electrónico
                 $response = array('status' => 'error', 'message' => 'Error en la consulta');
             }
             break;
-        case 'mostrarPaciente':
-            $email = $_POST['email'];
-            // Consulta SQL para verificar si el correo electrónico existe y la contraseña coincide
-            $sql = "SELECT * FROM paciente WHERE correoElectronico = '$email'";
-            $resultado = $conexion->query($sql);
 
-            if ($resultado->num_rows > 0) {
-                $paciente = $resultado->fetch_assoc();
-                $response = array('status' => 'success', 'paciente' => $paciente);
-            } else {
-                // No se encontró el correo electrónico
-                $response = array('status' => 'error', 'message' => 'Error en la consulta');
-            }
-            break;
         case 'comprobarCuentaPedirCita':
             $email = $_POST['email'];
 
@@ -293,14 +286,14 @@ if (isset($_POST['funcion'])) {
                 $response = array('status' => 'error', 'message' => 'No se encontraron registros para eliminar');
             }
             break;
-        
+
         case 'mostrarDatosChat':
             $correoElectronico = $_POST['correoElectronico'];
             $idMedico = $_POST['idMedico'];
-                
+
             $sqlMensajes = "SELECT * FROM chat WHERE correoElectronico = '$correoElectronico' AND idMedico = $idMedico ORDER BY fecha";
             $resultadoMensajes = $conexion->query($sqlMensajes);
-                
+
             if ($resultadoMensajes->num_rows > 0) {
                 $mensajes = array();
                 while ($mensaje = $resultadoMensajes->fetch_assoc()) {
@@ -311,8 +304,8 @@ if (isset($_POST['funcion'])) {
                 $response = array('status' => 'error', 'message' => 'No se encontraron mensajes para el usuario y médico proporcionados');
             }
             break;
-        
-            
+
+
 
     }
 

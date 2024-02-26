@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,134 +9,206 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="icon" href="img/logo.png" type="image/x-icon" />
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
     </style>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <a href='index.html'><img src="img/logo.png" id="logo" alt="Logo Mind2Mind" /></a>
-        <h1><a href='index.html'>MIND 2 MIND</a></h1>
-        <div id="barraBusqueda">
-            <img src="img/calendar-month.png" alt="Icono Calendario">
-            <p><a href='pedirCita.html'>Pedir Cita</a></p>
-        </div>
-        <span class="abrir-menu" id="abrir"><img id="hamburguesa" src="img/menuHamburguesa.png" alt="Icono Menu Hamburguesa" /></span>
-        <nav class="nav" id="nav">
-            <span class="cerrar-menu" id="cerrar"><img id="hamburguesa" src="img/menuHamburguesa.png" alt="Icono Menu Hamburguesa" /></span>
-            <ul class="nav-list">
-                <li><a href='acercaDe.html'>Acerca de</a></li>
-                <li><a href='tratamientos.html'>Tratamientos</a></li>
-                <li><a href='servicios.html'>Servicios</a></li>
-                <!-- Abrir ventana modal -->
-                <li>
-                    <a id="account" href='perfil/perfilMain.html'><img src="img/user.png" alt="Icono Usuario"></a>
-                </li>
-                <li><a class="openRegistro">Regístrate</a></li>
-                <li><a class="openLogIn">Inicia sesión</a></li>
-            </ul>
-        </nav>
+      <a href="index.html"
+        ><img src="img/logo.png" id="logo" alt="Logo Mind2Mind"
+      /></a>
+      <h1><a href="index.html">MIND 2 MIND</a></h1>
+      <div id="barraBusqueda">
+        <img src="img/calendar-month.png" alt="Icono Calendario" />
+        <p><a href="pedirCita.html">Pedir Cita</a></p>
+      </div>
+      <span class="abrir-menu" id="abrir"
+        ><img
+          id="hamburguesa"
+          src="img/menuHamburguesa.png"
+          alt="Icono Menu Hamburguesa"
+      /></span>
+      <nav class="nav" id="nav">
+        <span class="cerrar-menu" id="cerrar"
+          ><img
+            id="hamburguesa"
+            src="img/menuHamburguesa.png"
+            alt="Icono Menu Hamburguesa"
+        /></span>
+        <ul class="nav-list">
+          <li><a href="acercaDe.html">Acerca de</a></li>
+          <li><a href="tratamientos.html">Tratamientos</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <!-- Abrir ventana modal -->
+          <li>
+            <a id="account" href="perfil/perfilMain.html"
+              ><img src="img/user.png" alt="Icono Usuario"
+            /></a>
+          </li>
+          <li><a class="openRegistro">Regístrate</a></li>
+          <li><a class="openLogIn">Inicia sesión</a></li>
+        </ul>
+      </nav>
     </header>
     <!-- Contenedores Registro -->
     <div class="modal-Registro" id="modal-Registro">
-        <div class="modalRegistro">
-            <span class="closeRegistro"><img src="img/closeWindow.png"></span>
-            <section>
-                <span id="imgModal"><img class="imgLogo" src="img/logo.png"></span>
-                <article>
-                    <h1>Crea tu cuenta</h1>
-                    <section id="registroRedes">
-                        <img src="img/RedesLogIn/brand-google.png">
-                        <img src="img/RedesLogIn/brand-meta.png">
-                        <img src="img/RedesLogIn/brand-x.png">
-                        <img src="img/RedesLogIn/brand-apple.png">
-                    </section>
-                    <hr>
-                    <span id="centrarForm">
-            <form action="#" method="post" id="formRegistro">
-              <div id="displayErroresRegistro" class="error-message"></div>
-              <input type="text" id="nombreRegistro" name="nombre" placeholder="Nombre" required>
-          
-              <input type="text" id="apellidosRegistro" name="apellidos" placeholder="Apellidos" required>
-          
-              <input type="email" id="emailRegistro" name="email" placeholder="Correo electrónico" required>
-              <div class="mostrarContraseña">
-                  <input type="password" id="passwordRegistro" name="password" placeholder="Contraseña" required>
-                  <i class="bx bx-hide"></i>
-              </div>
-          
-              <span id="checkBox">
-                  <input type="checkbox" id="aceptoTerminosRegistro" name="aceptoTerminos" required>
-                  <p for="aceptoTerminos">Acepto los &nbsp<a href='politicaPrivacidad.html'>términos y condiciones</a></p>
-              </span>
-                    <input type="submit" value="Crear cuenta">
-                    </form>
-                    </span>
-                    <p>¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn">Inicia sesion</a></p>
-                </article>
+      <div class="modalRegistro">
+        <span class="closeRegistro"><img src="img/closeWindow.png" /></span>
+        <section>
+          <span id="imgModal"><img class="imgLogo" src="img/logo.png" /></span>
+          <article>
+            <h1>Crea tu cuenta</h1>
+            <section id="registroRedes">
+              <img src="img/RedesLogIn/brand-google.png" />
+              <img src="img/RedesLogIn/brand-meta.png" />
+              <img src="img/RedesLogIn/brand-x.png" />
+              <img src="img/RedesLogIn/brand-apple.png" />
             </section>
-        </div>
+            <hr />
+            <span id="centrarForm">
+              <form action="#" method="post" id="formRegistro">
+                <div id="displayErroresRegistro" class="error-message"></div>
+                <input
+                  type="text"
+                  id="nombreRegistro"
+                  name="nombre"
+                  placeholder="Nombre"
+                  required
+                />
+
+                <input
+                  type="text"
+                  id="apellidosRegistro"
+                  name="apellidos"
+                  placeholder="Apellidos"
+                  required
+                />
+
+                <input
+                  type="email"
+                  id="emailRegistro"
+                  name="email"
+                  placeholder="Correo electrónico"
+                  required
+                />
+                <div class="mostrarContraseña">
+                  <input
+                    type="password"
+                    id="passwordRegistro"
+                    name="password"
+                    placeholder="Contraseña"
+                    required
+                  />
+                  <i class="bx bx-hide"></i>
+                </div>
+
+                <span id="checkBox">
+                  <input
+                    type="checkbox"
+                    id="aceptoTerminosRegistro"
+                    name="aceptoTerminos"
+                    required
+                  />
+                  <p for="aceptoTerminos">
+                    Acepto los &nbsp<a href="politicaPrivacidad.html"
+                      >términos y condiciones</a
+                    >
+                  </p>
+                </span>
+                <input type="submit" value="Crear cuenta" />
+              </form>
+            </span>
+            <p>
+              ¿Ya tienes una cuenta?&nbsp&nbsp<a id="link-A-LogIn"
+                >Inicia sesion</a
+              >
+            </p>
+          </article>
+        </section>
+      </div>
     </div>
     <!-- Contenedores Login -->
     <div class="modal-LogIn" id="modal-LogIn">
-        <div class="modalLogIn">
-            <span class="closeLogIn"><img src="img/closeWindow.png" id="cerrarL"></span>
-            <section>
-                <span id="imgModal"><img src="img/logo.png"></span>
-                <article>
-                    <h1>Inicia sesión</h1>
-                    <section id="registroRedes">
-                        <img src="img/RedesLogIn/brand-google.png">
-                        <img src="img/RedesLogIn/brand-meta.png">
-                        <img src="img/RedesLogIn/brand-x.png">
-                        <img src="img/RedesLogIn/brand-apple.png">
-                    </section>
-                    <hr>
-                    <div id="displayErroresLogin" class="error-message"></div>
-                    <span id="centrarForm2">
-            <form action="#" method="post" id="formLogIn">
-            
-              <input type="email" id="emailLogin" name="email" placeholder="Correo electrónico" required>
-      
-              <div class="mostrarContraseña">
-                <input type="password" id="passwordLogin" name="password" placeholder="Contraseña" required>
-                <i class="bx bx-hide" id="bx1"></i>
-            </div>
-              
-              <input type="submit" value="Entrar en mi cuenta">
-            </form>
-          </span>
-                    <p>¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro">Crea tu cuenta</a></p>
-                </article>
+      <div class="modalLogIn">
+        <span class="closeLogIn"
+          ><img src="img/closeWindow.png" id="cerrarL"
+        /></span>
+        <section>
+          <span id="imgModal"><img src="img/logo.png" /></span>
+          <article>
+            <h1>Inicia sesión</h1>
+            <section id="registroRedes">
+              <img src="img/RedesLogIn/brand-google.png" />
+              <img src="img/RedesLogIn/brand-meta.png" />
+              <img src="img/RedesLogIn/brand-x.png" />
+              <img src="img/RedesLogIn/brand-apple.png" />
             </section>
-        </div>
+            <hr />
+            <div id="displayErroresLogin" class="error-message"></div>
+            <span id="centrarForm2">
+              <form action="#" method="post" id="formLogIn">
+                <input
+                  type="email"
+                  id="emailLogin"
+                  name="email"
+                  placeholder="Correo electrónico"
+                  required
+                />
+
+                <div class="mostrarContraseña">
+                  <input
+                    type="password"
+                    id="passwordLogin"
+                    name="password"
+                    placeholder="Contraseña"
+                    required
+                  />
+                  <i class="bx bx-hide" id="bx1"></i>
+                </div>
+
+                <input type="submit" value="Entrar en mi cuenta" />
+              </form>
+            </span>
+            <p>
+              ¿No tienes una cuenta?&nbsp&nbsp<a id="link-A-Registro"
+                >Crea tu cuenta</a
+              >
+            </p>
+          </article>
+        </section>
+      </div>
     </div>
     <main>
-        <section id="headerTratamientos">
-            <div class="linksTratamientos">
-                <a href="#videollamadas">Videollamadas</a>
-            </div>
-            <div class="linksTratamientos">
-                <a href="#ayudasID">Ayudas/becas</a>
-            </div>
-            <div class="linksTratamientos">
-                <a href="#chatID">Chat asesoramiento</a>
-            </div>
-        </section>
-        <section id="videollamadas">
-            <span class="centrarTituloServicios"> <h1>Videollamadas</h1> </span>
-            <div>
-                <!-- <input type="text" id="mensaje" placeholder="Escribe tu mensaje aquí" /> -->
-                <button type="submit" id="botonVideollamadas">Enviar</button>
-            </div>
-            <img src="img/servicios/Composicion.png" alt="Imagen Videollamada" />
-        </section>
-        <span class="centrarTituloServicios" id="ayudasID"><h1>Ayudas Económicas</h1></span
+      <section id="headerTratamientos">
+        <div class="linksTratamientos">
+          <a href="#videollamadas">Videollamadas</a>
+        </div>
+        <div class="linksTratamientos">
+          <a href="#ayudasID">Ayudas/becas</a>
+        </div>
+        <div class="linksTratamientos">
+          <a href="#chatID">Chat asesoramiento</a>
+        </div>
+      </section>
+      <section id="videollamadas">
+        <span class="centrarTituloServicios"> <h1>Videollamadas</h1> </span>
+        <div>
+          <!-- <input type="text" id="mensaje" placeholder="Escribe tu mensaje aquí" /> -->
+          <button type="submit" id="botonVideollamadas">Enviar</button>
+        </div>
+        <img src="img/servicios/Composicion.png" alt="Imagen Videollamada" />
+      </section>
+      <span class="centrarTituloServicios" id="ayudasID"
+        ><h1>Ayudas Económicas</h1></span
       >
       <article id="ayudasEconomicas">
         <section>
@@ -149,7 +220,10 @@
             </p>
             <div class="aseguradoras">
               <img src="img/servicios/asisa.png" alt="Imagenes Aseguradoras" />
-              <img src="img/servicios/sanitas.png" alt="Imagenes Aseguradoras" />
+              <img
+                src="img/servicios/sanitas.png"
+                alt="Imagenes Aseguradoras"
+              />
               <img src="img/servicios/Axa.png" alt="Imagenes Aseguradoras" />
             </div>
           </article>
@@ -163,9 +237,18 @@
               y no un impedimento.
             </p>
             <div id="contenedorImgFinanciacion">
-              <img src="img/servicios/Bankinter.png" alt="Imagenes de empresas que nos financian" />
-              <img src="img/servicios/Santander.png" alt="Imagenes de empresas que nos financian" />
-              <img src="img/servicios/BBVA.png" alt="Imagenes de empresas que nos financian" />
+              <img
+                src="img/servicios/Bankinter.png"
+                alt="Imagenes de empresas que nos financian"
+              />
+              <img
+                src="img/servicios/Santander.png"
+                alt="Imagenes de empresas que nos financian"
+              />
+              <img
+                src="img/servicios/BBVA.png"
+                alt="Imagenes de empresas que nos financian"
+              />
             </div>
           </article>
         </section>
@@ -184,81 +267,93 @@
       <span class="centrarTituloServicios" id="chatID"
         ><h1>Chat asesoramiento</h1>
       </span>
-        <section id="seccionChat">
-            <aside id="visualizacionChat">
-                <img id="imgDoctor" src="img/Equipo/1.png" alt="Imagen del Dr. Garcia Vaquero" />
+      <section id="seccionChat">
+        <aside id="visualizacionChat">
+          <img
+            id="imgDoctor"
+            src="img/Equipo/1.png"
+            alt="Imagen del Dr. Garcia Vaquero"
+          />
 
-                <span id="centrarBotones">
+          <span id="centrarBotones">
             <button id="nextDoctorIzquierda" class="botonDoctores">&lt;</button>
             <h2 id="nombreDoctor">Dr. Garcia Vaquero</h2>
             <button id="nextDoctorDerecha" class="botonDoctores">&gt;</button>
           </span>
-                <article>
-                    <ul>
-                        <li id="modalidad">Psiquiatria</li>
-                        <li id="horario">Horario: Tardes</li>
-                        <li id="especialidad">Especialidad: Trastorno</li>
-                    </ul>
-                </article>
-            </aside>
-            <div id="chat">
-                <div id="mensajesChat">
-                    <p class="recibir">
-                        <span>Buenos días, ¿en qué puedo ayudarte?</span>
-                    </p>
-                    <p class="enviar">
-                        <span></span>
-                    </p>
-                </div>
+          <article>
+            <ul>
+              <li id="modalidad">Psiquiatria</li>
+              <li id="horario">Horario: Tardes</li>
+              <li id="especialidad">Especialidad: Trastorno</li>
+            </ul>
+          </article>
+        </aside>
+        <div id="chat">
+          <div id="mensajesChat">
+            <p class="recibir">
+              <span>Buenos días, ¿en qué puedo ayudarte?</span>
+            </p>
+            <p class="enviar">
+              <span></span>
+            </p>
+          </div>
 
-                <form id="formularioChat">
-                    <input type="text" id="mensaje" placeholder="Escribe tu mensaje aquí" />
-                    <button type="submit">Enviar</button>
-                </form>
-            </div>
-        </section>
+          <form id="formularioChat">
+            <input
+              type="text"
+              id="mensaje"
+              placeholder="Escribe tu mensaje aquí"
+            />
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+        <span id="bloqueoChat"> Inicia sesion para chatear </span>
+      </section>
     </main>
 
     <footer>
-        <!-- Seccion about -->
-        <section>
-            <ul>
-                <li>Horario de consultas</li>
-                <li class="fLista">L-V 8:00 - 21:00h</li>
-                <li>Horario atención telefónica</li>
-                <li class="fLista">L-V 10:00 - 21:00h</li>
-            </ul>
-        </section>
+      <!-- Seccion about -->
+      <section>
+        <ul>
+          <li>Horario de consultas</li>
+          <li class="fLista">L-V 8:00 - 21:00h</li>
+          <li>Horario atención telefónica</li>
+          <li class="fLista">L-V 10:00 - 21:00h</li>
+        </ul>
+      </section>
 
-        <!-- Seccion Recursos -->
-        <section id="seccionContactoFooter">
-            <h1><a href="formContacto.html">FORMULARIO DE CONTACTO</a></h1>
-            <p>C/Alberto Aguilera 52</p>
-            <p>28015 Madrid, España</p>
-            <p>Tel: +34 661 661 662</p>
-            <p>WhatsApp: +34 661 661 662</p>
-        </section>
+      <!-- Seccion Recursos -->
+      <section id="seccionContactoFooter">
+        <h1><a href="formContacto.html">FORMULARIO DE CONTACTO</a></h1>
+        <p>C/Alberto Aguilera 52</p>
+        <p>28015 Madrid, España</p>
+        <p>Tel: +34 661 661 662</p>
+        <p>WhatsApp: +34 661 661 662</p>
+      </section>
 
-        <!-- Seccion Social Media -->
-        <section id="seccionSocialMedia">
-            <a href='index.html'><img src="img/logo.png" id="logo" alt="Logo de Mind2Mind" /></a>
-            <article id="socialMedia">
-                <img src="img/mail.png" alt="Icono de Gmail">
-                <img src="img/instagram.png" alt="Icono de Instagram">
-                <img src="img/x.png" alt="Icono de X">
-            </article>
-        </section>
-        <article>
-            Centro de Salud Mental autorizado por la Conserjería de Sanidad de la Comunidad de Madrid
-            <br /> Mind To Mind, S.L.P - Todos los derechos reservados
+      <!-- Seccion Social Media -->
+      <section id="seccionSocialMedia">
+        <a href="index.html"
+          ><img src="img/logo.png" id="logo" alt="Logo de Mind2Mind"
+        /></a>
+        <article id="socialMedia">
+          <img src="img/mail.png" alt="Icono de Gmail" />
+          <img src="img/instagram.png" alt="Icono de Instagram" />
+          <img src="img/x.png" alt="Icono de X" />
         </article>
+      </section>
+      <article>
+        Centro de Salud Mental autorizado por la Conserjería de Sanidad de la
+        Comunidad de Madrid
+        <br />
+        Mind To Mind, S.L.P - Todos los derechos reservados
+      </article>
     </footer>
     <script>
-        AOS.init();
+      AOS.init();
     </script>
     <script src="gestionInformacion.js"></script>
     <script src="header.js"></script>
     <script src="chat.js"></script>
-</body>
-
+  </body>
 </html>
