@@ -1900,10 +1900,10 @@ h1 {
 }
 #bloqueoChat {
   position: absolute;
-
-  gap: 30px;
-  padding: 20px 30px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 100%;
 }
 #bloqueoChat div {
   background-color: rgba(0, 0, 0, 0.7);
