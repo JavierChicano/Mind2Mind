@@ -195,12 +195,12 @@ if (formPedirCita) {
     if (sessionStorage.getItem("sesionIniciada") !== "true") {
         var boton = document.getElementById("botonIrPerfil");
         boton.addEventListener("click", function() {
-            window.location.href = "perfil/perfilMain.html"; 
+            window.location.href = "perfil/perfilMain.html";
         });
         boton.style.display = "none";
     }
-    
-   
+
+
 
     function ejecutarSegundaParteForm() {
         bFase1.addEventListener("click", function(event) {
@@ -686,10 +686,10 @@ function consultarLogin(email, password) {
                 sessionStorage.setItem("sesionIniciada", "true");
                 sessionStorage.setItem("correoUsuario", email);
                 window.location.href = "perfil/perfilMain.html";
-            } else if(response.status === "admin"){
+            } else if (response.status === "admin") {
                 window.location.href = "medico/index.html";
                 sessionStorage.setItem("medico", email);
-            }else {
+            } else {
                 //Acciones que hace si es erroneo el login
                 mensajeError.textContent = response.message;
             }
@@ -734,13 +734,15 @@ var doctorIndex = 0;
 // Función para obtener datos del doctor desde la base de datos mediante una solicitud AJAX
 function obtenerDatosDoctor() {
     // Realizar una solicitud AJAX utilizando jQuery
-    console.log("doctor");
+    var correoElectronico = sessionStorage.getItem("correoUsuario")
+    console.log(correoElectronico);
 
     $.ajax({
         type: "POST",
         url: "BBDD/selectsDatos.php",
         data: {
             funcion: "obtenerDoctor",
+            correoElectronico: correoElectronico,
         },
         success: function(response) {
             // Comprobacion de la consulta
@@ -753,7 +755,8 @@ function obtenerDatosDoctor() {
 
             } else {
                 // Acciones que hace si es erróneo el inicio de sesión
-                console.error("Error en la consulta:", response.message);
+
+                console.error("Error en la consulta:", response);
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
