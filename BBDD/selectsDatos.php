@@ -109,7 +109,6 @@ if (isset($_POST['funcion'])) {
                 // Eliminar la contraseña del resultado si no deseas pasarla hasheada
                 $contraseña = $paciente['contraseña'];
                 unset($paciente['contraseña']);
-                $contraseña_deshasheada = password_verify($contraseña, PASSWORD_DEFAULT);
                 $response = array('status' => 'success', 'paciente' => $paciente, 'contraseña' => $contraseña);
             } else {
                 // No se encontró el correo electrónico

@@ -128,7 +128,8 @@ if ($resultado->num_rows == 0) {
 
     //Funcion que crea los admins
     function insertarAdmin($conexion, $correoElectronico, $nombre, $apellidos, $contraseña){
-        $sql = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña) VALUES ('$correoElectronico', '$nombre', '$apellidos', '$contraseña')";
+        $contraseñaHasheada = password_hash($contraseña, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña) VALUES ('$correoElectronico', '$nombre', '$apellidos', '$contraseñaHasheada')";
         if ($conexion->query($sql) === TRUE) {
             echo "Datos insertados correctamente, en paciente.<br>";
         } else {
@@ -153,28 +154,6 @@ if ($resultado->num_rows == 0) {
     insertarAdmin($conexion, "paciente8@paciente.com", "Sofía", "Pérez", "paciente8");
     insertarAdmin($conexion, "paciente9@paciente.com", "Javier", "Hernández", "paciente9");
     insertarAdmin($conexion, "paciente10@paciente.com", "Elena", "Díaz", "paciente10");
-
-
-    // Función para insertar un paciente
-    function insertarPaciente($conexion, $correoElectronico, $nombre, $apellidos, $contraseña, $dni, $provincia, $domicilio, $codigo_postal, $genero)
-    {
-        $sql = "INSERT INTO paciente (correoElectronico,nombre, apellidos, contraseña, dni, provincia, domicilio, codigo_postal, genero)
-                VALUES ('$correoElectronico','$nombre', '$apellidos', '$contraseña', '$dni', '$provincia', '$domicilio', '$codigo_postal', '$genero')";
-
-        if ($conexion->query($sql) === TRUE) {
-            echo "Datos insertados correctamente, en paciente.<br>";
-        } else {
-            die("Error al insertar datos, en paciente: " . $conexion->error);
-        }
-
-        return true;
-    }
-
-    //Insertar datos de paciente
-    insertarPaciente($conexion, "juancortes1bx@hotmail.es" ,"Juan", "Cortés", "cristina18", "54480598S", "Madrid", "Pozuelo", 28224, "Hombre");
-    insertarPaciente($conexion, "p@hotmail.es" ,"p", "p", "p", "54480598L", "Madrid", "Pozuelo", 28224, "Hombre");
-
-
 
      // Función para insertar un especialista
     function insertarEspecialista($conexion, $nombre, $apellidos, $modalidad, $horario, $especialidad, $ubicacion, $imagen)
