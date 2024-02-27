@@ -201,7 +201,6 @@ if (formPedirCita) {
             var displayErrores = document.getElementById("displayErroresPedirCita");
 
             // Obtener los valores de los campos del formulario
-            var contraseña = document.getElementById("passwordPC").value;
             var nombre = document.getElementById("nombrePC").value;
             var apellidos = document.getElementById("apellidosPC").value;
             var dni = document.getElementById("dniPC").value;
@@ -210,15 +209,6 @@ if (formPedirCita) {
             var postal = document.getElementById("postalPC").value;
             var sexo = document.getElementById("sexoPC").value;
 
-            //Comprobar que los campos estan rellenados
-            if (contraseña === "") {
-                document.getElementById("passwordPC").style.border = "1px solid red";
-                displayErrores.textContent = "Por favor, ingrese una contraseña.";
-                return false;
-            } else {
-                document.getElementById("passwordPC").style.border = "";
-                displayErrores.textContent = "";
-            }
             if (nombre === "") {
                 document.getElementById("nombrePC").style.border = "1px solid red";
                 displayErrores.textContent = "Por favor, ingrese el nombre.";
@@ -438,7 +428,6 @@ if (formPedirCita) {
 
         //Recogida de todos los datos
         var mail = document.getElementById("mailPC").value;
-        var contraseña = document.getElementById("passwordPC").value;
         var nombre = document.getElementById("nombrePC").value;
         var apellidos = document.getElementById("apellidosPC").value;
         var dni = document.getElementById("dniPC").value;
@@ -603,7 +592,6 @@ function comprobarCuentaPedirCita(email) {
 //Insertar pedir cita
 function insertarPedirCita(
     email,
-    contraseña,
     nombre,
     apellidos,
     dni,
@@ -625,7 +613,6 @@ function insertarPedirCita(
         data: {
             funcion: "pedirCita",
             email: email,
-            contraseña: contraseña,
             nombre: nombre,
             apellidos: apellidos,
             dni: dni,
@@ -828,11 +815,11 @@ function mostrarDatosPaciente() {
 
 function mostrarDatos(email) {
     $("#mailPC").val(email.correoElectronico || "").prop("disabled", true);
-    $("#passwordPC").val(email.contraseña || "").prop("disabled", true);
     $("#nombrePC").val(email.nombre || "");
     $("#apellidosPC").val(email.apellidos || "");
     $("#dniPC").val(email.dni || "");
     $("#provinciaPC").val(email.provincia || "");
     $("#domicilioPC").val(email.domicilio || "");
     $("#postalPC").val(email.codigo_postal || "");
+    document.getElementById("contraseñaDisplay").style.display="none"
 }
