@@ -77,8 +77,6 @@ if (isset($_POST['funcion'])) {
             case 'pedirCita':
                 $email = $_POST['email'];
                 $contraseña = $_POST['contraseña'];
-                // Hashear la contraseña
-                $password_hash = password_hash($contraseña, PASSWORD_DEFAULT);
                 $nombre = $_POST['nombre'];
                 $apellidos = $_POST['apellidos'];
                 $dni = $_POST['dni'];
@@ -100,7 +98,7 @@ if (isset($_POST['funcion'])) {
             
                 if ($result_paciente->num_rows > 0) {
                     // El paciente ya existe, realizar un UPDATE
-                    $sql_paciente = "UPDATE paciente SET nombre='$nombre', apellidos='$apellidos', contraseña='$password_hash', dni='$dni', provincia='$provincia', domicilio='$domicilio', codigo_postal='$postal', genero='$sexo' WHERE correoElectronico='$email'";
+                    $sql_paciente = "UPDATE paciente SET nombre='$nombre', apellidos='$apellidos', contraseña='$contraseña', dni='$dni', provincia='$provincia', domicilio='$domicilio', codigo_postal='$postal', genero='$sexo' WHERE correoElectronico='$email'";
                 } else {
                     // El paciente no existe, realizar un INSERT
                     $sql_paciente = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña, dni, provincia, domicilio, codigo_postal, genero) VALUES ('$email', '$nombre', '$apellidos', '$password_hash', '$dni', '$provincia', '$domicilio', '$postal', '$sexo')";

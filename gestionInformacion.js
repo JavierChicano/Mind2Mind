@@ -192,12 +192,15 @@ if (formPedirCita) {
             comprobarCuentaPedirCita(mail);
         }
     });
+
+    var botonPerfil = document.getElementById("botonIrPerfil");
+    console.log(botonPerfil)
+    botonPerfil.addEventListener("click", function() {
+        console.log("hola buenos dia")
+        window.location.href = "perfil/perfilMain.html"; 
+    });
     if (sessionStorage.getItem("sesionIniciada") !== "true") {
-        var boton = document.getElementById("botonIrPerfil");
-        boton.addEventListener("click", function() {
-            window.location.href = "perfil/perfilMain.html"; 
-        });
-        boton.style.display = "none";
+        botonPerfil.style.display = "none";
     }
     
    
