@@ -63,7 +63,10 @@ if (isset($_POST['funcion'])) {
         case 'obtenerDoctor':
             // En caso de obtener información del doctor
             // Consultar la base de datos para obtener la información del doctor
-            $sql = "SELECT * FROM especialista";
+            $correoElectronico = $_POST['correoElectronico'];
+
+            $sql = "SELECT * FROM especialista WHERE idMedico IN 
+                        (SELECT idMedico FROM cita WHERE correoElectronico = '$correoElectronico')";
             $resultado = $conexion->query($sql);
 
             if ($resultado->num_rows > 0) {
