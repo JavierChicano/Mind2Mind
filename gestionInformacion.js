@@ -199,16 +199,13 @@ if (formPedirCita) {
         console.log("hola buenos dia")
         window.location.href = "perfil/perfilMain.html"; 
     });
-    if (sessionStorage.getItem("sesionIniciada") !== "true") {
-<<<<<<< HEAD
+    if (sessionStorage.getItem("sesionIniciada") !== "true") {       
         botonPerfil.style.display = "none";
-=======
         var boton = document.getElementById("botonIrPerfil");
         boton.addEventListener("click", function() {
             window.location.href = "perfil/perfilMain.html";
         });
         boton.style.display = "none";
->>>>>>> da7222a449cebea4c77f2edcdde475a503370a6a
     }
 
 
