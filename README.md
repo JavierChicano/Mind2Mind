@@ -2,6 +2,8 @@
 Es un proyecto de una página web con un tema de psicología. Esta web trata los trastornos bipolares.
 
 ## Figma
+- Desing Thinking (https://www.figma.com/file/IjFSwXdyqH7bOeriKe6cQH/Proyecto-Psicol%C3%B3gico?type=whiteboard&node-id=56-617&t=QrRBOdSYnzkExJ5G-0)
+- Wireframes (https://www.figma.com/file/KaGGA5oFdbFdafIBIAA3ni/Wireframes-psicology-page?type=design&node-id=176-2&mode=design&t=YTdTA5V80XZZWVHH-0)
 ### Design Thinking:
 #### Empatizar:
 En esta fase, se sumerge en la experiencia del usuario, procurando comprender sus emociones, necesidades y contexto. La empatía es la base para recopilar información valiosa.
