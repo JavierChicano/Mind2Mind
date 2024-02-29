@@ -1,5 +1,6 @@
 # Mind2Mind
 Es un proyecto de una página web con un tema de psicología que aborda los trastornos bipolares. 
+<br>
 En esta plataforma, los usuarios podrán comenzar registrándose. Una vez completado este paso, accederán a su perfil. Los usuarios podrán visualizar las terapias y añadir a favoritas aquellas que deseen. Las terapias incluyen una explicación, pasos a seguir y un video para llevarlas a cabo. Además, podrán comunicarse con los médicos a través de un chat en línea, pero solo con aquellos médicos que previamente hayan agendado una cita. En el perfil, podrán revisar las citas que han solicitado y consultarlas.
 
 ## Figma
