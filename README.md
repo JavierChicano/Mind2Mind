@@ -25,7 +25,7 @@ Después de analizar la información recopilada durante la etapa de empatía, se
 En esta etapa, se fomenta la creatividad y la generación de ideas sin restricciones, buscando una variedad de soluciones para el problema identificado.
 
 ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Nueva%20carpeta/Captura%20de%20pantalla%202024-02-29%20120312.png?raw=true)
-###Prototipar:
+### Prototipar:
 ##### Arquitectura:
 Enfocándose en la estructura general y la organización de la solución, se diseña la arquitectura para definir cómo los componentes interactúan entre sí.
 
