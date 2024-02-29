@@ -47,7 +47,11 @@ Se crean representaciones detalladas y visualmente ricas de la solución propues
 
 ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Captura%20de%20pantalla%202024-02-29%20120701.png?raw=true)
 
-## Lenguajes   ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-javascript-48.png)
+## Lenguajes   
+![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-javascript-48.png) ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-logo-php-40.png) ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-css3-48.png) ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-html-48.png)
+
+
+
 <div><img src="img/readme/lenguajes/icons8-javascript-48.png)"></img></div>
 En el desarrollo de este proyecto, se han empleado varios lenguajes de programación para garantizar un funcionamiento integral tanto en el lado del cliente como en el servidor. Para la estructura y presentación del sitio web, se utilizó **HTML** para la marcación, **CSS** para el diseño y estilos, y **JavaScript** para la interactividad del cliente.
 <br><br>
