@@ -1,5 +1,6 @@
 # Mind2Mind
-Es un proyecto de una página web con un tema de psicología. Esta web trata los trastornos bipolares.
+Es un proyecto de una página web con un tema de psicología que aborda los trastornos bipolares. 
+En esta plataforma, los usuarios podrán comenzar registrándose. Una vez completado este paso, accederán a su perfil. Los usuarios podrán visualizar las terapias y añadir a favoritas aquellas que deseen. Las terapias incluyen una explicación, pasos a seguir y un video para llevarlas a cabo. Además, podrán comunicarse con los médicos a través de un chat en línea, pero solo con aquellos médicos que previamente hayan agendado una cita. En el perfil, podrán revisar las citas que han solicitado y consultarlas.
 
 ## Figma
 - Desing Thinking (https://www.figma.com/file/IjFSwXdyqH7bOeriKe6cQH/Proyecto-Psicol%C3%B3gico?type=whiteboard&node-id=56-617&t=QrRBOdSYnzkExJ5G-0)
