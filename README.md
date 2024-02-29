@@ -2,6 +2,46 @@
 Es un proyecto de una página web con un tema de psicología. Esta web trata los trastornos bipolares.
 
 ## Figma
-#### Design Thinking:
+### Design Thinking:
+#### Empatizar:
+En esta fase, se sumerge en la experiencia del usuario, procurando comprender sus emociones, necesidades y contexto. La empatía es la base para recopilar información valiosa.
+
+![](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Nueva%20carpeta/Captura%20de%20pantalla%202024-02-29%20115604.png?raw=true)
+![](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Nueva%20carpeta/Captura%20de%20pantalla%202024-02-29%20115632.png?raw=true)
+![](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Nueva%20carpeta/Captura%20de%20pantalla%202024-02-29%20115649.png?raw=true)
+
+![](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Nueva%20carpeta/Captura%20de%20pantalla%202024-02-29%20115839.png?raw=true)
+![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Nueva%20carpeta/Captura%20de%20pantalla%202024-02-29%20120021.png?raw=true)
+#### Definir:
+Después de analizar la información recopilada durante la etapa de empatía, se define de manera clara el problema a abordar, estableciendo las bases para el proceso creativo.
+
+![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Nueva%20carpeta/Captura%20de%20pantalla%202024-02-29%20120152.png?raw=true)
+![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Nueva%20carpeta/Captura%20de%20pantalla%202024-02-29%20120205.png?raw=true)
+#### Idear:
+En esta etapa, se fomenta la creatividad y la generación de ideas sin restricciones, buscando una variedad de soluciones para el problema identificado.
+
+![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Nueva%20carpeta/Captura%20de%20pantalla%202024-02-29%20120312.png?raw=true)
+###Prototipar:
 ##### Arquitectura:
-![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/Equipo/1.png)
+Enfocándose en la estructura general y la organización de la solución, se diseña la arquitectura para definir cómo los componentes interactúan entre sí.
+
+![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Captura%20de%20pantalla%202024-02-29%20120606.png?raw=true)
+
+##### Wireframing:
+Se elaboran esquemas visuales simples que representan la disposición y funcionalidad de los elementos clave de la interfaz de usuario, proporcionando una visión clara del diseño.
+
+
+![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Captura%20de%20pantalla%202024-02-29%20120631.png?raw=true)
+
+##### Sistema de diseño:
+Se desarrolla un conjunto coherente de reglas y componentes visuales para asegurar la consistencia en la experiencia del usuario, contribuyendo a una identidad visual unificada.
+
+![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Captura%20de%20pantalla%202024-02-29%20120647.png?raw=true)
+
+##### Mockups:
+Se crean representaciones detalladas y visualmente ricas de la solución propuesta, ofreciendo una visión más cercana de cómo se verá finalmente la interfaz o producto.
+
+![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Captura%20de%20pantalla%202024-02-29%20120701.png?raw=true)
+
+## Memoria
+
