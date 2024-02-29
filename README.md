@@ -48,7 +48,7 @@ Se crean representaciones detalladas y visualmente ricas de la solución propues
 ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Captura%20de%20pantalla%202024-02-29%20120701.png?raw=true)
 
 ## Lenguajes   
-![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-javascript-48.png) ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-logo-php-40.png) ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-css3-48.png) ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-html-48.png)
+![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-javascript-48.png) ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-logo-php-40.png) ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-css3-48.png) ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-html-5-48.png)
 
 
 
