@@ -18,8 +18,13 @@ const cerrarModal = document.querySelector("img[src='img/closeWindow.png']");
 const abrilModalCuenta = document.getElementById("creaCuenta");
 const contraseñaRegistro = document.getElementById("passwordRegistro");
 const icono = document.querySelector(".bx");
+const creaCuenta = document.getElementById("creaCuenta");
 
 abrirModal.addEventListener("click", () => {
+  contendorModal2.classList.remove("show");
+  contendorModal.classList.add("show");
+});
+creaCuenta.addEventListener("click", () => {
   contendorModal2.classList.remove("show");
   contendorModal.classList.add("show");
 });
