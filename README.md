@@ -47,5 +47,10 @@ Se crean representaciones detalladas y visualmente ricas de la solución propues
 
 ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Captura%20de%20pantalla%202024-02-29%20120701.png?raw=true)
 
+##Lenguajes 
+En el desarrollo de este proyecto, se han empleado varios lenguajes de programación para garantizar un funcionamiento integral tanto en el lado del cliente como en el servidor. Para la estructura y presentación del sitio web, se utilizó **HTML** para la marcación, **CSS** para el diseño y estilos, y **JavaScript** para la interactividad del cliente.
+<br>
+En cuanto al lado del servidor, la implementación se basa en **PHP**. PHP se encarga de manejar la lógica del servidor y la interacción con la base de datos. Esta combinación de lenguajes, junto con el uso de **AJAX **y **JSON**, permite una integración fluida entre el frontend y el backend, posibilitando la conexión efectiva de todos los componentes del sistema y garantizando una experiencia completa y dinámica para los usuarios.
+
 ## Memoria
 
