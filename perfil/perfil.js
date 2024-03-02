@@ -224,11 +224,12 @@ function insertarEditarPerfil(
             if (response.status === "success") {
                 console.log("Insert exitoso: " + response.message);
             } else {
-                console.log(response.message);
+                console.log(response);
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
+
         },
     });
 }
