@@ -1,9 +1,15 @@
 //Quitar el bloqueo del chat
 document.addEventListener("DOMContentLoaded", function() {
     if(sessionStorage.getItem("sesionIniciada")==="true"){
-        document.getElementById("bloqueoChat").style.display="none";
+        document.getElementById("formularioChat").style.display="flex";
+        document.getElementById("mensajesChat").style.display="flex";
+        document.getElementById("infoBlockChat").style.display="none";
     }else {
-        document.getElementById("bloqueoChat").style.display="flex";
+        document.getElementById("mensajesChat").style.display="none";
+        document.getElementById("formularioChat").style.display="none";
+        document.getElementById("infoBlockChat").style.display="flex";
+        document.getElementById("chat").style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+        document.getElementById("chat").style.justifyContent = "center";
     }
 });
 // Función para enviar el mensaje al servidor usando AJAX
