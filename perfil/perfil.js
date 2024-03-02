@@ -55,7 +55,7 @@ $("#botonEditarPerfil").on("click", function() {
     var genero = document.getElementById("genero").value;
 
     // Validacion de formularios
-    var textoLetras = /^[A-Za-z\s]+$/;
+    var textoLetras = /^[A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s]+$/;
 
     if (!textoLetras.test(nombre)) {
         displayErrores.textContent = "El nombre contiene caracteres invalidos";
