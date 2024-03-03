@@ -197,9 +197,9 @@ if (formPedirCita) {
     console.log(botonPerfil)
     botonPerfil.addEventListener("click", function() {
         console.log("hola buenos dia")
-        window.location.href = "perfil/perfilMain.html"; 
+        window.location.href = "perfil/perfilMain.html";
     });
-    if (sessionStorage.getItem("sesionIniciada") !== "true") {       
+    if (sessionStorage.getItem("sesionIniciada") !== "true") {
         botonPerfil.style.display = "none";
         var boton = document.getElementById("botonIrPerfil");
         boton.addEventListener("click", function() {
@@ -786,7 +786,7 @@ function mostrarDatosDoctor(doctor, doctorIndex) {
         $("#imgDoctor").attr("src", "img/Equipo/" + doctor.imagen);
         $("#nombreDoctor").text(doctor.nombre);
         $("#modalidad").text(doctor.modalidad);
-        $("#horario").text("Horario: " + doctor.idMedico);
+        $("#horario").text("Horario: " + doctor.horario);
         $("#especialidad").text("Especialidad: " + doctor.especialidad);
         sessionStorage.setItem("idMedico", doctor.idMedico);
     } else {
