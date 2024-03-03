@@ -17,7 +17,7 @@ if (formRegistro) {
         var displayErrores = document.getElementById("displayErroresRegistro");
 
         // Validacion de formularios
-        var textoLetras = /^[A-Za-z\s]+$/;
+        var textoLetras = /^[A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s]+$/;
 
         if (!textoLetras.test(nombre)) {
             displayErrores.textContent = "El nombre contiene caracteres invalidos";
@@ -96,7 +96,7 @@ if (formContacto) {
         //  var info = document.getElementById("consultaContacto").value;
 
         // Validacion de formularios
-        var textoLetras = /^[A-Za-z\s]+$/;
+        var textoLetras = /^[A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s]+$/;
 
         if (!textoLetras.test(nombre)) {
             displayErrores.textContent = "El nombre contiene caracteres invalidos";

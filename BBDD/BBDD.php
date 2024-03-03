@@ -144,16 +144,16 @@ if ($resultado->num_rows == 0) {
     insertarAdmin($conexion, "admin5@doctor.com", "Dra. María", "Gutierrez", "admin5");
 
     //Insertar 10 pacientes como prueba
-    insertarAdmin($conexion, "paciente1@paciente.com", "Juan", "García", "paciente1");
-    insertarAdmin($conexion, "paciente2@paciente.com", "María", "Martínez", "paciente2");
-    insertarAdmin($conexion, "paciente3@paciente.com", "Carlos", "Sánchez", "paciente3");
-    insertarAdmin($conexion, "paciente4@paciente.com", "Ana", "López", "paciente4");
-    insertarAdmin($conexion, "paciente5@paciente.com", "David", "Fernández", "paciente5");
-    insertarAdmin($conexion, "paciente6@paciente.com", "Laura", "González", "paciente6");
-    insertarAdmin($conexion, "paciente7@paciente.com", "Pedro", "Rodríguez", "paciente7");
-    insertarAdmin($conexion, "paciente8@paciente.com", "Sofía", "Pérez", "paciente8");
-    insertarAdmin($conexion, "paciente9@paciente.com", "Javier", "Hernández", "paciente9");
-    insertarAdmin($conexion, "paciente10@paciente.com", "Elena", "Díaz", "paciente10");
+    insertarAdmin($conexion, "paciente1@paciente.com", "Juan", "Garcia", "paciente1");
+    insertarAdmin($conexion, "paciente2@paciente.com", "Maria", "Martinez", "paciente2");
+    insertarAdmin($conexion, "paciente3@paciente.com", "Carlos", "Sanchez", "paciente3");
+    insertarAdmin($conexion, "paciente4@paciente.com", "Ana", "Lopez", "paciente4");
+    insertarAdmin($conexion, "paciente5@paciente.com", "David", "Fernandez", "paciente5");
+    insertarAdmin($conexion, "paciente6@paciente.com", "Laura", "Gonzalez", "paciente6");
+    insertarAdmin($conexion, "paciente7@paciente.com", "Pedro", "Rodriguez", "paciente7");
+    insertarAdmin($conexion, "paciente8@paciente.com", "Sofia", "Perez", "paciente8");
+    insertarAdmin($conexion, "paciente9@paciente.com", "Javier", "Hernandez", "paciente9");
+    insertarAdmin($conexion, "paciente10@paciente.com", "Elena", "Diaz", "paciente10");
 
      // Función para insertar un especialista
     function insertarEspecialista($conexion, $nombre, $apellidos, $modalidad, $horario, $especialidad, $ubicacion, $imagen)

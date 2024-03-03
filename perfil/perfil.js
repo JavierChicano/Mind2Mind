@@ -55,7 +55,7 @@ $("#botonEditarPerfil").on("click", function() {
     var genero = document.getElementById("genero").value;
 
     // Validacion de formularios
-    var textoLetras = /^[A-Za-z\s]+$/;
+    var textoLetras = /^[A-Za-zÁáÉéÍíÓóÚúÜüÑñ\s]+$/;
 
     if (!textoLetras.test(nombre)) {
         displayErrores.textContent = "El nombre contiene caracteres invalidos";
@@ -224,11 +224,12 @@ function insertarEditarPerfil(
             if (response.status === "success") {
                 console.log("Insert exitoso: " + response.message);
             } else {
-                console.log(response.message);
+                console.log(response);
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error("Error en la solicitud Ajax:", textStatus, errorThrown);
+
         },
     });
 }

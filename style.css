@@ -1819,7 +1819,10 @@ h1 {
   gap: 100px;
   padding: 50px 100px;
 }
-
+#infoBlockChat{
+  align-self: center;
+  font-size: 35px;
+}
 #visualizacionChat {
   width: 35%;
   display: flex;
@@ -1897,24 +1900,6 @@ h1 {
 #mensajesChat {
   overflow-y: auto;
   max-height: 520px;
-}
-#bloqueoChat {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  height: 100%;
-}
-#bloqueoChat div {
-  background-color: rgba(0, 0, 0, 0.7);
-  width: 89.5%;
-  display: flex;
-  justify-content: center;
-  height: 64.5%;
-  align-items: center;
-  font-size: 80px;
-  color: white;
-  border-radius: 0 24px;
 }
 .recibir {
   display: flex;

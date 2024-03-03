@@ -21,7 +21,7 @@ if (isset($_POST['funcion'])) {
 
     // Inicializar las variables
     $nombre = $apellidos = $email = $password = $dni = $telefono = $provincia = $domicilio = $sexo = $profesional = $modalidad = $diagnostico = $fConsulta = $poseeAseguradora = $aseguradora = $consulta = $usuario = $mensaje = $correoElectronico = $idMedico = $fecha = "";
-    
+
 
     switch ($funcion) {
         case 'registro':
@@ -29,11 +29,11 @@ if (isset($_POST['funcion'])) {
             $apellidos = $_POST['apellidos'];
             $email = $_POST['email'];
             $password = $_POST['password'];
-        
+
             // Preparar la consulta de inserción para el caso de registro
             $verificarExistencia = "SELECT correoElectronico FROM paciente WHERE correoElectronico = '$email'";
             $resultadoVerificacion = $conexion->query($verificarExistencia);
-        
+
             if ($resultadoVerificacion->num_rows > 0) {
                 // Ya existe un registro con esa clave primaria
                 $response = array('status' => 'error', 'message' => 'Correo electrónico ya registrado');
@@ -41,10 +41,10 @@ if (isset($_POST['funcion'])) {
                 // No existe un registro con esa clave primaria, proceder con la inserción
                 // Generar el hash de la contraseña
                 $hashPassword = password_hash($password, PASSWORD_DEFAULT);
-                
+
                 // Inserción con contraseña hasheada
                 $sql = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña) VALUES ('$email', '$nombre', '$apellidos', '$hashPassword')";
-        
+
                 if ($conexion->query($sql) === TRUE) {
                     // La inserción fue exitosa
                     $response = array('status' => 'success', 'message' => 'Registro exitoso');
@@ -54,7 +54,7 @@ if (isset($_POST['funcion'])) {
                 }
             }
             break;
-        
+
 
         case 'contacto':
             $nombre = $_POST['nombre'];
@@ -74,86 +74,86 @@ if (isset($_POST['funcion'])) {
             }
             break;
 
-            case 'pedirCita':
-                $email = $_POST['email'];
-                $contraseña = $_POST['contraseña'];
-                $nombre = $_POST['nombre'];
-                $apellidos = $_POST['apellidos'];
-                $dni = $_POST['dni'];
-                $provincia = $_POST['provincia'];
-                $domicilio = $_POST['domicilio'];
-                $postal = $_POST['postal'];
-                $sexo = $_POST['sexo'];
-                $profesional = $_POST['profesional'];
-                $modalidad = $_POST['modalidad'];
-                $telefono = $_POST['telefono'];
-                $diagnostico = $_POST['diagnostico'];
-                $fConsulta = $_POST['fConsulta'];
-                $poseeAseguradora = $_POST['poseeAseguradora'];
-                $aseguradora = $_POST['aseguradora'];
-            
-                // Verificar si el paciente existe
-                $sql_check_paciente = "SELECT * FROM paciente WHERE correoElectronico = '$email'";
-                $result_paciente = $conexion->query($sql_check_paciente);
-            
-                if ($result_paciente->num_rows > 0) {
-                    // El paciente ya existe, realizar un UPDATE
-                    $sql_paciente = "UPDATE paciente SET nombre='$nombre', apellidos='$apellidos', contraseña='$contraseña', dni='$dni', provincia='$provincia', domicilio='$domicilio', codigo_postal='$postal', genero='$sexo' WHERE correoElectronico='$email'";
-                } else {
-                    // El paciente no existe, realizar un INSERT
-                    $sql_paciente = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña, dni, provincia, domicilio, codigo_postal, genero) VALUES ('$email', '$nombre', '$apellidos', '$password_hash', '$dni', '$provincia', '$domicilio', '$postal', '$sexo')";
-                }
-            
-                // Ejecutar la consulta para paciente
-                $conexion->query($sql_paciente);
-            
-                // Obtener el ID del médico
-                $sql_medico = "SELECT idMedico FROM especialista WHERE especialidad = '$profesional' AND modalidad = '$modalidad'";
-                $result_medico = $conexion->query($sql_medico);
-                $row_medico = $result_medico->fetch_assoc();
-                $id_medico = $row_medico['idMedico'];
-            
-                $cita_data = array(
-                    'especialidad' => $profesional,
-                    'modalidad' => $modalidad,
-                    'fecha' => $fConsulta,
-                    'correoElectronico' => $email,
-                    'idMedico' => $id_medico
-                );
-            
-                // Verificar campos opcionales y construir la consulta de inserción
-                if (!empty($telefono)) {
-                    $cita_data['numeroTelefono'] = $telefono;
-                }
-                if (!empty($diagnostico)) {
-                    $cita_data['diagnostico'] = $diagnostico;
-                }
-                if (!empty($aseguradora)) {
-                    $cita_data['aseguradoraNombre'] = $aseguradora;
-                }
-            
-                function generateInsertQuery($table, $data)
-                {
-                    $columns = implode(', ', array_keys($data));
-                    $values = implode(', ', array_map(function ($value) {
-                        return is_numeric($value) ? $value : "'$value'";
-                    }, array_values($data)));
-                    return "INSERT INTO $table ($columns) VALUES ($values)";
-                }
-                // Generar la consulta de inserción
-                $sql_cita = generateInsertQuery('cita', $cita_data);
-            
-                // Ejecutar la consulta de inserción
-                if ($conexion->query($sql_cita) === TRUE) {
-                    // La inserción fue exitosa
-                    $response = array('status' => 'success', 'message' => 'Cita programada con éxito');
-                } else {
-                    // Hubo un error en la inserción
-                    $response = array('status' => 'error', 'message' => 'Error al programar la cita: ' . $conexion->error);
-                }
-            
-                break;
-            
+        case 'pedirCita':
+            $email = $_POST['email'];
+            $contraseña = $_POST['contraseña'];
+            $nombre = $_POST['nombre'];
+            $apellidos = $_POST['apellidos'];
+            $dni = $_POST['dni'];
+            $provincia = $_POST['provincia'];
+            $domicilio = $_POST['domicilio'];
+            $postal = $_POST['postal'];
+            $sexo = $_POST['sexo'];
+            $profesional = $_POST['profesional'];
+            $modalidad = $_POST['modalidad'];
+            $telefono = $_POST['telefono'];
+            $diagnostico = $_POST['diagnostico'];
+            $fConsulta = $_POST['fConsulta'];
+            $poseeAseguradora = $_POST['poseeAseguradora'];
+            $aseguradora = $_POST['aseguradora'];
+
+            // Verificar si el paciente existe
+            $sql_check_paciente = "SELECT * FROM paciente WHERE correoElectronico = '$email'";
+            $result_paciente = $conexion->query($sql_check_paciente);
+
+            if ($result_paciente->num_rows > 0) {
+                // El paciente ya existe, realizar un UPDATE
+                $sql_paciente = "UPDATE paciente SET nombre='$nombre', apellidos='$apellidos', contraseña='$contraseña', dni='$dni', provincia='$provincia', domicilio='$domicilio', codigo_postal='$postal', genero='$sexo' WHERE correoElectronico='$email'";
+            } else {
+                // El paciente no existe, realizar un INSERT
+                $sql_paciente = "INSERT INTO paciente (correoElectronico, nombre, apellidos, contraseña, dni, provincia, domicilio, codigo_postal, genero) VALUES ('$email', '$nombre', '$apellidos', '$password_hash', '$dni', '$provincia', '$domicilio', '$postal', '$sexo')";
+            }
+
+            // Ejecutar la consulta para paciente
+            $conexion->query($sql_paciente);
+
+            // Obtener el ID del médico
+            $sql_medico = "SELECT idMedico FROM especialista WHERE especialidad = '$profesional' AND modalidad = '$modalidad'";
+            $result_medico = $conexion->query($sql_medico);
+            $row_medico = $result_medico->fetch_assoc();
+            $id_medico = $row_medico['idMedico'];
+
+            $cita_data = array(
+                'especialidad' => $profesional,
+                'modalidad' => $modalidad,
+                'fecha' => $fConsulta,
+                'correoElectronico' => $email,
+                'idMedico' => $id_medico
+            );
+
+            // Verificar campos opcionales y construir la consulta de inserción
+            if (!empty($telefono)) {
+                $cita_data['numeroTelefono'] = $telefono;
+            }
+            if (!empty($diagnostico)) {
+                $cita_data['diagnostico'] = $diagnostico;
+            }
+            if (!empty($aseguradora)) {
+                $cita_data['aseguradoraNombre'] = $aseguradora;
+            }
+
+            function generateInsertQuery($table, $data)
+            {
+                $columns = implode(', ', array_keys($data));
+                $values = implode(', ', array_map(function ($value) {
+                    return is_numeric($value) ? $value : "'$value'";
+                }, array_values($data)));
+                return "INSERT INTO $table ($columns) VALUES ($values)";
+            }
+            // Generar la consulta de inserción
+            $sql_cita = generateInsertQuery('cita', $cita_data);
+
+            // Ejecutar la consulta de inserción
+            if ($conexion->query($sql_cita) === TRUE) {
+                // La inserción fue exitosa
+                $response = array('status' => 'success', 'message' => 'Cita programada con éxito');
+            } else {
+                // Hubo un error en la inserción
+                $response = array('status' => 'error', 'message' => 'Error al programar la cita: ' . $conexion->error);
+            }
+
+            break;
+
 
         case 'insertarPerfil':
             $correoElectronico = $_POST['correoElectronico'];
@@ -165,18 +165,43 @@ if (isset($_POST['funcion'])) {
             $domicilio = $_POST['domicilio'];
             $genero = $_POST['genero'];
 
-            $hashContraseña = password_hash($contraseña, PASSWORD_DEFAULT);
-            // Preparar la consulta de actualización
-            $sql = "UPDATE paciente SET nombre='$nombre', apellidos='$apellidos', contraseña='$hashContraseña', dni='$dni', provincia='$provincia', domicilio='$domicilio', genero='$genero' WHERE correoElectronico='$correoElectronico'";
-
-            if ($conexion->query($sql) === TRUE) {
-                // Actualización exitosa
-                $response = array('status' => 'success', 'message' => 'Perfil actualizado correctamente');
+            if(strlen($contrasena) < 50){
+                $hashContraseña = password_hash($contraseña, PASSWORD_DEFAULT);
             } else {
-                // Error en la actualización
-                $response = array('status' => 'error', 'message' => 'Error al actualizar el perfil: ' . $conexion->error);
+                $hashContraseña = $contraseña;
+            }            
+
+            if ($dni !== "" && $provincia !== "" && $domicilio !== "" && $genero !== "") {
+                // Preparar la consulta de actualización
+                $sql = "UPDATE paciente SET nombre='$nombre', apellidos='$apellidos', contraseña='$hashContraseña'";
+                // Agregar campos a la consulta solo si no están vacíos
+                if ($dni !== "") {
+                    $sql .= ", dni='$dni'";
+                }
+                if ($provincia !== "") {
+                    $sql .= ", provincia='$provincia'";
+                }
+                if ($domicilio !== "") {
+                    $sql .= ", domicilio='$domicilio'";
+                }
+                if ($genero !== "") {
+                    $sql .= ", genero='$genero'";
+                }
+                $sql .= " WHERE correoElectronico='$correoElectronico'";
+            
+                if ($conexion->query($sql) === TRUE) {
+                    // Actualización exitosa
+                    $response = array('status' => 'success', 'message' => 'Perfil actualizado correctamente');
+                } else {
+                    // Error en la actualización
+                    $response = array('status' => 'error', 'message' => 'Error al actualizar el perfil: ' . $conexion->error);
+                }
+            } else {
+                // Al menos uno de los campos está vacío
+                $response = array('status' => 'error', 'message' => 'No se pueden insertar campos vacíos en la base de datos');
             }
             break;
+
         case 'vincularTerapia':
             $nombre = $_POST['nombre'];
             $paciente = $_POST['idPaciente'];
@@ -241,25 +266,27 @@ if (isset($_POST['funcion'])) {
             break;
 
         case 'enviarMensajeAlServidor':
-            echo json_encode(array(
-                'usuario' => $usuario,
-                'mensaje' => $mensaje,
-                'correoElectronico' => $correoElectronico
-            ));
+            echo json_encode(
+                array(
+                    'usuario' => $usuario,
+                    'mensaje' => $mensaje,
+                    'correoElectronico' => $correoElectronico
+                )
+            );
             $usuario = $_POST['usuario'];
             $mensaje = $_POST['mensaje'];
             $correoElectronico = $_POST['correoElectronico'];
             $idMedico = $_POST['idMedico'];
-            
-                $sqlInsertarMensaje = "INSERT INTO chat (usuario, mensaje, correoElectronico, idMedico)
+
+            $sqlInsertarMensaje = "INSERT INTO chat (usuario, mensaje, correoElectronico, idMedico)
                                        VALUES ('$usuario', '$mensaje', '$correoElectronico', $idMedico)";
-            
-                if ($conexion->query($sqlInsertarMensaje)) {
-                    $response = array('status' => 'success', 'message' => 'Mensaje enviado correctamente');
-                } else {
-                    $response = array('status' => 'error', 'message' => 'Error al enviar el mensaje: ' . $conexion->error);
-                }
-                break;
+
+            if ($conexion->query($sqlInsertarMensaje)) {
+                $response = array('status' => 'success', 'message' => 'Mensaje enviado correctamente');
+            } else {
+                $response = array('status' => 'error', 'message' => 'Error al enviar el mensaje: ' . $conexion->error);
+            }
+            break;
 
         default:
             // Manejar el caso por defecto (si la función no coincide con ninguna)

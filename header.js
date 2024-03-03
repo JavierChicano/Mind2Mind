@@ -24,10 +24,13 @@ abrirModal.addEventListener("click", () => {
   contendorModal2.classList.remove("show");
   contendorModal.classList.add("show");
 });
-creaCuenta.addEventListener("click", () => {
-  contendorModal2.classList.remove("show");
-  contendorModal.classList.add("show");
-});
+if(creaCuenta){
+  creaCuenta.addEventListener("click", () => {
+    contendorModal2.classList.remove("show");
+    contendorModal.classList.add("show");
+  });
+}
+
 document.addEventListener("keydown", (e)=>{
   if(e.key==="Escape"){
     contendorModal.classList.remove("show");

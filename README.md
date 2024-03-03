@@ -25,7 +25,7 @@ Después de analizar la información recopilada durante la etapa de empatía, se
 En esta etapa, se fomenta la creatividad y la generación de ideas sin restricciones, buscando una variedad de soluciones para el problema identificado.
 
 ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Nueva%20carpeta/Captura%20de%20pantalla%202024-02-29%20120312.png?raw=true)
-###Prototipar:
+### Prototipar:
 ##### Arquitectura:
 Enfocándose en la estructura general y la organización de la solución, se diseña la arquitectura para definir cómo los componentes interactúan entre sí.
 
@@ -47,11 +47,13 @@ Se crean representaciones detalladas y visualmente ricas de la solución propues
 
 ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/Captura%20de%20pantalla%202024-02-29%20120701.png?raw=true)
 
-## Lenguajes   ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-javascript-48.png)
-<div><img src="img/readme/lenguajes/icons8-javascript-48.png)"></img></div>
+## Lenguajes   
+![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-javascript-48.png) ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-logo-php-40.png) ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-css3-48.png) ![Texto alternativo](https://github.com/JavierChicano/Mind2Mind/blob/main/img/readme/lenguajes/icons8-html-5-48.png)
+
 En el desarrollo de este proyecto, se han empleado varios lenguajes de programación para garantizar un funcionamiento integral tanto en el lado del cliente como en el servidor. Para la estructura y presentación del sitio web, se utilizó **HTML** para la marcación, **CSS** para el diseño y estilos, y **JavaScript** para la interactividad del cliente.
 <br><br>
 En cuanto al lado del servidor, la implementación se basa en **PHP**. PHP se encarga de manejar la lógica del servidor y la interacción con la base de datos. Esta combinación de lenguajes, junto con el uso de **AJAX **y **JSON**, permite una integración fluida entre el frontend y el backend, posibilitando la conexión efectiva de todos los componentes del sistema y garantizando una experiencia completa y dinámica para los usuarios.
 
 ## Memoria
+[Link al pdf]("C:\Users\Juan Cortés\Downloads\Memoria TFC.pdf")
 
