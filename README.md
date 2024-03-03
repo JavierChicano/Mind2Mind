@@ -55,5 +55,5 @@ En el desarrollo de este proyecto, se han empleado varios lenguajes de programac
 En cuanto al lado del servidor, la implementación se basa en **PHP**. PHP se encarga de manejar la lógica del servidor y la interacción con la base de datos. Esta combinación de lenguajes, junto con el uso de **AJAX **y **JSON**, permite una integración fluida entre el frontend y el backend, posibilitando la conexión efectiva de todos los componentes del sistema y garantizando una experiencia completa y dinámica para los usuarios.
 
 ## Memoria
-[Link al pdf]("C:\Users\Juan Cortés\Downloads\Memoria TFC.pdf")
+Link al pdf("https://github.com/JavierChicano/Mind2Mind/blob/main/Memoria%20TFC.pdf")
 
