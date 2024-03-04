@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     if(sessionStorage.getItem("sesionIniciada")==="true"){
         document.getElementById("formularioChat").style.display="flex";
-        document.getElementById("mensajesChat").style.display="flex";
+        document.getElementById("mensajesChat").style.display="block";
         document.getElementById("infoBlockChat").style.display="none";
     }else {
         document.getElementById("mensajesChat").style.display="none";
