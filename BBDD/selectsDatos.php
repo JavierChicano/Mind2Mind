@@ -1,6 +1,4 @@
 <?php
-// insertar_datos.php
-
 // Recibir datos del formulario
 
 if (isset($_POST['funcion'])) {
