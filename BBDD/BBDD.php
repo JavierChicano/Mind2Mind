@@ -170,11 +170,11 @@ if ($resultado->num_rows == 0) {
         return true;
     }
     // Insertar datos de especialistas con imágenes
-    insertarEspecialista($conexion, "Dr. Garcia", "Vaquero", "Presencial", "Tardes", "Psicólogo", "Hospital XYZ", "1.png");
-    insertarEspecialista($conexion, "Dr. Flor", "Esgueva", "Videoconsulta", "Mañanas", "Psicólogo", "Clínica ABC", "2.png");
-    insertarEspecialista($conexion, "Dr. Don", "Simón", "Presencial", "Tardes", "Psiquiatra", "Hospital ABC", "4.png");
-    insertarEspecialista($conexion, "Dra. Häagen", "Dazs", "Telefónica", "Tardes", "Psicólogo", "Clínica XYZ", "5.png");
-    insertarEspecialista($conexion, "Dra. María", "Gutierrez", "Telefónica", "Todo el día", "Psiquiatra", "Hospital XYZ", "6.png");
+    insertarEspecialista($conexion, "Dr. Garcia", "Vaquero", "Presencial", "Tardes", "Psicólogo", "Mind 2 Mind", "1.png");
+    insertarEspecialista($conexion, "Dr. Flor", "Esgueva", "Videoconsulta", "Mañanas", "Psicólogo", "Mind 2 Mind", "2.png");
+    insertarEspecialista($conexion, "Dr. Don", "Simón", "Presencial", "Tardes", "Psiquiatra", "Mind 2 Mind", "4.png");
+    insertarEspecialista($conexion, "Dra. Häagen", "Dazs", "Telefónica", "Tardes", "Psicólogo", "Mind 2 Mind", "5.png");
+    insertarEspecialista($conexion, "Dra. María", "Gutierrez", "Telefónica", "Todo el día", "Psiquiatra", "Mind 2 Mind", "6.png");
 
      // Función para insertar una terapia
     function insertarTerapia($conexion, $nombre, $imagen, $coste, $miniDescripcion, $descripcion, $parte1, $parte2, $parte3, $parte4, $linkAlVideo)
